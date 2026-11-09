@@ -37,6 +37,10 @@ Exam: 100 MCQs x 1 mark, 2 hours, pass mark 50, negative marking 0.25 per wrong 
   Every answer must be clearly supported by the workbook text. Avoid ambiguous questions.
   Use "All of the above" / "Both (a) and (b)" sparingly (options are never shuffled, so they are safe).
 
+**Once a guide is published, questions are append-only:** add new questions at the end of a chapter's
+`questions` array; never reorder or delete them (fix a wrong one in place). Saved progress and sync
+codes refer to questions by position.
+
 ## Block types (inside a section's `blocks` array)
 
 | type      | fields                                         | use for |

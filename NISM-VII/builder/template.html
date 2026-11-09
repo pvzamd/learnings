@@ -333,6 +333,20 @@ tbody tr:hover td { background: var(--sunk); }
 .upd .where a { color: var(--accent); }
 .empty { padding: 24px; border: 1px dashed var(--line); border-radius: var(--r); color: var(--muted); font-size: 16px; }
 
+/* ---------- progress & sync ---------- */
+.notice { padding: 12px 16px; border-radius: var(--r); background: var(--good-soft); color: var(--ink); font-family: var(--font-display); font-weight: 600; font-size: 15px; margin-bottom: 20px; }
+.notice.err { background: var(--bad-soft); }
+.sync { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 24px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+.sync > div { min-width: 0; }
+.qr { width: 220px; max-width: 100%; aspect-ratio: 1; background: #ffffff; border-radius: 8px; overflow: hidden; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.synccode { font-family: var(--font-mono); font-size: 13px; line-height: 1.5; word-break: break-all; background: var(--sunk); color: var(--ink); border-radius: 6px; padding: 10px 12px; margin: 14px 0 6px; user-select: all; }
+.sync-in { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+.sync-in input { flex: 1 1 260px; min-width: 0; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 14px var(--font-mono); }
+.adds { margin: 8px 0 16px; padding-left: 22px; }
+.adds li { margin-bottom: 4px; }
+@media (max-width: 640px) { .sync { grid-template-columns: minmax(0, 1fr); padding: 18px 16px; } .qr { justify-self: center; } }
+
 /* ---------- footer ---------- */
 .site-foot { max-width: 1240px; margin: 0 auto; padding-block: 20px 32px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-top: 1px solid var(--line); font-family: var(--font-display); font-size: 13px; line-height: 1.55; color: var(--muted); display: grid; gap: 10px; }
 .site-foot p { margin: 0; }
@@ -404,7 +418,7 @@ tbody tr:hover td { background: var(--sunk); }
 </div>
 
 <footer class="site-foot">
-  <p><b>Your progress is saved only in this browser.</b> No account, no cookies, no tracking. <span id="clearwrap"><button class="linkbtn" data-act="clear-ask">Clear my progress</button></span></p>
+  <p><b>Your progress is saved only in this browser.</b> No account, no cookies, no tracking. <a href="#progress">Move it to another device</a> &middot; <span id="clearwrap"><button class="linkbtn" data-act="clear-ask">Clear my progress</button></span></p>
   <p>Independent study notes written from the NISM Series VII workbook (July 2026 version). Not affiliated with, or endorsed by, NISM or SEBI. The official workbook and SEBI circulars are the final word for the exam.</p>
   <p class="row"><a class="allc" href="../">&larr; All courses</a><a class="star" href="https://github.com/pvzamd/learnings" target="_blank" rel="noopener"><span>&#9733;</span> Star on GitHub</a></p>
 </footer>
@@ -482,6 +496,283 @@ tbody tr:hover td { background: var(--sunk); }
     $("#clearwrap").innerHTML = '<span class="done-msg">Progress cleared.</span> ' + CLEAR_IDLE;
   }
 
+  /* ---------- QR code: byte mode, error correction level M, versions 1-40 ---------- */
+  /* QR-BEGIN */
+  const QR_ECC = [-1, 10, 16, 26, 18, 24, 16, 18, 22, 22, 26, 30, 22, 22, 24, 24, 28, 28, 26, 26, 26, 26, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28, 28];
+  const QR_BLOCKS = [-1, 1, 1, 1, 2, 2, 4, 4, 4, 5, 5, 5, 8, 9, 9, 10, 10, 11, 13, 14, 16, 17, 17, 18, 20, 21, 23, 25, 26, 28, 29, 31, 33, 35, 37, 38, 40, 43, 45, 47, 49];
+  const QR_MASKS = [
+    (x, y) => (x + y) % 2 === 0, (x, y) => y % 2 === 0, (x, y) => x % 3 === 0, (x, y) => (x + y) % 3 === 0,
+    (x, y) => (Math.floor(x / 3) + Math.floor(y / 2)) % 2 === 0, (x, y) => x * y % 2 + x * y % 3 === 0,
+    (x, y) => (x * y % 2 + x * y % 3) % 2 === 0, (x, y) => ((x + y) % 2 + x * y % 3) % 2 === 0
+  ];
+  function qrRawModules(ver) {
+    let r = (16 * ver + 128) * ver + 64;
+    if (ver >= 2) { const na = Math.floor(ver / 7) + 2; r -= (25 * na - 10) * na - 55; if (ver >= 7) r -= 36; }
+    return r;
+  }
+  function qrDataCodewords(ver) { return Math.floor(qrRawModules(ver) / 8) - QR_ECC[ver] * QR_BLOCKS[ver]; }
+  function gfMul(x, y) { let z = 0; for (let i = 7; i >= 0; i--) { z = (z << 1) ^ ((z >>> 7) * 0x11d); z ^= ((y >>> i) & 1) * x; } return z; }
+  function rsDivisor(deg) {
+    const r = new Array(deg).fill(0); r[deg - 1] = 1; let root = 1;
+    for (let i = 0; i < deg; i++) {
+      for (let j = 0; j < deg; j++) { r[j] = gfMul(r[j], root); if (j + 1 < deg) r[j] ^= r[j + 1]; }
+      root = gfMul(root, 0x02);
+    }
+    return r;
+  }
+  function rsRemainder(data, div) {
+    const r = div.map(() => 0);
+    data.forEach(b => { const f = b ^ r.shift(); r.push(0); div.forEach((c, i) => { r[i] ^= gfMul(c, f); }); });
+    return r;
+  }
+  function qrPenalty(m, n) {
+    let score = 0, dark = 0;
+    const line = get => {
+      let p = 0, run = 0, prev = null, str = "";
+      for (let i = 0; i < n; i++) {
+        const v = get(i); str += v ? "1" : "0";
+        if (v === prev) { run++; if (run === 5) p += 3; else if (run > 5) p++; } else { prev = v; run = 1; }
+      }
+      for (let i = 0; i + 11 <= n; i++) { const t = str.substr(i, 11); if (t === "10111010000" || t === "00001011101") p += 40; }
+      return p;
+    };
+    for (let y = 0; y < n; y++) score += line(x => m[y][x]);
+    for (let x = 0; x < n; x++) score += line(y => m[y][x]);
+    for (let y = 0; y < n - 1; y++) for (let x = 0; x < n - 1; x++) { const c = m[y][x]; if (c === m[y][x + 1] && c === m[y + 1][x] && c === m[y + 1][x + 1]) score += 3; }
+    for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) if (m[y][x]) dark++;
+    return score + Math.floor(Math.abs(dark * 20 - n * n * 10) / (n * n)) * 10;
+  }
+  function makeQR(text) {
+    const bytes = Array.from(new TextEncoder().encode(text));
+    let ver = 1;
+    while (ver <= 40 && 4 + (ver < 10 ? 8 : 16) + bytes.length * 8 > qrDataCodewords(ver) * 8) ver++;
+    if (ver > 40) throw new Error("Text too long for a QR code");
+    const cap = qrDataCodewords(ver) * 8, bits = [];
+    const put = (v, n) => { for (let i = n - 1; i >= 0; i--) bits.push((v >>> i) & 1); };
+    put(4, 4); put(bytes.length, ver < 10 ? 8 : 16); bytes.forEach(b => put(b, 8));
+    put(0, Math.min(4, cap - bits.length));
+    put(0, (8 - bits.length % 8) % 8);
+    for (let pad = 0xec; bits.length < cap; pad ^= 0xec ^ 0x11) put(pad, 8);
+    const data = [];
+    for (let i = 0; i < bits.length; i += 8) { let v = 0; for (let j = 0; j < 8; j++) v = (v << 1) | bits[i + j]; data.push(v); }
+    const nb = QR_BLOCKS[ver], ecl = QR_ECC[ver], raw = Math.floor(qrRawModules(ver) / 8);
+    const nShort = nb - raw % nb, shortLen = Math.floor(raw / nb), div = rsDivisor(ecl), blocks = [];
+    for (let i = 0, k = 0; i < nb; i++) {
+      const dat = data.slice(k, k + shortLen - ecl + (i < nShort ? 0 : 1)); k += dat.length;
+      const ecc = rsRemainder(dat, div); if (i < nShort) dat.push(0); blocks.push(dat.concat(ecc));
+    }
+    const cw = [];
+    for (let i = 0; i < blocks[0].length; i++) blocks.forEach((b, j) => { if (i !== shortLen - ecl || j >= nShort) cw.push(b[i]); });
+    const size = ver * 4 + 17;
+    const mod = Array.from({ length: size }, () => new Array(size).fill(false));
+    const fn = Array.from({ length: size }, () => new Array(size).fill(false));
+    const set = (x, y, d) => { mod[y][x] = d; fn[y][x] = true; };
+    for (let i = 0; i < size; i++) { set(6, i, i % 2 === 0); set(i, 6, i % 2 === 0); }
+    [[3, 3], [size - 4, 3], [3, size - 4]].forEach(([cx, cy]) => {
+      for (let dy = -4; dy <= 4; dy++) for (let dx = -4; dx <= 4; dx++) {
+        const x = cx + dx, y = cy + dy, dist = Math.max(Math.abs(dx), Math.abs(dy));
+        if (x >= 0 && x < size && y >= 0 && y < size) set(x, y, dist !== 2 && dist !== 4);
+      }
+    });
+    if (ver > 1) {
+      const na = Math.floor(ver / 7) + 2, step = Math.floor((ver * 8 + na * 3 + 5) / (na * 4 - 4)) * 2, pos = [6];
+      for (let q = size - 7; pos.length < na; q -= step) pos.splice(1, 0, q);
+      pos.forEach((ax, i) => pos.forEach((ay, j) => {
+        if ((i === 0 && j === 0) || (i === 0 && j === na - 1) || (i === na - 1 && j === 0)) return;
+        for (let dy = -2; dy <= 2; dy++) for (let dx = -2; dx <= 2; dx++) set(ax + dx, ay + dy, Math.max(Math.abs(dx), Math.abs(dy)) !== 1);
+      }));
+    }
+    const drawFormat = mask => {
+      const d = mask; /* level M = 00 */
+      let r = d; for (let i = 0; i < 10; i++) r = (r << 1) ^ ((r >>> 9) * 0x537);
+      const b = ((d << 10) | r) ^ 0x5412, bit = i => ((b >>> i) & 1) === 1;
+      for (let i = 0; i <= 5; i++) set(8, i, bit(i));
+      set(8, 7, bit(6)); set(8, 8, bit(7)); set(7, 8, bit(8));
+      for (let i = 9; i < 15; i++) set(14 - i, 8, bit(i));
+      for (let i = 0; i < 8; i++) set(size - 1 - i, 8, bit(i));
+      for (let i = 8; i < 15; i++) set(8, size - 15 + i, bit(i));
+      set(8, size - 8, true);
+    };
+    drawFormat(0);
+    if (ver >= 7) {
+      let r = ver; for (let i = 0; i < 12; i++) r = (r << 1) ^ ((r >>> 11) * 0x1f25);
+      const b = (ver << 12) | r;
+      for (let i = 0; i < 18; i++) { const d = ((b >>> i) & 1) === 1, a = size - 11 + i % 3, c = Math.floor(i / 3); set(a, c, d); set(c, a, d); }
+    }
+    let bi = 0;
+    for (let right = size - 1; right >= 1; right -= 2) {
+      if (right === 6) right = 5;
+      for (let v = 0; v < size; v++) for (let j = 0; j < 2; j++) {
+        const x = right - j, y = ((right + 1) & 2) === 0 ? size - 1 - v : v;
+        if (!fn[y][x] && bi < cw.length * 8) { mod[y][x] = ((cw[bi >>> 3] >>> (7 - (bi & 7))) & 1) === 1; bi++; }
+      }
+    }
+    const applyMask = mk => { for (let y = 0; y < size; y++) for (let x = 0; x < size; x++) if (!fn[y][x] && QR_MASKS[mk](x, y)) mod[y][x] = !mod[y][x]; };
+    let best = 0, bestScore = Infinity;
+    for (let mk = 0; mk < 8; mk++) {
+      applyMask(mk); drawFormat(mk);
+      const sc = qrPenalty(mod, size);
+      if (sc < bestScore) { bestScore = sc; best = mk; }
+      applyMask(mk);
+    }
+    applyMask(best); drawFormat(best);
+    return { size, version: ver, mask: best, isDark: (x, y) => mod[y][x], isFunction: (x, y) => fn[y][x] };
+  }
+  function qrSVG(text) {
+    const q = makeQR(text), pad = 4, w = q.size + pad * 2;
+    let d = "";
+    for (let y = 0; y < q.size; y++) for (let x = 0; x < q.size; x++) if (q.isDark(x, y)) d += "M" + (x + pad) + " " + (y + pad) + "h1v1h-1z";
+    return '<svg viewBox="0 0 ' + w + " " + w + '" role="img" aria-label="QR code of your progress link" shape-rendering="crispEdges"><rect width="' + w + '" height="' + w + '" fill="#ffffff"/><path d="' + d + '" fill="#000000"/></svg>';
+  }
+  /* QR-END */
+
+  /* ---------- progress sync: no server, the link itself carries the progress ----------
+     Code = "nism7." + base64url(bytes): version, content fingerprint, chapters read, plan days,
+     best quiz % per chapter, mistakes bitset, mock-seen bitset, CRC-8. Questions are addressed by
+     position, so questions may only ever be appended to a chapter, never reordered or deleted. */
+  const SYNC_KEY = "nism7", SYNC_VER = 1, PLAN_DAYS = 7;
+  const QIDX = {}; ALLQ.forEach((q, i) => { QIDX[q.qid] = i; });
+  const SYNC_RB = Math.ceil(CH.length / 8), SYNC_QB = Math.ceil(ALLQ.length / 8);
+  const SYNC_LEN = 2 + SYNC_RB + 1 + CH.length + SYNC_QB * 2 + 1;
+  function syncFingerprint() {
+    let h = 0x811c9dc5;
+    CH.forEach(c => { h = Math.imul(h ^ c.questions.length, 16777619) >>> 0; });
+    return Math.imul(h ^ CH.length, 16777619) >>> 24;
+  }
+  function crc8(a) { let c = 0; for (let i = 0; i < a.length; i++) { c ^= a[i]; for (let k = 0; k < 8; k++) c = c & 0x80 ? ((c << 1) ^ 0x07) & 0xff : (c << 1) & 0xff; } return c; }
+  function b64u(a) { let s = ""; for (let i = 0; i < a.length; i++) s += String.fromCharCode(a[i]); return btoa(s).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, ""); }
+  function unb64u(str) { let s = str.replace(/-/g, "+").replace(/_/g, "/"); while (s.length % 4) s += "="; const bin = atob(s), out = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i); return out; }
+  function encodeProgress() {
+    const b = new Uint8Array(SYNC_LEN); let o = 0;
+    b[o++] = SYNC_VER; b[o++] = syncFingerprint();
+    CH.forEach((c, i) => { if (S.read[c.id]) b[o + (i >> 3)] |= 1 << (i & 7); }); o += SYNC_RB;
+    for (let i = 0; i < PLAN_DAYS; i++) if (S.plan[i]) b[o] |= 1 << i;
+    o += 1;
+    CH.forEach(c => { b[o++] = S.best[c.id] != null ? Math.max(0, Math.min(100, S.best[c.id])) : 255; });
+    const bitsAt = (ids, off) => ids.forEach(id => { const i = QIDX[id]; if (i != null) b[off + (i >> 3)] |= 1 << (i & 7); });
+    bitsAt(S.wrong, o); o += SYNC_QB;
+    bitsAt(S.mockSeen, o); o += SYNC_QB;
+    b[o] = crc8(b.subarray(0, o));
+    return SYNC_KEY + "." + b64u(b);
+  }
+  function codePart(input) {
+    let s = String(input || "").replace(/\s+/g, "");
+    const at = s.indexOf("#sync-");
+    return at >= 0 ? s.slice(at + 6) : s;
+  }
+  function decodeProgress(input) {
+    const s = codePart(input), dot = s.indexOf(".");
+    if (dot < 0) return { error: "That doesn't look like a progress link or code. Copy the whole thing again." };
+    if (s.slice(0, dot) !== SYNC_KEY) return { error: "That code belongs to a different course's guide." };
+    let b;
+    try { b = unb64u(s.slice(dot + 1)); } catch (e) { return { error: "That code has characters that don't belong in it. Copy it again instead of retyping it." }; }
+    if (b.length !== SYNC_LEN) return { error: "That code is incomplete or has extra characters. Copy the whole link or code again." };
+    if (crc8(b.subarray(0, SYNC_LEN - 1)) !== b[SYNC_LEN - 1]) return { error: "That code has a typo somewhere. Copy it again instead of retyping it." };
+    if (b[0] !== SYNC_VER || b[1] !== syncFingerprint()) return { error: "That code was made with a different version of this guide. Reload the guide on your other device and make a fresh link." };
+    const inc = { read: [], plan: [], best: {}, wrong: [], seen: [] };
+    let o = 2;
+    CH.forEach((c, i) => { if (b[o + (i >> 3)] & (1 << (i & 7))) inc.read.push(c.id); }); o += SYNC_RB;
+    for (let i = 0; i < PLAN_DAYS; i++) if (b[o] & (1 << i)) inc.plan.push(String(i));
+    o += 1;
+    CH.forEach(c => { const v = b[o++]; if (v <= 100) inc.best[c.id] = v; });
+    const bitsFrom = (off, out) => { for (let i = 0; i < ALLQ.length; i++) if (b[off + (i >> 3)] & (1 << (i & 7))) out.push(ALLQ[i].qid); };
+    bitsFrom(o, inc.wrong); o += SYNC_QB;
+    bitsFrom(o, inc.seen);
+    return { inc };
+  }
+  function syncDiff(inc) {
+    const w = wrongSet(), seen = new Set(S.mockSeen);
+    const d = { read: inc.read.filter(id => !S.read[id]), plan: inc.plan.filter(i => !S.plan[i]), best: [], wrong: inc.wrong.filter(id => !w.has(id)), seen: inc.seen.filter(id => !seen.has(id)).length };
+    CH.forEach(c => { const v = inc.best[c.id]; if (v != null && (S.best[c.id] == null || v > S.best[c.id])) d.best.push(c.id); });
+    return d;
+  }
+  function diffItems(d) {
+    const n = (k, one, many) => k + " " + (k === 1 ? one : many);
+    const it = [];
+    if (d.read.length) it.push(n(d.read.length, "chapter marked as read", "chapters marked as read") + " (" + d.read.map(id => "Ch " + id).join(", ") + ")");
+    if (d.best.length) it.push(n(d.best.length, "better quiz score", "better quiz scores") + " (" + d.best.map(id => "Ch " + id).join(", ") + ")");
+    if (d.wrong.length) it.push(n(d.wrong.length, "mistake to review", "mistakes to review"));
+    if (d.plan.length) it.push(n(d.plan.length, "plan day ticked", "plan days ticked"));
+    if (d.seen) it.push(n(d.seen, "mock question already seen, so your next mock stays fresh", "mock questions already seen, so your next mock stays fresh"));
+    return it;
+  }
+  function applySync(inc) {
+    const d = syncDiff(inc);
+    d.read.forEach(id => { S.read[id] = true; });
+    d.plan.forEach(i => { S.plan[i] = true; });
+    d.best.forEach(id => { S.best[id] = inc.best[id]; });
+    S.wrong = Array.from(new Set(S.wrong.concat(inc.wrong)));
+    S.mockSeen = Array.from(new Set(S.mockSeen.concat(inc.seen)));
+    if (S.mockSeen.length >= ALLQ.length) S.mockSeen = [];
+    ["read", "plan", "best", "wrong", "mockSeen"].forEach(save);
+    return d;
+  }
+  let syncFlash = "", pendingSync = null;
+  const syncLink = code => location.href.split("#")[0] + "#sync-" + code;
+  function mockScore(m) {
+    let r = 0, w = 0;
+    m.ids.forEach((id, i) => { if (m.ans[i] != null) { if (m.ans[i] === QBY[id].answer) r++; else w++; } });
+    return r - w * 0.25;
+  }
+  function viewProgress() {
+    const code = encodeProgress(), link = syncLink(code);
+    const readN = CH.filter(c => S.read[c.id]).length, planN = Object.keys(S.plan).filter(k => S.plan[k]).length;
+    const mock = S.mock && S.mock.done ? mockScore(S.mock) : null;
+    let qr;
+    try { qr = qrSVG(link); } catch (e) { qr = '<p class="small" style="padding:16px">No QR code here. Use Copy link instead.</p>'; }
+    const rows = CH.map(c => "<tr><td>" + c.id + ". " + c.short + "</td><td>" + (S.read[c.id] ? "Read" : "&ndash;") + "</td><td>" + (S.best[c.id] != null ? S.best[c.id] + "%" : "&ndash;") + "</td></tr>").join("");
+    const flash = syncFlash; syncFlash = "";
+    return '<div class="page">' + (flash ? '<div class="notice" role="status">' + flash + "</div>" : "") +
+      '<div class="eyebrow">This device</div><h1>Your progress</h1>' +
+      '<p class="lead">Saved only in this browser. To carry on with your phone or another computer, open your progress link there. Nothing is uploaded: the link itself carries your progress.</p>' +
+      '<div class="score"><div><b>' + readN + "/" + CH.length + '</b><span>chapters read</span></div><div><b>' + S.wrong.length + '</b><span>mistakes to review</span></div><div><b>' + (mock == null ? "&ndash;" : Number.isInteger(mock) ? mock : mock.toFixed(2)) + '</b><span>last mock score</span></div></div>' +
+      '<div class="scroll"><table><thead><tr><th>Chapter</th><th>Read</th><th>Best quiz</th></tr></thead><tbody>' + rows + '</tbody></table></div>' +
+      '<p class="small" style="margin-top:10px">' + planN + " of " + PLAN_DAYS + " plan days ticked.</p>" +
+      '<h2 style="margin-top:36px">Move it to another device</h2>' +
+      '<div class="sync"><div class="qr">' + qr + "</div><div>" +
+      "<p><b>Phone:</b> point the camera at this code and open the link. <b>Computer or tablet:</b> copy the link and send it to yourself, for example on WhatsApp or by email.</p>" +
+      '<div class="btns"><button class="btn primary" data-act="sync-copy-link" data-label="Copy link">Copy link</button>' +
+      (typeof navigator !== "undefined" && navigator.share ? '<button class="btn" data-act="sync-share">Share</button>' : "") +
+      '<button class="btn" data-act="sync-copy-code" data-label="Copy code">Copy code</button></div>' +
+      '<div class="synccode" id="synccode">' + esc(code) + "</div>" +
+      '<p class="small">' + code.length + " characters. Opening it on the other device only adds progress there; it never removes or lowers anything.</p></div></div>" +
+      '<h2 style="margin-top:36px">Add progress from another device</h2>' +
+      "<p>Opened a progress link already? Then you're done. Otherwise, paste a link or code here.</p>" +
+      '<div class="sync-in"><input id="syncinput" type="text" placeholder="Paste a progress link or code" aria-label="Progress link or code" autocomplete="off" spellcheck="false"><button class="btn primary" data-act="sync-check">Check</button></div><div id="syncerr"></div>' +
+      "</div>";
+  }
+  function viewSyncIn(arg) {
+    const r = decodeProgress(arg);
+    pendingSync = r.inc || null;
+    if (r.error) return '<div class="page"><div class="eyebrow">Progress link</div><h1>This link didn\'t work</h1><div class="notice err">' + r.error + '</div><div class="btns"><button class="btn" data-act="sync-skip">Go to your progress page</button></div></div>';
+    const items = diffItems(syncDiff(r.inc));
+    return '<div class="page"><div class="eyebrow">Progress link</div><h1>Add progress from your other device?</h1>' +
+      (items.length
+        ? '<p class="lead">This link carries your progress from another device. Adding it brings in:</p><ul class="adds">' + items.map(x => "<li>" + x + "</li>").join("") +
+          '</ul><p class="small">Nothing on this device is removed or lowered.</p><div class="btns"><button class="btn primary" data-act="sync-apply">Add to this device</button><button class="btn" data-act="sync-skip">Not now</button></div>'
+        : '<p class="lead">This device already has everything in that link, so there is nothing to add.</p><div class="btns"><button class="btn primary" data-act="sync-skip">Go to your progress page</button></div>') +
+      "</div>";
+  }
+  function goProgress() {
+    try { history.replaceState(null, "", location.pathname + location.search + "#progress"); } catch (e) { location.hash = "#progress"; return; }
+    render();
+  }
+  function checkSyncInput() {
+    const v = $("#syncinput").value, r = decodeProgress(v);
+    if (r.error) $("#syncerr").innerHTML = '<div class="notice err" style="margin-top:12px">' + r.error + "</div>";
+    else location.hash = "#sync-" + codePart(v);
+  }
+  function copyText(text, btn) {
+    const label = btn.dataset.label || btn.textContent;
+    const show = msg => { btn.textContent = msg; setTimeout(() => { btn.textContent = label; }, 2000); };
+    const fallback = () => {
+      const el = $("#synccode");
+      try { const rg = document.createRange(); rg.selectNodeContents(el); const sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(rg); show("Code selected: press Ctrl+C"); }
+      catch (e) { show("Copy the code below"); }
+    };
+    try { navigator.clipboard.writeText(text).then(() => show("Copied"), fallback); } catch (e) { fallback(); }
+  }
+
   /* ---------- blocks ---------- */
   function callout(cls, label, text) {
     return '<aside class="callout ' + cls + '"><span class="lbl">' + label + "</span><div>" + text + "</div></aside>";
@@ -526,6 +817,7 @@ tbody tr:hover td { background: var(--sunk); }
     h += '<a href="#quiz-mixed" data-r="quiz-mixed"><span class="no">?</span><span class="t">Mixed practice</span><span class="meta"></span></a>';
     h += '<a href="#quiz-mistakes" data-r="quiz-mistakes"><span class="no">&#215;</span><span class="t">My mistakes</span><span class="meta">' + (wrongN ? '<span class="pill">' + wrongN + "</span>" : "") + "</span></a>";
     h += '<a href="#mock" data-r="mock"><span class="no">&#9719;</span><span class="t">Full mock test</span><span class="meta">' + (S.mock && !S.mock.done ? "live" : "") + "</span></a>";
+    h += '<div class="grp">This device</div><a href="#progress" data-r="progress"><span class="no">&#8644;</span><span class="t">Your progress &amp; sync</span><span class="meta"></span></a>';
     $("#nav").innerHTML = h;
     const readN = CH.filter(c => S.read[c.id]).length;
     $("#railprog").innerHTML = readN + " of 8 chapters read" + '<div class="bar"><i style="width:' + (readN / 8 * 100) + '%"></i></div>';
@@ -544,7 +836,8 @@ tbody tr:hover td { background: var(--sunk); }
     if ((m = h.match(/^ch(\d)$/)) && byId[+m[1]]) return { view: "ch", arg: +m[1] };
     if ((m = h.match(/^cards(?:-(\w+))?$/))) return { view: "cards", arg: m[1] || "all" };
     if ((m = h.match(/^quiz-(\w+)$/))) return { view: "quiz", arg: /^\d$/.test(m[1]) ? +m[1] : m[1] };
-    if (["numbers", "mock", "updates", "home"].includes(h)) return { view: h };
+    if ((m = h.match(/^sync-(.+)$/))) return { view: "sync", arg: m[1] };
+    if (["numbers", "mock", "updates", "home", "progress"].includes(h)) return { view: h };
     return { view: "home" };
   }
   let lastHash = null;
@@ -558,6 +851,8 @@ tbody tr:hover td { background: var(--sunk); }
     else if (r.view === "numbers") v.innerHTML = viewNumbers();
     else if (r.view === "updates") v.innerHTML = viewUpdates();
     else if (r.view === "mock") v.innerHTML = viewMock();
+    else if (r.view === "progress") v.innerHTML = viewProgress();
+    else if (r.view === "sync") v.innerHTML = viewSyncIn(r.arg);
     else v.innerHTML = viewHome();
     if (r.view === "mock") startTimer();
     if (r.view === "cards") drawCard();
@@ -592,7 +887,7 @@ tbody tr:hover td { background: var(--sunk); }
       "<div><b>100</b><span>questions, 1 mark each</span></div><div><b>2 hrs</b><span>about 72 seconds a question</span></div><div><b>50</b><span>marks to pass (50%)</span></div><div><b>&minus;0.25</b><span>for every wrong answer</span></div></div>" +
       '<p class="small">This guide holds ' + totQ + " practice questions, " + totF + " flashcards and " + totN + " must-know numbers.</p></section>" +
       '<section class="block"><h2>Where the marks are</h2><p>Chapters 3 to 6 carry 65 of the 100 marks. Spend your time there.</p><div class="wbars" role="list">' + bars + '</div><p class="small">Exam weightage by chapter, from the workbook\'s syllabus outline. Out of 100 questions, a chapter\'s weightage is roughly its number of questions.</p></section>' +
-      '<section class="block"><h2>A 7-day plan</h2><p class="small">About 90 minutes a day. Tick days off as you go; this browser remembers them.</p><ol class="plan">' + plan + "</ol></section>" +
+      '<section class="block"><h2>A 7-day plan</h2><p class="small">About 90 minutes a day. Tick days off as you go; this browser remembers them. <a href="#progress">Studying on your phone too? Move your progress there.</a></p><ol class="plan">' + plan + "</ol></section>" +
       '<section class="block"><h2>How to beat the negative marking</h2><div class="tips">' +
       '<div class="tip-card"><h3>Answer what you can narrow down</h3><p>A wrong answer costs a quarter mark, a right one earns a full mark. Once you can rule out even one option, guessing pays.</p><div class="calc">Rule out 1 of 4: &#8531; &times; 1 &minus; &#8532; &times; 0.25 = +0.17<br>Rule out 2 of 4: &frac12; &times; 1 &minus; &frac12; &times; 0.25 = +0.38<br>Blind guess: &frac14; &times; 1 &minus; &frac34; &times; 0.25 = +0.06</div></div>' +
       '<div class="tip-card"><h3>Two passes, not one</h3><p>First pass: answer everything you know in about 70 minutes and mark the rest. Second pass: work the marked ones by elimination. Never spend three minutes on one question.</p></div>' +
@@ -883,6 +1178,12 @@ tbody tr:hover td { background: var(--sunk); }
     else if (act === "clear-ask") { $("#clearwrap").innerHTML = 'This deletes chapters read, quiz scores, mistakes, plan ticks and any mock in progress, in this browser only. <button class="linkbtn danger" data-act="clear-yes">Delete my progress</button> &middot; <button class="linkbtn" data-act="clear-no">Cancel</button>'; }
     else if (act === "clear-no") { $("#clearwrap").innerHTML = CLEAR_IDLE; }
     else if (act === "clear-yes") clearAll();
+    else if (act === "sync-apply") { if (pendingSync) { const d = applySync(pendingSync); pendingSync = null; syncFlash = "Added to this device: " + diffItems(d).join("; ") + "."; renderNav(); } goProgress(); }
+    else if (act === "sync-skip") { pendingSync = null; goProgress(); }
+    else if (act === "sync-copy-link") copyText(syncLink(encodeProgress()), t);
+    else if (act === "sync-copy-code") copyText(encodeProgress(), t);
+    else if (act === "sync-share") { try { navigator.share({ title: "My NISM VII study progress", url: syncLink(encodeProgress()) }).catch(() => {}); } catch (err) { /* share sheet unavailable */ } }
+    else if (act === "sync-check") checkSyncInput();
     else if (act === "mock-filter") { S.mock.filter = t.dataset.f; save("mock"); $("#view").innerHTML = mockResult(); }
   });
   let pendingJump = null;
@@ -897,6 +1198,7 @@ tbody tr:hover td { background: var(--sunk); }
   });
   document.addEventListener("input", e => { if (e.target.id === "numsearch") filterNumbers(e.target.value); });
   document.addEventListener("keydown", e => {
+    if (e.target.id === "syncinput" && e.key === "Enter") { e.preventDefault(); checkSyncInput(); return; }
     if (e.target.matches("input, textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
     const r = currentRoute();
     if (r.view === "cards" && deck && deck.queue.length) {

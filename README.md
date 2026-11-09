@@ -34,6 +34,12 @@ node NISM-VII/builder/test.mjs
 
 Edit a chapter file, validate it, rebuild `site/index.html`, run the test, then commit both the content and the rebuilt `site/index.html`.
 
+**Never reorder or delete questions; only add new ones at the end of a chapter.** Saved progress and sync codes refer to questions by their position. Adding questions changes the guide's fingerprint, so older sync codes are politely refused ("made with a different version"), but nobody's saved progress breaks.
+
+## Progress sync
+
+There's no server. The guide's "Your progress & sync" page packs a visitor's progress into a code of about 110 characters: chapters read, plan days, best quiz scores, mistakes, and questions already used in mocks, plus a version, fingerprint and checksum. It offers the code as a link and a QR code. The code sits after `#` in the link, so it's never sent to the host. Opening the link on another device merges the progress in and never removes or lowers anything. The QR encoder is built into the guide (no library); `test.mjs` checks it against published reference values and decodes every symbol it makes.
+
 ## Building the site
 
 ```
