@@ -1,0 +1,1718 @@
+{
+ "id": 7,
+ "title": "Investor Grievances and Arbitration",
+ "short": "Grievances & ODR",
+ "weight": 10,
+ "minutes": 40,
+ "big_picture": "When something goes wrong with a trade, the investor climbs a ladder: first the broker (21 days to fix it), then SEBI's SCORES where the exchange and then SEBI review it, and alongside that SMART ODR, where the exchange tries to settle, a conciliator mediates, and finally an arbitrator decides. If the broker itself collapses, the exchange's Investor Protection Fund pays genuine claims. This chapter is the map of that ladder and the clock running at every rung.",
+ "exam_focus": [
+  "The 21-day rule everywhere: broker redressal, SCORES ATR, MII review in ODR, conciliation (plus max 10 days)",
+  "SCORES windows: 1 year to lodge, 15 days to seek each review, 10 days for the exchange's revised ATR; SCORES 2.0 from April 01, 2024",
+  "Arbitration thresholds: sole arbitrator up to ₹30 lakh, three-member tribunal above; document-only up to ₹1 lakh; award in 30 (+30) days",
+  "Money rules on brokers: 100% deposit of admissible claim before arbitration or a challenge; up to ₹5 lakh released to investor; award paid in 15 days; Section 34 intention in 7 days",
+  "What SCORES will not take (sub-judice, other regulators, unlisted/delisted companies, anonymous, price grievances)",
+  "IPF: set up by exchanges (1985 notification), 1% of listing fees, 70% of income ploughed back, no speculative claims, 3-year civil-dispute rule; ISF gets 20% of listing fees",
+  "Investor Charter timelines and ISC facilities (4 metros, 4 newspapers)"
+ ],
+ "sections": [
+  {
+   "id": "7.1",
+   "title": "Introduction",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The chapter opens with a line the exam loves: <b>investors are the backbone of the securities market</b>. Protecting them from any wrongdoing, intentional or not, is paramount for intermediaries, exchanges and regulators."
+    },
+    {
+     "type": "p",
+     "text": "An investor's grievance can be against <b>(a)</b> the intermediary/broking firm they trade through, or <b>(b)</b> the company whose shares they hold. This chapter is the map of where they go, in what order, and how fast each party must respond."
+    }
+   ]
+  },
+  {
+   "id": "7.2",
+   "title": "Investor grievance: the escalation ladder",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Grievances are handled at three levels: the <b>trading member</b>, the <b>stock exchange</b> and the <b>regulator</b> (SEBI, via SCORES). Alongside runs <b>SMART ODR</b> (online conciliation and arbitration). You always start at the bottom rung, and every rung has a clock."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Broker",
+       "text": "Complain to the compliance officer / grievance e-mail ID. Redressal within <b>21 calendar days</b>."
+      },
+      {
+       "title": "SCORES",
+       "text": "Lodge within <b>1 year</b> of the cause of action. Auto-routed to the broker, who files an ATR within <b>21 calendar days</b>."
+      },
+      {
+       "title": "First review: stock exchange",
+       "text": "Ask within <b>15 days</b> of the ATR; the exchange (Designated Body) gives a revised ATR within <b>10 days</b>."
+      },
+      {
+       "title": "Second review: SEBI",
+       "text": "Ask within <b>15 days</b> of the exchange's ATR. Closed only when SEBI disposes of it."
+      },
+      {
+       "title": "SMART ODR (any time after step 1)",
+       "text": "MII review, then conciliation, then online arbitration; finally a court challenge under Section 34."
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Approaching the entity first is <b>mandatory</b>. 'The investor can file directly on SCORES/ODR without approaching the broker' is a wrong option."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Stage",
+      "Time limit"
+     ],
+     "rows": [
+      [
+       "Broker redresses complaint",
+       "21 calendar days from receipt"
+      ],
+      [
+       "Lodge on SCORES",
+       "Within 1 year of cause of action"
+      ],
+      [
+       "Entity's ATR on SCORES",
+       "21 calendar days"
+      ],
+      [
+       "Seek first review / second review",
+       "15 calendar days from the relevant ATR"
+      ],
+      [
+       "Designated Body's revised ATR",
+       "10 calendar days from review sought"
+      ],
+      [
+       "MII review of ODR complaint",
+       "21 days"
+      ],
+      [
+       "Market Participant's notice before starting ODR",
+       "At least 15 calendar days"
+      ],
+      [
+       "Conciliator appointed",
+       "Within 5 days of reference"
+      ],
+      [
+       "Conciliation",
+       "21 calendar days + max 10 (parties' consent)"
+      ],
+      [
+       "Broker's deposit after investor starts arbitration",
+       "10 days"
+      ],
+      [
+       "Arbitral award",
+       "30 calendar days + up to 30 more"
+      ],
+      [
+       "Pay the award / intention to challenge (s.34)",
+       "15 calendar days / 7 calendar days"
+      ],
+      [
+       "Comply if no stay obtained",
+       "3 months from receipt of award"
+      ],
+      [
+       "Arbitration reference limitation (exchanges)",
+       "3 years"
+      ]
+     ],
+     "caption": "Master clock for this chapter"
+    },
+    {
+     "type": "hook",
+     "text": "The 21-15-10 rhythm: <b>21</b> days for whoever must <i>act</i> (broker, ATR, MII, conciliator), <b>15</b> days for the investor to <i>ask</i> for review, <b>10</b> days for the exchange to <i>re-answer</i>."
+    }
+   ]
+  },
+  {
+   "id": "7.2.1",
+   "title": "Grievance handling at the trading member level",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Every broking firm has a <b>designated cell/person</b> for grievances, resolved at branch or firm level. Brokers must designate an <b>exclusive e-mail ID</b> of the grievance redressal division/compliance officer and display it on their website, pamphlets and advertisements."
+    },
+    {
+     "type": "p",
+     "text": "Every broker and AP office displays <b>Exhibit 7.1</b>, a ladder in itself: compliance officer, then CEO/Partner/Proprietor, then the exchange (BSE, NSE, MSEI) or depository (CDSL, NSDL), then SEBI's SCORES (scores.sebi.gov.in) and toll-free helpline <b>1800 22 7575 / 1800 266 7575</b>."
+    },
+    {
+     "type": "p",
+     "text": "The broker must endeavour to redress grievances within <b>21 calendar days</b> and keep records of complaints received and redressed. The <b>Investor Charter for Stock Brokers</b> (SEBI circular, February 21, 2025) sets out services, investor rights, broker activities with timelines, DOs and DON'Ts and the redressal mechanism. Brokers bring it to existing and new clients via website, office display, account opening kit and e-mails/letters."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Disclosure on broker's website",
+      "When",
+      "Source"
+     ],
+     "rows": [
+      [
+       "Complaints received and redressed (SEBI format)",
+       "Monthly, by the <b>7th of the succeeding month</b>",
+       "Investor Charter circular"
+      ],
+      [
+       "Grievances received, redressed and <b>unresolved beyond three months</b>",
+       "End of each <b>quarter</b> of the financial year",
+       "SEBI (Intermediaries) Regulations, 2008"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Activity (Investor Charter)",
+      "Expected timeline"
+     ],
+     "rows": [
+      [
+       "KYC entered into KRA and CKYCR",
+       "3 working days of account opening"
+      ],
+      [
+       "Client onboarding",
+       "Immediate, not later than one week"
+      ],
+      [
+       "Order execution",
+       "Immediate, not later than the same day"
+      ],
+      [
+       "Allocation of Unique Client Code",
+       "Before trading"
+      ],
+      [
+       "Copy of completed Client Registration Documents",
+       "7 days from upload of UCC to the exchange"
+      ],
+      [
+       "Contract notes",
+       "24 hours of execution"
+      ],
+      [
+       "Upfront margin collection",
+       "Before initiation of trade"
+      ],
+      [
+       "Intimation of other margin dues",
+       "End of T day"
+      ],
+      [
+       "Settlement of client funds",
+       "First Friday/Saturday of month/quarter (exchange schedule)"
+      ],
+      [
+       "Statement of Accounts (funds, securities, commodities)",
+       "Monthly"
+      ],
+      [
+       "Retention statement of funds/commodities",
+       "5 days from settlement"
+      ],
+      [
+       "Annual Global Statement",
+       "30 days from end of financial year"
+      ],
+      [
+       "Investor grievance redressal",
+       "21 calendar days from receipt"
+      ]
+     ],
+     "caption": "Investor Charter timelines"
+    },
+    {
+     "type": "hook",
+     "text": "Charter in one breath: KYC <b>3</b> working days, onboarding <b>1</b> week, contract note <b>24</b> hours, CRD copy <b>7</b> days, retention statement <b>5</b> days, Annual Global Statement <b>30</b> days, grievance <b>21</b> days."
+    },
+    {
+     "type": "trap",
+     "text": "<b>21 calendar</b> days, not working days and not 30. Monthly complaint data by the <b>7th</b> is different from the <b>quarterly</b> upload of grievances pending beyond three months."
+    }
+   ]
+  },
+  {
+   "id": "7.2.2",
+   "title": "Exchange and SEBI level: SCORES and SCORES 2.0",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "If unhappy with the broker, the investor can go to the exchange or SEBI. SEBI's <b>SCORES (SEBI Complaints Redress System)</b> is a <b>web-based, centralised, 24x7</b> system for complaints against <b>listed companies and registered intermediaries</b>: one central database, online movement of complaints to entities, online upload of <b>Action Taken Reports (ATRs)</b> and real-time status tracking."
+    },
+    {
+     "type": "p",
+     "text": "Investors register on SCORES and get an <b>e-mail acknowledgement</b>. A <b>paper complaint</b> is digitised by SEBI and uploaded; follow-up is electronic only. SEBI-recognised <b>Investor Associations</b> and SEBI's toll-free helpline help investors file."
+    },
+    {
+     "type": "key",
+     "text": "Taking the grievance to the entity first is <b>mandatory</b>. Only if the entity fails to redress it in time can the investor use SCORES."
+    },
+    {
+     "type": "p",
+     "text": "<b>Revised framework</b> (SEBI circular, September 20, 2023), which also linked SCORES to ODR:"
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Auto-forward",
+       "text": "The complaint goes automatically to the entity."
+      },
+      {
+       "title": "ATR in 21 days",
+       "text": "The entity resolves it and uploads an ATR within <b>21 calendar days</b>; it is auto-routed to the complainant. The <b>Designated Body</b> (for a broker, the <b>stock exchange</b>) ensures timely ATRs."
+      },
+      {
+       "title": "First review",
+       "text": "Complainant seeks review within <b>15 calendar days</b> of the ATR. The Designated Body may seek clarification from the entity and submits a revised ATR within <b>10 calendar days</b>."
+      },
+      {
+       "title": "Second review",
+       "text": "Within <b>15 calendar days</b> of the Designated Body's ATR. SEBI may take cognizance if the complainant is unhappy, or the Designated Body missed its 10 days."
+      },
+      {
+       "title": "Closure",
+       "text": "Satisfied, or no review sought in 15 days: disposed. A second-review complaint closes only when <b>SEBI</b> disposes/closes it, not on mere filing of an ATR."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Time limit.</b> The limitation for an arbitration reference with exchanges is <b>three years</b>; a SCORES complaint must be lodged within <b>one year of the cause of action</b>, where the entity <b>rejected</b> the complaint, <b>did not respond</b>, or the reply was <b>unsatisfactory</b>. SEBI may reject complaints older than one year or not first taken to the entity. Status is tracked with a <b>unique complaint registration number</b>; every complaint has an audit trail."
+    },
+    {
+     "type": "key",
+     "text": "ODR or civil remedies can be used <b>at any time</b>; if chosen while a complaint is pending on SCORES, the SCORES complaint is treated as <b>disposed</b>."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Not dealt through SCORES",
+       "points": [
+        "Unlisted/delisted companies, or those on the dissemination board",
+        "Sub-judice matters (court or quasi-judicial)",
+        "Other regulators (RBI, IRDAI, PFRDA, CCI) or ministries (MCA)",
+        "Sick companies, or moratorium in winding up/insolvency",
+        "Companies struck off by RoC / vanishing companies; under liquidation/BIFR",
+        "Disputes pending with the ODR mechanism of MIIs"
+       ]
+      },
+      {
+       "title": "Not a 'complaint' at all",
+       "points": [
+        "Not about securities market investment",
+        "Anonymous (whistleblowers excepted); incomplete; no supporting documents",
+        "Suggestions or requests for guidance",
+        "Unhappy with a share's trading price",
+        "Non-listing of private offer shares; private agreement disputes",
+        "Fake/forged documents; outside SEBI's purview; unregulated activity"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The workbook also retains an older <b>one-time 'Review' option</b>: within <b>15 days of closure</b> on SCORES, escalated to the supervising official of the SEBI dealing officer. SCORES 2.0 has turned this into the two-level review above; the investor's window is <b>15 days</b> either way."
+    },
+    {
+     "type": "p",
+     "text": "Exchanges, depositories and clearing corporations must show on their <b>website and app home pages</b> a link to lodge complaints with them and a link to SCORES / its app."
+    },
+    {
+     "type": "p",
+     "text": "<b>SCORES 2.0</b>, effective <b>April 01, 2024</b> (https://scores.sebi.gov.in), is the only version for lodging complaints from that date. Its features:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Uniform <b>21 calendar day</b> timeline across the market",
+      "<b>Auto-routing</b> to the entity and <b>auto-escalation</b> when the entity or Designated Body misses its timeline",
+      "<b>Monitoring</b> by Designated Bodies",
+      "<b>Two-level review</b>: Designated Body first, SEBI second",
+      "<b>KRA database integration</b> for easy registration"
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "One year to lodge on SCORES versus three years limitation for arbitration with exchanges. Do not swap them."
+    }
+   ]
+  },
+  {
+   "id": "7.2.3",
+   "title": "Investor Service Centres (ISCs)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "SEBI's circular of <b>December 03, 1997</b> requires every exchange to maintain <b>at least one ISC</b> for counselling and basic facilities. ISCs are mandatory in the <b>four metros (New Delhi, Mumbai, Chennai, Kolkata)</b>; exchanges with <b>nationwide terminals</b> also open them in <b>12 cities</b>: Ahmedabad, Hyderabad, Kanpur, Indore, Bangalore, Pune, Jaipur, Ghaziabad, Lucknow, Gurgaon, Patna and Vadodara. More can be opened wherever required, and an ISC can be run by one exchange or <b>jointly</b> by two or more."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Four financial dailies</b>, at least one in the regional language",
+      "Internet-connected computer to access SEBI and exchange grievance portals",
+      "Complaints accepted in <b>physical and electronic</b> form; facilitation desks for dispute resolution",
+      "<b>Arbitration and appellate arbitration</b> facility with <b>video-calling</b> for online hearings",
+      "Meeting room for at least <b>5-6 persons</b> plus seating for 5-6 more",
+      "Library of laws and investor material (copies at minimal cost); visitor register; phone, photocopier, printer, scanner"
+     ]
+    },
+    {
+     "type": "p",
+     "text": "ISC staff must be trained in market operations, grievance resolution and SCORES. The <b>Investor Charter for Stock Exchanges</b> (modified May 2024 for ODR and SCORES 2.0) adds investor responsibilities and a code of conduct for exchanges. Complaints reach an exchange via <b>SCORES 2.0</b> (exchange first review, SEBI second), the exchange's web portal, designated e-mail IDs, or <b>SMART ODR</b>."
+    },
+    {
+     "type": "hook",
+     "text": "Picture an ISC: 4 newspapers on the rack (one regional), a 5-6 seat meeting room, and a laptop for video-calling the arbitrator."
+    }
+   ]
+  },
+  {
+   "id": "7.3",
+   "title": "SMART ODR: Online Dispute Resolution",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "SEBI set up a common <b>ODR Portal (SMART ODR)</b> that resolves disputes with listed companies, intermediaries and MIIs through <b>online conciliation</b> and <b>online arbitration</b>. Why? A retail investor fighting a broker in court could wait years; ODR fixes a short timetable and lets everyone join by video."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Market Participant",
+       "text": "Investor first complains to the broker/intermediary/company."
+      },
+      {
+       "title": "SCORES or ODR",
+       "text": "If unhappy, escalate on SCORES, or file on SMART ODR."
+      },
+      {
+       "title": "MII review: 21 days",
+       "text": "The exchange/depository tries to resolve it amicably."
+      },
+      {
+       "title": "Conciliation: 21 + 10 days",
+       "text": "A conciliator attempts settlement; 10-day extension with consent."
+      },
+      {
+       "title": "Arbitration: 30 + 30 days",
+       "text": "If conciliation fails, the investor may seek arbitration."
+      },
+      {
+       "title": "Section 34",
+       "text": "A dissatisfied party may challenge the award under the Arbitration and Conciliation Act, 1996."
+      }
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Review 21, Reconcile 21 (+10), Rule 30 (+30). Talk first, mediate second, decide last."
+    }
+   ]
+  },
+  {
+   "id": "7.3.1",
+   "title": "Who is covered by ODR",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Disputes between <b>investors/clients</b> and <b>listed companies (including RTAs)</b> or <b>specified intermediaries/regulated entities</b> are resolved online. Either side, including nominees/transmission holders, may also refer unresolved <b>service-related complaints</b> (delayed statements or bills, account freezing, unexplained debits, branch closed without notice, demat account transferred without permission, etc.)."
+    },
+    {
+     "type": "p",
+     "text": "Specified entities: AIF managers, Bankers to an Issue and SCSBs, CIS managers, commodity clearing corporations, DPs, Investment Advisers, InvIT and REIT managers, Merchant Bankers, Mutual Funds (AMCs), Portfolio Managers, RTAs, Research Analysts and <b>stock brokers</b> (including Online Bond Platforms)."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Retail investor",
+       "points": [
+        "Uses SEBI's ODR route (SMART ODR)",
+        "Seat: where the investor permanently resides"
+       ]
+      },
+      {
+       "title": "Institutional/corporate client",
+       "points": [
+        "<b>Option</b>: SEBI's ODR route, OR any independent institutional mediation/conciliation/arbitration in India",
+        "Seat and venue in India; may be online"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Contractual disputes between <b>MIIs and their constituents</b> will be added later; disputes over MIIs' <b>regulatory/enforcement role</b> are excluded."
+    }
+   ]
+  },
+  {
+   "id": "7.3.2",
+   "title": "Empanelment of ODR Institutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "An <b>ODR Institution</b> runs the actual conciliation and arbitration. Each <b>MII empanels one or more</b>, after collecting its registration, constitution, conciliation/arbitration rules, PAN, <b>LEI</b>, board composition, shareholders and authorised signatories. It must be a member of the association of MII-empanelled ODR Institutions."
+    },
+    {
+     "type": "key",
+     "text": "An MII's <b>primary/first</b> ODR Institution cannot be the primary/first ODR Institution of any other MII."
+    }
+   ]
+  },
+  {
+   "id": "7.3.3",
+   "title": "The common ODR Portal",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "The <b>MIIs jointly establish and operate</b> the portal with their ODR Institutions, sharing costs under an inter-MII agreement.",
+      "<b>SEBI inspects</b> it from time to time.",
+      "ODR Institutions must do time-bound online conciliation/arbitration under the <b>Arbitration and Conciliation Act, 1996</b>.",
+      "The portal connects with <b>SCORES / SEBI Intermediary portal</b>.",
+      "All market participants must enroll within SEBI's timeline, after which they are <b>deemed enrolled</b>."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7.3.4",
+   "title": "Starting dispute resolution",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Normal route: complain to the Market Participant, then SCORES, then ODR. <b>Alternatively</b>, ODR can be started once the Market Participant fails to resolve it, or <b>at any stage</b> of the SCORES escalation. The one prerequisite: the complaint must first go to the intermediary."
+    },
+    {
+     "type": "p",
+     "text": "The relevant <b>MII reviews</b> the ODR complaint and tries to resolve it within <b>21 days</b>; if not, it goes to <b>conciliation</b>."
+    },
+    {
+     "type": "key",
+     "text": "A <b>Market Participant</b> may also start ODR, after giving the investor at least <b>15 calendar days' notice</b>."
+    }
+   ]
+  },
+  {
+   "id": "7.3.5",
+   "title": "ODR Portal and allocation",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The portal enrolls parties, accepts complaints and documents, and shows status updates from ODR Institutions. Typical documents: a statement of the dispute (<b>delivery-based and squared-off trades shown separately</b>), contract notes, bills, broker's account statement, share delivery records, margin statement, Member Constituent Agreement, Risk Disclosure Document, PAN/GIR number, balance sheet showing dues, latest ITR acknowledgement, and a list of documents."
+    },
+    {
+     "type": "p",
+     "text": "Disputes are allotted to empanelled ODR Institutions on a <b>market-wide round-robin</b> basis, after the MII's review (concluded within <b>21 calendar days</b>)."
+    }
+   ]
+  },
+  {
+   "id": "7.3.6",
+   "title": "Conciliation",
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Appoint",
+       "text": "The ODR Institution appoints a <b>sole, independent, neutral conciliator</b> within <b>5 days</b> of the reference."
+      },
+      {
+       "title": "Settle",
+       "text": "Meetings aim at settlement within <b>21 calendar days</b> of appointment, extendable by <b>max 10 calendar days</b> with the parties' recorded consent."
+      },
+      {
+       "title": "Success",
+       "text": "A <b>settlement agreement</b>, executed and stamped online."
+      },
+      {
+       "title": "Failure",
+       "text": "The conciliator fixes the <b>admissible claim value</b> payable to the investor and notifies parties, ODR Institution and MII."
+      },
+      {
+       "title": "Next",
+       "text": "The investor may go to online arbitration, run by the <b>same ODR Institution</b>. A Market Participant wanting arbitration must first <b>deposit 100% of the admissible claim value</b> with the MII."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "A Market Participant that does not deposit <b>cannot initiate arbitration</b> and may face exchange action. On the investor's application, the MII may release up to <b>₹5,00,000</b> from the deposit, against an undertaking/indemnity/security to refund it if the investor loses."
+    },
+    {
+     "type": "example",
+     "text": "Meena claims ₹8 lakh. Conciliation fails; the admissible claim is fixed at ₹6 lakh. Her broker wants arbitration, so it deposits ₹6 lakh with the exchange. Meena can get up to ₹5 lakh released now, on an undertaking to refund if she loses.",
+     "title": "The ₹5 lakh release"
+    },
+    {
+     "type": "trap",
+     "text": "₹5 lakh caps the <b>interim release</b> to the investor; ₹30 lakh is the sole-arbitrator limit; ₹1 lakh is the document-only limit."
+    }
+   ]
+  },
+  {
+   "id": "7.3.7",
+   "title": "Conciliation fees",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Conciliation fees may be <b>borne by the MIIs</b> and recovered from the Market Participant complained against; if the Market Participant starts the dispute, it pays directly. Fees can <b>never be shifted to the investor</b>. Conciliation is <b>unsuccessful</b> if no settlement is reached within the stipulated (or extended) time."
+    },
+    {
+     "type": "key",
+     "text": "Late fee: conciliation started more than <b>six months</b> after the transaction/dispute costs <b>₹1,000</b>, paid by the initiator (investor or Market Participant), collected by MIIs."
+    }
+   ]
+  },
+  {
+   "id": "7.3.8",
+   "title": "Arbitration",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Arbitration is a <b>quasi-judicial</b> alternate dispute resolution mechanism under the <b>Arbitration and Conciliation Act, 1996</b>, meant to give <b>quicker</b> resolution than courts. After failed conciliation, the investor starts online arbitration by paying fees, and the broker must participate."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Who starts arbitration",
+      "Broker must"
+     ],
+     "rows": [
+      [
+       "Investor",
+       "Deposit <b>100% of admissible claim</b> with the MII and pay fees within <b>10 days</b>"
+      ],
+      [
+       "Broker",
+       "Inform the ODR Institution within <b>10 days</b> of conciliation ending; deposit full claim within a further <b>5 days</b>"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Claim / counter-claim",
+      "Arbitrator(s)",
+      "Process",
+      "Award"
+     ],
+     "rows": [
+      [
+       "Up to ₹1 lakh",
+       "Sole",
+       "<b>Document-only</b> (hearing only for recorded reasons)",
+       "30 calendar days from appointment"
+      ],
+      [
+       "Above ₹1 lakh up to ₹30 lakh",
+       "<b>Sole</b> independent, neutral arbitrator",
+       "Hearing(s)",
+       "30 days; may extend up to 30 more (recorded reasons)"
+      ],
+      [
+       "Above ₹30 lakh",
+       "<b>Tribunal of three</b>",
+       "Hearing(s)",
+       "30 days; may extend up to 30 more (recorded reasons)"
+      ]
+     ],
+     "caption": "Arbitration by claim size"
+    },
+    {
+     "type": "p",
+     "text": "A non-cooperating party can face an <b>ex-parte order</b> after <b>7 calendar days' notice</b>. Arbitrators may grant <b>interim relief</b> after hearing the parties; parties may seek correction of the award under the Act."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Pay",
+       "text": "The Market Participant pays within <b>15 calendar days</b> of the award (unless sooner). The MII helps the investor enforce it."
+      },
+      {
+       "title": "Signal a challenge",
+       "text": "The losing party files its intention to challenge under <b>Section 34</b> within <b>7 calendar days</b> on the ODR Portal."
+      },
+      {
+       "title": "Deposit to challenge",
+       "text": "A Market Participant must deposit <b>100% of the award amount</b> with the MII before challenging."
+      },
+      {
+       "title": "Stay or comply",
+       "text": "No stay within <b>3 months</b> of receipt of the award means full compliance. The MII monitors compliance."
+      }
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "After the award: <b>7</b> days to say 'I'll challenge', <b>15</b> days to pay, <b>3 months</b> to get a stay. A broker never fights for free: 100% deposit before arbitration, 100% before a challenge."
+    },
+    {
+     "type": "trap",
+     "text": "Sole arbitrator up to <b>₹30 lakh</b>, not ₹5, 20 or 50 lakh. The ODR flow summary says the 30-day arbitration period is extendable by 30 days with the parties' consent; the detailed rule lets the arbitrator extend for recorded reasons. The numbers (30 + 30) are what get tested."
+    }
+   ]
+  },
+  {
+   "id": "7.3.9",
+   "title": "Form of proceedings and seat",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Proceedings are <b>online</b> (audio-video). Investors may join from the <b>ISC of any MII</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Dispute",
+      "Deemed seat and venue"
+     ],
+     "rows": [
+      [
+       "Investor vs listed company / intermediary",
+       "Where the investor <b>resides permanently</b> (non-individual: registered office/principal place of business in India per KYC)"
+      ],
+      [
+       "Institutional/corporate client vs intermediary",
+       "Client's registered/principal place in India; if none in India, the intermediary's; or a competent court in India they agree on"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7.3.10",
+   "title": "Arbitration fees and late fees",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Fees depend on the <b>claim amount</b>, with separate fees for the <b>arbitrator</b> and the <b>ODR Institution</b>, collected by the ODR Institution."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Delay",
+      "Late fee"
+     ],
+     "rows": [
+      [
+       "Arbitration started after 1 month and up to 6 months from failed conciliation",
+       "<b>Double</b> the non-refundable fees"
+      ],
+      [
+       "Arbitration started after 6 months by a <b>Market Participant</b>",
+       "Additional <b>50% of fees per extra month</b>, non-refundable"
+      ],
+      [
+       "Conciliation started over 6 months after the dispute",
+       "₹1,000 by the initiator"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7.3.11",
+   "title": "Market Participants' responsibilities under ODR",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "All client agreements are <b>deemed amended</b> to include online conciliation/arbitration via the ODR Portal.",
+      "Attend promptly to complaints; communications must tell investors about <b>SCORES and the ODR Portal</b>.",
+      "Train staff for complaints, SCORES/ODR references and online proceedings; cooperate with MIIs and ODR Institutions.",
+      "SEBI may require an <b>interest-free deposit</b> with MIIs/Designated Body to honour awards or amounts payable pending arbitration or challenge."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "7.4",
+   "title": "Broker default and the Investor Protection Fund",
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Declare",
+       "text": "Exchange issues a <b>circular</b> declaring the broker a defaulter and posts it on its website."
+      },
+      {
+       "title": "Invite claims",
+       "text": "A <b>public notice</b> invites claims within a <b>specified period</b>."
+      },
+      {
+       "title": "Reach clients",
+       "text": "Clients are informed by <b>e-mail and SMS</b> to lodge claims."
+      },
+      {
+       "title": "Sanction",
+       "text": "Claims go to the <b>Member Committee</b> for sanction and ratification."
+      },
+      {
+       "title": "Pay",
+       "text": "The <b>IPF Trust</b> disburses, up to the maximum fixed for a single claim."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The exchange website carries eligibility norms, claim form, FAQs, online claim status, SOP and claim-processing policy, and the list of defaulter/expelled TMs. Exchanges, depositories and clearing corporations also disclose complaints received against them by the <b>7th of the succeeding month</b>."
+    },
+    {
+     "type": "p",
+     "text": "The <b>Central Government</b>, by notification of <b>August 22, 1985</b>, required exchanges to set up an <b>IPF</b> (also called Customer Protection Fund). It pays <b>legitimate, non-speculative</b> claims of clients of members <b>declared defaulters or expelled</b>, and is administered by a <b>Trust</b>. SEBI's comprehensive guidelines (May 2023) require <b>all exchanges and depositories</b> to have an IPF, each through a <b>separate trust</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Exchange's contribution to IPF",
+      "Amount"
+     ],
+     "rows": [
+      [
+       "Listing fees",
+       "<b>1%</b>, quarterly"
+      ],
+      [
+       "Interest on the issuer's 1% security deposit (public issue)",
+       "<b>100%</b> of interest, on refund"
+      ],
+      [
+       "Penalties: client code modification; call-auction pay-in default; LODR non-compliance by listed companies",
+       "Amount collected"
+      ],
+      [
+       "Penalty on investor pay-in default in <b>OFS</b>",
+       "<b>10% of order value</b>"
+      ],
+      [
+       "Transaction charges",
+       "As per exchange policy"
+      ],
+      [
+       "Income from IPF investments",
+       "<b>At least 70%</b>"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Use</b>: claims of clients of defaulting TMs and <b>interim relief</b> to investors.",
+      "<b>Income</b>: at least <b>70%</b> ploughed back; <b>25%</b> may fund investor education/awareness.",
+      "<b>Review</b>: corpus adequacy <b>half-yearly</b> (end March and September).",
+      "<b>Eligible</b>: claims within the specified period, including clients who dealt through the defaulter's <b>registered authorised persons</b>. <b>Speculative</b> claims excluded.",
+      "<b>Late</b>: claims more than <b>three years</b> after the specified period ends may be treated as a <b>civil dispute</b>.",
+      "<b>Limits</b>: per-investor compensation fixed by the exchange with the IPF Trust and SEBI.",
+      "<b>Disclosure</b>: IPF corpus on the website, <b>updated monthly</b>.",
+      "<b>No double pay</b>: exchanges share data on clients of defaulter members within <b>10 days</b> of disablement, and PAN, UCC and amount when paying."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "IPF income: <b>70 back, 25 to teach</b>."
+    },
+    {
+     "type": "trap",
+     "text": "IPF does not cover speculative claims, but <b>does</b> cover clients who dealt via the defaulter's registered AP."
+    }
+   ]
+  },
+  {
+   "id": "7.4.1",
+   "title": "Investor Services Fund (ISF)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Exchanges set aside <b>at least 20% of listing fees</b> for the ISF, supervised by the <b>Regulatory Oversight Committee</b>. It can be used <b>only</b> for investor education and awareness: seminars, workshops, publications, training."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "IPF",
+       "points": [
+        "Compensates clients of defaulting/expelled members",
+        "1% of listing fees (quarterly)",
+        "Run by an IPF Trust"
+       ]
+      },
+      {
+       "title": "ISF",
+       "points": [
+        "Investor education and awareness only",
+        "At least 20% of listing fees",
+        "Supervised by the Regulatory Oversight Committee"
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Broker's timeline to redress an investor grievance",
+   "value": "21 calendar days from receipt",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Brokers disclose monthly complaint data on website",
+   "value": "By the 7th of the succeeding month",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Quarterly upload: grievances unresolved beyond",
+   "value": "Three months (Intermediaries Regulations, 2008)",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Investor Charter for Stock Brokers circular",
+   "value": "February 21, 2025",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "SEBI toll-free helpline",
+   "value": "1800 22 7575 / 1800 266 7575",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: KYC entered into KRA and CKYCR",
+   "value": "3 working days of account opening",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: client onboarding",
+   "value": "Immediate, not later than one week",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: order execution",
+   "value": "Immediate, not later than the same day",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: allocation of UCC",
+   "value": "Before trading",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: copy of Client Registration Documents",
+   "value": "7 days from upload of UCC to exchange",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: contract notes",
+   "value": "24 hours of execution",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: upfront margin collection",
+   "value": "Before initiation of trade",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: intimation of other margin dues",
+   "value": "End of T day",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: settlement of client funds",
+   "value": "First Friday/Saturday of month/quarter (exchange schedule)",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: statement of accounts",
+   "value": "Monthly",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: retention statement",
+   "value": "5 days from settlement",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "Charter: Annual Global Statement",
+   "value": "30 days from end of financial year",
+   "ref": "7.2.1"
+  },
+  {
+   "fact": "SCORES availability",
+   "value": "24x7",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Revised SCORES framework circular",
+   "value": "September 20, 2023",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Entity resolves SCORES complaint and uploads ATR",
+   "value": "21 calendar days of receipt",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Investor seeks first review (Designated Body)",
+   "value": "Within 15 calendar days of ATR",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Designated Body submits revised ATR",
+   "value": "Within 10 calendar days of review sought",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Investor seeks second review (SEBI)",
+   "value": "Within 15 calendar days of Designated Body's ATR",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Time limit to lodge a complaint on SCORES",
+   "value": "1 year from date of cause of action",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Limitation for arbitration reference with exchanges",
+   "value": "3 years",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "Old one-time SCORES review option",
+   "value": "Within 15 days of closure on SCORES",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "SCORES 2.0 effective from",
+   "value": "April 01, 2024",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "SCORES review levels in 2.0",
+   "value": "2 (Designated Body, then SEBI)",
+   "ref": "7.2.2"
+  },
+  {
+   "fact": "ISC circular",
+   "value": "December 03, 1997",
+   "ref": "7.2.3"
+  },
+  {
+   "fact": "Minimum ISCs per exchange",
+   "value": "At least one",
+   "ref": "7.2.3"
+  },
+  {
+   "fact": "Metro cities with mandatory ISCs",
+   "value": "4: New Delhi, Mumbai, Chennai, Kolkata",
+   "ref": "7.2.3"
+  },
+  {
+   "fact": "Additional ISC cities for nationwide exchanges",
+   "value": "12 cities",
+   "ref": "7.2.3"
+  },
+  {
+   "fact": "Financial dailies at an ISC",
+   "value": "4 (at least 1 regional language)",
+   "ref": "7.2.3"
+  },
+  {
+   "fact": "ISC meeting room capacity",
+   "value": "At least 5-6 persons (+ seating for 5-6)",
+   "ref": "7.2.3"
+  },
+  {
+   "fact": "Investor Charter for Stock Exchanges (modified)",
+   "value": "May 2024",
+   "ref": "7.2.3"
+  },
+  {
+   "fact": "MII review of complaint on SMART ODR",
+   "value": "21 (calendar) days",
+   "ref": "7.3.4"
+  },
+  {
+   "fact": "Notice by Market Participant before starting ODR",
+   "value": "At least 15 calendar days",
+   "ref": "7.3.4"
+  },
+  {
+   "fact": "ODR Institution appoints conciliator",
+   "value": "Within 5 days of receiving reference",
+   "ref": "7.3.6"
+  },
+  {
+   "fact": "Conciliation period",
+   "value": "21 calendar days from conciliator's appointment",
+   "ref": "7.3.6"
+  },
+  {
+   "fact": "Maximum extension of conciliation",
+   "value": "10 calendar days, with parties' consent",
+   "ref": "7.3.6"
+  },
+  {
+   "fact": "Deposit by Market Participant to pursue arbitration",
+   "value": "100% of admissible claim value, with MII",
+   "ref": "7.3.6"
+  },
+  {
+   "fact": "Maximum release to investor from MP's deposit",
+   "value": "₹5,00,000",
+   "ref": "7.3.6"
+  },
+  {
+   "fact": "Late fee: conciliation initiated after 6 months",
+   "value": "₹1,000 by initiator",
+   "ref": "7.3.7"
+  },
+  {
+   "fact": "Arbitration law",
+   "value": "Arbitration and Conciliation Act, 1996",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Broker deposit and fees after investor starts arbitration",
+   "value": "Within 10 days",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Broker-initiated arbitration: inform ODR Institution",
+   "value": "Within 10 days of conciliation ending",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Broker-initiated arbitration: deposit full claim",
+   "value": "Additional 5 days",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Sole arbitrator",
+   "value": "Claims up to ₹30 lakh",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Arbitral tribunal of three arbitrators",
+   "value": "Claims above ₹30 lakh",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Document-only arbitration",
+   "value": "Claim/counter-claim of ₹1 lakh or below",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Arbitral award timeline",
+   "value": "30 calendar days from appointment",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Extension of arbitration timeline",
+   "value": "Up to further 30 calendar days",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Notice before ex-parte order",
+   "value": "7 calendar days",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Market Participant pays arbitral award",
+   "value": "Within 15 calendar days of award",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Intention to challenge award (Section 34)",
+   "value": "Within 7 calendar days, on ODR Portal",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Comply in full if no stay obtained within",
+   "value": "3 months from receipt of award",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Deposit by Market Participant to challenge award",
+   "value": "100% of amount payable under award",
+   "ref": "7.3.8"
+  },
+  {
+   "fact": "Late fee: arbitration after 1 month up to 6 months of failed conciliation",
+   "value": "Double the non-refundable fees",
+   "ref": "7.3.10"
+  },
+  {
+   "fact": "Late fee: arbitration by Market Participant after 6 months",
+   "value": "Additional 50% of fees per additional month",
+   "ref": "7.3.10"
+  },
+  {
+   "fact": "Exchanges/depositories/CCs disclose complaint data",
+   "value": "By 7th of succeeding month",
+   "ref": "7.4"
+  },
+  {
+   "fact": "Central Government notification on IPF",
+   "value": "August 22, 1985",
+   "ref": "7.4"
+  },
+  {
+   "fact": "SEBI comprehensive IPF/ISF guidelines",
+   "value": "May 2023",
+   "ref": "7.4"
+  },
+  {
+   "fact": "IPF contribution from listing fees",
+   "value": "1%, quarterly",
+   "ref": "7.4"
+  },
+  {
+   "fact": "IPF contribution from interest on issuer's security deposit",
+   "value": "100% of interest (on the 1% deposit)",
+   "ref": "7.4"
+  },
+  {
+   "fact": "Penalty for investor pay-in default in OFS (to IPF)",
+   "value": "10% of order value",
+   "ref": "7.4"
+  },
+  {
+   "fact": "IPF income ploughed back into IPF",
+   "value": "At least 70%",
+   "ref": "7.4"
+  },
+  {
+   "fact": "IPF income usable for investor education/awareness",
+   "value": "25%",
+   "ref": "7.4"
+  },
+  {
+   "fact": "IPF corpus adequacy review",
+   "value": "Half-yearly (end of March and September)",
+   "ref": "7.4"
+  },
+  {
+   "fact": "Claim after specified period treated as civil dispute",
+   "value": "More than 3 years after expiry of specified period",
+   "ref": "7.4"
+  },
+  {
+   "fact": "IPF corpus disclosure on exchange website",
+   "value": "Updated monthly",
+   "ref": "7.4"
+  },
+  {
+   "fact": "Exchanges share data on clients of defaulter members",
+   "value": "Within 10 days of disablement",
+   "ref": "7.4"
+  },
+  {
+   "fact": "ISF share of listing fees",
+   "value": "At least 20%",
+   "ref": "7.4.1"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "Who is the 'backbone' of the securities market?",
+   "a": "Investors."
+  },
+  {
+   "q": "Two kinds of party an investor may have a grievance against?",
+   "a": "(a) The intermediary/broking firm they trade through; (b) the company in which they hold shares."
+  },
+  {
+   "q": "Three levels at which grievances are handled?",
+   "a": "Trading member (broker) level, stock exchange level, and regulator (SEBI/SCORES) level."
+  },
+  {
+   "q": "Within how many days should a broker redress an investor complaint?",
+   "a": "21 calendar days from receipt of the complaint."
+  },
+  {
+   "q": "What is Exhibit 7.1?",
+   "a": "The standard notice every broker/AP office displays: compliance officer, CEO/partner, exchange/depository contacts, SCORES and SEBI helpline."
+  },
+  {
+   "q": "By when must brokers publish monthly complaint data on their website?",
+   "a": "By the 7th of the succeeding month, in SEBI's format."
+  },
+  {
+   "q": "What does SCORES stand for?",
+   "a": "SEBI Complaints Redress System: a 24x7 web-based centralised system for complaints against listed companies and registered intermediaries."
+  },
+  {
+   "q": "What is an ATR?",
+   "a": "Action Taken Report: the entity's response uploaded on SCORES, due within 21 calendar days."
+  },
+  {
+   "q": "Who is the Designated Body on SCORES for a stock broker?",
+   "a": "The stock exchange."
+  },
+  {
+   "q": "Window to seek first review on SCORES?",
+   "a": "15 calendar days from the date of the entity's ATR."
+  },
+  {
+   "q": "How fast must the Designated Body give a revised ATR?",
+   "a": "Within 10 calendar days of the review being sought."
+  },
+  {
+   "q": "Time limit to lodge a complaint on SCORES?",
+   "a": "Within one year from the date of cause of action (after first approaching the entity)."
+  },
+  {
+   "q": "What happens to a SCORES complaint if the investor opts for ODR meanwhile?",
+   "a": "It is treated as disposed on SCORES."
+  },
+  {
+   "q": "When did SCORES 2.0 start?",
+   "a": "April 01, 2024 (https://scores.sebi.gov.in)."
+  },
+  {
+   "q": "Name four SCORES 2.0 features.",
+   "a": "Uniform 21-day timeline, auto-routing, auto-escalation, two-level review (Designated Body then SEBI), KRA integration, Designated Body monitoring."
+  },
+  {
+   "q": "Can SCORES take a sub-judice complaint?",
+   "a": "No. Matters before courts or quasi-judicial bodies are not dealt with through SCORES."
+  },
+  {
+   "q": "Minimum ISCs per exchange, and the four metros?",
+   "a": "At least one; New Delhi, Mumbai, Chennai and Kolkata."
+  },
+  {
+   "q": "How many financial newspapers must an ISC keep?",
+   "a": "Four, at least one in the regional language."
+  },
+  {
+   "q": "Who runs the conciliation/arbitration under SMART ODR?",
+   "a": "The ODR Institution empanelled by an MII; it also administers the online arbitration."
+  },
+  {
+   "q": "How are disputes allocated among ODR Institutions?",
+   "a": "Market-wide round-robin, after the MII's 21-day review."
+  },
+  {
+   "q": "Conciliation timeline under ODR?",
+   "a": "21 calendar days from conciliator's appointment, extendable by max 10 calendar days with parties' consent."
+  },
+  {
+   "q": "Within how many days is the conciliator appointed?",
+   "a": "Within 5 days of the ODR Institution receiving the reference."
+  },
+  {
+   "q": "Notice a Market Participant must give before starting ODR?",
+   "a": "At least 15 calendar days to the investor/client."
+  },
+  {
+   "q": "Maximum the MII may release to the investor from the MP's deposit?",
+   "a": "₹5,00,000, against an undertaking/indemnity/security to return it if the investor loses."
+  },
+  {
+   "q": "Late fee for starting conciliation after six months?",
+   "a": "₹1,000, paid by whoever initiates (investor or Market Participant)."
+  },
+  {
+   "q": "Sole arbitrator vs tribunal threshold?",
+   "a": "Up to ₹30 lakh: sole arbitrator. Above ₹30 lakh: tribunal of three arbitrators."
+  },
+  {
+   "q": "When is arbitration document-only?",
+   "a": "When the claim/counter-claim is ₹1 lakh or below; hearing only for recorded reasons."
+  },
+  {
+   "q": "Time to pass the arbitral award?",
+   "a": "30 calendar days from appointment, extendable by up to 30 more."
+  },
+  {
+   "q": "Deadline for MP to pay an arbitral award?",
+   "a": "15 calendar days from the award (unless the award says sooner)."
+  },
+  {
+   "q": "Deadline to declare intention to challenge an award u/s 34?",
+   "a": "7 calendar days, on the ODR Portal."
+  },
+  {
+   "q": "Who established the IPF requirement, and when?",
+   "a": "Central Government notification dated August 22, 1985."
+  },
+  {
+   "q": "Share of listing fees to IPF vs ISF?",
+   "a": "IPF: 1% (quarterly). ISF: at least 20%."
+  },
+  {
+   "q": "What share of IPF income must go back into the IPF?",
+   "a": "At least 70%; 25% may be used for investor education and awareness."
+  },
+  {
+   "q": "Are speculative-transaction claims paid from IPF?",
+   "a": "No. Only legitimate, non-speculative claims of clients of defaulting/expelled members."
+  },
+  {
+   "q": "Who sanctions claims against a defaulter before IPF Trust pays?",
+   "a": "The Member Committee (MC), for sanction and ratification."
+  },
+  {
+   "q": "Who supervises the Investor Services Fund?",
+   "a": "The Regulatory Oversight Committee of the exchange."
+  }
+ ],
+ "questions": [
+  {
+   "q": "According to the workbook, who is the backbone of the securities market?",
+   "options": [
+    "Stock exchanges",
+    "Trading members",
+    "Investors",
+    "Regulators"
+   ],
+   "answer": 2,
+   "why": "The chapter opens by stating that investors are the backbone of the securities market; everything else exists to serve and protect them.",
+   "ref": "7.1",
+   "level": "easy"
+  },
+  {
+   "q": "Arbitration, as an alternate dispute resolution mechanism, aims at what kind of legal resolution of disputes?",
+   "options": [
+    "Quicker",
+    "Slower",
+    "Routine",
+    "Costlier"
+   ],
+   "answer": 0,
+   "why": "Arbitration under the Arbitration and Conciliation Act, 1996 is an alternative to courts meant to resolve disputes faster; ODR awards are due within 30 days.",
+   "ref": "7.3.8",
+   "level": "easy"
+  },
+  {
+   "q": "Under the ODR framework, claims up to what amount are decided by a sole arbitrator?",
+   "options": [
+    "₹5 lakh",
+    "₹20 lakh",
+    "₹50 lakh",
+    "₹30 lakh"
+   ],
+   "answer": 3,
+   "why": "Claims up to ₹30 lakh go to a sole independent arbitrator; above ₹30 lakh, a three-member arbitral tribunal hears the matter.",
+   "ref": "7.3.8",
+   "level": "easy"
+  },
+  {
+   "q": "The Investor Protection Fund that compensates clients of a defaulting trading member is established and maintained by:",
+   "options": [
+    "The stock exchange",
+    "An association of investors",
+    "The stock brokers' association",
+    "The defaulting broker's banker"
+   ],
+   "answer": 0,
+   "why": "The IPF is established and maintained by the exchange (administered through a trust) to meet legitimate claims of clients of defaulting or expelled members.",
+   "ref": "7.4",
+   "level": "easy"
+  },
+  {
+   "q": "Online arbitration under SMART ODR is administered by:",
+   "options": [
+    "The investor association",
+    "The depository",
+    "The ODR Institution",
+    "The stock brokers' association"
+   ],
+   "answer": 2,
+   "why": "Online arbitration is administered by the ODR Institution that also facilitated the conciliation.",
+   "ref": "7.3.6",
+   "level": "easy"
+  },
+  {
+   "q": "Within how many days from receipt of a complaint is a stock broker expected to redress an investor grievance?",
+   "options": [
+    "7 working days",
+    "15 calendar days",
+    "30 calendar days",
+    "21 calendar days"
+   ],
+   "answer": 3,
+   "why": "Both the broker's obligation and the Investor Charter state 21 calendar days from receipt of the complaint.",
+   "ref": "7.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "An investor wants to complain on SCORES about a broker's action. Within what period from the date of cause of action should the complaint be lodged?",
+   "options": [
+    "Three months",
+    "One year",
+    "Three years",
+    "Six months"
+   ],
+   "answer": 1,
+   "why": "SCORES complaints may be lodged within one year of the cause of action; three years is the limitation for an arbitration reference with exchanges.",
+   "ref": "7.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "The broker uploads an ATR on SCORES, but the complainant is not satisfied. Within how many days of the ATR may the complainant seek the first review?",
+   "options": [
+    "15 calendar days",
+    "7 calendar days",
+    "10 calendar days",
+    "21 calendar days"
+   ],
+   "answer": 0,
+   "why": "First review must be sought within 15 calendar days from the date of the ATR; the Designated Body then has 10 calendar days to submit a revised ATR.",
+   "ref": "7.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "For a complaint against a stock broker on SCORES 2.0, who carries out the first review?",
+   "options": [
+    "SEBI",
+    "The stock exchange",
+    "The depository",
+    "An investor association"
+   ],
+   "answer": 1,
+   "why": "The stock exchange is the Designated Body for stock brokers and does the first review; SEBI does the second review.",
+   "ref": "7.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "An investor must first take up the grievance with the broker before filing on SCORES or SMART ODR.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "why": "It is mandatory to approach the entity first; only if it fails to redress the grievance can the investor go to SCORES or ODR.",
+   "ref": "7.2.2",
+   "level": "easy"
+  },
+  {
+   "q": "Which of the following complaints is NOT dealt with through SCORES?",
+   "options": [
+    "Non-receipt of contract notes from a broker",
+    "A matter already under consideration by a court of law",
+    "Delay in credit of shares by a depository participant",
+    "Non-receipt of a dividend from a listed company"
+   ],
+   "answer": 1,
+   "why": "Sub-judice complaints, i.e. those under consideration by a court or quasi-judicial body, are excluded from SCORES.",
+   "ref": "7.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "A complaint is pending on SCORES and the investor files the same dispute on SMART ODR. What happens to the SCORES complaint?",
+   "options": [
+    "It is kept pending until the ODR award",
+    "It is transferred to SEBI's second review",
+    "It is treated as disposed on SCORES",
+    "It is rejected as a duplicate and the ODR filing is also cancelled"
+   ],
+   "answer": 2,
+   "why": "Investors may opt for ODR or civil remedies at any time; if they do so while a complaint is pending on SCORES, it is treated as disposed on SCORES.",
+   "ref": "7.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "SCORES 2.0, with auto-routing, auto-escalation and a two-level review, came into effect from:",
+   "options": [
+    "September 20, 2023",
+    "January 01, 2024",
+    "April 01, 2024",
+    "February 21, 2025"
+   ],
+   "answer": 2,
+   "why": "SCORES 2.0 was launched with effect from April 01, 2024; complaints can be lodged only on the new version from that date.",
+   "ref": "7.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "Under SMART ODR, the conciliator must try to settle the dispute within 21 calendar days of appointment. By how much can this be extended?",
+   "options": [
+    "A maximum of 10 calendar days, with the consent of the parties",
+    "A maximum of 21 calendar days, at the conciliator's discretion",
+    "30 calendar days, with MII approval",
+    "It cannot be extended"
+   ],
+   "answer": 0,
+   "why": "The 21-day conciliation period can be extended by a maximum of 10 calendar days by consent of the disputing parties, recorded in writing or electronically.",
+   "ref": "7.3.6",
+   "level": "medium"
+  },
+  {
+   "q": "Within how many days of receiving a reference must the ODR Institution appoint the conciliator?",
+   "options": [
+    "15 days",
+    "10 days",
+    "21 days",
+    "5 days"
+   ],
+   "answer": 3,
+   "why": "The ODR Institution appoints a sole independent conciliator within 5 days of receipt of the reference.",
+   "ref": "7.3.6",
+   "level": "hard"
+  },
+  {
+   "q": "Conciliation fails and the broker wants to go for arbitration. What must the broker do first?",
+   "options": [
+    "Pay a late fee of ₹1,000",
+    "Deposit 100% of the admissible claim value with the relevant MII",
+    "Deposit 50% of the claim with the ODR Institution",
+    "Obtain SEBI's approval"
+   ],
+   "answer": 1,
+   "why": "A Market Participant wishing to pursue arbitration must deposit 100% of the admissible claim value with the MII before initiating it; otherwise it cannot initiate arbitration.",
+   "ref": "7.3.6",
+   "level": "medium"
+  },
+  {
+   "q": "From the broker's deposit of the admissible claim value, the MII may release to the investor, on application, an amount not exceeding:",
+   "options": [
+    "₹1 lakh",
+    "₹30 lakh",
+    "₹5 lakh",
+    "₹10 lakh"
+   ],
+   "answer": 2,
+   "why": "The MII may release up to ₹5,00,000 to the investor after taking an undertaking/indemnity/security for return if the arbitration goes against the investor.",
+   "ref": "7.3.6",
+   "level": "medium"
+  },
+  {
+   "q": "An investor's claim against a broker in ODR arbitration is ₹80,000. How will the arbitration normally proceed?",
+   "options": [
+    "Hearings before a three-member tribunal",
+    "Hearings before a sole arbitrator, award in 60 days",
+    "Document-only arbitration by a sole arbitrator, award within 30 calendar days",
+    "It goes back to SCORES because it is below ₹1 lakh"
+   ],
+   "answer": 2,
+   "why": "For claims of ₹1 lakh or below, the sole arbitrator conducts a document-only process and passes the award within 30 calendar days; a hearing can be granted only for recorded reasons.",
+   "ref": "7.3.8",
+   "level": "medium"
+  },
+  {
+   "q": "A client's claim against a broker is ₹45 lakh. Who will decide it in ODR arbitration?",
+   "options": [
+    "A sole arbitrator",
+    "An arbitral tribunal of three arbitrators",
+    "The Member Committee of the exchange",
+    "SEBI's dealing officer"
+   ],
+   "answer": 1,
+   "why": "Claims above ₹30 lakh are decided by an arbitral tribunal of three arbitrators.",
+   "ref": "7.3.8",
+   "level": "easy"
+  },
+  {
+   "q": "An arbitral award directs a broker to pay the investor. Unless the award requires earlier payment, within how many days must the broker pay?",
+   "options": [
+    "7 calendar days",
+    "10 calendar days",
+    "30 calendar days",
+    "15 calendar days"
+   ],
+   "answer": 3,
+   "why": "The Market Participant must pay within 15 calendar days of the arbitral award, unless the award requires payment sooner.",
+   "ref": "7.3.8",
+   "level": "medium"
+  },
+  {
+   "q": "The party against whom an arbitral award is passed must notify its intention to challenge the award under Section 34 within:",
+   "options": [
+    "7 calendar days, on the ODR Portal",
+    "15 calendar days, to SEBI",
+    "3 months, to the court",
+    "30 calendar days, to the MII"
+   ],
+   "answer": 0,
+   "why": "The intention to challenge under Section 34 must be submitted within 7 calendar days on the ODR Portal; if no stay is granted within 3 months, the award must be complied with fully.",
+   "ref": "7.3.8",
+   "level": "hard"
+  },
+  {
+   "q": "A broker wants to start ODR proceedings against a client over unpaid dues. What is required before it can do so?",
+   "options": [
+    "SEBI's prior approval",
+    "A deposit of ₹5 lakh with the exchange",
+    "At least 15 calendar days' notice to the client to resolve the dispute",
+    "A failed complaint on SCORES"
+   ],
+   "answer": 2,
+   "why": "A Market Participant may initiate ODR only after giving the investor at least 15 calendar days' notice for resolving the dispute.",
+   "ref": "7.3.4",
+   "level": "hard"
+  },
+  {
+   "q": "Where is the seat of an online arbitration between an individual investor and a stock broker deemed to be?",
+   "options": [
+    "Where the broker has its registered office",
+    "Where the ODR Institution is located",
+    "Mumbai, where SEBI's head office is",
+    "Where the investor resides permanently"
+   ],
+   "answer": 3,
+   "why": "For investor-vs-intermediary disputes, the venue and seat is where the investor permanently resides (for non-individuals, the registered/principal place of business in India per KYC).",
+   "ref": "7.3.9",
+   "level": "hard"
+  },
+  {
+   "q": "Which of the following is a correct contribution by a stock exchange to its Investor Protection Fund?",
+   "options": [
+    "20% of listing fees, monthly",
+    "1% of listing fees, on a quarterly basis",
+    "10% of transaction charges, annually",
+    "100% of the security deposit kept by issuers"
+   ],
+   "answer": 1,
+   "why": "Exchanges contribute 1% of listing fees quarterly to the IPF; 20% of listing fees goes to the Investor Services Fund, and it is 100% of the interest (not the deposit) on the issuer's 1% security deposit.",
+   "ref": "7.4",
+   "level": "hard"
+  },
+  {
+   "q": "A client's claim against a defaulter broker arises from speculative transactions. It is eligible for compensation from the IPF.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "Claims arising out of speculative transactions are not eligible for compensation from the IPF.",
+   "ref": "7.4",
+   "level": "easy"
+  },
+  {
+   "q": "At least what share of the yearly interest/income from IPF investments must be ploughed back into the IPF?",
+   "options": [
+    "70%",
+    "25%",
+    "50%",
+    "100%"
+   ],
+   "answer": 0,
+   "why": "At least 70% of IPF income is ploughed back into the fund; 25% can be used for investor education and awareness.",
+   "ref": "7.4",
+   "level": "medium"
+  }
+ ]
+}

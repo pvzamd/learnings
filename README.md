@@ -1,39 +1,71 @@
 # Learnings
 
-Plain-English exam prep guides: chapter notes, memory hooks, flashcards, practice quizzes and timed mock tests. Everything is static HTML with no database; progress is saved in the visitor's browser (localStorage).
+Plain-English exam prep guides: chapter notes, memory hooks, flashcards, practice quizzes and timed mock tests. Everything is static HTML with no database and no third-party requests (fonts are self-hosted). Progress is saved only in the visitor's browser (localStorage), and each guide has a "Clear my progress" link.
 
 ## Layout
 
 ```
-index.html            course picker (home page)
-build.mjs             assembles the published site into dist/
-<COURSE>/             one folder per course, e.g. NISM-VII/
-  site/index.html     the hosted guide
-  private/            official workbook, private links (gitignored, never published)
-  ...                 other outputs (PDFs, saved copies)
+index.html              course picker (home page)
+build.mjs               assembles the published site into dist/
+assets/
+  fonts/                self-hosted fonts + their licences (SIL OFL)
+  og.png                home page link-preview image
+  og-card.html          source for og.png (not published)
+<COURSE>/               one folder per course, e.g. NISM-VII/
+  site/index.html       the hosted guide (built by builder/)
+  site/og.png           the course's link-preview image
+  builder/              source of the guide (not published)
+    content/chN.json    chapter notes, numbers, flashcards, questions
+    template.html       the app; build.py puts the chapter data into it
+    build.py            writes ../site/index.html
+    validate.py         checks a chapter file against SCHEMA.md
+    test.mjs            headless smoke test of the built guide
+    og-card.html        source for site/og.png
+  private/              official workbook, private links (gitignored, never published)
 ```
 
-## Build and preview
+## Editing a guide
+
+```
+python NISM-VII/builder/validate.py NISM-VII/builder/content/ch3.json
+python NISM-VII/builder/build.py
+node NISM-VII/builder/test.mjs
+```
+
+Edit a chapter file, validate it, rebuild `site/index.html`, run the test, then commit both the content and the rebuilt `site/index.html`.
+
+## Building the site
 
 ```
 node build.mjs
 ```
 
-This copies `index.html` to `dist/` and each `<COURSE>/site/` to `dist/<course-lowercase>/` (e.g. `NISM-VII/site/` becomes `/nism-vii/`). Nothing else is published, so `private/` folders stay out of the site. You can also open `index.html` straight from the folder; its links point at each `<COURSE>/site/index.html`.
+This copies `index.html` and `assets/` (minus the `*.html` card sources) to `dist/`, and each `<COURSE>/site/` to `dist/<course-lowercase>/` (e.g. `NISM-VII/site/` becomes `/nism-vii/`). Nothing else is published, so `private/` and `builder/` folders stay out of the site. It also replaces `%%SITE_URL%%` in the link-preview tags with the `SITE_URL` environment variable.
+
+You can open `index.html` straight from the folder; its links point at each `<COURSE>/site/index.html`.
+
+## Link-preview images
+
+Each preview image is rendered from its card source with Chrome:
+
+```
+chrome --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=<absolute path to og.png> <card source .html>
+```
 
 ## Adding a course
 
-1. Create `<COURSE>/site/index.html` (and `<COURSE>/private/` for the source material).
-2. In `index.html`, copy the course `<li>` and set `data-folder`, `data-key` (the guide's localStorage prefix, unique per course), the chapter count and the text.
+1. Create `<COURSE>/site/index.html` (and `<COURSE>/private/` for the source material). Give the guide its own localStorage prefix.
+2. In `index.html`, copy the course `<li>` and set `data-folder`, `data-key` (that prefix), the chapter count and the text.
 3. Commit and push. The host rebuilds automatically.
 
 ## Hosting
 
-Cloudflare Pages, connected to this private repo:
+Cloudflare Pages, connected to this repo:
 
 - Framework preset: None
 - Build command: `node build.mjs`
 - Build output directory: `dist`
+- Environment variable: `SITE_URL` = the site's address, e.g. `https://learnings.pages.dev` (used for link previews)
 
 ## Disclaimer
 

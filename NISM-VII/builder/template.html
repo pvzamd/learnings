@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>NISM VII Study Guide</title>
+<meta name="description" content="Plain-English study guide for the NISM Series VII (Securities Operations and Risk Management) exam: chapter notes, memory hooks, flashcards, 256 practice questions and a timed 100-question mock. Built from the July 2026 workbook.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learnings">
+<meta property="og:title" content="NISM VII Study Guide">
+<meta property="og:description" content="Plain-English study guide for the NISM Series VII (Securities Operations and Risk Management) exam: chapter notes, memory hooks, flashcards, 256 practice questions and a timed 100-question mock. Built from the July 2026 workbook.">
+<meta property="og:url" content="%%SITE_URL%%/nism-vii/">
+<meta property="og:image" content="%%SITE_URL%%/nism-vii/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="NISM Series VII study guide: securities operations and risk management">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a6a4c%27/%3E%3Ctext x=%2716%27 y=%2722%27 text-anchor=%27middle%27 font-family=%27Arial,sans-serif%27 font-weight=%27700%27 font-size=%2714%27 fill=%27white%27%3EVII%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="../assets/fonts/source-serif-4-normal-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../assets/fonts/bricolage-grotesque-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/fonts/fonts.css">
+<style>
+/* Layout: app shell. A sticky chapter rail on the left (the trade's journey, chapter by chapter) and one ~68ch reading column; under 960px the rail becomes a sticky top bar with a drop-down menu. */
+:root {
+  --bg: #f6f8f7;
+  --surface: #ffffff;
+  --sunk: #edf2f0;
+  --ink: #14211c;
+  --ink-2: #3a4943;
+  --muted: #62736b;
+  --line: #d6e0db;
+  --accent: #0a6a4c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e0efe8;
+  --hook: #855700;
+  --hook-soft: #faefd6;
+  --trap: #ad2a20;
+  --trap-soft: #fbe7e4;
+  --ex: #1b5a99;
+  --ex-soft: #e4edf8;
+  --mark: #ffe74a;
+  --mark-ink: #2b2600;
+  --good: #0b7a47;
+  --good-soft: #def3e7;
+  --bad: #bf3329;
+  --bad-soft: #fbe5e2;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  --r: 8px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1311; --surface: #141c19; --sunk: #1a2420; --ink: #e3ebe7; --ink-2: #c2cec8; --muted: #8fa199;
+    --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a;
+    --hook: #efbb57; --hook-soft: #2c2411; --trap: #f38b81; --trap-soft: #3a1c19; --ex: #8ab8f1; --ex-soft: #152638;
+    --mark: #e8d33c; --mark-ink: #1f1b00; --good: #55d293; --good-soft: #143224; --bad: #f38b81; --bad-soft: #3a1c19;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1311; --surface: #141c19; --sunk: #1a2420; --ink: #e3ebe7; --ink-2: #c2cec8; --muted: #8fa199;
+  --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a;
+  --hook: #efbb57; --hook-soft: #2c2411; --trap: #f38b81; --trap-soft: #3a1c19; --ex: #8ab8f1; --ex-soft: #152638;
+  --mark: #e8d33c; --mark-ink: #1f1b00; --good: #55d293; --good-soft: #143224; --bad: #f38b81; --bad-soft: #3a1c19;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: 24px; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 18px; line-height: 1.62; -webkit-font-smoothing: antialiased; }
+a { color: var(--accent); }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+b, strong { font-weight: 650; }
+
+.shell {
+  display: grid; grid-template-columns: 272px minmax(0, 1fr); gap: 40px; align-items: start;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+  max-width: 1240px; margin: 0 auto;
+}
+
+/* ---------- rail ---------- */
+.rail { position: sticky; top: env(safe-area-inset-top, 0px); max-height: 100vh; overflow-y: auto; padding-block: 24px; font-family: var(--font-display); }
+.brand { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand a { text-decoration: none; color: var(--ink); display: grid; gap: 2px; }
+.brand .b1 { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+.brand .b1 em { font-style: normal; color: var(--accent); }
+.brand .b2 { font-family: var(--font-mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.menu-btn { display: none; border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 6px 14px; font-family: var(--font-display); font-size: 14px; font-weight: 600; cursor: pointer; }
+.nav { display: grid; gap: 2px; margin-top: 22px; }
+.nav .grp { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 16px 10px 6px; }
+.nav a { display: grid; grid-template-columns: 22px minmax(0, 1fr) auto; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 6px; color: var(--ink-2); text-decoration: none; font-size: 15px; font-weight: 500; }
+.nav a:hover { background: var(--sunk); color: var(--ink); }
+.nav a.on { background: var(--accent-soft); color: var(--ink); font-weight: 650; }
+.nav .no { font-family: var(--font-mono); font-size: 12px; color: var(--muted); text-align: center; }
+.nav .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nav .meta { font-family: var(--font-mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; display: flex; gap: 6px; align-items: center; }
+.nav .tick { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--line); display: inline-grid; place-items: center; }
+.nav .tick.done { background: var(--accent); border-color: var(--accent); }
+.nav .tick.done::after { content: ""; width: 6px; height: 3px; border: solid var(--accent-ink); border-width: 0 0 1.5px 1.5px; transform: rotate(-45deg) translate(0.5px, -0.5px); }
+.nav .pill { font-family: var(--font-mono); font-size: 11px; background: var(--trap-soft); color: var(--trap); padding: 1px 7px; border-radius: 999px; }
+.railprog { margin: 22px 10px 0; font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.railprog .bar { height: 6px; border-radius: 3px; background: var(--sunk); margin-top: 6px; overflow: hidden; }
+.railprog .bar i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+
+/* ---------- main ---------- */
+main { min-width: 0; padding-block: 40px 96px; }
+.page { max-width: 760px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+h1, h2, h3, h4 { font-family: var(--font-display); text-wrap: balance; color: var(--ink); }
+h1 { font-size: clamp(32px, 4.6vw, 48px); line-height: 1.06; letter-spacing: -0.025em; font-weight: 750; margin: 10px 0 16px; }
+h2 { font-size: 26px; line-height: 1.2; letter-spacing: -0.015em; font-weight: 700; margin: 0 0 14px; }
+h3 { font-size: 20px; font-weight: 650; margin: 0 0 10px; }
+h4 { font-size: 16px; font-weight: 650; margin: 0 0 8px; }
+.lead { font-size: 21px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+p { margin: 0 0 14px; }
+.small { font-size: 15px; color: var(--muted); }
+.mono { font-family: var(--font-mono); }
+.h-sm { font-size: 13px; font-family: var(--font-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin-bottom: 10px; }
+
+.btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 10px 18px; border-radius: 999px; text-decoration: none; font-family: var(--font-display); font-weight: 600; font-size: 15px; cursor: pointer; line-height: 1.2; }
+.btn:hover { border-color: var(--ink-2); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; }
+.btn:disabled { opacity: .45; cursor: not-allowed; }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ---------- home ---------- */
+.hero { display: grid; gap: 4px; margin-bottom: 36px; }
+.hero .note { margin-top: 16px; font-size: 15px; color: var(--muted); }
+.hero .note mark { background: var(--mark); color: var(--mark-ink); padding: 0 4px; border-radius: 2px; }
+.journey { list-style: none; padding: 0; margin: 0 0 44px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; counter-reset: stop; }
+.journey li { position: relative; }
+.journey a { display: grid; gap: 6px; align-content: start; height: 100%; padding: 14px 14px 16px; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); text-decoration: none; color: var(--ink); position: relative; }
+.journey a:hover { border-color: var(--accent); }
+.journey .stop { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-mono); font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.journey .stop .tick { width: 16px; height: 16px; }
+.journey .story { font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 1.2; letter-spacing: -0.01em; }
+.journey .sub { font-size: 14px; line-height: 1.4; color: var(--ink-2); }
+.journey .wt { font-family: var(--font-mono); font-size: 12px; color: var(--accent); font-weight: 600; }
+.journey .track { position: absolute; top: 22px; right: -11px; width: 12px; height: 1px; background: var(--line); }
+.journey li:nth-child(4n) .track, .journey li:last-child .track { display: none; }
+
+.facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); margin-bottom: 14px; }
+.facts div { padding: 14px 14px 14px 0; display: grid; gap: 2px; }
+.facts div + div { padding-left: 14px; border-left: 1px solid var(--line); }
+.facts b { font-family: var(--font-display); font-size: 34px; font-weight: 750; letter-spacing: -0.02em; line-height: 1.05; font-variant-numeric: tabular-nums; }
+.facts span { font-size: 14px; color: var(--muted); line-height: 1.35; }
+.block { margin-bottom: 44px; }
+
+.wbars { display: grid; gap: 4px; margin: 6px 0 12px; }
+.wrow { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr) 4.2rem; gap: 14px; align-items: center; padding: 3px 6px; border-radius: 6px; text-decoration: none; color: var(--ink); position: relative; }
+.wrow:hover { background: var(--sunk); }
+.wrow .lbl { font-family: var(--font-display); font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.wrow .lbl span { font-family: var(--font-mono); color: var(--muted); font-size: 12px; margin-right: 6px; }
+.wrow .track2 { height: 14px; border-left: 1px solid var(--ink-2); display: flex; align-items: center; }
+.wrow .track2 i { display: block; height: 12px; background: var(--accent); border-radius: 0 4px 4px 0; width: calc(var(--w) * 5%); }
+.wrow .val { font-family: var(--font-mono); font-size: 14px; font-variant-numeric: tabular-nums; text-align: right; }
+.wrow .tip { position: absolute; right: 4.8rem; top: -30px; background: var(--ink); color: var(--bg); font-family: var(--font-mono); font-size: 12px; padding: 4px 8px; border-radius: 4px; opacity: 0; pointer-events: none; transition: opacity .12s; white-space: nowrap; z-index: 2; }
+.wrow:hover .tip, .wrow:focus-visible .tip { opacity: 1; }
+
+.plan { list-style: none; padding: 0; margin: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.plan li { display: grid; grid-template-columns: 28px 64px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.plan input { width: 18px; height: 18px; margin-top: 4px; accent-color: var(--accent); }
+.plan .day { font-family: var(--font-mono); font-size: 13px; color: var(--muted); padding-top: 3px; }
+.plan .what b { font-family: var(--font-display); font-weight: 650; display: block; font-size: 17px; }
+.plan .what span { font-size: 15px; color: var(--ink-2); }
+.plan .mk { font-family: var(--font-mono); font-size: 12px; color: var(--accent); padding-top: 4px; white-space: nowrap; }
+.plan li.done .what { opacity: .55; }
+
+.tips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.tip-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 18px; }
+.tip-card h3 { font-size: 17px; }
+.tip-card p { font-size: 16px; margin: 0; color: var(--ink-2); }
+.tip-card .calc { font-family: var(--font-mono); font-size: 13px; background: var(--sunk); padding: 8px 10px; border-radius: 6px; margin-top: 10px; color: var(--ink); line-height: 1.6; }
+
+/* ---------- chapter ---------- */
+.ch-head { margin-bottom: 28px; }
+.focus { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 18px 22px 8px; margin-bottom: 26px; }
+.focus ul { margin: 0; padding-left: 20px; }
+.focus li { margin-bottom: 8px; font-size: 17px; }
+.toc { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 40px; }
+.toc button { border: 1px solid var(--line); background: transparent; border-radius: 999px; padding: 5px 12px; font-family: var(--font-display); font-size: 14px; color: var(--ink-2); cursor: pointer; text-align: left; }
+.toc button:hover { border-color: var(--accent); color: var(--ink); }
+.toc .sid { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-right: 4px; }
+.sec { padding-top: 30px; margin-top: 10px; border-top: 1px solid var(--line); margin-bottom: 18px; }
+.sec h2 .sid { font-family: var(--font-mono); font-size: 15px; font-weight: 500; color: var(--accent); margin-right: 10px; vertical-align: 3px; }
+.sec ul.list { padding-left: 22px; margin: 0 0 16px; }
+.sec ul.list li { margin-bottom: 6px; }
+.sec ul.list li::marker { color: var(--accent); }
+
+.callout { border-radius: var(--r); padding: 14px 18px 4px; margin: 18px 0; font-size: 17px; }
+.callout .lbl { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 6px; }
+.callout > div:last-child { margin-bottom: 10px; }
+.callout.hook { background: var(--hook-soft); }
+.callout.hook .lbl { color: var(--hook); }
+.callout.trap { background: var(--trap-soft); }
+.callout.trap .lbl { color: var(--trap); }
+.callout.example { background: var(--ex-soft); }
+.callout.example .lbl { color: var(--ex); }
+.callout.new { background: var(--sunk); border: 1px dashed var(--line); }
+.callout.new .lbl { background: var(--mark); color: var(--mark-ink); padding: 1px 6px; border-radius: 2px; }
+p.key { font-weight: 600; margin: 16px 0; padding: 10px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+p.key .tag, .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-right: 10px; vertical-align: 1px; }
+
+ol.steps { list-style: none; padding: 0; margin: 16px 0 20px; display: grid; gap: 0; }
+ol.steps li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 14px; position: relative; padding-bottom: 14px; }
+ol.steps li:not(:last-child)::before { content: ""; position: absolute; left: 14px; top: 30px; bottom: 0; width: 1px; background: var(--line); }
+ol.steps .n { width: 30px; height: 30px; border-radius: 50%; border: 1.5px solid var(--accent); color: var(--accent); display: grid; place-items: center; font-family: var(--font-mono); font-size: 13px; font-weight: 600; background: var(--bg); }
+ol.steps .st { display: block; font-family: var(--font-display); font-size: 17px; font-weight: 650; padding-top: 2px; }
+ol.steps li > div > div { font-size: 17px; color: var(--ink-2); }
+
+figure.tbl { margin: 18px 0 22px; }
+figure.tbl figcaption { font-family: var(--font-mono); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table { border-collapse: collapse; width: 100%; font-size: 15.5px; line-height: 1.45; font-variant-numeric: tabular-nums; }
+th { font-family: var(--font-display); font-weight: 650; text-align: left; font-size: 14px; color: var(--ink); border-bottom: 2px solid var(--ink-2); padding: 8px 12px 8px 0; vertical-align: bottom; }
+td { padding: 9px 12px 9px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th + th, td + td { padding-left: 12px; }
+tbody tr:hover td { background: var(--sunk); }
+
+.compare { display: grid; gap: 12px; margin: 18px 0 22px; }
+.compare.c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.compare.c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.cmp { border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px 6px; background: var(--surface); min-width: 0; }
+.cmp h4 { font-size: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+.cmp ul { padding-left: 18px; margin: 0 0 8px; font-size: 16px; }
+.cmp li { margin-bottom: 6px; }
+
+.numtbl td:last-child, .numtbl th:last-child { text-align: right; }
+.numtbl td.v { font-family: var(--font-mono); font-weight: 600; font-size: 14.5px; color: var(--ink); white-space: normal; min-width: 7rem; }
+.numtbl td.r { font-family: var(--font-mono); font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+.endbar { margin-top: 36px; padding: 22px; border-radius: var(--r); background: var(--surface); border: 1px solid var(--line); display: grid; gap: 16px; }
+.check { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 600; font-size: 16px; cursor: pointer; }
+.check input { width: 20px; height: 20px; accent-color: var(--accent); }
+.pn { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-top: 18px; font-family: var(--font-display); font-size: 15px; }
+.pn a { text-decoration: none; }
+
+/* ---------- flashcards ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 16px 0 22px; }
+.chip { border: 1px solid var(--line); background: var(--surface); border-radius: 999px; padding: 5px 12px; font-family: var(--font-display); font-size: 14px; color: var(--ink-2); text-decoration: none; cursor: pointer; }
+.chip.on { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.fc-stage { perspective: 1400px; }
+.fc { display: grid; cursor: pointer; transition: transform .45s cubic-bezier(.2,.7,.2,1); transform-style: preserve-3d; min-height: 280px; }
+.fc.flipped { transform: rotateY(180deg); }
+.fc .face { grid-area: 1 / 1; backface-visibility: hidden; -webkit-backface-visibility: hidden; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); padding: 26px 28px; display: grid; align-content: center; gap: 14px; min-height: 280px; }
+.fc .back { transform: rotateY(180deg); background: var(--accent-soft); border-color: transparent; }
+.fc .face .lbl { font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); display: flex; justify-content: space-between; gap: 10px; }
+.fc .front .txt { font-family: var(--font-display); font-size: clamp(20px, 2.8vw, 26px); font-weight: 650; line-height: 1.3; letter-spacing: -0.01em; }
+.fc .back .txt { font-size: 21px; line-height: 1.5; }
+.fc-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+.fc-count { font-family: var(--font-mono); font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.kbd { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 12px; }
+.kbd kbd { font-family: var(--font-mono); border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 4px; padding: 0 5px; background: var(--surface); }
+
+/* ---------- quiz ---------- */
+.qcard { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 24px 26px; }
+.qmeta { font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+.qtext { font-size: 20px; line-height: 1.5; margin-bottom: 18px; }
+.opts { display: grid; gap: 8px; }
+.opt { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; text-align: left; border: 1px solid var(--line); background: var(--bg); padding: 11px 14px; border-radius: var(--r); cursor: pointer; font-size: 17px; line-height: 1.45; }
+.opt:hover:not(:disabled) { border-color: var(--ink-2); }
+.opt .L { width: 26px; height: 26px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; font-family: var(--font-mono); font-size: 12px; font-weight: 600; color: var(--muted); background: var(--surface); }
+.opt.sel { border-color: var(--accent); background: var(--accent-soft); }
+.opt.sel .L { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.opt.right { border-color: var(--good); background: var(--good-soft); }
+.opt.right .L { background: var(--good); color: var(--surface); border-color: var(--good); }
+.opt.wrong { border-color: var(--bad); background: var(--bad-soft); }
+.opt.wrong .L { background: var(--bad); color: var(--surface); border-color: var(--bad); }
+.opt:disabled { cursor: default; }
+.explain { margin-top: 16px; padding: 14px 16px; border-radius: var(--r); background: var(--sunk); font-size: 16.5px; }
+.explain .verdict { font-family: var(--font-display); font-weight: 700; font-size: 17px; display: block; margin-bottom: 4px; }
+.explain .verdict.ok { color: var(--good); }
+.explain .verdict.no { color: var(--bad); }
+.explain .ref { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 6px; display: block; }
+.qfoot { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.progressline { height: 4px; background: var(--sunk); border-radius: 2px; overflow: hidden; margin-bottom: 18px; }
+.progressline i { display: block; height: 100%; background: var(--accent); }
+.score { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); margin: 18px 0 24px; }
+.score div { padding: 14px 14px 14px 0; display: grid; gap: 2px; }
+.score div + div { padding-left: 14px; border-left: 1px solid var(--line); }
+.score b { font-family: var(--font-display); font-size: 34px; font-weight: 750; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.score span { font-size: 14px; color: var(--muted); }
+.verdict-big { font-family: var(--font-display); font-size: 22px; font-weight: 700; }
+.verdict-big.ok { color: var(--good); }
+.verdict-big.no { color: var(--bad); }
+.review { display: grid; gap: 12px; margin-top: 16px; }
+.rv { border: 1px solid var(--line); border-radius: var(--r); padding: 14px 16px; background: var(--surface); font-size: 16px; }
+.rv .q { margin-bottom: 8px; }
+.rv .a { display: grid; gap: 2px; font-size: 15px; }
+.rv .a .y { color: var(--bad); }
+.rv .a .y.ok { color: var(--good); }
+.rv .a .c { color: var(--good); }
+.rv .why { color: var(--ink-2); font-size: 15px; margin-top: 6px; }
+.start-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px; margin: 18px 0; }
+.start { text-align: left; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); padding: 16px 18px; cursor: pointer; display: grid; gap: 4px; }
+.start:hover:not(:disabled) { border-color: var(--accent); }
+.start b { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
+.start span { font-size: 15px; color: var(--ink-2); }
+
+/* ---------- mock ---------- */
+.mockbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bg); padding: 12px 0; margin-bottom: 14px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.timer { font-family: var(--font-mono); font-size: 22px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.timer.low { color: var(--bad); }
+.mockbar .stat { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.grid100 { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: 4px; margin-top: 18px; max-width: 420px; }
+.grid100 button { aspect-ratio: 1; border: 1px solid var(--line); background: var(--surface); border-radius: 4px; font-family: var(--font-mono); font-size: 11px; cursor: pointer; padding: 0; color: var(--ink-2); max-width: 100%; }
+.grid100 button.ans { background: var(--accent-soft); border-color: var(--accent); color: var(--ink); }
+.grid100 button.mk { box-shadow: inset 0 -3px 0 var(--hook); }
+.grid100 button.cur { outline: 2px solid var(--ink); outline-offset: 1px; }
+.legend { display: flex; flex-wrap: wrap; gap: 14px; font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-top: 10px; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; border: 1px solid var(--line); vertical-align: -2px; margin-right: 5px; background: var(--surface); }
+.legend i.ans { background: var(--accent-soft); border-color: var(--accent); }
+.legend i.mk { box-shadow: inset 0 -3px 0 var(--hook); }
+.confirm { margin-top: 14px; padding: 14px 16px; border: 1px solid var(--bad); border-radius: var(--r); background: var(--bad-soft); display: grid; gap: 10px; }
+.rules { padding-left: 20px; margin: 0 0 18px; }
+.rules li { margin-bottom: 6px; }
+
+/* ---------- numbers / updates ---------- */
+.search { width: 100%; max-width: 420px; padding: 10px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font: 16px var(--font-display); margin: 10px 0 20px; }
+.numgroup { margin-bottom: 32px; }
+.numgroup h3 a { color: inherit; text-decoration: none; }
+.numgroup h3 .no { font-family: var(--font-mono); color: var(--accent); font-size: 15px; margin-right: 8px; }
+.upd { padding: 18px 0; border-top: 1px solid var(--line); }
+.upd .where { font-family: var(--font-mono); font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.upd .where a { color: var(--accent); }
+.empty { padding: 24px; border: 1px dashed var(--line); border-radius: var(--r); color: var(--muted); font-size: 16px; }
+
+/* ---------- footer ---------- */
+.site-foot { max-width: 1240px; margin: 0 auto; padding-block: 20px 32px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); border-top: 1px solid var(--line); font-family: var(--font-display); font-size: 13px; line-height: 1.55; color: var(--muted); display: grid; gap: 10px; }
+.site-foot p { margin: 0; }
+.site-foot b { color: var(--ink-2); font-weight: 600; }
+.site-foot .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+.linkbtn { background: none; border: 0; padding: 0; font: inherit; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+.linkbtn.danger { color: var(--bad); font-weight: 600; }
+.done-msg { color: var(--good); font-weight: 600; }
+.star { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; background: var(--surface); color: var(--ink); text-decoration: none; font-weight: 600; }
+.star:hover { border-color: var(--accent); }
+.star span { color: var(--hook); }
+
+@media (max-width: 960px) {
+  .shell { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  .rail { z-index: 20; padding-block: 12px; max-height: none; overflow: visible; background: var(--bg); border-bottom: 1px solid var(--line); margin: 0 calc(-1 * max(16px, env(safe-area-inset-right, 0px))) 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .brand .b1 { font-size: 19px; }
+  .menu-btn { display: inline-block; }
+  .rail .nav, .rail .railprog { display: none; }
+  .rail.open .nav { display: grid; max-height: 70vh; overflow-y: auto; margin-top: 10px; padding-bottom: 8px; }
+  .rail.open .railprog { display: block; margin: 8px 10px 4px; }
+  main { padding-top: 24px; }
+  .mockbar { top: calc(env(safe-area-inset-top, 0px) + 62px); }
+  html { scroll-padding-top: 76px; }
+}
+@media (max-width: 760px) {
+  body { font-size: 17px; }
+  .journey { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .journey .track { display: none; }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .facts div:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .tips { grid-template-columns: minmax(0, 1fr); }
+  .compare.c2, .compare.c3 { grid-template-columns: minmax(0, 1fr); }
+  .wrow { grid-template-columns: minmax(0, 8.5rem) minmax(0, 1fr) 3.4rem; gap: 10px; }
+  .wrow .lbl span { display: none; }
+  .wrow .tip { display: none; }
+  .plan li { grid-template-columns: 24px minmax(0, 1fr); }
+  .plan .day { grid-column: 2; padding-top: 0; }
+  .plan .what { grid-column: 2; }
+  .plan .mk { grid-column: 2; padding-top: 0; }
+  .plan input { grid-row: 1 / span 3; }
+  .qcard { padding: 18px 16px; }
+  .qtext { font-size: 18px; }
+  .fc .face { padding: 22px 20px; }
+  .score b { font-size: 26px; }
+  .lead { font-size: 19px; }
+}
+@media (max-width: 420px) {
+  .journey { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fc { transition: none; }
+  * { scroll-behavior: auto !important; }
+}
+</style>
+</head>
+<body>
+<div class="shell">
+  <aside class="rail" id="rail">
+    <div class="brand">
+      <a href="#home"><span class="b1">NISM <em>VII</em> Study Guide</span><span class="b2">Securities Ops &amp; Risk Mgmt</span></a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="railprog" id="railprog"></div>
+  </aside>
+  <main id="view" tabindex="-1"></main>
+</div>
+
+<footer class="site-foot">
+  <p><b>Your progress is saved only in this browser.</b> No account, no cookies, no tracking. <span id="clearwrap"><button class="linkbtn" data-act="clear-ask">Clear my progress</button></span></p>
+  <p>Independent study notes written from the NISM Series VII workbook (July 2026 version). Not affiliated with, or endorsed by, NISM or SEBI. The official workbook and SEBI circulars are the final word for the exam.</p>
+  <p class="row"><a class="allc" href="../">&larr; All courses</a><a class="star" href="https://github.com/pvzamd/learnings" target="_blank" rel="noopener"><span>&#9733;</span> Star on GitHub</a></p>
+</footer>
+
+<script id="data" type="application/json">/*__DATA__*/</script>
+<script>
+(function () {
+  "use strict";
+  const DATA = JSON.parse(document.getElementById("data").textContent);
+  const CH = DATA.chapters.slice().sort((a, b) => a.id - b.id);
+  const byId = {};
+  CH.forEach(c => { byId[c.id] = c; });
+  const ALLQ = [];
+  CH.forEach(c => c.questions.forEach((q, i) => ALLQ.push(Object.assign({}, q, { ch: c.id, qid: c.id + ":" + i }))));
+  const QBY = {};
+  ALLQ.forEach(q => { QBY[q.qid] = q; });
+
+  const STORY = {
+    1: ["The marketplace", "What gets traded, where, and in which market"],
+    2: ["The cast", "Investors, issuers, intermediaries and the regulators watching them"],
+    3: ["The order", "Onboarding, KYC, placing the order, the contract note"],
+    4: ["The safety net", "Margins, limits, surveillance, reporting, Core SGF"],
+    5: ["Who owes what", "Clearing: the CC, netting and each member's obligation"],
+    6: ["Money and shares move", "Pay-in, pay-out, auctions, corporate actions"],
+    7: ["When it goes wrong", "Complaints, SCORES, SMART ODR, the Investor Protection Fund"],
+    8: ["Beyond trading", "IPOs, mutual funds, PMS, margin trading, online trading"]
+  };
+
+  /* ---------- storage (per-viewer convenience only) ---------- */
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem("nism7:" + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem("nism7:" + k, JSON.stringify(v)); } catch (e) { /* storage blocked: keep in memory */ } }
+  };
+  const S = {
+    read: store.get("read", {}),
+    best: store.get("best", {}),
+    wrong: store.get("wrong", []),
+    plan: store.get("plan", {}),
+    mock: store.get("mock", null),
+    mockSeen: store.get("mockSeen", [])
+  };
+  const save = k => store.set(k, S[k]);
+
+  /* ---------- helpers ---------- */
+  const $ = (sel, root) => (root || document).querySelector(sel);
+  const strip = s => String(s).replace(/<[^>]+>/g, "");
+  const esc = s => String(s).replace(/[&<>"]/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+  const shuffle = arr => { const a = arr.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  const secDom = (cid, sid) => "s-" + cid + "-" + String(sid).replace(/[^A-Za-z0-9]/g, "-");
+  const LET = "ABCD";
+  const fmtTime = s => { s = Math.max(0, Math.floor(s)); const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), x = s % 60; return h + ":" + String(m).padStart(2, "0") + ":" + String(x).padStart(2, "0"); };
+  const pct = (a, b) => b ? Math.round((a / b) * 100) : 0;
+  const wrongSet = () => new Set(S.wrong);
+  function markWrong(qid, isWrong) {
+    const set = wrongSet();
+    if (isWrong) set.add(qid); else set.delete(qid);
+    S.wrong = Array.from(set); save("wrong");
+  }
+
+  /* Course list: "../" once hosted; from disk it is two folders up (repo) or one (built dist/). */
+  function coursesHref() {
+    if (location.protocol !== "file:") return "../";
+    return /\/dist\//.test(location.pathname.replace(/\\/g, "/")) ? "../index.html" : "../../index.html";
+  }
+  const CLEAR_IDLE = '<button class="linkbtn" data-act="clear-ask">Clear my progress</button>';
+  function clearAll() {
+    try {
+      const keys = [];
+      for (let i = 0; i < localStorage.length; i++) { const k = localStorage.key(i); if (k && k.indexOf("nism7:") === 0) keys.push(k); }
+      keys.forEach(k => localStorage.removeItem(k));
+    } catch (e) { /* storage blocked: nothing was saved anyway */ }
+    S.read = {}; S.best = {}; S.wrong = []; S.plan = {}; S.mock = null; S.mockSeen = [];
+    deck = null; quiz = null; clearInterval(timerHandle);
+    renderNav(); render();
+    $("#clearwrap").innerHTML = '<span class="done-msg">Progress cleared.</span> ' + CLEAR_IDLE;
+  }
+
+  /* ---------- blocks ---------- */
+  function callout(cls, label, text) {
+    return '<aside class="callout ' + cls + '"><span class="lbl">' + label + "</span><div>" + text + "</div></aside>";
+  }
+  function blockHTML(b) {
+    switch (b.type) {
+      case "p": return "<p>" + b.text + "</p>";
+      case "list": return '<ul class="list">' + b.items.map(i => "<li>" + i + "</li>").join("") + "</ul>";
+      case "steps": return '<ol class="steps">' + b.items.map((s, i) => '<li><span class="n">' + (i + 1) + '</span><div><span class="st">' + s.title + "</span><div>" + s.text + "</div></div></li>").join("") + "</ol>";
+      case "table": return '<figure class="tbl">' + (b.caption ? "<figcaption>" + b.caption + "</figcaption>" : "") + '<div class="scroll"><table><thead><tr>' + b.head.map(h => "<th>" + h + "</th>").join("") + "</tr></thead><tbody>" + b.rows.map(r => "<tr>" + r.map(c => "<td>" + c + "</td>").join("") + "</tr>").join("") + "</tbody></table></div></figure>";
+      case "compare": return '<div class="compare c' + b.items.length + '">' + b.items.map(it => '<div class="cmp"><h4>' + it.title + "</h4><ul>" + it.points.map(p => "<li>" + p + "</li>").join("") + "</ul></div>").join("") + "</div>";
+      case "example": return callout("example", "Worked example" + (b.title ? " · " + b.title : ""), b.text);
+      case "hook": return callout("hook", "Memory hook", b.text);
+      case "trap": return callout("trap", "Exam trap", b.text);
+      case "key": return '<p class="key"><span class="tag">Remember</span>' + b.text + "</p>";
+      case "new": return callout("new", "Updated in July 2026", b.text);
+      default: return "";
+    }
+  }
+  function numbersTable(nums, withRef) {
+    return '<div class="scroll"><table class="numtbl"><thead><tr><th>What</th><th>Remember</th>' + (withRef ? "<th>§</th>" : "") + "</tr></thead><tbody>" +
+      nums.map(n => '<tr data-s="' + esc(strip(n.fact + " " + n.value).toLowerCase()) + '"><td>' + n.fact + '</td><td class="v">' + n.value + "</td>" + (withRef ? '<td class="r">' + (n.ref || "") + "</td>" : "") + "</tr>").join("") +
+      "</tbody></table></div>";
+  }
+
+  /* ---------- nav ---------- */
+  function renderNav() {
+    const wrongN = S.wrong.length;
+    let h = '<a class="allc" href="' + coursesHref() + '"><span class="no">&larr;</span><span class="t">All courses</span><span class="meta"></span></a>';
+    h += '<a href="#home" data-r="home"><span class="no">&raquo;</span><span class="t">Start here</span><span class="meta"></span></a>';
+    h += '<div class="grp">Chapters · the life of a trade</div>';
+    CH.forEach(c => {
+      const best = S.best[c.id];
+      h += '<a href="#ch' + c.id + '" data-r="ch' + c.id + '"><span class="no">' + c.id + '</span><span class="t">' + c.short + '</span><span class="meta">' +
+        (best != null ? best + "%" : c.weight + "%") + '<span class="tick' + (S.read[c.id] ? " done" : "") + '" title="' + (S.read[c.id] ? "Read" : "Not read yet") + '"></span></span></a>';
+    });
+    h += '<div class="grp">Revise</div>';
+    h += '<a href="#cards" data-r="cards"><span class="no">&#9635;</span><span class="t">Flashcards</span><span class="meta"></span></a>';
+    h += '<a href="#numbers" data-r="numbers"><span class="no">#</span><span class="t">Numbers cheat sheet</span><span class="meta"></span></a>';
+    h += '<a href="#updates" data-r="updates"><span class="no">&#9733;</span><span class="t">Updated in July 2026</span><span class="meta"></span></a>';
+    h += '<div class="grp">Test yourself</div>';
+    h += '<a href="#quiz-mixed" data-r="quiz-mixed"><span class="no">?</span><span class="t">Mixed practice</span><span class="meta"></span></a>';
+    h += '<a href="#quiz-mistakes" data-r="quiz-mistakes"><span class="no">&#215;</span><span class="t">My mistakes</span><span class="meta">' + (wrongN ? '<span class="pill">' + wrongN + "</span>" : "") + "</span></a>";
+    h += '<a href="#mock" data-r="mock"><span class="no">&#9719;</span><span class="t">Full mock test</span><span class="meta">' + (S.mock && !S.mock.done ? "live" : "") + "</span></a>";
+    $("#nav").innerHTML = h;
+    const readN = CH.filter(c => S.read[c.id]).length;
+    $("#railprog").innerHTML = readN + " of 8 chapters read" + '<div class="bar"><i style="width:' + (readN / 8 * 100) + '%"></i></div>';
+    markActive();
+  }
+  function markActive() {
+    const r = currentRoute();
+    let key = r.view === "ch" ? "ch" + r.arg : r.view === "quiz" ? (r.arg === "mixed" || r.arg === "mistakes" ? "quiz-" + r.arg : "ch" + r.arg) : r.view === "cards" ? "cards" : r.view;
+    document.querySelectorAll("#nav a").forEach(a => a.classList.toggle("on", a.dataset.r === key));
+  }
+
+  /* ---------- routing ---------- */
+  function currentRoute() {
+    const h = (location.hash || "#home").slice(1);
+    let m;
+    if ((m = h.match(/^ch(\d)$/)) && byId[+m[1]]) return { view: "ch", arg: +m[1] };
+    if ((m = h.match(/^cards(?:-(\w+))?$/))) return { view: "cards", arg: m[1] || "all" };
+    if ((m = h.match(/^quiz-(\w+)$/))) return { view: "quiz", arg: /^\d$/.test(m[1]) ? +m[1] : m[1] };
+    if (["numbers", "mock", "updates", "home"].includes(h)) return { view: h };
+    return { view: "home" };
+  }
+  let lastHash = null;
+  function render() {
+    const r = currentRoute();
+    const v = $("#view");
+    clearInterval(timerHandle);
+    if (r.view === "ch") v.innerHTML = viewChapter(r.arg);
+    else if (r.view === "cards") v.innerHTML = viewCards(r.arg);
+    else if (r.view === "quiz") v.innerHTML = viewQuiz(r.arg);
+    else if (r.view === "numbers") v.innerHTML = viewNumbers();
+    else if (r.view === "updates") v.innerHTML = viewUpdates();
+    else if (r.view === "mock") v.innerHTML = viewMock();
+    else v.innerHTML = viewHome();
+    if (r.view === "mock") startTimer();
+    if (r.view === "cards") drawCard();
+    if (location.hash !== lastHash) { window.scrollTo(0, 0); lastHash = location.hash; }
+    markActive();
+    $("#rail").classList.remove("open");
+    $("#menuBtn").setAttribute("aria-expanded", "false");
+  }
+
+  /* ---------- home ---------- */
+  function viewHome() {
+    const journey = CH.map(c => '<li><a href="#ch' + c.id + '"><span class="stop">Chapter ' + c.id + '<span class="tick' + (S.read[c.id] ? " done" : "") + '"></span></span><span class="story">' + STORY[c.id][0] + '</span><span class="sub">' + STORY[c.id][1] + '</span><span class="wt">' + c.weight + "% of marks" + (S.best[c.id] != null ? " · best quiz " + S.best[c.id] + "%" : "") + '</span></a><span class="track"></span></li>').join("");
+    const bars = CH.map(c => '<a class="wrow" href="#ch' + c.id + '"><span class="lbl"><span>' + c.id + "</span>" + c.short + '</span><span class="track2"><i style="--w:' + c.weight + '"></i></span><span class="val">' + c.weight + '%</span><span class="tip">Chapter ' + c.id + " · about " + c.weight + " questions</span></a>").join("");
+    const days = [
+      ["Day 1", "Chapters 1 and 2", "Read both, then flip their flashcards. Light chapters, lots of names: who is who in the market.", "15 marks", "1,2"],
+      ["Day 2", "Chapter 3", "The biggest chapter. Onboarding, KYC, orders, contract notes, back office. Take the quiz the same day.", "20 marks", "3"],
+      ["Day 3", "Chapter 4", "Margins and risk. Work through the worked examples slowly; this is where the numbers live.", "15 marks", "4"],
+      ["Day 4", "Chapters 5 and 6", "Clearing and settlement as one story: T day to T+1. Memorise the timeline table.", "30 marks", "5,6"],
+      ["Day 5", "Chapters 7 and 8", "Grievance ladders and day-counts, then IPO, MF, PMS, MTF and online trading.", "20 marks", "7,8"],
+      ["Day 6", "Numbers, updates, Mock 1", "Run the numbers cheat sheet twice, read the July 2026 updates, sit Mock 1 under time. Redo every wrong answer.", "revision", ""],
+      ["Day 7", "Mock 2 and weak spots", "Sit Mock 2. Re-quiz any chapter below 70%. Last pass over the Numbers flashcard deck.", "revision", ""]
+    ];
+    const plan = days.map((d, i) => '<li class="' + (S.plan[i] ? "done" : "") + '"><input type="checkbox" id="plan-' + i + '" data-plan="' + i + '"' + (S.plan[i] ? " checked" : "") + ' aria-label="' + d[0] + ' done"><span class="day">' + d[0] + '</span><span class="what"><b>' + d[1] + "</b><span>" + d[2] + "</span></span><span class=\"mk\">" + d[3] + "</span></li>").join("");
+    const totQ = ALLQ.length, totF = CH.reduce((s, c) => s + c.flashcards.length, 0), totN = CH.reduce((s, c) => s + c.numbers.length, 0);
+    return '<div class="page">' +
+      '<header class="hero"><div class="eyebrow">NISM Series VII · Securities Operations and Risk Management</div>' +
+      "<h1>Follow one trade, and the whole syllabus falls into place.</h1>" +
+      '<p class="lead">Each chapter is one stop in a trade\'s life: the market it happens in, the people involved, the order, the safety net, clearing, settlement, and the complaint desk if something goes wrong. Read them in order, flip the cards, then prove it on the mock.</p>' +
+      '<p class="note">Built from the <b>July 2026</b> workbook, which applies to exams on or after <b>15 September 2026</b>. Passages the workbook <mark>highlighted as new</mark> are flagged in every chapter.</p></header>' +
+      '<ol class="journey">' + journey + "</ol>" +
+      '<section class="block"><h2>The exam at a glance</h2><div class="facts">' +
+      "<div><b>100</b><span>questions, 1 mark each</span></div><div><b>2 hrs</b><span>about 72 seconds a question</span></div><div><b>50</b><span>marks to pass (50%)</span></div><div><b>&minus;0.25</b><span>for every wrong answer</span></div></div>" +
+      '<p class="small">This guide holds ' + totQ + " practice questions, " + totF + " flashcards and " + totN + " must-know numbers.</p></section>" +
+      '<section class="block"><h2>Where the marks are</h2><p>Chapters 3 to 6 carry 65 of the 100 marks. Spend your time there.</p><div class="wbars" role="list">' + bars + '</div><p class="small">Exam weightage by chapter, from the workbook\'s syllabus outline. Out of 100 questions, a chapter\'s weightage is roughly its number of questions.</p></section>' +
+      '<section class="block"><h2>A 7-day plan</h2><p class="small">About 90 minutes a day. Tick days off as you go; this browser remembers them.</p><ol class="plan">' + plan + "</ol></section>" +
+      '<section class="block"><h2>How to beat the negative marking</h2><div class="tips">' +
+      '<div class="tip-card"><h3>Answer what you can narrow down</h3><p>A wrong answer costs a quarter mark, a right one earns a full mark. Once you can rule out even one option, guessing pays.</p><div class="calc">Rule out 1 of 4: &#8531; &times; 1 &minus; &#8532; &times; 0.25 = +0.17<br>Rule out 2 of 4: &frac12; &times; 1 &minus; &frac12; &times; 0.25 = +0.38<br>Blind guess: &frac14; &times; 1 &minus; &frac34; &times; 0.25 = +0.06</div></div>' +
+      '<div class="tip-card"><h3>Two passes, not one</h3><p>First pass: answer everything you know in about 70 minutes and mark the rest. Second pass: work the marked ones by elimination. Never spend three minutes on one question.</p></div>' +
+      '<div class="tip-card"><h3>Numbers are free marks</h3><p>Many questions are a straight recall of a timeline, a percentage or a day-count. The numbers cheat sheet is the fastest revision in this guide.</p></div>' +
+      '<div class="tip-card"><h3>Read the last line first</h3><p>Words like <b>not</b>, <b>except</b>, <b>maximum</b> and <b>within</b> flip the answer. Underline them in your head before you look at the options.</p></div>' +
+      "</div></section>" +
+      '<div class="btns"><a class="btn primary" href="#ch1">Start with Chapter 1</a><a class="btn" href="#mock">Try a full mock first</a></div>' +
+      "</div>";
+  }
+
+  /* ---------- chapter ---------- */
+  function viewChapter(id) {
+    const c = byId[id];
+    const prev = byId[id - 1], next = byId[id + 1];
+    const toc = c.sections.map(s => '<button data-jump="' + secDom(c.id, s.id) + '"><span class="sid">' + s.id + "</span>" + s.title + "</button>").join("");
+    const secs = c.sections.map(s => '<section class="sec" id="' + secDom(c.id, s.id) + '"><h2><span class="sid">' + s.id + "</span>" + s.title + "</h2>" + s.blocks.map(blockHTML).join("") + "</section>").join("");
+    return '<article class="page">' +
+      '<header class="ch-head"><div class="eyebrow">Chapter ' + c.id + " of 8 · " + c.weight + "% of the paper · about " + c.minutes + " min read</div><h1>" + c.title + '</h1><p class="lead">' + c.big_picture + "</p></header>" +
+      '<section class="focus"><h2 class="h-sm">What the exam asks from this chapter</h2><ul>' + c.exam_focus.map(x => "<li>" + x + "</li>").join("") + "</ul></section>" +
+      '<nav class="toc" aria-label="Sections">' + toc + '<button data-jump="nums-' + c.id + '"><span class="sid">#</span>Numbers to memorise</button></nav>' +
+      secs +
+      '<section class="sec" id="nums-' + c.id + '"><h2><span class="sid">#</span>Numbers to memorise</h2><p class="small">Every figure from this chapter in one place. Cover the right column and test yourself.</p>' + numbersTable(c.numbers, true) + "</section>" +
+      '<div class="endbar"><label class="check"><input type="checkbox" id="read-' + c.id + '" data-read="' + c.id + '"' + (S.read[c.id] ? " checked" : "") + "> I've read this chapter</label>" +
+      '<div class="btns"><a class="btn primary" href="#quiz-' + c.id + '">Practice quiz · ' + c.questions.length + ' questions</a><a class="btn" href="#cards-' + c.id + '">Flashcards · ' + c.flashcards.length + "</a></div></div>" +
+      '<div class="pn">' + (prev ? '<a href="#ch' + prev.id + '">&larr; Chapter ' + prev.id + ": " + prev.short + "</a>" : "<span></span>") + (next ? '<a href="#ch' + next.id + '">Chapter ' + next.id + ": " + next.short + " &rarr;</a>" : '<a href="#mock">Take the full mock &rarr;</a>') + "</div>" +
+      "</article>";
+  }
+
+  /* ---------- flashcards ---------- */
+  let deck = null;
+  function buildDeck(key) {
+    let cards = [];
+    if (key === "numbers") CH.forEach(c => c.numbers.forEach(n => cards.push({ q: n.fact, a: n.value, ch: c.id, kind: "Number" })));
+    else if (key === "all") CH.forEach(c => c.flashcards.forEach(f => cards.push({ q: f.q, a: f.a, ch: c.id, kind: "Card" })));
+    else if (byId[+key]) byId[+key].flashcards.forEach(f => cards.push({ q: f.q, a: f.a, ch: +key, kind: "Card" }));
+    return { key: key, cards: cards, queue: shuffle(cards.map((_, i) => i)), known: 0, flipped: false };
+  }
+  function viewCards(key) {
+    if (!deck || deck.key !== key) deck = buildDeck(key);
+    const chips = '<a class="chip' + (key === "all" ? " on" : "") + '" href="#cards">All chapters</a>' +
+      CH.map(c => '<a class="chip' + (String(key) === String(c.id) ? " on" : "") + '" href="#cards-' + c.id + '">Ch ' + c.id + "</a>").join("") +
+      '<a class="chip' + (key === "numbers" ? " on" : "") + '" href="#cards-numbers">Numbers only</a>';
+    return '<div class="page"><div class="eyebrow">Revise</div><h1>Flashcards</h1><p class="lead">Say the answer out loud before you flip. Cards you miss come back at the end of the pile.</p>' +
+      '<div class="chips">' + chips + '</div><div id="fcwrap"></div>' +
+      '<p class="kbd"><kbd>Space</kbd> flip &nbsp; <kbd>&rarr;</kbd> got it &nbsp; <kbd>&larr;</kbd> again</p></div>';
+  }
+  function drawCard() {
+    const w = $("#fcwrap"); if (!w || !deck) return;
+    if (!deck.cards.length) { w.innerHTML = '<div class="empty">No cards in this deck yet.</div>'; return; }
+    if (!deck.queue.length) {
+      w.innerHTML = '<div class="qcard"><div class="verdict-big ok">Deck cleared.</div><p>You went through all ' + deck.cards.length + ' cards. Run it again tomorrow; spaced repeats are what make it stick.</p><div class="btns"><button class="btn primary" data-act="fc-restart">Shuffle and restart</button><a class="btn" href="#quiz-mixed">Mixed practice quiz</a></div></div>';
+      return;
+    }
+    const card = deck.cards[deck.queue[0]];
+    w.innerHTML = '<div class="fc-stage"><div class="fc' + (deck.flipped ? " flipped" : "") + '" id="fc" data-act="fc-flip" role="button" tabindex="0" aria-label="Flip card">' +
+      '<div class="face front"><div class="lbl"><span>' + (card.kind === "Number" ? "What's the number?" : "Question") + "</span><span>Chapter " + card.ch + '</span></div><div class="txt">' + card.q + "</div></div>" +
+      '<div class="face back"><div class="lbl"><span>Answer</span><span>Chapter ' + card.ch + '</span></div><div class="txt">' + card.a + "</div></div></div></div>" +
+      '<div class="fc-bar"><span class="fc-count">' + deck.queue.length + " left · " + deck.known + " known · " + deck.cards.length + ' total</span><div class="btns"><button class="btn" data-act="fc-again">Again</button><button class="btn ghost" data-act="fc-flip">Flip</button><button class="btn primary" data-act="fc-got">Got it</button></div></div>';
+  }
+  function fcFlip() { deck.flipped = !deck.flipped; const el = $("#fc"); if (el) el.classList.toggle("flipped", deck.flipped); }
+  function fcNext(got) {
+    const i = deck.queue.shift();
+    if (got) deck.known++; else deck.queue.push(i);
+    deck.flipped = false; drawCard();
+  }
+
+  /* ---------- quiz ---------- */
+  let quiz = null;
+  function poolFor(arg) {
+    if (arg === "mixed") return ALLQ.map(q => q.qid);
+    if (arg === "mistakes") return S.wrong.filter(id => QBY[id]);
+    return byId[arg] ? byId[arg].questions.map((_, i) => arg + ":" + i) : [];
+  }
+  function viewQuiz(arg) {
+    if (quiz && quiz.arg === arg && quiz.ids) return quizScreen();
+    quiz = { arg: arg };
+    const pool = poolFor(arg);
+    const c = byId[arg];
+    const title = c ? "Chapter " + c.id + " practice" : arg === "mixed" ? "Mixed practice" : "My mistakes";
+    const lead = c ? c.title + ". Instant feedback after every answer, with the reason." :
+      arg === "mixed" ? "Questions from every chapter, shuffled. Good for the last few days." :
+      "Every question you have got wrong, in quizzes or mocks. Answer one right and it leaves this list.";
+    const chWrong = c ? S.wrong.filter(id => id.startsWith(c.id + ":")).length : 0;
+    let opts = "";
+    if (!pool.length) {
+      opts = '<div class="empty">' + (arg === "mistakes" ? "No mistakes recorded yet. Take a chapter quiz or a mock, and anything you miss shows up here." : "No questions here yet.") + "</div>";
+    } else {
+      opts = '<div class="start-grid">' +
+        '<button class="start" data-act="quiz-go" data-n="10"><b>Quick round</b><span>10 random questions</span></button>' +
+        (arg === "mixed" ? '<button class="start" data-act="quiz-go" data-n="25"><b>Long round</b><span>25 random questions</span></button>' :
+          '<button class="start" data-act="quiz-go" data-n="all"><b>Full set</b><span>All ' + pool.length + " questions</span></button>") +
+        (c && chWrong ? '<button class="start" data-act="quiz-go" data-n="wrong"><b>My mistakes here</b><span>' + chWrong + " to retry</span></button>" : "") +
+        "</div>";
+    }
+    const best = c && S.best[c.id] != null ? '<p class="small">Your best score on this chapter: <b>' + S.best[c.id] + "%</b>. Aim for 80% before moving on.</p>" : (c ? '<p class="small">Aim for 80% before moving on.</p>' : "");
+    return '<div class="page"><div class="eyebrow">Test yourself</div><h1>' + title + '</h1><p class="lead">' + lead + "</p>" + opts + best +
+      (c ? '<p><a href="#ch' + c.id + '">&larr; Back to the chapter</a></p>' : "") + "</div>";
+  }
+  function startQuiz(n) {
+    let pool = poolFor(quiz.arg);
+    if (n === "wrong") pool = S.wrong.filter(id => id.startsWith(quiz.arg + ":"));
+    pool = shuffle(pool);
+    if (n !== "all" && n !== "wrong") pool = pool.slice(0, +n);
+    quiz.ids = pool; quiz.i = 0; quiz.ans = {}; quiz.full = (n === "all");
+    $("#view").innerHTML = quizScreen(); window.scrollTo(0, 0);
+  }
+  function quizScreen() {
+    if (quiz.i >= quiz.ids.length) return quizResult();
+    const q = QBY[quiz.ids[quiz.i]];
+    const picked = quiz.ans[q.qid];
+    const done = picked != null;
+    const opts = q.options.map((o, i) => {
+      let cls = "opt";
+      if (done) { if (i === q.answer) cls += " right"; else if (i === picked) cls += " wrong"; }
+      return '<button class="' + cls + '" data-act="quiz-pick" data-i="' + i + '"' + (done ? " disabled" : "") + '><span class="L">' + LET[i] + "</span><span>" + o + "</span></button>";
+    }).join("");
+    const exp = done ? '<div class="explain"><span class="verdict ' + (picked === q.answer ? "ok" : "no") + '">' + (picked === q.answer ? "Correct." : "Not quite. The answer is " + LET[q.answer] + ".") + "</span>" + q.why + '<span class="ref">Chapter ' + q.ch + (q.ref ? " · section " + q.ref : "") + "</span></div>" : "";
+    return '<div class="page"><div class="eyebrow">' + (byId[quiz.arg] ? "Chapter " + quiz.arg + " practice" : quiz.arg === "mixed" ? "Mixed practice" : "My mistakes") + "</div>" +
+      '<div class="progressline" style="margin-top:14px"><i style="width:' + (quiz.i / quiz.ids.length * 100) + '%"></i></div>' +
+      '<div class="qcard"><div class="qmeta"><span>Question ' + (quiz.i + 1) + " of " + quiz.ids.length + "</span><span>Chapter " + q.ch + (q.ref ? " · " + q.ref : "") + "</span><span>" + q.level + '</span></div><div class="qtext">' + q.q + '</div><div class="opts">' + opts + "</div>" + exp +
+      '<div class="qfoot"><span class="small">' + Object.values(quiz.ans).length + " answered · " + quiz.ids.filter(id => quiz.ans[id] != null && quiz.ans[id] === QBY[id].answer).length + ' correct</span><div class="btns"><button class="btn ghost" data-act="quiz-quit">End quiz</button>' +
+      (done ? '<button class="btn primary" data-act="quiz-next" id="qnext">' + (quiz.i + 1 === quiz.ids.length ? "See score" : "Next") + "</button>" : "") + "</div></div></div>" +
+      '<p class="kbd"><kbd>1</kbd>&ndash;<kbd>4</kbd> pick &nbsp; <kbd>Enter</kbd> next</p></div>';
+  }
+  function quizPick(i) {
+    const q = QBY[quiz.ids[quiz.i]];
+    if (quiz.ans[q.qid] != null || i >= q.options.length) return;
+    quiz.ans[q.qid] = i;
+    markWrong(q.qid, i !== q.answer);
+    $("#view").innerHTML = quizScreen();
+    renderNav();
+    const nb = $("#qnext"); if (nb) nb.focus({ preventScroll: true });
+  }
+  function quizResult() {
+    const answered = quiz.ids.filter(id => quiz.ans[id] != null);
+    const right = answered.filter(id => quiz.ans[id] === QBY[id].answer).length;
+    if (!answered.length) { const a = quiz.arg; quiz = null; return viewQuiz(a); }
+    const p = pct(right, answered.length);
+    const c = byId[quiz.arg];
+    if (c && answered.length >= 10) { S.best[c.id] = Math.max(S.best[c.id] || 0, p); save("best"); renderNav(); }
+    const missed = answered.filter(id => quiz.ans[id] !== QBY[id].answer);
+    const rv = missed.map(id => { const q = QBY[id]; return '<div class="rv"><div class="q">' + q.q + '</div><div class="a"><span class="y">Your answer: ' + q.options[quiz.ans[id]] + '</span><span class="c">Correct: ' + q.options[q.answer] + '</span></div><div class="why">' + q.why + "</div></div>"; }).join("");
+    const again = quiz.arg;
+    quiz.ids = null;
+    return '<div class="page"><div class="eyebrow">Result</div><h1>' + right + " out of " + answered.length + "</h1>" +
+      '<div class="verdict-big ' + (p >= 70 ? "ok" : "no") + '">' + (p >= 80 ? "Exam-ready on this set." : p >= 60 ? "Close. Reread the sections behind the misses below." : "Go back to the chapter, then try again.") + "</div>" +
+      '<div class="score"><div><b>' + p + '%</b><span>score</span></div><div><b>' + right + '</b><span>correct</span></div><div><b>' + missed.length + "</b><span>to review</span></div></div>" +
+      '<div class="btns"><a class="btn primary" href="#quiz-' + again + '" data-act="quiz-reset">Another round</a>' + (c ? '<a class="btn" href="#ch' + c.id + '">Back to chapter ' + c.id + "</a>" : "") + (missed.length ? '<a class="btn" href="#quiz-mistakes">All my mistakes</a>' : "") + "</div>" +
+      (missed.length ? '<h2 style="margin-top:32px">What you missed</h2><div class="review">' + rv + "</div>" : "") + "</div>";
+  }
+
+  /* ---------- mock ---------- */
+  let timerHandle = null;
+  const MOCK_SECS = 7200;
+  function buildMock() {
+    const seen = new Set(S.mockSeen);
+    let picks = [], rest = [], deficit = 0;
+    CH.forEach(c => {
+      const ids = c.questions.map((_, i) => c.id + ":" + i);
+      const pool = shuffle(ids.filter(id => !seen.has(id))).concat(shuffle(ids.filter(id => seen.has(id))));
+      const n = Math.min(c.weight, pool.length);
+      picks = picks.concat(pool.slice(0, n)); rest = rest.concat(pool.slice(n)); deficit += c.weight - n;
+    });
+    if (deficit > 0) picks = picks.concat(shuffle(rest).slice(0, deficit));
+    const all = new Set(S.mockSeen.concat(picks));
+    S.mockSeen = all.size >= ALLQ.length ? [] : Array.from(all); save("mockSeen");
+    return shuffle(picks);
+  }
+  function mockLeft() { return MOCK_SECS - (Date.now() - S.mock.start) / 1000; }
+  function viewMock() {
+    const m = S.mock;
+    if (m && m.done) return mockResult();
+    if (m && !m.done) { if (mockLeft() <= 0) { submitMock(); return mockResult(); } return mockScreen(); }
+    return '<div class="page"><div class="eyebrow">Test yourself</div><h1>Full mock test</h1><p class="lead">Exactly like the real paper: 100 questions drawn by chapter weightage, a 2-hour clock and negative marking. No feedback until you submit.</p>' +
+      '<ul class="rules"><li>100 questions, 1 mark each. A wrong answer costs 0.25. A blank costs nothing.</li><li>Pass mark: 50. Aim for 70 or more here before the real exam.</li><li>The clock keeps running if you leave this page, as it would in the exam hall.</li><li>Each new mock prefers questions you have not seen in an earlier mock.</li></ul>' +
+      '<div class="btns"><button class="btn primary" data-act="mock-start">Start the 2-hour mock</button></div></div>';
+  }
+  function mockScreen() {
+    const m = S.mock;
+    const q = QBY[m.ids[m.i]];
+    const pick = m.ans[m.i];
+    const opts = q.options.map((o, i) => '<button class="opt' + (pick === i ? " sel" : "") + '" data-act="mock-pick" data-i="' + i + '"><span class="L">' + LET[i] + "</span><span>" + o + "</span></button>").join("");
+    const answered = Object.keys(m.ans).length;
+    const grid = m.ids.map((_, i) => '<button data-act="mock-go" data-i="' + i + '" class="' + (m.ans[i] != null ? "ans " : "") + (m.mk[i] ? "mk " : "") + (i === m.i ? "cur" : "") + '" aria-label="Question ' + (i + 1) + '">' + (i + 1) + "</button>").join("");
+    return '<div class="page"><div class="mockbar"><span class="timer" id="timer">' + fmtTime(mockLeft()) + '</span><span class="stat">' + answered + " of 100 answered</span><button class=\"btn\" data-act=\"mock-submit\">Submit</button></div>" +
+      '<div id="confirmbox"></div>' +
+      '<div class="qcard"><div class="qmeta"><span>Question ' + (m.i + 1) + " of " + m.ids.length + '</span></div><div class="qtext">' + q.q + '</div><div class="opts">' + opts + "</div>" +
+      '<div class="qfoot"><div class="btns"><button class="btn ghost" data-act="mock-clear"' + (pick == null ? " disabled" : "") + '>Clear answer</button><button class="btn ghost" data-act="mock-mark">' + (m.mk[m.i] ? "Unmark" : "Mark for review") + "</button></div>" +
+      '<div class="btns"><button class="btn" data-act="mock-prev"' + (m.i === 0 ? " disabled" : "") + '>Previous</button><button class="btn primary" data-act="mock-next"' + (m.i === m.ids.length - 1 ? " disabled" : "") + ">Next</button></div></div></div>" +
+      '<div class="grid100">' + grid + '</div><div class="legend"><span><i class="ans"></i>answered</span><span><i class="mk"></i>marked for review</span><span><i></i>not answered</span></div></div>';
+  }
+  function startTimer() {
+    if (!S.mock || S.mock.done) return;
+    timerHandle = setInterval(() => {
+      const t = $("#timer"); const left = mockLeft();
+      if (left <= 0) { clearInterval(timerHandle); submitMock(); render(); return; }
+      if (t) { t.textContent = fmtTime(left); t.classList.toggle("low", left < 600); }
+    }, 1000);
+  }
+  function submitMock() {
+    const m = S.mock; if (!m || m.done) return;
+    m.done = true; m.end = Math.min(Date.now(), m.start + MOCK_SECS * 1000);
+    m.ids.forEach((id, i) => { if (m.ans[i] != null) markWrong(id, m.ans[i] !== QBY[id].answer); });
+    save("mock"); renderNav();
+  }
+  function mockResult() {
+    const m = S.mock;
+    let right = 0, wrong = 0, blank = 0; const per = {};
+    CH.forEach(c => { per[c.id] = { n: 0, r: 0, w: 0 }; });
+    m.ids.forEach((id, i) => {
+      const q = QBY[id]; const p = per[q.ch]; p.n++;
+      if (m.ans[i] == null) blank++; else if (m.ans[i] === q.answer) { right++; p.r++; } else { wrong++; p.w++; }
+    });
+    const net = right - wrong * 0.25;
+    const pass = net >= 50;
+    const used = Math.round((m.end - m.start) / 60000);
+    const rows = CH.map(c => { const p = per[c.id]; const nn = p.r - p.w * 0.25; return "<tr><td>" + c.id + ". " + c.short + "</td><td>" + p.n + "</td><td>" + p.r + "</td><td>" + p.w + "</td><td>" + nn.toFixed(2) + "</td><td>" + (p.n ? pct(p.r, p.n) + "%" : "&ndash;") + "</td></tr>"; }).join("");
+    const filter = m.filter || "wrong";
+    const list = m.ids.map((id, i) => ({ id, i, q: QBY[id] })).filter(x => filter === "all" ? true : filter === "blank" ? m.ans[x.i] == null : (m.ans[x.i] != null && m.ans[x.i] !== x.q.answer));
+    const rv = list.map(x => { const a = m.ans[x.i]; return '<div class="rv"><div class="qmeta"><span>Q' + (x.i + 1) + "</span><span>Chapter " + x.q.ch + (x.q.ref ? " · " + x.q.ref : "") + '</span></div><div class="q">' + x.q.q + '</div><div class="a"><span class="y' + (a === x.q.answer ? " ok" : "") + '">Your answer: ' + (a == null ? "left blank" : x.q.options[a]) + "</span>" + (a !== x.q.answer ? '<span class="c">Correct: ' + x.q.options[x.q.answer] + "</span>" : "") + '</div><div class="why">' + x.q.why + "</div></div>"; }).join("");
+    return '<div class="page"><div class="eyebrow">Mock test result</div><h1>' + (Number.isInteger(net) ? net : net.toFixed(2)) + " out of 100</h1>" +
+      '<div class="verdict-big ' + (pass ? "ok" : "no") + '">' + (pass ? (net >= 70 ? "Pass, with a safe margin." : "Pass, but the margin is thin. Aim for 70.") : "Below the pass mark of 50. Use the chapter table to see where the marks went.") + "</div>" +
+      '<div class="score"><div><b>' + right + '</b><span>correct (+' + right + ')</span></div><div><b>' + wrong + '</b><span>wrong (&minus;' + (wrong * 0.25).toFixed(2) + ')</span></div><div><b>' + blank + '</b><span>left blank · ' + used + " min used</span></div></div>" +
+      '<h2>By chapter</h2><div class="scroll"><table><thead><tr><th>Chapter</th><th>Qs</th><th>Right</th><th>Wrong</th><th>Net</th><th>Accuracy</th></tr></thead><tbody>' + rows + "</tbody></table></div>" +
+      '<div class="btns" style="margin:24px 0"><button class="btn primary" data-act="mock-new">Start a new mock</button><a class="btn" href="#quiz-mistakes">Drill my mistakes</a></div>' +
+      '<h2>Review</h2><div class="chips">' + [["wrong", "Wrong answers"], ["blank", "Left blank"], ["all", "All 100"]].map(f => '<button class="chip' + (filter === f[0] ? " on" : "") + '" data-act="mock-filter" data-f="' + f[0] + '">' + f[1] + "</button>").join("") + "</div>" +
+      '<div class="review">' + (rv || '<div class="empty">Nothing in this list.</div>') + "</div></div>";
+  }
+
+  /* ---------- numbers ---------- */
+  function viewNumbers() {
+    const total = CH.reduce((s, c) => s + c.numbers.length, 0);
+    return '<div class="page"><div class="eyebrow">Revise</div><h1>Numbers cheat sheet</h1><p class="lead">All ' + total + ' timelines, limits, percentages and day-counts from the workbook. Read it the night before and again the morning of the exam.</p>' +
+      '<input class="search" id="numsearch" type="search" placeholder="Filter, e.g. margin, 30 days, T+1, SCORES" aria-label="Filter numbers">' +
+      '<p><a href="#cards-numbers">Drill these as flashcards &rarr;</a></p>' +
+      CH.map(c => '<section class="numgroup" data-g="' + c.id + '"><h3><a href="#ch' + c.id + '"><span class="no">' + c.id + "</span>" + c.title + "</a></h3>" + numbersTable(c.numbers, true) + "</section>").join("") +
+      '<div class="empty" id="nonum" hidden>Nothing matches that filter.</div></div>';
+  }
+  function filterNumbers(term) {
+    term = term.trim().toLowerCase(); let any = false;
+    document.querySelectorAll(".numgroup").forEach(g => {
+      let vis = 0;
+      g.querySelectorAll("tbody tr").forEach(tr => { const ok = !term || tr.dataset.s.includes(term); tr.hidden = !ok; if (ok) vis++; });
+      g.hidden = vis === 0; if (vis) any = true;
+    });
+    $("#nonum").hidden = any;
+  }
+
+  /* ---------- updates ---------- */
+  function viewUpdates() {
+    const items = [];
+    CH.forEach(c => c.sections.forEach(s => s.blocks.forEach(b => { if (b.type === "new") items.push({ c, s, b }); })));
+    return '<div class="page"><div class="eyebrow">Revise</div><h1>Updated in July 2026</h1><p class="lead">The workbook highlights these passages in yellow as new. Fresh material is a favourite for fresh questions, so know each one cold.</p>' +
+      (items.length ? items.map(x => '<div class="upd"><div class="where">Chapter ' + x.c.id + " · " + x.s.id + " " + x.s.title + ' · <a href="#ch' + x.c.id + '" data-goto="' + secDom(x.c.id, x.s.id) + '">read in context</a></div>' + blockHTML(Object.assign({}, x.b, { type: "p" })) + "</div>").join("") : '<div class="empty">No updates flagged.</div>') +
+      "</div>";
+  }
+
+  /* ---------- events ---------- */
+  document.addEventListener("click", e => {
+    const t = e.target.closest("[data-act],[data-jump],[data-goto],[data-plan],[data-read]");
+    if (!t) return;
+    if (t.dataset.jump) { const el = document.getElementById(t.dataset.jump); if (el) el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" }); return; }
+    if (t.dataset.goto) { pendingJump = t.dataset.goto; return; }
+    const act = t.dataset.act;
+    if (!act) return;
+    if (act === "fc-flip") fcFlip();
+    else if (act === "fc-got") fcNext(true);
+    else if (act === "fc-again") fcNext(false);
+    else if (act === "fc-restart") { deck = buildDeck(deck.key); drawCard(); }
+    else if (act === "quiz-go") startQuiz(t.dataset.n);
+    else if (act === "quiz-pick") quizPick(+t.dataset.i);
+    else if (act === "quiz-next") { quiz.i++; $("#view").innerHTML = quizScreen(); window.scrollTo(0, 0); }
+    else if (act === "quiz-quit") { quiz.ids = quiz.ids.slice(0, quiz.i + (quiz.ans[quiz.ids[quiz.i]] != null ? 1 : 0)); quiz.i = quiz.ids.length; $("#view").innerHTML = quizScreen(); window.scrollTo(0, 0); }
+    else if (act === "quiz-reset") { quiz = null; if (location.hash === t.getAttribute("href")) { e.preventDefault(); render(); } }
+    else if (act === "mock-start" || act === "mock-new") { S.mock = { ids: buildMock(), ans: {}, mk: {}, i: 0, start: Date.now(), done: false }; save("mock"); renderNav(); render(); window.scrollTo(0, 0); }
+    else if (act === "mock-pick") { S.mock.ans[S.mock.i] = +t.dataset.i; save("mock"); rerenderMock(); }
+    else if (act === "mock-clear") { delete S.mock.ans[S.mock.i]; save("mock"); rerenderMock(); }
+    else if (act === "mock-mark") { S.mock.mk[S.mock.i] = !S.mock.mk[S.mock.i]; save("mock"); rerenderMock(); }
+    else if (act === "mock-prev") { S.mock.i = Math.max(0, S.mock.i - 1); save("mock"); rerenderMock(true); }
+    else if (act === "mock-next") { S.mock.i = Math.min(S.mock.ids.length - 1, S.mock.i + 1); save("mock"); rerenderMock(true); }
+    else if (act === "mock-go") { S.mock.i = +t.dataset.i; save("mock"); rerenderMock(true); }
+    else if (act === "mock-submit") {
+      const blanks = 100 - Object.keys(S.mock.ans).length; const marked = Object.values(S.mock.mk).filter(Boolean).length;
+      $("#confirmbox").innerHTML = '<div class="confirm"><div>' + (blanks ? "<b>" + blanks + " questions are unanswered.</b> " : "") + (marked ? marked + " are marked for review. " : "") + 'Once you submit, the answers are final.</div><div class="btns"><button class="btn primary" data-act="mock-confirm">Submit and see my score</button><button class="btn" data-act="mock-cancel">Keep going</button></div></div>';
+    }
+    else if (act === "mock-cancel") { $("#confirmbox").innerHTML = ""; }
+    else if (act === "mock-confirm") { clearInterval(timerHandle); submitMock(); render(); window.scrollTo(0, 0); }
+    else if (act === "clear-ask") { $("#clearwrap").innerHTML = 'This deletes chapters read, quiz scores, mistakes, plan ticks and any mock in progress, in this browser only. <button class="linkbtn danger" data-act="clear-yes">Delete my progress</button> &middot; <button class="linkbtn" data-act="clear-no">Cancel</button>'; }
+    else if (act === "clear-no") { $("#clearwrap").innerHTML = CLEAR_IDLE; }
+    else if (act === "clear-yes") clearAll();
+    else if (act === "mock-filter") { S.mock.filter = t.dataset.f; save("mock"); $("#view").innerHTML = mockResult(); }
+  });
+  let pendingJump = null;
+  function rerenderMock(top) {
+    $("#view").innerHTML = mockScreen();
+    if (top) { const bar = $(".mockbar"); if (bar && bar.getBoundingClientRect().top < 0) window.scrollTo(0, 0); }
+  }
+  document.addEventListener("change", e => {
+    const t = e.target;
+    if (t.dataset.plan != null) { S.plan[t.dataset.plan] = t.checked; save("plan"); t.closest("li").classList.toggle("done", t.checked); }
+    if (t.dataset.read != null) { S.read[t.dataset.read] = t.checked; save("read"); renderNav(); }
+  });
+  document.addEventListener("input", e => { if (e.target.id === "numsearch") filterNumbers(e.target.value); });
+  document.addEventListener("keydown", e => {
+    if (e.target.matches("input, textarea") || e.metaKey || e.ctrlKey || e.altKey) return;
+    const r = currentRoute();
+    if (r.view === "cards" && deck && deck.queue.length) {
+      if (e.key === " " || e.key === "Enter") { e.preventDefault(); fcFlip(); }
+      else if (e.key === "ArrowRight") fcNext(true);
+      else if (e.key === "ArrowLeft") fcNext(false);
+    } else if (r.view === "quiz" && quiz && quiz.ids && quiz.i < quiz.ids.length) {
+      const k = e.key.toLowerCase(); const idx = "1234".indexOf(k) >= 0 ? "1234".indexOf(k) : "abcd".indexOf(k);
+      if (idx >= 0) quizPick(idx);
+      else if (e.key === "Enter" && quiz.ans[quiz.ids[quiz.i]] != null && e.target.id !== "qnext") { quiz.i++; $("#view").innerHTML = quizScreen(); window.scrollTo(0, 0); }
+    } else if (r.view === "mock" && S.mock && !S.mock.done) {
+      const k = e.key.toLowerCase(); const idx = "1234".indexOf(k) >= 0 ? "1234".indexOf(k) : "abcd".indexOf(k);
+      const q = QBY[S.mock.ids[S.mock.i]];
+      if (idx >= 0 && idx < q.options.length) { S.mock.ans[S.mock.i] = idx; save("mock"); rerenderMock(); }
+      else if (e.key === "ArrowRight" && S.mock.i < S.mock.ids.length - 1) { S.mock.i++; save("mock"); rerenderMock(true); }
+      else if (e.key === "ArrowLeft" && S.mock.i > 0) { S.mock.i--; save("mock"); rerenderMock(true); }
+    }
+  });
+  $("#menuBtn").addEventListener("click", () => {
+    const open = !$("#rail").classList.contains("open");
+    $("#rail").classList.toggle("open", open);
+    $("#menuBtn").setAttribute("aria-expanded", String(open));
+  });
+  window.addEventListener("hashchange", () => {
+    if (currentRoute().view === "quiz" && quiz && !quiz.ids) quiz = null;
+    render();
+    if (pendingJump) { const el = document.getElementById(pendingJump); pendingJump = null; if (el) el.scrollIntoView(); }
+  });
+  document.querySelectorAll("a.allc").forEach(a => { a.href = coursesHref(); });
+  renderNav();
+  render();
+})();
+</script>
+</body>
+</html>

@@ -6,9 +6,18 @@
 <title>Learnings</title>
 <meta name="description" content="Plain-English exam prep guides with chapter notes, flashcards, practice quizzes and timed mock tests.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a6a4c%27/%3E%3Ctext x=%2716%27 y=%2722%27 text-anchor=%27middle%27 font-family=%27Arial,sans-serif%27 font-weight=%27700%27 font-size=%2716%27 fill=%27white%27%3EL%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learnings">
+<meta property="og:title" content="Learnings: exam prep guides in plain English">
+<meta property="og:description" content="Certification workbooks rewritten in plain English, with memory hooks, flashcards, practice quizzes and full mock tests. Starting with NISM Series VII.">
+<meta property="og:url" content="%%SITE_URL%%/">
+<meta property="og:image" content="%%SITE_URL%%/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Learnings: exam prep guides in plain English">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/bricolage-grotesque-normal-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>
 /* Layout: one centred column. A course is a row on a shelf: code, what it covers, what's inside, your progress, open. Same palette and type as the guides so the site reads as one place. */
 :root {
@@ -24,6 +33,7 @@
   --accent-soft: #e0efe8;
   --mark: #ffe74a;
   --mark-ink: #2b2600;
+  --star: #b37400;
   --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
   --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
@@ -32,13 +42,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0d1311; --surface: #141c19; --sunk: #1a2420; --ink: #e3ebe7; --ink-2: #c2cec8; --muted: #8fa199;
-    --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a; --mark: #e8d33c; --mark-ink: #1f1b00;
+    --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a; --mark: #e8d33c; --mark-ink: #1f1b00; --star: #efbb57;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0d1311; --surface: #141c19; --sunk: #1a2420; --ink: #e3ebe7; --ink-2: #c2cec8; --muted: #8fa199;
-  --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a; --mark: #e8d33c; --mark-ink: #1f1b00;
+  --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a; --mark: #e8d33c; --mark-ink: #1f1b00; --star: #efbb57;
   color-scheme: dark;
 }
 * { box-sizing: border-box; }
@@ -55,6 +65,12 @@ a { color: var(--accent); }
   padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
 }
 header { margin-bottom: 40px; }
+.topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+.star { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line); border-radius: 999px; padding: 5px 14px; background: var(--surface); color: var(--ink); text-decoration: none; font-family: var(--font-display); font-size: 14px; font-weight: 600; }
+.star:hover { border-color: var(--accent); }
+.star span { color: var(--star); }
+footer p { margin: 0 0 8px; }
+footer b { color: var(--ink-2); font-weight: 600; }
 .eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 h1 { font-family: var(--font-display); font-size: clamp(40px, 7vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; margin: 10px 0 16px; }
 h1 em { font-style: normal; color: var(--accent); }
@@ -95,7 +111,10 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
 <body>
 <div class="wrap">
   <header>
-    <div class="eyebrow">Exam prep guides</div>
+    <div class="topline">
+      <div class="eyebrow">Exam prep guides</div>
+      <a class="star" href="https://github.com/pvzamd/learnings" target="_blank" rel="noopener"><span>&#9733;</span> Star on GitHub</a>
+    </div>
     <h1>Learn<em>ings</em></h1>
     <p class="lead">Certification workbooks rewritten in plain English, with memory hooks, flashcards, practice quizzes and full mock tests. Pick a course and start with chapter 1.</p>
   </header>
@@ -124,7 +143,10 @@ footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line);
     <p class="next">More courses will be added here as I study for them.</p>
   </main>
 
-  <footer>Independent study notes written from the official workbooks. Not affiliated with, or endorsed by, NISM or SEBI. The official workbook and SEBI circulars are the final word for every exam.</footer>
+  <footer>
+    <p><b>Your progress is saved only in your browser.</b> No account, no cookies, no tracking. Each guide has a "Clear my progress" link at the bottom.</p>
+    <p>Independent study notes written from the official workbooks. Not affiliated with, or endorsed by, NISM or SEBI. The official workbook and SEBI circulars are the final word for every exam.</p>
+  </footer>
 </div>
 <script>
 (function () {

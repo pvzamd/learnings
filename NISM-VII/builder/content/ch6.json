@@ -1,0 +1,2003 @@
+{
+ "id": 6,
+ "title": "Settlement Process",
+ "short": "Settlement",
+ "weight": 15,
+ "minutes": 40,
+ "big_picture": "If clearing works out the bill, settlement is the moment money and shares actually change hands: on T+1, members pay in by 11:00 am, money goes out at 1:30 pm and shares land in buyers' demat accounts by 3:30 pm. When a seller fails to deliver, the CC buys the shares in an auction or, failing that, closes out the deal at a penalty price. Derivatives settle daily through MTM and finally at expiry, in cash for indices and by delivery for stocks. When a company gives a bonus, split, rights or big dividend, F&O contracts are adjusted so nobody gains or loses from the event itself.",
+ "exam_focus": [
+  "The T+1 clock: 7:30 am confirmation, 9:00 am obligations, 11:00 am pay-in, 1:30 pm funds pay-out, 3:30 pm direct securities pay-out; derivatives T+1 (currency T+2)",
+  "NEW: closing price is VWAP of the last 30 minutes now; the Closing Auction Session runs 3:15 pm to 3:35 pm in four 5-minute parts, with a random close, starting with F&O stocks",
+  "Funds rules: no cash, USCNBA/DSCNBA, running account conditions (30/90 days, 30 working days, 1 or 3 working days, 30 calendar days), 0.07% per day penal interest",
+  "Auction and close-out: timings, once only, within one week, Auction+1 settlement, 20% vs 10% close-out rules, Core SGF",
+  "Derivatives settlement: MTM, final settlement prices, exercise values, what long/short calls and puts turn into",
+  "Corporate actions: ex-date = record date under T+1, adjustment factors for bonus/split/rights, 2% dividend test, merger/demerger conditions"
+ ],
+ "sections": [
+  {
+   "id": "6.1",
+   "title": "Introduction: Settlement Cycles and the T+1 Day",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Settlement once took a week; today <b>all cash market trades settle on T+1</b>: Monday's trades on Tuesday. A settlement cycle is the period within which settlement happens; when counting it, <b>holidays are skipped</b>: bank holidays, exchange/CC holidays, Saturdays and Sundays. An <b>optional beta T+0</b> cycle runs alongside T+1."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Cash settlement (derivatives)",
+       "points": [
+        "Only the price difference is paid",
+        "No underlying delivered",
+        "Index futures and options"
+       ]
+      },
+      {
+       "title": "Physical settlement (derivatives)",
+       "points": [
+        "The actual underlying security is delivered",
+        "Stock futures and options"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "key",
+     "text": "Derivatives: daily and final settlement on <b>T+1 working day</b>, except final settlement of <b>currency derivatives on T+2</b>. Funds for daily MTM, cash-settled futures final settlement, premium and cash-settled options exercise move before market opens next day, <b>around 8:30 am</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Day",
+      "Time",
+      "Activity (cash market, T+1)"
+     ],
+     "rows": [
+      [
+       "T",
+       "",
+       "Trade day"
+      ],
+      [
+       "T+1",
+       "By 7:30 am",
+       "Custodial confirmation of trades to CC"
+      ],
+      [
+       "T+1",
+       "By 9:00 am",
+       "CC completes processing and downloads obligation files to brokers/custodians"
+      ],
+      [
+       "T+1",
+       "Up to 11:00 am",
+       "Pay-in of securities and funds"
+      ],
+      [
+       "T+1",
+       "After pay-in",
+       "Valuation debit for securities not delivered"
+      ],
+      [
+       "T+1",
+       "1:30 pm",
+       "Pay-out of funds"
+      ],
+      [
+       "T+1",
+       "By 3:30 pm",
+       "Pay-out of securities, direct to client demat"
+      ],
+      [
+       "T+1",
+       "Afternoon (6.5.1)",
+       "Auction session for T-day shortages"
+      ],
+      [
+       "T+2",
+       "Generally by 8:00 am",
+       "Auction pay-in, followed by auction pay-out"
+      ]
+     ],
+     "caption": "Typical T+1 activity schedule"
+    },
+    {
+     "type": "p",
+     "text": "<b>Direct pay-out</b> (SEBI, <b>June 5, 2024</b>): CCs credit securities straight to the client's demat. Pay-out time moved from <b>1:30 pm to 3:30 pm</b>, but clients get shares the <b>same settlement day</b> instead of a day later. Not for clients of SEBI-registered custodians."
+    }
+   ]
+  },
+  {
+   "id": "6.1.1",
+   "title": "Settlement when there are Holidays",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "After holidays, several settlements may fall due together. CCs settle them <b>sequentially</b>: the first settlement's pay-in and pay-out finish before the next pay-in starts.",
+      "Pay-out from the first settlement can be used for pay-in of the next.",
+      "Depositories complete <b>inter-depository transfers within one hour</b>, before the next pay-in.",
+      "A strict schedule ensures all settlements finish the <b>same day</b>."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6.2",
+   "title": "Determination of Settlement Obligations",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The CC takes trade and price data from the exchange and computes obligations by the method set for each segment/product."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Netted obligation",
+       "points": [
+        "Buys and sells netted",
+        "Deliver only if sells exceed buys; receive if buys exceed sells",
+        "Funds also netted"
+       ]
+      },
+      {
+       "title": "Trade-to-trade (gross)",
+       "points": [
+        "No netting",
+        "Securities pay-in = cumulative <b>sell</b> qty; pay-out = cumulative <b>buy</b> qty",
+        "Funds pay-in = cumulative buy value; pay-out = cumulative sell value"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "example",
+     "title": "Buy 300, sell 200",
+     "text": "Netted: receive 100 shares. Gross: deliver 200 and receive 300, paying the full buy value and receiving the full sell value."
+    }
+   ]
+  },
+  {
+   "id": "6.2.1",
+   "title": "Closing Price and the new Closing Auction Session",
+   "blocks": [
+    {
+     "type": "new",
+     "text": "<b>Today:</b> a stock's closing price in the equity cash segment is the <b>Volume Weighted Average Price (VWAP)</b> of trades in the <b>last 30 minutes</b> of the Continuous Trading Session (CTS)."
+    },
+    {
+     "type": "new",
+     "text": "<b>Coming in:</b> SEBI's circular dated <b>January 16, 2026</b> introduces a <b>Closing Auction Session (CAS)</b> in the equity cash segment (with some changes to the pre-open auction session). It is phased in: <b>first, stocks on which derivative contracts are available</b> get their closing price from CAS."
+    },
+    {
+     "type": "new",
+     "text": "CAS is a separate <b>20-minute</b> session, <b>3:15 pm to 3:35 pm</b>, on all trading days, in four 5-minute sub-sessions."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Sub-session",
+      "Starts",
+      "Duration",
+      "What happens"
+     ],
+     "rows": [
+      [
+       "1",
+       "3:15 pm",
+       "5 mins",
+       "Reference price calculation; transition from CTS to CAS"
+      ],
+      [
+       "2",
+       "3:20 pm",
+       "5 mins",
+       "Order entry: <b>both limit and market</b> orders"
+      ],
+      [
+       "3",
+       "3:25 pm",
+       "5 mins",
+       "Order entry for <b>limit orders</b> only; market orders cannot be modified/cancelled; <b>random close in the last 2 minutes</b>"
+      ],
+      [
+       "4",
+       "3:30 pm",
+       "5 mins",
+       "Order matching"
+      ]
+     ],
+     "caption": "Closing Auction Session (NEW)"
+    },
+    {
+     "type": "p",
+     "text": "The random close stops anyone from timing a last-second order to nudge the price. Getting the close right matters because so much rests on it."
+    },
+    {
+     "type": "new",
+     "text": "<b>Importance of the closing price.</b> It is the basis for: (1) the post-close session, (2) next day's <b>base price</b>, (3) next day's morning <b>block deal window</b>, (4) end-of-day <b>index value</b>, (5) <b>settlement of derivatives</b> contracts, (6) <b>mark-to-market margin</b>, (7) <b>mutual fund NAV</b>."
+    },
+    {
+     "type": "hook",
+     "text": "CAS in four 5-minute beats: <b>Set</b> (3:15 reference price), <b>Enter all</b> (3:20), <b>Enter limits, random stop</b> (3:25), <b>Match</b> (3:30), done by 3:35."
+    },
+    {
+     "type": "trap",
+     "text": "Today's method is VWAP of the last <b>30</b> minutes, not the last traded price. CAS lasts <b>20</b> minutes, and the random close is in the last <b>2</b> minutes of the third sub-session."
+    }
+   ]
+  },
+  {
+   "id": "6.3",
+   "title": "Settlement of Funds",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Every clearing member keeps a <b>separate and distinct primary clearing account</b> with a designated clearing bank, <b>one per segment</b>. Payers need clear funds by the stipulated pay-in time; banks debit/credit on CC instructions. Deposit in any form; withdraw only in self-name."
+    }
+   ]
+  },
+  {
+   "id": "6.3.1",
+   "title": "Mode of Payment and Running Account Settlement",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>No cash</b>, either way: not against obligations, not as margin, not against sales. Only <b>account payee crossed cheque, demand draft, direct credit (NEFT etc.) or other RBI-approved modes</b>, with cheques drawn by and issued to the client only. Members keep an <b>audit trail</b> showing electronic transfers and pre-funded instruments (pay order, DD, banker's cheque) came from the client's own bank account."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Account",
+      "Use"
+     ],
+     "rows": [
+      [
+       "Up Streaming Client Nodal Bank Account (USCNBA)",
+       "<b>Receive</b> client funds: \"Name of the SB/CM - USCNB account\""
+      ],
+      [
+       "Down Streaming Client Nodal Bank Account (DSCNBA)",
+       "<b>Pay</b> clients, only from here: \"Name of the SB/CM - DSCNB account\""
+      ],
+      [
+       "Settlement account",
+       "\"Name of Stock Broker - Settlement Account\""
+      ]
+     ],
+     "caption": "Renamed by SEBI circular of December 13, 2023 (earlier \"Name of Stock Broker - Client Account\")"
+    },
+    {
+     "type": "hook",
+     "text": "<b>Up</b>stream: money comes up from the client. <b>Down</b>stream: money goes down to the client."
+    },
+    {
+     "type": "key",
+     "text": "Default: client funds settled <b>within 24 hours / 1 working day of pay-out</b>, unless the client authorises a <b>running account</b>, now for <b>funds only</b> (securities running account discontinued, SEBI circular June 20, 2019)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Running account rule",
+      "Detail"
+     ],
+     "rows": [
+      [
+       "Authorisation",
+       "Dated, revocable at any time, signed by the <b>client only</b> (not an AP or PoA holder)"
+      ],
+      [
+       "Frequency",
+       "Monthly or quarterly per client choice: at least once in <b>30 / 90 days</b>, on EOD obligation across all exchanges"
+      ],
+      [
+       "Dates",
+       "<b>First Friday and/or Saturday</b> of the month/quarter, per the annual calendar exchanges jointly issue at the start of the financial year"
+      ],
+      [
+       "Statement",
+       "Funds ledger and securities register extracts; disputes within <b>30 working days</b>"
+      ],
+      [
+       "Intimation",
+       "SMS and email once settled"
+      ],
+      [
+       "Retention",
+       "Funds for outstanding obligations may be retained as SEBI/exchanges specify"
+      ],
+      [
+       "Payment mode",
+       "Electronic; physical instrument only if electronic payment fails"
+      ],
+      [
+       "On client request",
+       "Within <b>1 working day</b> if with broker; <b>3 working days</b> if with CM/CC"
+      ],
+      [
+       "Inactive client",
+       "No trade in <b>30 calendar days</b>: entire credit balance returned on the next <b>monthly</b> settlement date, whatever the preference (unless he trades before it)"
+      ],
+      [
+       "Other clients",
+       "No inter-client adjustment; funds from a settled client stay in the USCNBA"
+      ],
+      [
+       "Not needed for",
+       "MTF funds/securities; BG/FDR collateral; institutional clients settling via custodians"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "An <b>Authorised Person</b> may not accept client funds or securities, and trades proprietarily only with his own money.",
+      "SEBI (June 2025) mandated validated, exclusive <b>UPI IDs</b> for SEBI-registered intermediaries collecting investor funds."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Dispute window: <b>30 working days</b>. Inactivity trigger: <b>30 calendar days</b>. The inactive client is paid on the <b>monthly</b> date even if he chose quarterly."
+    }
+   ]
+  },
+  {
+   "id": "6.3.3",
+   "title": "Settlement Dues",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "CMs and custodians pay the clearing agency what they owe for each settlement, and the agency pays them what is due, based on exchange/clearing agency data."
+    }
+   ]
+  },
+  {
+   "id": "6.3.4",
+   "title": "Funds Shortages",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Missing a funds obligation (including STT/stamp duty, Capital Cushion and valuation debits) can mean withdrawal of trading facility and disciplinary action."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Trading facility withdrawn and <b>securities pay-out withheld</b> if the shortfall exceeds the SEBI/CC limit, or shortages recur within a set period and amount.",
+      "Penal interest of <b>not less than 0.07% per day</b> on the shortage.",
+      "If the defaulter never brings the funds within the allowed time, the CC may <b>close out securities</b> in the normal or auction market."
+     ]
+    },
+    {
+     "type": "example",
+     "title": "Cost of being short",
+     "text": "Short by ₹10,00,000 at pay-in: penal interest of at least ₹700 per day."
+    }
+   ]
+  },
+  {
+   "id": "6.4",
+   "title": "Settlement of Securities",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Demat deliveries go directly to/from clients' <b>beneficiary accounts</b> (except to entities under approved schemes). With direct pay-out, buyers get shares on settlement day <b>by 3:30 pm</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Seller:</b> on learning of execution, gives a <b>delivery (debit) instruction</b> to his DP to move shares to the broker's pool account, or lets the broker do it under <b>DDPI</b>.",
+      "<b>Buyer:</b> a one-time <b>standing instruction</b> to the DP (at opening or later), or a receipt instruction for each purchase.",
+      "Block mechanism and pay-in validation apply (5.6.2, 5.6.3)."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6.4.1",
+   "title": "Settlement through the Depository Clearing System",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Securities pay-in is on T+0 and/or T+1 by cycle. Members keep settlement (pool) accounts with <b>both NSDL and CDSL</b>, mandatory <b>even if pay-out is taken in a preferred depository</b>. TMs clearing through another CM also need TM pool accounts in both."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Settlement number",
+       "points": [
+        "Unique ID for trades of one settlement cycle",
+        "Links trades to their settlement date for reconciliation"
+       ]
+      },
+      {
+       "title": "Settlement / market type",
+       "points": [
+        "Normal, auction, limited physical etc.",
+        "Decides rules and timeline: demat/physical, gross or trade-for-trade",
+        "CCs publish both periodically"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "#",
+      "Demat account category",
+      "Purpose"
+     ],
+     "rows": [
+      [
+       "1",
+       "Proprietary Account",
+       "Own securities"
+      ],
+      [
+       "2",
+       "Pool Account",
+       "Settlement"
+      ],
+      [
+       "3",
+       "Client Unpaid Securities Pledgee Account",
+       "Pledge of clients' unpaid securities"
+      ],
+      [
+       "4",
+       "Client Securities Margin Pledge Account",
+       "Margin by pledge/re-pledge"
+      ],
+      [
+       "5",
+       "Client Securities under Funding Account",
+       "Margin-funded securities"
+      ],
+      [
+       "6",
+       "Client Nodal MFOS Account",
+       "MFOS unit subscription/redemption"
+      ]
+     ],
+     "caption": "The only 6 demat account categories SEBI allows brokers"
+    },
+    {
+     "type": "p",
+     "text": "<b>Physical settlement of F&O</b> (SEBI, November 30, 2022): obligations are <b>netted with Capital Market obligations of the same trade date</b> where CM-TM-client (UCC) and security match, and settled in the <b>CM segment's</b> settlement type and number."
+    }
+   ]
+  },
+  {
+   "id": "6.5",
+   "title": "Auction of Securities",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A seller who fails to deliver is penalised; the shortage value counts as a <b>funds shortage</b> if the clearing bank does not confirm it. Shortages arise when a short seller fails to square up, delivery is late, or shares are bad/wrong. The member is debited the undelivered shares' value at a valuation price: the <b>valuation debit</b>. To honour the buyer, the CC runs a <b>buy-in auction</b> through the exchange on <b>settlement day</b> and delivers the shares bought."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "T",
+       "text": "Seller sells 100 shares of ABC at ₹500."
+      },
+      {
+       "title": "T+1 pay-in",
+       "text": "Nothing delivered; valuation debit at, say, ₹505 = ₹50,500."
+      },
+      {
+       "title": "T+1 afternoon",
+       "text": "Auction: a seller offers at ₹510 and is accepted."
+      },
+      {
+       "title": "T+2 (Auction+1)",
+       "text": "Auction shares delivered to the buyer; the defaulter bears the cost."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6.5.1",
+   "title": "Auction on Exchanges / Clearing Corporations",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "An <b>auction tender notice</b> gives: (a) scrips short, (b) quantity for auction, (c) date and time of the auction."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Rule",
+      "Detail"
+     ],
+     "rows": [
+      [
+       "When",
+       "Settlement day, after pay-out: <b>BSE 2:00 pm to 2:45 pm</b>; <b>NSE 2:30 pm onwards</b>"
+      ],
+      [
+       "Excluded",
+       "Scrips for direct close-out (e.g. trade-for-trade) and securities under corporate action"
+      ],
+      [
+       "How often",
+       "<b>Only once</b>, unless a special resolution of the CC's governing board approves"
+      ],
+      [
+       "Time limit",
+       "Never beyond <b>one week</b> from the settlement's pay-in day"
+      ],
+      [
+       "Auction seller",
+       "Gets pay-in obligation the same day; delivers by <b>Auction + 1 day</b>"
+      ],
+      [
+       "Auction funds payer",
+       "Clear funds within the CC's time on settlement day"
+      ],
+      [
+       "Auction pay-out",
+       "Shares and funds on <b>Auction + 1 day</b>"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6.5.1.1",
+   "title": "Self Auction / Internal Shortages",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "If one client of a broker fails to deliver while another client bought the same quantity, netting leaves the broker with no CC obligation, yet the buyer gets nothing: an <b>internal shortage</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Members report internal shortages on <b>pay-in day</b> for a <b>self-auction</b>; the CC clubs them with normal shortages in one auction.",
+      "With direct pay-out, SEBI asked TMs/CMs to use the CC auction for such shortages and charge clients <b>nothing beyond CC charges</b>.",
+      "If the CC cannot get the shares, the member closes out per CC guidelines.",
+      "CCs may charge fees and <b>may not give settlement guarantee</b> for these auctions."
+     ]
+    },
+    {
+     "type": "example",
+     "title": "Internal shortage",
+     "text": "Client A sells and client B buys 50 shares of X through broker K, so K's net obligation is nil. A fails to deliver; K reports 50 shares for self-auction on pay-in day."
+    }
+   ]
+  },
+  {
+   "id": "6.5.2",
+   "title": "Close-Out Procedure",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "If the auction finds no sellers, the CC <b>closes out</b>: the defaulter is charged a close-out price and the buyer is compensated in money. Some shortages go straight to close-out."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Situation",
+      "Close-out price (whichever is higher)"
+     ],
+     "rows": [
+      [
+       "No sellers in auction (normal)",
+       "Highest price across exchanges from trade day till auction day, OR <b>20%</b> above official closing (settlement) price on auction day"
+      ],
+      [
+       "Corporate action: cum-basis shortage whose auction pay-out cannot happen by Record Date/Book Closure minus 1 business day",
+       "Highest price across exchanges from trade day till auction day, OR <b>10%</b> above settlement price on auction day (or as declared)"
+      ],
+      [
+       "Block deal window and trade-for-trade (direct)",
+       "Highest price across exchanges on T day (till settlement minus 1 day), OR <b>20%</b> above settlement price on T day"
+      ],
+      [
+       "Optional T+0 (no auction)",
+       "<b>10% above</b> the day's highest price across all exchanges"
+      ],
+      [
+       "Auction seller fails on auction pay-in day",
+       "Highest price from original trade day till auction day, OR <b>20%</b> above closing price on close-out day; charged to the auction seller"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "For corporate actions, cum-basis shortages <b>go to auction only if auction pay-out is on or before Record Date/Book Closure minus 1 business day</b>; otherwise they are closed out directly."
+    },
+    {
+     "type": "example",
+     "title": "Close-out",
+     "text": "100 shares undelivered, no auction offers. Highest price, trade day to auction day: ₹540. Auction-day close ₹480, plus 20% = ₹576. Higher is ₹576: seller charged ₹57,600."
+    },
+    {
+     "type": "key",
+     "text": "Proceeds settle the aggrieved party's claim; any balance goes to the <b>Core Settlement Guarantee Fund (Core SGF)</b>, not to the defaulter."
+    },
+    {
+     "type": "trap",
+     "text": "20% is the normal mark-up; 10% is for corporate-action cum shortages and T+0 (in T+0, 10% above the day's <b>highest</b> price)."
+    }
+   ]
+  },
+  {
+   "id": "6.6",
+   "title": "Settlement of Equity Derivatives",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Since <b>October 2019</b>, stock futures and options open at expiry are <b>physically settled</b>; index F&O remain <b>cash-settled</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Futures</b> settle (A) daily by <b>mark-to-market (MTM)</b>: the loser's CM pays, the gainer's CM receives, and positions are reset to the daily settlement price; MTM is always <b>cash</b>. CMs collect/settle MTM for their TMs and clients. (B) <b>Final settlement</b> happens on the last trading day."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Date",
+      "Previous price (₹)",
+      "Settlement price (₹)",
+      "Change",
+      "MTM (x 200)"
+     ],
+     "rows": [
+      [
+       "21st",
+       "2,502.00 (buy)",
+       "2,508.00",
+       "+6",
+       "+1,200"
+      ],
+      [
+       "22nd",
+       "2,508.00",
+       "2,532.00",
+       "+24",
+       "+4,800"
+      ],
+      [
+       "23rd",
+       "2,532.00",
+       "2,548.00",
+       "+16",
+       "+3,200"
+      ],
+      [
+       "24th",
+       "2,548.00",
+       "2,510.00",
+       "-38",
+       "-7,600"
+      ],
+      [
+       "27th",
+       "2,510.00",
+       "2,532.00",
+       "+22",
+       "+4,400"
+      ],
+      [
+       "28th",
+       "2,532.00",
+       "2,520.00",
+       "-12",
+       "-2,400"
+      ],
+      [
+       "29th (expiry)",
+       "2,520.00",
+       "2,545.00 (final)",
+       "+25",
+       "+5,000"
+      ],
+      [
+       "Net",
+       "",
+       "",
+       "+43",
+       "+₹8,600"
+      ]
+     ],
+     "caption": "Workbook example: XYZ index futures, 1 contract = 200 units"
+    },
+    {
+     "type": "hook",
+     "text": "Shortcut: (final price - buy price) x quantity = (2,545 - 2,502) x 200 = ₹8,600. Daily MTM pays it in instalments."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Cash-settled futures (final)",
+       "points": [
+        "All positions marked to the <b>final settlement price</b> on expiry",
+        "Funds pay-in by declared time; pay-out after"
+       ]
+      },
+      {
+       "title": "Physically settled futures (final)",
+       "points": [
+        "Delivery on <b>T+1</b> (T = expiry) at the <b>futures final settlement price</b>",
+        "Gap between previous settlement/trade price and final price is cash-settled with daily MTM on T+1"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Options:</b> (A) <b>daily premium</b>: buyer pays, seller receives, netted per client per contract. (B) <b>Final exercise</b>: all <b>ITM stock options are auto-exercised</b> on expiry. <b>Index options are European</b> (exercise on expiry only); ITM longs are <b>randomly assigned</b> to shorts of the same series. Final settlement price = underlying's closing price on expiry."
+    },
+    {
+     "type": "key",
+     "text": "Exercise value per unit: <b>Call = closing price - strike</b>; <b>Put = strike - closing price</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Physically settled stock option",
+      "Results in"
+     ],
+     "rows": [
+      [
+       "Long call exercised",
+       "<b>Buy</b>: receive shares"
+      ],
+      [
+       "Short call assigned",
+       "<b>Sell</b>: deliver shares"
+      ],
+      [
+       "Long put exercised",
+       "<b>Sell</b>: deliver shares"
+      ],
+      [
+       "Short put assigned",
+       "<b>Buy</b>: receive shares"
+      ]
+     ],
+     "caption": "Obligation valued at the option's <b>strike price</b>"
+    },
+    {
+     "type": "example",
+     "title": "Two expiries",
+     "text": "Index put, strike ₹22,000, index closes ₹21,700, 75 units: long gets 300 x 75 = ₹22,500 cash.<br>Stock call, strike ₹1,400, stock closes ₹1,450, lot 500: long receives 500 shares and pays ₹7,00,000 (strike x 500)."
+    },
+    {
+     "type": "hook",
+     "text": "Long call = you call the shares in (buy). Long put = you put them out (sell). Shorts do the opposite."
+    }
+   ]
+  },
+  {
+   "id": "6.6.1",
+   "title": "Settlement Price for Derivatives",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Daily settlement price:</b> the contract's closing price (on an exchange or across exchanges); for illiquid contracts, a theoretical price per SEBI guidelines."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Product",
+      "Final settlement price"
+     ],
+     "rows": [
+      [
+       "Index futures/options",
+       "Closing price of the underlying <b>index</b> on the last trading day, on the given exchange"
+      ],
+      [
+       "Stock futures/options",
+       "Closing price of the stock in the CM segment <b>across exchanges</b> on the last trading day"
+      ],
+      [
+       "Currency futures/options",
+       "<b>FBIL reference rate</b> or a rate derived from it"
+      ],
+      [
+       "Cash-settled GOI bond futures/options",
+       "Weighted average price in the <b>last two hours</b> on <b>NDS-OM</b> (RBI's G-sec trading screen), minimum <b>5 trades</b>; else FIMMDA/FBIL price"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "6.6.2",
+   "title": "Derivatives Funds and Securities Settlement",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Funds (6.6.2):</b> MTM, cash-settled futures final settlement, premium and cash-settled exercise obligations are <b>netted at CM level</b>; pay-in before market hours next day, pay-out credited after, as in the cash market."
+    },
+    {
+     "type": "p",
+     "text": "<b>Securities (6.6.3):</b> a CM's deliverable/receivable positions are netted across all its clients/TMs. On stock derivative expiry, cash and physical F&O obligations are <b>settled net</b> (Box 5.1) in the <b>CM segment's</b> settlement type and number."
+    }
+   ]
+  },
+  {
+   "id": "6.7.1",
+   "title": "Corporate Actions: Record Date and Ex-Date",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Corporate actions (rights, bonus, split, dividend) go to those holding shares on the <b>record date</b>. A stock trades <b>cum-benefit up to 1 trading day before the record date</b>; the day it trades without the benefit is the <b>ex-date</b>, from which exchanges adjust the base price."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Item",
+      "XYZ Ltd, bonus 1:1"
+     ],
+     "rows": [
+      [
+       "Record date",
+       "May 28, 2025 (holders in demat at EOD)"
+      ],
+      [
+       "Ex-date",
+       "May 28, 2025"
+      ],
+      [
+       "Close on May 27, 2025",
+       "₹500"
+      ],
+      [
+       "Adjusted base price, May 28, 2025",
+       "₹250"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "title": "Who gets the bonus?",
+     "text": "Bought May 27: shares arrive May 28 (T+1) before EOD, so <b>eligible</b>. Bought May 28: shares arrive May 29, <b>not eligible</b>."
+    },
+    {
+     "type": "key",
+     "text": "Under T+1, <b>ex-date = record date</b>. Record date December 22 means ex-date December 22."
+    }
+   ]
+  },
+  {
+   "id": "6.7.2",
+   "title": "Corporate Actions to be Adjusted, Timing and What Changes",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Bonus, rights, extraordinary dividends, mergers/demergers, amalgamation, splits and consolidations alter F&O contracts. <b>Principle:</b> keep the <b>value of positions the same</b> on cum and ex dates as far as possible, preserving ITM/ATM/OTM status and smooth exercise/assignment."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Stock benefits",
+       "points": [
+        "Bonus, Rights",
+        "Merger/De-merger, Amalgamation",
+        "Splits, Consolidations",
+        "Hive-off",
+        "Warrants, Secured Premium Notes (SPNs)"
+       ]
+      },
+      {
+       "title": "Cash benefit",
+       "points": [
+        "Cash dividend"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "key",
+     "text": "<b>When (6.7.3):</b> on the <b>last cum day</b>, after trading closes. <b>What (6.7.4):</b> strike price, position, market lot/multiplier, on <b>all open positions</b>. Expiry may also change: contracts force-closed and replaced by adjusted ones."
+    }
+   ]
+  },
+  {
+   "id": "6.7.5.1",
+   "title": "Bonus, Stock Splits and Consolidations",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Item",
+      "Bonus / split / consolidation"
+     ],
+     "rows": [
+      [
+       "Adjustment factor (AF)",
+       "Bonus A:B: <b>(A+B)/B</b>. Split or consolidation A:B: <b>A/B</b>"
+      ],
+      [
+       "New strike",
+       "Old strike <b>÷</b> AF"
+      ],
+      [
+       "New market lot",
+       "Old lot <b>x</b> AF"
+      ],
+      [
+       "New position",
+       "Old position <b>x</b> AF"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "title": "Bonus 1:1",
+     "text": "AF = 2. Strike ₹500 becomes ₹250; lot 1,000 becomes 2,000; a 2,000-share position becomes 4,000. Value stays ₹10,00,000."
+    },
+    {
+     "type": "example",
+     "title": "Split and consolidation",
+     "text": "Split 5:1 (one ₹10 share into five ₹2 shares): AF = 5. Strike ₹2,000 becomes ₹400; lot 250 becomes 1,250.<br>Consolidation 1:10: AF = 0.1. Strike ₹20 becomes ₹200; lot 10,000 becomes 1,000."
+    },
+    {
+     "type": "hook",
+     "text": "More, cheaper shares: bonus and split <b>divide</b> the strike and <b>multiply</b> lot and position."
+    }
+   ]
+  },
+  {
+   "id": "6.7.5.2",
+   "title": "Rights Issue and Fractions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Rights work the other way: strike <b>x</b> AF; lot and position <b>÷</b> AF. With A = rights entitlement, B = existing shares, P = close on last cum date, S = issue price: benefit per entitlement = (P - S) x A; benefit per share <b>E = (P - S) x A / (A + B)</b>; <b>AF = (P - E) / P</b>. Any dividend declared with the rights follows the dividend policy."
+    },
+    {
+     "type": "example",
+     "title": "Rights 1:4",
+     "text": "P = ₹200, S = ₹100: E = 100 x 1/5 = ₹20; AF = 180/200 = 0.9. Strike ₹220 becomes ₹198; lot 900 becomes 1,000. Value unchanged at ₹1,98,000."
+    },
+    {
+     "type": "p",
+     "text": "<b>Fractions</b> (e.g. bonus 3:7): (1) value the position before; (2) value with the exact AF; (3) round strike to nearest tick, lot to nearest integer; (4) revalue. The relevant authority covers the gap between 1 and 4 by adjusting strike or lot, <b>without forced closure</b>."
+    },
+    {
+     "type": "example",
+     "title": "Bonus 3:7",
+     "text": "AF = 10/7. Strike ₹1,000 becomes ₹700; lot 400 becomes 571.43, rounded to 571. Value ₹4,00,000 before, ₹3,99,700 after rounding: the ₹300 gap is fixed by tweaking strike or lot."
+    }
+   ]
+  },
+  {
+   "id": "6.7.5.3",
+   "title": "Dividends",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Dividend",
+      "F&O adjustment"
+     ],
+     "rows": [
+      [
+       "Below 2% of market value (ordinary)",
+       "None"
+      ],
+      [
+       "At or above 2% (extraordinary), or any dividend where the company sought exemption from SEBI LODR (2015) timelines",
+       "Adjusted"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Market price for the 2% test:</b> close on the day <b>before</b> the board announces; if announced <b>after market hours</b>, that <b>same day's</b> close. If the AGM changes the rate: the post-AGM rate and the close on the day before the AGM.",
+      "Extraordinary: the <b>total dividend</b> (special and/or ordinary) is <b>reduced from all option strikes</b> from the ex-dividend date; futures carry forward at daily settlement price <b>less</b> the dividend."
+     ]
+    },
+    {
+     "type": "example",
+     "title": "2% test",
+     "text": "Close ₹1,000 the day before the board meeting. Dividend ₹15 (1.5%): no change. Dividend ₹25 (2.5%): a ₹1,000 call becomes a ₹975 call; futures carry forward at settlement price minus ₹25."
+    }
+   ]
+  },
+  {
+   "id": "6.7.5.4",
+   "title": "Mergers and Demergers",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "<b>Merger:</b> when the record date is announced, members are told the expiry (<b>last cum-date</b>); no fresh contracts on a stock that will cease to exist; unexpired contracts are compulsorily settled at the <b>underlying's close on the last cum-date</b>."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Demerger:</b> derivatives can be re-introduced on the post-restructured company from its first listing day only if <b>all</b> hold: (a) F&O on the original company traded before restructuring; (b) its market cap was at least <b>₹1,000 crore</b>; (c) the new company is likely to be at least <b>one-third</b> its size by revenue, assets or analyst valuation; (d) nothing (e.g. extremely low free float) makes it ineligible."
+    },
+    {
+     "type": "key",
+     "text": "If met: existing contracts expire on the <b>last cum date</b>; <b>near, middle and far month</b> contracts on the restructured company start from the demerger <b>ex-date</b>."
+    }
+   ]
+  },
+  {
+   "id": "6.7.5.5",
+   "title": "Other Corporate Actions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Other corporate actions are adjusted case by case by the relevant authority on the same principles, including compulsory close-out where needed."
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Cash market settlement cycle",
+   "value": "T+1 rolling (optional beta T+0 alongside)",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Days excluded when counting the settlement day",
+   "value": "Bank holidays, exchange/CC holidays, Saturdays, Sundays",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Derivatives daily and final settlement",
+   "value": "T+1 working day",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Currency derivatives final settlement",
+   "value": "T+2 (expiry + 2 days)",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Derivatives funds pay-in/pay-out (MTM, premium, cash-settled final)",
+   "value": "Before market opens next day, around 8:30 am",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Custodial confirmation",
+   "value": "T+1 by 7:30 am",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Obligation download by CC",
+   "value": "T+1 by 9:00 am",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Pay-in of securities and funds",
+   "value": "T+1 up to 11:00 am",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Pay-out of funds",
+   "value": "T+1, 1:30 pm",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Pay-out of securities (direct to client)",
+   "value": "T+1 by 3:30 pm (revised from 1:30 pm)",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Direct pay-out of securities circular",
+   "value": "SEBI, June 5, 2024",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Auction pay-in for T-day shortages",
+   "value": "T+2, generally by 8:00 am, then pay-out",
+   "ref": "6.1"
+  },
+  {
+   "fact": "Inter-depository transfers when settlements bunch after holidays",
+   "value": "Within 1 hour, before next pay-in",
+   "ref": "6.1.1"
+  },
+  {
+   "fact": "Current closing price method",
+   "value": "VWAP of last 30 minutes of the continuous trading session",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "Closing Auction Session (CAS) circular",
+   "value": "SEBI, January 16, 2026",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "CAS timing",
+   "value": "3:15 pm to 3:35 pm (20 minutes)",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "CAS sub-sessions",
+   "value": "4, of 5 minutes each",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "CAS: reference price / transition from CTS",
+   "value": "3:15 pm",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "CAS: order entry, limit and market orders",
+   "value": "3:20 pm",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "CAS: limit orders only, random close",
+   "value": "3:25 pm; random close in last 2 minutes",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "CAS: order matching",
+   "value": "3:30 pm",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "CAS applies first to",
+   "value": "Stocks on which derivatives are available",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "Uses of the closing price listed",
+   "value": "7",
+   "ref": "6.2.1"
+  },
+  {
+   "fact": "Client nodal accounts (USCNBA/DSCNBA) circular",
+   "value": "SEBI, December 13, 2023",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Running account for securities discontinued",
+   "value": "SEBI circular, June 20, 2019",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Settlement of client funds without running account",
+   "value": "Within 24 hours / 1 working day of pay-out",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Running account settlement frequency",
+   "value": "At least once in 30 days (monthly) or 90 days (quarterly)",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Running account settlement dates",
+   "value": "First Friday and/or Saturday of month/quarter",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Annual running-account calendar issued",
+   "value": "By exchanges jointly, at the start of the financial year",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Running account dispute window",
+   "value": "30 working days from the statement date",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Return of client funds/securities on request (with broker)",
+   "value": "Within 1 working day",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Return of client funds/securities on request (with CM/CC)",
+   "value": "Within 3 working days",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Inactive client credit balance trigger",
+   "value": "No trade for 30 calendar days",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "UPI ID mechanism for intermediaries",
+   "value": "SEBI circular, June 2025",
+   "ref": "6.3.1"
+  },
+  {
+   "fact": "Penal interest on funds pay-in shortage",
+   "value": "Not less than 0.07% per day",
+   "ref": "6.3.4"
+  },
+  {
+   "fact": "Demat account categories allowed for brokers",
+   "value": "6",
+   "ref": "6.4.1"
+  },
+  {
+   "fact": "Physical F&O netted with cash segment",
+   "value": "SEBI circular, November 30, 2022",
+   "ref": "6.4.1"
+  },
+  {
+   "fact": "Auction session at BSE",
+   "value": "2:00 pm to 2:45 pm on settlement day",
+   "ref": "6.5.1"
+  },
+  {
+   "fact": "Auction session at NSE",
+   "value": "2:30 pm onwards on settlement day",
+   "ref": "6.5.1"
+  },
+  {
+   "fact": "Maximum number of auctions",
+   "value": "Once (more only by special resolution of the CC's governing board)",
+   "ref": "6.5.1"
+  },
+  {
+   "fact": "Auction deadline",
+   "value": "Not beyond one week from pay-in day",
+   "ref": "6.5.1"
+  },
+  {
+   "fact": "Auction pay-in and pay-out",
+   "value": "Auction + 1 day",
+   "ref": "6.5.1"
+  },
+  {
+   "fact": "Normal close-out price",
+   "value": "Higher of highest price (trade day to auction day) or 20% above closing price on auction day",
+   "ref": "6.5.2"
+  },
+  {
+   "fact": "Corporate action cum shortage close-out",
+   "value": "Higher of highest price or 10% above settlement price on auction day",
+   "ref": "6.5.2"
+  },
+  {
+   "fact": "Corporate action cum shortage goes to auction only if",
+   "value": "Auction pay-out is on or before Record Date/Book Closure minus 1 business day",
+   "ref": "6.5.2"
+  },
+  {
+   "fact": "Block window / trade-for-trade close-out",
+   "value": "Higher of highest price on T day or 20% above settlement price on T day",
+   "ref": "6.5.2"
+  },
+  {
+   "fact": "T+0 shortage close-out",
+   "value": "10% above the day's highest price across exchanges",
+   "ref": "6.5.2"
+  },
+  {
+   "fact": "Auction seller default close-out",
+   "value": "Higher of highest price or 20% above closing price on close-out day",
+   "ref": "6.5.2"
+  },
+  {
+   "fact": "Surplus from auction/close-out",
+   "value": "Credited to Core SGF",
+   "ref": "6.5.2"
+  },
+  {
+   "fact": "Stock F&O physically settled since",
+   "value": "October 2019",
+   "ref": "6.6"
+  },
+  {
+   "fact": "MTM example net gain",
+   "value": "₹8,600 (43 points x 200)",
+   "ref": "6.6"
+  },
+  {
+   "fact": "Physically settled futures final settlement",
+   "value": "T+1 after expiry, at futures final settlement price",
+   "ref": "6.6"
+  },
+  {
+   "fact": "Physically settled options obligation value",
+   "value": "At strike price",
+   "ref": "6.6"
+  },
+  {
+   "fact": "GOI bond futures final settlement price",
+   "value": "Weighted average price, last 2 hours on NDS-OM, minimum 5 trades",
+   "ref": "6.6.1"
+  },
+  {
+   "fact": "Currency F&O final settlement price",
+   "value": "FBIL reference rate (or derived from it)",
+   "ref": "6.6.1"
+  },
+  {
+   "fact": "Cum-benefit trading lasts until",
+   "value": "1 trading day before record date (so ex-date = record date under T+1)",
+   "ref": "6.7.1"
+  },
+  {
+   "fact": "Bonus example: XYZ Ltd 1:1",
+   "value": "Close ₹500 on May 27, 2025; adjusted base price ₹250 on May 28, 2025",
+   "ref": "6.7.1"
+  },
+  {
+   "fact": "Stock benefits listed",
+   "value": "9 (bonus, rights, merger/demerger, amalgamation, splits, consolidations, hive-off, warrants, SPNs)",
+   "ref": "6.7.2"
+  },
+  {
+   "fact": "Adjustment factor: bonus A:B",
+   "value": "(A+B)/B",
+   "ref": "6.7.5.1"
+  },
+  {
+   "fact": "Adjustment factor: split/consolidation A:B",
+   "value": "A/B",
+   "ref": "6.7.5.1"
+  },
+  {
+   "fact": "Adjustment factor: rights",
+   "value": "(P-E)/P, where E = (P-S) x A/(A+B)",
+   "ref": "6.7.5.2"
+  },
+  {
+   "fact": "Extraordinary dividend threshold",
+   "value": "2% or more of market value",
+   "ref": "6.7.5.3"
+  },
+  {
+   "fact": "LODR regulations referred for dividend exemption",
+   "value": "SEBI (LODR) Regulations, 2015",
+   "ref": "6.7.5.3"
+  },
+  {
+   "fact": "Demerger: minimum market cap of pre-restructured company",
+   "value": "₹1,000 crore",
+   "ref": "6.7.5.4"
+  },
+  {
+   "fact": "Demerger: minimum size of post-restructured company",
+   "value": "One-third of pre-restructured company",
+   "ref": "6.7.5.4"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "What is a settlement cycle?",
+   "a": "The period within which settlement is made; for cash equities it is T+1, excluding holidays and weekends."
+  },
+  {
+   "q": "Cash settlement vs physical settlement of derivatives?",
+   "a": "Cash: only the price difference is paid. Physical: the underlying security is delivered."
+  },
+  {
+   "q": "Which equity derivatives are cash-settled and which physical?",
+   "a": "Index F&O: cash. Stock F&O: physical (since October 2019)."
+  },
+  {
+   "q": "When is the final settlement of currency derivatives?",
+   "a": "T+2 (expiry + 2 days); other derivatives settle on T+1."
+  },
+  {
+   "q": "When is securities pay-out under direct pay-out?",
+   "a": "By 3:30 pm on T+1, straight into the client's demat account."
+  },
+  {
+   "q": "Holiday settlement rule?",
+   "a": "Sequential: first settlement's pay-in and pay-out complete before the next; inter-depository transfers within one hour."
+  },
+  {
+   "q": "Gross (trade-to-trade) obligation for securities?",
+   "a": "Pay-in = cumulative sell quantity; pay-out = cumulative buy quantity; no netting."
+  },
+  {
+   "q": "How is the closing price computed today?",
+   "a": "VWAP of trades in the last 30 minutes of the continuous trading session."
+  },
+  {
+   "q": "What is CAS and its timing?",
+   "a": "Closing Auction Session (SEBI, Jan 16, 2026): 3:15 pm to 3:35 pm, four 5-minute sub-sessions."
+  },
+  {
+   "q": "Which stocks get CAS first?",
+   "a": "Stocks on which derivative contracts are available."
+  },
+  {
+   "q": "When is the random close in CAS?",
+   "a": "In the last 2 minutes of the 3:25 pm sub-session (limit orders only)."
+  },
+  {
+   "q": "Name four uses of the closing price.",
+   "a": "Next day's base price, end-of-day index value, derivatives settlement, MTM margin (also MF NAV, post-close, block window)."
+  },
+  {
+   "q": "USCNBA vs DSCNBA?",
+   "a": "USCNBA receives client funds; DSCNBA is the only account for paying clients."
+  },
+  {
+   "q": "Can a broker accept cash from a client?",
+   "a": "No. Only account payee cheques, DDs, NEFT/direct credit or other RBI-approved modes."
+  },
+  {
+   "q": "Who may sign a running account authorisation?",
+   "a": "Only the client; not an Authorised Person or PoA holder."
+  },
+  {
+   "q": "Running account settlement dates?",
+   "a": "First Friday and/or Saturday of the month or quarter, per the exchanges' annual calendar."
+  },
+  {
+   "q": "Dispute window for running account statements?",
+   "a": "30 working days from the statement date."
+  },
+  {
+   "q": "Inactive client rule?",
+   "a": "No trade for 30 calendar days: full credit balance returned on the next monthly settlement date."
+  },
+  {
+   "q": "Penal interest on funds shortage?",
+   "a": "Not less than 0.07% per day."
+  },
+  {
+   "q": "What is a valuation debit?",
+   "a": "Debit to a member for undelivered securities, valued at the valuation price."
+  },
+  {
+   "q": "Auction timing on NSE and BSE?",
+   "a": "Settlement day after pay-out: NSE 2:30 pm onwards; BSE 2:00 to 2:45 pm."
+  },
+  {
+   "q": "Auction pay-in and pay-out day?",
+   "a": "Auction + 1 day."
+  },
+  {
+   "q": "What is an internal shortage?",
+   "a": "A client fails to deliver but the broker's net obligation was nil because another client bought; handled by self-auction."
+  },
+  {
+   "q": "Normal close-out price?",
+   "a": "Higher of highest price from trade day to auction day, or 20% above closing price on auction day."
+  },
+  {
+   "q": "Where does surplus from auction/close-out go?",
+   "a": "To the Core Settlement Guarantee Fund, not the defaulter."
+  },
+  {
+   "q": "Exercise value of a call and a put?",
+   "a": "Call = closing price - strike; Put = strike - closing price."
+  },
+  {
+   "q": "Long put exercised in a physically settled stock option results in?",
+   "a": "A sell position: deliver shares, valued at strike price."
+  },
+  {
+   "q": "Final settlement price for stock F&O?",
+   "a": "Closing price of the stock in the CM segment across exchanges on the last trading day."
+  },
+  {
+   "q": "Exercise style of index options in India?",
+   "a": "European: exercised only on expiry day; ITM longs randomly assigned to shorts of the same series."
+  },
+  {
+   "q": "Under T+1, how do ex-date and record date relate?",
+   "a": "They are the same day."
+  },
+  {
+   "q": "When are corporate action adjustments made in F&O?",
+   "a": "On the last cum day, after close of trading, on all open positions."
+  },
+  {
+   "q": "Bonus A:B adjustment factor and effect?",
+   "a": "(A+B)/B; strike divided by it, lot and position multiplied by it."
+  },
+  {
+   "q": "Rights adjustment factor?",
+   "a": "(P-E)/P with E = (P-S)A/(A+B); strike multiplied, lot and position divided."
+  },
+  {
+   "q": "When is a dividend extraordinary for F&O?",
+   "a": "At or above 2% of market value (or LODR timeline exemption sought)."
+  },
+  {
+   "q": "Demerger: two size tests for re-introducing derivatives?",
+   "a": "Pre-restructured market cap at least ₹1,000 crore; new company at least one-third its size."
+  }
+ ],
+ "questions": [
+  {
+   "q": "After receiving intimation from his broker that his sale has been executed, what kind of instruction should the client give to his DP?",
+   "options": [
+    "Credit instruction",
+    "Debit (delivery) instruction",
+    "Hold instruction",
+    "No instruction is needed"
+   ],
+   "answer": 1,
+   "why": "The seller issues a delivery instruction slip, i.e. a debit instruction, to move shares from his demat account to the broker's pool account.",
+   "ref": "6.4",
+   "level": "easy"
+  },
+  {
+   "q": "Corporate action adjustments in equity F&O are carried out on all ........ positions.",
+   "options": [
+    "Closed",
+    "Past",
+    "Open",
+    "Executed"
+   ],
+   "answer": 2,
+   "why": "Adjustments for corporate actions are made on all open positions.",
+   "ref": "6.7.2",
+   "level": "easy"
+  },
+  {
+   "q": "What does the clearing corporation do when a broker fails to deliver securities?",
+   "options": [
+    "Sells the securities",
+    "Cancels the trade",
+    "Levies only a penalty",
+    "Conducts a buy-in auction"
+   ],
+   "answer": 3,
+   "why": "For delivery shortages the CC conducts a buy-in auction to buy shares from the market for the buying broker.",
+   "ref": "6.5",
+   "level": "easy"
+  },
+  {
+   "q": "When a company declares an extraordinary dividend, the total dividend amount is ........ all strike prices of option contracts on that stock.",
+   "options": [
+    "Reduced from",
+    "Added to",
+    "Not applied to",
+    "Multiplied with"
+   ],
+   "answer": 0,
+   "why": "For extraordinary dividends the total dividend is reduced from all strike prices from the ex-dividend date.",
+   "ref": "6.7.5.3",
+   "level": "easy"
+  },
+  {
+   "q": "For computing the end-of-day index value, which price of the constituent shares is used?",
+   "options": [
+    "Last traded price",
+    "Closing price",
+    "Base price",
+    "Opening price"
+   ],
+   "answer": 1,
+   "why": "The closing price is the basis for computing the end-of-day index value.",
+   "ref": "6.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "Brokers must not accept ........ from clients, whether against obligations or as margin.",
+   "options": [
+    "Demand drafts",
+    "Account payee crossed cheques",
+    "Cash",
+    "NEFT transfers"
+   ],
+   "answer": 2,
+   "why": "Cash is prohibited; payments must be by account payee cheque, DD, direct credit or other RBI-approved modes.",
+   "ref": "6.3.1",
+   "level": "easy"
+  },
+  {
+   "q": "If a company's record date is December 22, 202X, what is the ex-date in the equity segment under T+1 settlement?",
+   "options": [
+    "December 21, 202X",
+    "December 22, 202X",
+    "December 23, 202X",
+    "December 20, 202X"
+   ],
+   "answer": 1,
+   "why": "Under T+1 a stock trades cum-benefit until 1 trading day before the record date, so the ex-date is the record date itself.",
+   "ref": "6.7.1",
+   "level": "medium"
+  },
+  {
+   "q": "Final settlement of currency derivatives takes place on expiry plus how many days?",
+   "options": [
+    "0",
+    "1",
+    "2",
+    "3"
+   ],
+   "answer": 2,
+   "why": "Currency derivatives' final settlement is on T+2; other derivatives settle on T+1.",
+   "ref": "6.1",
+   "level": "easy"
+  },
+  {
+   "q": "How is the closing price of a stock in the equity cash segment currently determined?",
+   "options": [
+    "Last traded price at 3:30 pm",
+    "VWAP of trades in the last 30 minutes of the continuous trading session",
+    "Simple average of the last 30 trades",
+    "VWAP of the whole trading day"
+   ],
+   "answer": 1,
+   "why": "Currently the closing price is the VWAP of trades in the last thirty minutes of the CTS.",
+   "ref": "6.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "Under SEBI's January 16, 2026 circular, the Closing Auction Session (CAS) runs:",
+   "options": [
+    "3:30 pm to 3:50 pm",
+    "3:00 pm to 3:20 pm",
+    "3:15 pm to 3:35 pm",
+    "3:40 pm to 4:00 pm"
+   ],
+   "answer": 2,
+   "why": "CAS is a separate 20-minute session from 3:15 pm to 3:35 pm on all trading days.",
+   "ref": "6.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "In the Closing Auction Session, the random close happens:",
+   "options": [
+    "During reference price calculation at 3:15 pm",
+    "During order entry for both limit and market orders at 3:20 pm",
+    "During order matching at 3:30 pm",
+    "In the last 2 minutes of the order-entry period starting 3:25 pm"
+   ],
+   "answer": 3,
+   "why": "The third sub-session (3:25 pm) allows limit orders only and ends with a random close in the last 2 minutes.",
+   "ref": "6.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "In the initial phase, the closing price of which stocks will be determined through the Closing Auction Session?",
+   "options": [
+    "All listed stocks",
+    "Stocks on which derivative contracts are available",
+    "Only Nifty 50 stocks",
+    "Stocks eligible for T+0 settlement"
+   ],
+   "answer": 1,
+   "why": "CAS is phased in, starting with cash segment stocks on which derivative contracts are available.",
+   "ref": "6.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "What is permitted in the CAS sub-session starting at 3:25 pm?",
+   "options": [
+    "Order entry for limit orders; market orders cannot be modified or cancelled",
+    "Entry of both limit and market orders",
+    "Only order matching",
+    "Only reference price calculation"
+   ],
+   "answer": 0,
+   "why": "From 3:25 pm only limit orders can be entered, market orders cannot be modified/cancelled, and the session closes randomly in the last 2 minutes.",
+   "ref": "6.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is NOT listed in the workbook as a use of the closing price?",
+   "options": [
+    "Next day's base price",
+    "Computation of mark-to-market margin",
+    "Computation of mutual fund NAV",
+    "Fixing the issue price in an IPO"
+   ],
+   "answer": 3,
+   "why": "The closing price feeds the post-close session, base price, block window, index value, derivatives settlement, MTM and MF NAV, not IPO pricing.",
+   "ref": "6.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "When several settlements fall due together after holidays, depositories must complete inter-depository transfers:",
+   "options": [
+    "Within 30 minutes",
+    "Within one hour and before the next settlement's pay-in begins",
+    "By end of day",
+    "Within two hours of pay-out"
+   ],
+   "answer": 1,
+   "why": "Depositories must facilitate inter-depository transfers within one hour and before pay-in for the subsequent settlement.",
+   "ref": "6.1.1",
+   "level": "medium"
+  },
+  {
+   "q": "Under trade-to-trade (gross) settlement, a member's securities pay-in obligation equals:",
+   "options": [
+    "Net sell quantity",
+    "Cumulative buy quantity",
+    "Cumulative sell quantity",
+    "Zero"
+   ],
+   "answer": 2,
+   "why": "With no netting, securities pay-in equals the cumulative sell quantity and pay-out the cumulative buy quantity.",
+   "ref": "6.2",
+   "level": "medium"
+  },
+  {
+   "q": "The penal interest an exchange/CC may levy on a member's funds pay-in shortage is:",
+   "options": [
+    "Not less than 0.07% per day",
+    "Not less than 0.7% per day",
+    "1% per month",
+    "0.07% per month"
+   ],
+   "answer": 0,
+   "why": "Penal interest of not less than 0.07 percent per day may be levied on the pay-in shortage.",
+   "ref": "6.3.4",
+   "level": "medium"
+  },
+  {
+   "q": "Within how many days must a client raise a dispute about a running account statement?",
+   "options": [
+    "7 days",
+    "15 days",
+    "30 working days",
+    "90 days"
+   ],
+   "answer": 2,
+   "why": "Disputes must be brought to the broker's notice within 30 working days from the statement date.",
+   "ref": "6.3.1",
+   "level": "medium"
+  },
+  {
+   "q": "A client who opted for quarterly running account settlement has a credit balance and has not traded for 30 calendar days. The broker must:",
+   "options": [
+    "Wait for the next quarterly settlement",
+    "Return the entire credit balance on the upcoming monthly settlement date",
+    "Return it within 24 hours",
+    "Transfer it to the Investor Protection Fund"
+   ],
+   "answer": 1,
+   "why": "Inactive clients' balances are returned on the next monthly settlement date irrespective of their preferred cycle.",
+   "ref": "6.3.1",
+   "level": "hard"
+  },
+  {
+   "q": "A client asks for funds lying with the clearing member/clearing corporation. Within how long must the stock broker transfer them?",
+   "options": [
+    "1 working day",
+    "7 working days",
+    "3 working days",
+    "30 days"
+   ],
+   "answer": 2,
+   "why": "Within 1 working day if lying with the broker; within 3 working days if lying with the CM/CC.",
+   "ref": "6.3.1",
+   "level": "medium"
+  },
+  {
+   "q": "A running account authorisation may be signed by:",
+   "options": [
+    "The Authorised Person of the broker",
+    "A Power of Attorney holder",
+    "The client only",
+    "The broker's compliance officer"
+   ],
+   "answer": 2,
+   "why": "The authorisation must be signed by the client only, not by an AP or PoA holder, and must be dated and revocable.",
+   "ref": "6.3.1",
+   "level": "medium"
+  },
+  {
+   "q": "How many categories of demat accounts are stock brokers permitted to maintain as specified by SEBI?",
+   "options": [
+    "4",
+    "5",
+    "8",
+    "6"
+   ],
+   "answer": 3,
+   "why": "Proprietary, pool, client unpaid securities pledgee, client securities margin pledge, client securities under funding, and client nodal MFOS: six.",
+   "ref": "6.4.1",
+   "level": "medium"
+  },
+  {
+   "q": "On NSE, the auction for undelivered quantities is conducted on settlement day:",
+   "options": [
+    "2:00 pm to 2:45 pm",
+    "2:30 pm onwards",
+    "9:15 am to 10:00 am",
+    "After 3:30 pm"
+   ],
+   "answer": 1,
+   "why": "NSE auctions run from 2:30 pm onwards after pay-out; BSE's window is 2:00 pm to 2:45 pm.",
+   "ref": "6.5.1",
+   "level": "medium"
+  },
+  {
+   "q": "An auction for a shortage can in no case be held beyond:",
+   "options": [
+    "One week from the pay-in day of the settlement",
+    "Three days from the trade date",
+    "15 days from pay-out",
+    "One month from the trade date"
+   ],
+   "answer": 0,
+   "why": "No auction may be held beyond one week from the pay-in day of the relevant settlement.",
+   "ref": "6.5.1",
+   "level": "medium"
+  },
+  {
+   "q": "If no sellers come forward in the auction, the shortage is closed out at:",
+   "options": [
+    "The auction day's closing price",
+    "10% above the trade price",
+    "The valuation price",
+    "The higher of the highest price from trade day till auction day, or 20% above the official closing price on auction day"
+   ],
+   "answer": 3,
+   "why": "Normal close-out uses the higher of the highest price across exchanges till auction day or 20% above the auction-day closing price.",
+   "ref": "6.5.2",
+   "level": "medium"
+  },
+  {
+   "q": "Shortages in block deal window and trade-for-trade trades are directly closed out at the higher of the highest price on T day or:",
+   "options": [
+    "20% above the settlement price on T day",
+    "10% above the settlement price on T day",
+    "5% above the closing price",
+    "The auction price"
+   ],
+   "answer": 0,
+   "why": "Block window and TFT shortages go straight to close-out at the higher of the T-day highest price or 20% above the T-day settlement price.",
+   "ref": "6.5.2",
+   "level": "hard"
+  },
+  {
+   "q": "A seller fails to deliver 100 shares; the auction draws no offers. The highest price from trade day to auction day is ₹540 and the closing price on auction day is ₹480. What is the close-out amount?",
+   "options": [
+    "₹48,000",
+    "₹54,000",
+    "₹57,600",
+    "₹52,800"
+   ],
+   "answer": 2,
+   "why": "20% above ₹480 is ₹576, which is higher than ₹540, so 100 x ₹576 = ₹57,600.",
+   "ref": "6.5.2",
+   "level": "hard"
+  },
+  {
+   "q": "Any amount left over from auction or close-out proceeds after settling the aggrieved party's claim is credited to:",
+   "options": [
+    "The defaulting member",
+    "The buying client",
+    "The Investor Protection Fund",
+    "The Core Settlement Guarantee Fund"
+   ],
+   "answer": 3,
+   "why": "The balance goes to the Core SGF instead of the defaulting party's account.",
+   "ref": "6.5.2",
+   "level": "medium"
+  },
+  {
+   "q": "An investor buys one lot (200 units) of an index future at ₹2,502. The final settlement price on expiry is ₹2,545. What is the total MTM profit received over the contract's life?",
+   "options": [
+    "₹4,300",
+    "₹8,600",
+    "₹5,000",
+    "₹17,200"
+   ],
+   "answer": 1,
+   "why": "Net MTM = (2,545 - 2,502) x 200 = ₹8,600, paid out through daily MTM and final settlement.",
+   "ref": "6.6",
+   "level": "medium"
+  },
+  {
+   "q": "In a physically settled stock option, exercise of a long call results in:",
+   "options": [
+    "A buy position (securities receivable)",
+    "A sell position (securities deliverable)",
+    "Only a cash difference",
+    "Lapse of the contract"
+   ],
+   "answer": 0,
+   "why": "Exercise of a long call creates a buy (receivable) position; assignment of a short call creates a sell position.",
+   "ref": "6.6",
+   "level": "medium"
+  },
+  {
+   "q": "In a physically settled stock option, assignment of a short put results in:",
+   "options": [
+    "A sell position (securities deliverable)",
+    "Only a cash difference",
+    "A buy position (securities receivable)",
+    "No obligation"
+   ],
+   "answer": 2,
+   "why": "The assigned put writer must buy the shares: a buy (receivable) position at the strike price.",
+   "ref": "6.6",
+   "level": "hard"
+  },
+  {
+   "q": "A stock announces a 2:1 bonus (2 new shares for every 1 held). An option has strike ₹900 and market lot 300. What are the adjusted strike and lot?",
+   "options": [
+    "Strike ₹300, lot 900",
+    "Strike ₹450, lot 600",
+    "Strike ₹900, lot 300",
+    "Strike ₹2,700, lot 100"
+   ],
+   "answer": 0,
+   "why": "Adjustment factor = (2+1)/1 = 3; strike ₹900 / 3 = ₹300; lot 300 x 3 = 900.",
+   "ref": "6.7.5.1",
+   "level": "hard"
+  },
+  {
+   "q": "A rights issue has P = ₹200, S = ₹100 and ratio 1:4 (A = 1, B = 4). What is the adjustment factor?",
+   "options": [
+    "0.8",
+    "1.25",
+    "0.5",
+    "0.9"
+   ],
+   "answer": 3,
+   "why": "E = (200 - 100) x 1/5 = ₹20; AF = (200 - 20)/200 = 0.9. Strike is multiplied and lot divided by 0.9.",
+   "ref": "6.7.5.2",
+   "level": "hard"
+  },
+  {
+   "q": "For equity F&O adjustment, a dividend is treated as extraordinary when it is at or above what share of the market value of the stock?",
+   "options": [
+    "1%",
+    "5%",
+    "10%",
+    "2%"
+   ],
+   "answer": 3,
+   "why": "Dividends below 2% are ordinary and need no adjustment; at or above 2% they are extraordinary.",
+   "ref": "6.7.5.3",
+   "level": "easy"
+  },
+  {
+   "q": "A board announces a dividend after market hours on the 10th. For the 2% test, which market price is used?",
+   "options": [
+    "Closing price on the 9th",
+    "Average price of the past month",
+    "Closing price on the 10th",
+    "Price on the record date"
+   ],
+   "answer": 2,
+   "why": "If the announcement comes after market hours, the same day's closing price is the market price.",
+   "ref": "6.7.5.3",
+   "level": "hard"
+  },
+  {
+   "q": "To re-introduce derivatives on a demerged company, the pre-restructured company must have had a market capitalisation of at least:",
+   "options": [
+    "₹500 crore",
+    "₹2,000 crore",
+    "₹5,000 crore",
+    "₹1,000 crore"
+   ],
+   "answer": 3,
+   "why": "One condition is a pre-restructuring market cap of at least ₹1,000 crore; the new company must also be at least one-third its size.",
+   "ref": "6.7.5.4",
+   "level": "medium"
+  },
+  {
+   "q": "Corporate action adjustments in equity F&O are carried out on the last cum day, after the close of trading hours.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "why": "Adjustments are made on the last day the security trades cum-benefit in the cash market, after trading hours.",
+   "ref": "6.7.2",
+   "level": "easy"
+  },
+  {
+   "q": "The clearing corporation always provides settlement guarantee for auctions of internal shortages.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "CCs may charge fees for internal shortage auctions and may not provide settlement guarantee for them.",
+   "ref": "6.5.1.1",
+   "level": "medium"
+  }
+ ]
+}

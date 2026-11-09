@@ -1,0 +1,1601 @@
+{
+ "id": 8,
+ "title": "Other Services Provided by Brokers",
+ "short": "Other Services",
+ "weight": 10,
+ "minutes": 45,
+ "big_picture": "A modern broker is a financial supermarket: it helps you apply for IPOs, buy mutual funds, manages your portfolio, publishes research, keeps your demat account, lends you money to buy shares, and lets you trade from your phone. Each shelf in this supermarket needs its own SEBI licence and its own rulebook. This chapter is a tour of those shelves and the numbers that guard each one.",
+ "exam_focus": [
+  "IPO plumbing: ASBA (mandatory from 01 Jan 2016), UPI for individuals up to ₹5 lakh, T+3 listing for issues from Dec 1, 2023",
+  "MF on exchanges: ARN + NISM + distributor registration; no pool accounts, money goes straight to the clearing corporation; T+0/T+1 unit pay-out",
+  "PMS: ₹5 crore net worth, ₹50 lakh minimum ticket, discretionary vs non-discretionary vs co-investment, 25% unlisted limit, fees ₹1 lakh / ₹10 lakh / ₹5 lakh every 3 years",
+  "Research analyst vs investment adviser: free research still needs RA registration; incidental advice by a broker needs no IA registration",
+  "MTF: ₹3 crore net worth, VaR + 3 ELM vs VaR + 5 ELM, 5x indebtedness, borrowings + 50% NW exposure, 10% per client, 5-working-day liquidation, 6 pm T+1 disclosure",
+  "IBT/STWT: exchange decides in 7 days, ₹50 lakh net worth, server in India, no cross trades, 2FA with different factors"
+ ],
+ "sections": [
+  {
+   "id": "8.1",
+   "title": "Introduction: the broker as a financial supermarket",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Big brokers have become <b>financial services companies</b>: equities, derivatives, commodities, IPOs, mutual funds, depository services, PMS, insurance, and wealth management for HNIs, through branches, internet and telephone. The catch: <b>each extra service needs its own SEBI registration</b>, licence or certification. A broking licence alone does not let you run PMS or a DP."
+    },
+    {
+     "type": "p",
+     "text": "A typical broker's outlet offers: investment advice, research reports and market reviews; depository services; <b>Direct Market Access (DMA)</b>; mobile trading and <b>Smart Order Routing (SOR)</b>; algorithmic trading; IPO and mutual fund distribution; <b>Internet-based Trading (IBT)</b>; and margin funding."
+    },
+    {
+     "type": "key",
+     "text": "For every service beyond broking, the broker must be <b>separately registered with SEBI</b>."
+    }
+   ]
+  },
+  {
+   "id": "8.2",
+   "title": "IPO applications, ASBA and UPI",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "An <b>IPO (Initial Public Offering)</b> is when a company offers its shares to the public <b>for the first time</b> (going public). The client simply logs in or calls the broker to apply; the broker's system is linked to the exchange's IPO system, forms are uploaded online, and bid status is visible on the exchange at any time."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "BRLM names the syndicate",
+       "text": "The <b>Book Running Lead Manager</b> (the lead merchant banker appointed by the issuer, named in the offer document) gives the exchange the list of trading members appointed as syndicate/sub-syndicate members."
+      },
+      {
+       "title": "Member gets enabled",
+       "text": "The member completes the exchange's registration procedure to use the IPO platform."
+      },
+      {
+       "title": "Bids enter the book",
+       "text": "Each valid bid is <b>numbered and time-stamped</b> (distinctive offer number, unique time stamp) and stored in the book."
+      },
+      {
+       "title": "Book stays open",
+       "text": "Bids remain outstanding till the <b>last day</b> of book building; members can modify/cancel them till that day, within SEBI guidelines."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>ASBA (Application Supported by Blocked Amount)</b>: the application money stays in the investor's bank account but is <b>blocked</b> until the basis of allotment is finalised. Only the allotted amount is debited; the rest is unblocked. ASBA is <b>mandatory for all investors</b> in all issues opening from <b>01 January 2016</b> (circular of November 10, 2015). SEBI later required that ASBA applications be processed <b>only after the money is actually blocked</b>, with systems in place within three months of that circular."
+    },
+    {
+     "type": "example",
+     "text": "Priya applies for one lot of 30 shares at ₹495 = ₹14,850 through her broker's app. ₹14,850 is blocked in her bank account, still earning interest. If she gets the lot, ₹14,850 is debited after the basis of allotment; if not, the block is simply released.",
+     "title": "ASBA in practice"
+    },
+    {
+     "type": "p",
+     "text": "<b>UPI with ASBA.</b> SEBI introduced UPI as the payment mechanism with ASBA for retail applications through intermediaries (circular of November 01, 2018). From the circular of <b>April 05, 2022</b>, all <b>individual investors applying up to ₹5 lakh</b> must use UPI and give their UPI ID in the bid-cum-application form submitted to:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "a syndicate member",
+      "a stock broker registered with a recognised exchange (and listed on the exchange website as eligible)",
+      "a depository participant (listed as eligible)",
+      "a registrar to an issue and share transfer agent (listed as eligible)"
+     ]
+    },
+    {
+     "type": "p",
+     "text": "UPI removes manual steps and cuts the time from issue closure to listing by <b>up to 3 working days</b>; it was introduced in phases. <b>T+3 listing</b> applies to all public issues opening on or after <b>December 1, 2023</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Circular date",
+      "What it did"
+     ],
+     "rows": [
+      [
+       "Nov 10, 2015",
+       "ASBA mandatory for all issues opening from 01 Jan 2016"
+      ],
+      [
+       "Nov 01, 2018",
+       "UPI as payment mechanism with ASBA for retail via intermediaries"
+      ],
+      [
+       "Apr 05, 2022",
+       "Individuals applying up to ₹5 lakh must use UPI"
+      ],
+      [
+       "Dec 1, 2023 (issue opening)",
+       "T+3 listing timeline applies"
+      ],
+      [
+       "Sep 24, 2024",
+       "Debt securities, NCRPS, municipal debt and securitised debt issues: individuals up to ₹5 lakh via intermediaries <b>only</b> use UPI to block funds"
+      ],
+      [
+       "Oct 18, 2024",
+       "For those debt issues, investors may still apply online via <b>3-in-1 accounts</b> (linked trading, demat and bank)"
+      ],
+      [
+       "Jun 11, 2025",
+       "Standardised, validated and exclusive UPI IDs for payment collection by SEBI-registered intermediaries"
+      ]
+     ],
+     "caption": "IPO payment milestones"
+    },
+    {
+     "type": "hook",
+     "text": "ASBA = your money stays home but is handcuffed. It leaves only for the shares you actually get."
+    },
+    {
+     "type": "trap",
+     "text": "The UPI rule is for <b>individual</b> investors applying up to <b>₹5 lakh</b> (not ₹2 lakh). Listing is <b>T+3</b> after issue closure, for issues opening on or after Dec 1, 2023."
+    }
+   ]
+  },
+  {
+   "id": "8.3",
+   "title": "Trading of mutual fund units",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Clients can buy and redeem <b>open-ended</b> mutual fund schemes through the broker, online or by phone, on exchange platforms such as <b>NSE's Mutual Fund Service System (MFSS)</b> and <b>BSE StAR MF</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Eligible brokers: <b>AMFI Registration Number (ARN)</b> holders who have passed the <b>NISM certification</b>.",
+      "They must also <b>register as a distributor</b> with each mutual fund, and can place orders only for those mutual funds.",
+      "AMFI-registered mutual fund distributors permitted by the exchanges can also use the platform.",
+      "AMCs sign an agreement with the exchange/clearing corporation and <b>notify which schemes</b> are available.",
+      "Under Regulation 4(g) of the SEBI (Investment Advisers) Regulations, 2013, brokers follow the general obligations in Chapter III, including <b>client-level segregation of advisory and distribution</b> at entity and group level."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Client registration</b>: no order without registration details; details can be modified/deleted with restrictions; bulk upload is available. The client is registered as an <b>individual</b>, though the depository account can be joint. The system handles purchase, redemption and <b>SIP</b>. The broker declares upfront whether settlement is in <b>physical (folio) mode or depository mode</b>: an additional purchase in physical mode needs the <b>folio number</b>; depository mode needs the <b>DP ID and beneficiary (client) ID</b>. Extra facilities: offline bulk order entry, online backup of the day's orders, and printing confirmation slips online or offline."
+    },
+    {
+     "type": "p",
+     "text": "<b>No pool accounts.</b> SEBI discontinued the use of brokers' pool accounts for MF transactions on exchange platforms. Money and units now move directly between the investor and the clearing corporation:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Brokers/clearing members cannot pool funds or units in any form. <b>Funds pay-in comes directly from the investor's account to the clearing corporation</b>, and pay-out goes directly to the investor.",
+      "Payment by net banking, NEFT, RTGS, UPI; physical/e-mandates in favour of the clearing corporation; funds debited on the settlement day.",
+      "Orders are processed only after successful debit and MIS from payment aggregators; funds must reach the CC within <b>5 working days</b> of the order.",
+      "One payment can cover several orders if it is <b>at least equal</b> to their total; any excess is refunded.",
+      "Units are credited/debited directly to the investor's demat account or folio. For redeeming demat units, the <b>DIS</b> to the DP may continue.",
+      "The CC refunds money that could not be settled with the AMC within its specified time."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Each order is settled individually, only to the extent of funds/units received from the client's registered accounts. Clear funds must reach the CC's account by the scheme's <b>cut-off time</b> for same-day processing."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Leg",
+      "Timeline / who"
+     ],
+     "rows": [
+      [
+       "Units pay-out (purchase)",
+       "<b>T+0</b> for liquid funds; <b>T+1</b> for other funds (if funds arrive by cut-off)"
+      ],
+      [
+       "Units pay-in (redemption)",
+       "<b>T+0</b> within the CC's cut-off; demat units only, via the clearing corporation"
+      ],
+      [
+       "Funds pay-out (redemption)",
+       "<b>T+1 to T+8</b> depending on scheme category"
+      ],
+      [
+       "Funds to reach CC",
+       "Within <b>5 working days</b> of the order"
+      ]
+     ],
+     "caption": "MF settlement on the exchange platform"
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Demat mode",
+       "points": [
+        "Units credited to demat account by the <b>clearing corporation</b>, using RTA allotment data and depository pay-in files",
+        "Redemption pay-out credited to the client's bank account by the <b>clearing corporation</b>",
+        "Order needs DP ID and beneficiary ID"
+       ]
+      },
+      {
+       "title": "Non-demat (physical/folio) mode",
+       "points": [
+        "Units credited/debited directly in the <b>folio by the RTA</b>",
+        "Redemption pay-out credited by the <b>AMC/RTA</b> to the bank account registered with the RTA",
+        "Additional purchase needs the folio number"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Brokers no longer touch MF money or units. If an option says the broker collects funds in its own account and passes them on, it is wrong: pay-in goes straight from the investor to the clearing corporation."
+    }
+   ]
+  },
+  {
+   "id": "8.4",
+   "title": "Portfolio Management Services (PMS)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In PMS, the broker (with a <b>separate SEBI PMS registration</b>) manages a client's portfolio, usually for <b>HNIs</b>: it decides the mix of securities and replaces stocks as needed. Under the <b>SEBI (Portfolio Managers) Regulations, 2020</b>, a portfolio manager is a <b>body corporate</b> that, under a contract, advises, directs or undertakes the management or administration of a client's portfolio of securities, goods or funds. It may deal in goods received on physical settlement of commodity derivatives."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Discretionary PM",
+       "points": [
+        "Exercises (or may exercise) <b>any degree of discretion</b> over investments",
+        "Manages each client's funds <b>individually and independently</b>, not like a mutual fund",
+        "Invests in listed/traded securities, money market instruments, MF units and other SEBI-specified securities"
+       ]
+      },
+      {
+       "title": "Non-discretionary PM / advisory",
+       "points": [
+        "Manages funds <b>as per the client's directions</b>",
+        "May invest or advise up to <b>25% of AUM in unlisted securities</b>, on top of what discretionary PMs may buy"
+       ]
+      },
+      {
+       "title": "Co-investment PM",
+       "points": [
+        "A <b>manager of Category I/II AIFs</b>",
+        "Serves only investors of those AIFs (or other Cat I/II AIFs it manages with the same sponsor)",
+        "Invests <b>100%</b> in unlisted securities of companies where its AIFs invest; no ₹50 lakh minimum"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "key",
+     "text": "For <b>large value accredited investors</b>, any PM (discretionary, non-discretionary or advisory) may go up to <b>100% of AUM in unlisted securities</b>, subject to disclosure and agreed terms."
+    },
+    {
+     "type": "p",
+     "text": "<b>Registration.</b> SEBI considers, among other things:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Applicant is a <b>body corporate</b> with adequate office, equipment and manpower, and has appointed a <b>compliance officer</b>.",
+      "<b>Net worth of at least ₹5 crore</b> (PMs registered before the 2020 Regulations had <b>36 months</b> from January 16, 2020 to reach it).",
+      "Disciplinary actions against connected persons; securities-market litigation; convictions for moral turpitude or economic offences of the applicant, directors, principal officer, compliance officer or employees.",
+      "<b>Fit and proper</b> under Schedule II of the SEBI (Intermediaries) Regulations, 2008."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Person",
+      "Qualification",
+      "Experience"
+     ],
+     "rows": [
+      [
+       "<b>Principal Officer</b> (the employee responsible for portfolio decisions and all operations)",
+       "Professional qualification in finance, law, accountancy or business management; OR NISM's Post Graduate Program in the Securities Market (Portfolio Management) of at least <b>one year</b>; OR <b>CFA</b> charter. Plus relevant <b>NISM certification</b>, renewed before it expires",
+       "At least <b>5 years</b> in related securities-market activities, of which at least <b>2 years</b> in portfolio management, investment advisory or fund management"
+      ],
+      [
+       "At least one other employee",
+       "Graduate",
+       "At least <b>2 years</b> in related activities"
+      ]
+     ],
+     "caption": "People requirements for a portfolio manager"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Fee to SEBI",
+      "Amount"
+     ],
+     "rows": [
+      [
+       "Application fee (non-refundable)",
+       "₹1,00,000"
+      ],
+      [
+       "Registration fee (on grant)",
+       "₹10 lakh"
+      ],
+      [
+       "To keep registration in force",
+       "₹5 lakh every <b>three years</b>, paid within three months before the block period expires"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Paperwork.</b> Before taking money, the PM gives the client the <b>Disclosure Document</b> (Schedule V; simplified into <b>static and dynamic</b> sections by SEBI's circular of September 09, 2025), then signs a <b>written agreement</b> defining mutual rights and obligations (Schedule IV). The PM follows the <b>Code of Conduct</b> in Schedule III."
+    },
+    {
+     "type": "hook",
+     "text": "Schedules in order: <b>III</b> Conduct, <b>IV</b> Contract (agreement), <b>V</b> Disclosure. 'C-C-D' for 3-4-5."
+    },
+    {
+     "type": "p",
+     "text": "<b>General responsibilities:</b>"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Minimum investment <b>₹50 lakh</b> per client (the first single lump sum, in funds or securities). Not applicable to <b>accredited investors</b> (with disclosure) or the <b>Co-investment PM</b>.",
+      "Act in a <b>fiduciary</b> capacity; segregate each client's securities in separate accounts; keep client funds in a separate account in a <b>Scheduled Commercial Bank</b>.",
+      "Transact within the limits set by the client, and the RBI Act, 1934.",
+      "No direct/indirect benefit from client funds; <b>no borrowing</b> on clients' behalf; <b>no lending</b> of client securities except as the regulations allow.",
+      "Handle complaints promptly; ensure distributors comply with the regulations."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Managing the portfolio:</b>"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Invest only as per the client agreement.",
+      "Mutual fund units only through the <b>direct plan</b>.",
+      "<b>No leverage</b> of client portfolios for derivatives.",
+      "No bill discounting, badla financing, or lending/placement with corporate or non-corporate bodies.",
+      "No investing on another entity's advice.",
+      "No speculative transactions (not settled by actual delivery), except derivatives."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Records and reporting:</b> separate client-wise accounts (funds, investments, dividends, bonus, interest, expenses, fees shown separately); a report to the client as agreed but <b>at least every three months</b> and whenever asked; books <b>audited yearly</b>; a <b>custodian</b> is mandatory unless the PM gives only advisory services; records kept for <b>5 years</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Distributors:</b> under Regulation 23(11), PMs ensure their distributors comply with the regulations and the distributor Code of Conduct (Annexure 2B of the Master Circular of March 20, 2023). Anyone distributing PMS must now <b>register with APMI</b> (Association of Portfolio Managers in India), and PMs must check this. SEBI's circular of <b>October 24, 2025</b> covers <b>transfer of PMS business</b> to another PM, both within the same group and outside it."
+    },
+    {
+     "type": "trap",
+     "text": "₹5 crore is the PM's <b>net worth</b>; ₹50 lakh is the client's <b>minimum investment</b>; ₹3 crore is the MTF net worth (section 8.7). Reports at least every <b>3 months</b>; records for <b>5 years</b>."
+    }
+   ]
+  },
+  {
+   "id": "8.5",
+   "title": "Research reports and advisory services",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Under the <b>SEBI (Research Analysts) Regulations, 2014</b>, an entity that issues research reports or opinions on securities to influence investment decisions must be <b>registered with SEBI</b>, even if research is given free as a <b>'value-added service'</b>. All associated persons need the specified <b>NISM certification</b>. Brokers also follow the RA Master Circular and SEBI's FAQs for research analysts."
+    },
+    {
+     "type": "p",
+     "text": "Under the <b>SEBI (Investment Advisers) Regulations, 2013</b>, a broker registered under the SEBI (Stock Brokers) Regulations, 2026 that gives investment advice <b>incidental to its broking</b> does <b>not</b> need IA registration, but must follow the general obligations and responsibilities of those regulations."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Research Analyst (RA Regs, 2014)",
+       "points": [
+        "Issues research reports/opinions on securities",
+        "<b>Registration mandatory</b>, even for free value-added research",
+        "Associated persons need NISM certification"
+       ]
+      },
+      {
+       "title": "Investment advice by a broker (IA Regs, 2013)",
+       "points": [
+        "Advice incidental to broking",
+        "<b>No separate IA registration</b> needed",
+        "Must still comply with IA general obligations (e.g. segregating advice and distribution)"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>PaRRVA.</b> Regulations 16D and 16E of the SEBI (Intermediaries) Regulations, 2008 provide for a <b>Past Risk and Return Verification Agency</b>. IAs, RAs, algo providers on-boarded by brokers and empanelled with an exchange, and intermediaries offering these services may make performance claims <b>only in terms of risk-return metrics verified by PaRRVA</b>."
+    },
+    {
+     "type": "trap",
+     "text": "'Free' research is not exempt: it still needs RA registration. But incidental advice by a broker is exempt from IA registration."
+    }
+   ]
+  },
+  {
+   "id": "8.6",
+   "title": "Depository services",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "To offer depository services, the broker registers as a <b>Depository Participant (DP)</b> of a depository under the <b>SEBI Act, 1992</b> and the <b>Depositories Act, 1996</b>. Under the Depositories Act, a DP is an <b>agent of the depository</b>, the interface between depository and investor. The DP-depository agreement's form is laid down in the depository's <b>bye-laws</b>; eligibility is in the <b>SEBI (Depositories and Participants) Regulations, 2018</b> and the bye-laws."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>SEBI</b> grants the final certificate of registration once conditions are met.",
+      "DPs follow the Code of Conduct in <b>Part A of the Third Schedule</b> of the 2018 Regulations.",
+      "A DP can be a participant of <b>both depositories</b>, subject to conditions.",
+      "The DP signs an agreement with each beneficial owner (BO) before acting for them, and moves securities in or out of a BO account <b>only on the BO's instructions</b>, then confirms to the BO."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The investor opens a <b>demat account</b> with a DP; settling and transferring securities between accounts after trades is the main activity. Other DP services:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Dematerialisation (converting physical certificates into book-entry form)",
+      "Maintaining records of holdings; settling trades by delivery/receipt",
+      "Receiving IPO allotments and non-cash corporate benefits (bonus, rights) electronically",
+      "Pledging demat securities and facilitating loans against shares",
+      "Freezing an account for debits, credits or both"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "8.7",
+   "title": "Margin Trading Facility (MTF)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "MTF lets a client buy more shares than their money allows by <b>borrowing from the broker</b>, who charges interest. This leverage magnifies both profits and losses, which is why SEBI ring-fences it with conditions."
+    },
+    {
+     "type": "key",
+     "text": "Only <b>corporate brokers</b> with <b>net worth of at least ₹3 crore</b> can offer MTF, with <b>prior permission of the exchange</b> (which can withdraw it later, giving reasons)."
+    },
+    {
+     "type": "p",
+     "text": "<b>Eligible securities:</b> <b>Group 1</b> securities (SEBI circular of December 16, 2016) and <b>equity ETF units</b> (circular of November 30, 2022). VaR and ELM are taken as in the cash segment. Initial margin can be paid in <b>cash, cash equivalents, or Group I shares / equity ETF units</b> with haircut, and must be maintained throughout, with margin calls on shortfall."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Category",
+      "Initial margin"
+     ],
+     "rows": [
+      [
+       "Group 1 stocks traded in the F&O segment",
+       "<b>VaR + 3 x ELM</b>"
+      ],
+      [
+       "Other Group 1 stocks, and equity ETF units",
+       "<b>VaR + 5 x ELM</b>"
+      ],
+      [
+       "Funded stock used as maintenance margin (in place of cash collateral used for pay-in)",
+       "Must be Group 1; <b>VaR + 5 x ELM</b> whether or not in F&O"
+      ]
+     ],
+     "caption": "MTF margin rates"
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Collateral</b> (stocks/ETF units deposited) and <b>funded stocks</b> (bought under MTF) must be separately identifiable; <b>no commingling</b> when computing funding.",
+      "If the client's cash collateral was used for pay-in at the CC, the funded stock received against it (pledged to the broker) can count as maintenance margin.",
+      "Collateral and funded stocks are <b>marked to market daily</b>.",
+      "A rise in collateral value can support <b>more exposure</b> (after haircut; ETF units take the haircut of liquid Group I shares).",
+      "A rise in <b>funded stock</b> value gives <b>no</b> extra exposure."
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Client A buys 1 share of a Group 1 F&O stock at ₹100 with cash margin. VaR 12.5%, ELM 5%. Initial margin = 12.5 + 3 x 5 = <b>27.5%</b>, i.e. ₹27.50. <br>If that ₹27.50 cash is used for pay-in and the funded stock is kept as maintenance margin, the funded exposure is ₹72.50, and margin becomes VaR + 5 x ELM = <b>37.5%</b> on the lower of cost or market value of the funded stock. <br>If the cash is <b>not</b> used for pay-in (kept with the broker, upstreamed to the CC), exposure stays ₹100 at <b>27.5%</b>.",
+     "title": "Initial vs maintenance margin"
+    },
+    {
+     "type": "example",
+     "text": "Client buys at ₹100; T-day close ₹100; T+1 close ₹90; margin given in securities. <br>T day: initial margin VaR + 3 x ELM on ₹100; MTM nil. <br>T+1: maintenance margin VaR + 3 x ELM on ₹90; MTM ₹10 (100 - 90) to be collected.",
+     "title": "Mark-to-market"
+    },
+    {
+     "type": "p",
+     "text": "Maintenance margin is computed on the <b>lower of cost or market value</b> of funded stock, and MTM (cash or non-cash) is collected whenever market value falls below funded cost."
+    },
+    {
+     "type": "key",
+     "text": "If the client misses a margin call, the broker may liquidate, only in situations listed in the <b>Rights and Obligations document</b>, and within <b>5 working days</b> of the margin call. Never otherwise."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Allowed sources of MTF funds",
+       "points": [
+        "Own funds",
+        "Scheduled commercial banks and/or RBI-regulated NBFCs",
+        "Commercial Paper (as per RBI guidelines)",
+        "Unsecured long-term loans from <b>promoters and directors</b> (Companies Act, 2013)"
+       ]
+      },
+      {
+       "title": "Not allowed",
+       "points": [
+        "Any other source",
+        "<b>One client's money</b> to fund another client, even with the first client's consent"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Limit",
+      "Rule"
+     ],
+     "rows": [
+      [
+       "Total indebtedness for MTF",
+       "Not more than <b>5 times net worth</b>"
+      ],
+      [
+       "Maximum allowable exposure",
+       "Borrowed funds + <b>50% of net worth</b> (within self-imposed prudential limits)"
+      ],
+      [
+       "Exposure to a single client",
+       "Not more than <b>10%</b> of maximum allowable exposure"
+      ],
+      [
+       "Exposure (definition)",
+       "Outstanding funded amount minus cash collateral used for pay-in"
+      ]
+     ],
+     "caption": "Leverage and exposure limits"
+    },
+    {
+     "type": "table",
+     "head": [
+      "",
+      "Case 1",
+      "Case 2"
+     ],
+     "rows": [
+      [
+       "Net worth (A)",
+       "₹5 cr",
+       "₹5 cr"
+      ],
+      [
+       "Borrowing for MTF (B)",
+       "₹20 cr",
+       "Nil"
+      ],
+      [
+       "Max allowable exposure C = 50% of A + B",
+       "₹22.50 cr",
+       "₹2.50 cr"
+      ],
+      [
+       "Max to any single client = 10% of C",
+       "₹2.25 cr",
+       "₹0.25 cr"
+      ]
+     ],
+     "caption": "Workbook illustration"
+    },
+    {
+     "type": "example",
+     "text": "Member X has net worth ₹3 crore. Total MTF indebtedness cannot exceed 5 x 3 = <b>₹15 crore</b>. If it has borrowed ₹1 crore, total exposure cannot exceed 1 + 50% of 3 = <b>₹2.5 crore</b>.",
+     "title": "Quick check"
+    },
+    {
+     "type": "hook",
+     "text": "MTF in four numbers: <b>3-5-50-10</b>. ₹3 crore net worth to enter, <b>5x</b> net worth borrowing cap, borrowings + <b>50%</b> of net worth exposure cap, <b>10%</b> per client."
+    },
+    {
+     "type": "p",
+     "text": "<b>Rights and Obligations document</b>: framed by the exchanges, <b>mandatory and binding</b> on broker and client. It may be modified only to add <b>stricter</b> conditions, never to dilute them. The broker also needs a Board-approved policy to keep funded and collateral stocks well <b>diversified</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Records</b>: separate client-wise ledgers for funds and securities; a separate record of funds used and their sources.",
+      "<b>Audit</b>: MTF books audited <b>half-yearly</b>; auditor's certificate to the exchange within <b>one month</b> of half-years ending 31 March and 30 September (in addition to the net worth certificate).",
+      "<b>Broker's disclosure</b> to exchanges by <b>6 pm on T+1</b>: gross exposure, client name, promoter/non-promoter category, PAN, collateral and funded scrips, and lender name and amount if borrowed.",
+      "<b>Exchange's disclosure</b>: scrip-wise and ETF-wise gross outstanding across brokers, published on its website after trading hours on the <b>following day</b>."
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Exercise due diligence before giving MTF to any client.",
+      "MTF disputes are treated like normal trades: exchange grievance redressal and arbitration apply.",
+      "<b>SGF and IPF</b> cover exchange transactions done normally or under MTF, but <b>losses from the margin funding itself are not covered by IPF</b>.",
+      "Funded stocks are held <b>only by pledge</b>: the broker opens a separate demat account tagged <b>'Client Securities under Margin Funding Account'</b> (no other transactions); funded stocks go to the client's demat account with an <b>auto-pledge</b> in favour of that account."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "5 times net worth is the <b>borrowing</b> cap; borrowed funds + 50% of net worth is the <b>exposure</b> cap. Liquidation within <b>5 working days</b> of the margin call. MTF losses are not covered by IPF."
+    }
+   ]
+  },
+  {
+   "id": "8.8",
+   "title": "Internet Based Trading (IBT) and Securities Trading using Wireless Technology (STWT)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "IBT routes client orders over the internet to the exchange's trading system. A broker needs <b>permission from the exchange</b>, which must approve or reject within <b>7 calendar days</b> of a complete application, after checking SEBI's minimum conditions."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "IBT",
+       "points": [
+        "Orders routed over the internet via the broker's order routing system",
+        "Needs exchange permission",
+        "Net worth ₹50 lakh if offered on its own"
+       ]
+      },
+      {
+       "title": "STWT",
+       "points": [
+        "Trading through wireless devices using Internet Protocol: mobile phones, laptops with data cards, etc.",
+        "Any broker with IBT is <b>eligible</b> for STWT",
+        "<b>All IBT requirements also apply</b>"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Area",
+      "Minimum condition"
+     ],
+     "rows": [
+      [
+       "Net worth",
+       "<b>₹50 lakh</b> if the broker offers IBT on its own; if brokers jointly use a service provider, the exchange's criteria apply"
+      ],
+      [
+       "Systems",
+       "Security, reliability and confidentiality via <b>encryption</b>; backups and storage; capacity; <b>alternative communication</b> if the internet link fails; qualified staff"
+      ],
+      [
+       "Client-broker relationship",
+       "Website shows investor-protection information (rules, arbitration, investor protection) and a hyperlink to the exchange's rules; ticker/quotes show <b>time stamp and source</b>; order/trade confirmations by e-mail at client's discretion, plus real-time on the website"
+      ],
+      [
+       "Risk management",
+       "System-based client limits; <b>pre-defined exposure and turnover limits</b> per client; risk checked as each order arrives; margin and obligation reports to clients"
+      ],
+      [
+       "Cross trades",
+       "<b>Not allowed</b>: all orders go to the market for matching"
+      ],
+      [
+       "Web standards",
+       "IETF and W3C standards, e.g. HTTP Ver 4 or above, HTML Ver 4/XML"
+      ],
+      [
+       "System operations",
+       "Follow exchange order logic/priorities; logs with audit trail; <b>unique internal numbering</b> of client orders/trades"
+      ]
+     ],
+     "caption": "SEBI minimum conditions for IBT"
+    },
+    {
+     "type": "p",
+     "text": "<b>Mandatory network security</b> for IBT: user ID; first-level password; automatic password expiry with re-initialisation; transaction logs with audit; <b>SSL</b> for server access; firewalls between the exchange-connected setup and the internet setup."
+    },
+    {
+     "type": "p",
+     "text": "<b>For IBT and STWT, the exchange ensures:</b>"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Secure access and encryption, with the encryption level governed by <b>DoT</b> policy; user identification and authentication (passwords, smart cards, biometrics, etc.).",
+      "The IBT unique identification number also applies to STWT.",
+      "Alternative ways to place orders if the wireless network fails.",
+      "Wireless risks and liabilities added to the broker-client agreement as an <b>addendum</b> (or notified to clients and accepted).",
+      "Minimal information on handheld devices, with the web address for details.",
+      "Order confirmation, modification/cancellation facility, and trade confirmation with the day's trade history.",
+      "<b>Session login details not stored</b> on the devices.",
+      "Industry-standard security and audit trails for wireless transactions.",
+      "The broker's order-routing server is <b>located in India</b>.",
+      "Periodic system audits of brokers by exchanges; STWT included in investor awareness programmes."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Additional requirements:</b>"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Capture the client's <b>IP address</b> for every order.",
+      "High system availability (no single point of failure); end-to-end encryption via a secure standardised protocol; <b>mutual authentication</b> of client and broker server; protection against internal/external attacks.",
+      "Alternate channel must be able to identify and authenticate the client.",
+      "<b>Automatic logout</b> on inactivity.",
+      "<b>Two-factor authentication</b> for login; the two factors must <b>not be the same</b>. PKI with digital signatures from a government-certified agency is advisable.",
+      "Advisable: robust backup and restore, with <b>on-site and remote</b> backup."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Testing and audit.</b> Exchanges provide a test market / <b>simulated environment</b>. 'Software' covers systems for trading and real-time risk management, including IBT, DMA, STWT, SOR and algo trading. The broker runs <b>UAT</b>; system auditors examine mock-test and UAT reports. Brokers submit periodic <b>System Audit Reports</b> from <b>CISA / CISSP / ISA / DISA</b> certified auditors. Brokers may also offer DMA, algo trading and SOR as SEBI/exchanges permit."
+    },
+    {
+     "type": "hook",
+     "text": "Wireless = internet in your pocket. So STWT inherits every IBT rule, plus pocket-specific ones: no saved logins, short screens, and a backup channel if the network drops."
+    },
+    {
+     "type": "trap",
+     "text": "Exchange decision on IBT in <b>7 calendar days</b>; IBT net worth <b>₹50 lakh</b> (MTF needs ₹3 crore). The broker's server must be in <b>India</b>; cross trades are <b>not</b> allowed; the two 2FA factors must differ."
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Other services beyond broking",
+   "value": "Separate SEBI registration needed for each",
+   "ref": "8.1"
+  },
+  {
+   "fact": "ASBA mandatory for all investors",
+   "value": "All issues opening from 01 January 2016",
+   "ref": "8.2"
+  },
+  {
+   "fact": "ASBA mandate circular",
+   "value": "November 10, 2015",
+   "ref": "8.2"
+  },
+  {
+   "fact": "UPI with ASBA introduced (retail via intermediaries)",
+   "value": "Circular of November 01, 2018",
+   "ref": "8.2"
+  },
+  {
+   "fact": "UPI mandatory for individual investors (circular)",
+   "value": "April 05, 2022",
+   "ref": "8.2"
+  },
+  {
+   "fact": "UPI threshold for individual investors",
+   "value": "Application amount up to ₹5 lakh",
+   "ref": "8.2"
+  },
+  {
+   "fact": "Time saved from issue closure to listing via UPI",
+   "value": "Up to 3 working days",
+   "ref": "8.2"
+  },
+  {
+   "fact": "T+3 listing applies to issues opening",
+   "value": "On or after December 1, 2023",
+   "ref": "8.2"
+  },
+  {
+   "fact": "ASBA systems to process only after blocking",
+   "value": "Within three months of circular",
+   "ref": "8.2"
+  },
+  {
+   "fact": "UPI-only blocking for debt/NCRPS/municipal/securitised debt issues",
+   "value": "Circular of September 24, 2024 (up to ₹5 lakh)",
+   "ref": "8.2"
+  },
+  {
+   "fact": "3-in-1 accounts allowed for debt public issues",
+   "value": "Circular of October 18, 2024",
+   "ref": "8.2"
+  },
+  {
+   "fact": "Standardised, validated, exclusive UPI IDs circular",
+   "value": "June 11, 2025",
+   "ref": "8.2"
+  },
+  {
+   "fact": "Exchange MF platforms",
+   "value": "NSE MFSS and BSE StAR MF (open-ended schemes)",
+   "ref": "8.3"
+  },
+  {
+   "fact": "MF platform eligibility",
+   "value": "ARN holder + NISM certification + registered distributor",
+   "ref": "8.3"
+  },
+  {
+   "fact": "IA Regulations clause for brokers' MF distribution",
+   "value": "Regulation 4(g), Chapter III, IA Regs 2013",
+   "ref": "8.3"
+  },
+  {
+   "fact": "Funds to reach clearing corporation for MF orders",
+   "value": "Within 5 working days of order",
+   "ref": "8.3"
+  },
+  {
+   "fact": "MF units pay-out: liquid funds",
+   "value": "T+0",
+   "ref": "8.3"
+  },
+  {
+   "fact": "MF units pay-out: other funds",
+   "value": "T+1",
+   "ref": "8.3"
+  },
+  {
+   "fact": "MF units pay-in for redemption (demat only)",
+   "value": "T+0, within CC cut-off",
+   "ref": "8.3"
+  },
+  {
+   "fact": "MF redemption funds pay-out",
+   "value": "T+1 to T+8 by scheme category",
+   "ref": "8.3"
+  },
+  {
+   "fact": "PMS regulations",
+   "value": "SEBI (Portfolio Managers) Regulations, 2020",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Portfolio manager net worth",
+   "value": "At least ₹5 crore",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Time for existing PMs to reach ₹5 crore",
+   "value": "36 months from January 16, 2020",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Principal officer experience",
+   "value": "At least 5 years (2 years in PMS/advisory/fund management)",
+   "ref": "8.4"
+  },
+  {
+   "fact": "NISM PG Program (Portfolio Management) duration",
+   "value": "Not less than one year",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Other qualified employee",
+   "value": "Graduate + at least 2 years' experience",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM application fee (non-refundable)",
+   "value": "₹1,00,000",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM registration fee",
+   "value": "₹10 lakh",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM fee to keep registration in force",
+   "value": "₹5 lakh every 3 years (paid within 3 months before block expires)",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Fit and proper criteria",
+   "value": "Schedule II, SEBI (Intermediaries) Regulations, 2008",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM Code of Conduct",
+   "value": "Schedule III",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM-client agreement contents",
+   "value": "Schedule IV",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM Disclosure Document",
+   "value": "Schedule V",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Simplified Disclosure Document (static + dynamic)",
+   "value": "Circular of September 09, 2025",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Minimum investment per PMS client",
+   "value": "₹50 lakh (first single lump sum)",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Non-discretionary/advisory investment in unlisted securities",
+   "value": "Up to 25% of AUM",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Unlisted securities for large value accredited investors",
+   "value": "Up to 100% of AUM",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Co-investment PM investment in unlisted securities",
+   "value": "100% of AUM",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM report to client",
+   "value": "As agreed, at least every 3 months",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM books of account audit",
+   "value": "Yearly",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PM records retention",
+   "value": "5 years",
+   "ref": "8.4"
+  },
+  {
+   "fact": "PMS distributor registration",
+   "value": "With APMI",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Regulation on PMS distributors",
+   "value": "Regulation 23(11), PM Regs 2020",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Transfer of PMS business circular",
+   "value": "October 24, 2025",
+   "ref": "8.4"
+  },
+  {
+   "fact": "Research analyst regulations",
+   "value": "SEBI (Research Analysts) Regulations, 2014",
+   "ref": "8.5"
+  },
+  {
+   "fact": "Investment adviser regulations",
+   "value": "SEBI (Investment Advisers) Regulations, 2013",
+   "ref": "8.5"
+  },
+  {
+   "fact": "PaRRVA provisions",
+   "value": "Regulations 16D and 16E, Intermediaries Regs 2008",
+   "ref": "8.5"
+  },
+  {
+   "fact": "DP registration laws",
+   "value": "SEBI Act, 1992 and Depositories Act, 1996",
+   "ref": "8.6"
+  },
+  {
+   "fact": "DP eligibility regulations",
+   "value": "SEBI (Depositories and Participants) Regulations, 2018",
+   "ref": "8.6"
+  },
+  {
+   "fact": "DP Code of Conduct",
+   "value": "Part A of Third Schedule",
+   "ref": "8.6"
+  },
+  {
+   "fact": "MTF broker eligibility",
+   "value": "Corporate broker, net worth at least ₹3 crore",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF eligible securities",
+   "value": "Group 1 securities (Dec 16, 2016) and equity ETFs (Nov 30, 2022)",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF margin: Group 1 F&O stocks",
+   "value": "VaR + 3 x ELM",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF margin: other Group 1 stocks and equity ETFs",
+   "value": "VaR + 5 x ELM",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF margin: funded stock as maintenance margin",
+   "value": "VaR + 5 x ELM (must be Group 1)",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF mark to market of collateral and funded stocks",
+   "value": "Daily",
+   "ref": "8.7"
+  },
+  {
+   "fact": "Liquidation after missed margin call",
+   "value": "Not exceeding 5 working days from margin call",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF total indebtedness cap",
+   "value": "5 times net worth",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF maximum allowable exposure",
+   "value": "Borrowed funds + 50% of net worth",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF exposure to a single client",
+   "value": "Max 10% of maximum allowable exposure",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF books audit",
+   "value": "Half-yearly",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF auditor's certificate to exchange",
+   "value": "Within 1 month of half-year ending 31 March / 30 September",
+   "ref": "8.7"
+  },
+  {
+   "fact": "Broker's MTF disclosure to exchange",
+   "value": "By 6 pm on T+1",
+   "ref": "8.7"
+  },
+  {
+   "fact": "Exchange's MTF disclosure to market",
+   "value": "Following day, after trading hours",
+   "ref": "8.7"
+  },
+  {
+   "fact": "MTF pledge demat account name",
+   "value": "Client Securities under Margin Funding Account",
+   "ref": "8.7"
+  },
+  {
+   "fact": "Exchange decision on IBT application",
+   "value": "Within 7 calendar days of complete application",
+   "ref": "8.8"
+  },
+  {
+   "fact": "IBT net worth (broker on its own)",
+   "value": "₹50 lakh",
+   "ref": "8.8"
+  },
+  {
+   "fact": "Web standards for IBT",
+   "value": "IETF and W3C (HTTP Ver 4+, HTML Ver 4/XML)",
+   "ref": "8.8"
+  },
+  {
+   "fact": "Encryption level for IBT/STWT governed by",
+   "value": "DoT policy",
+   "ref": "8.8"
+  },
+  {
+   "fact": "Broker's order-routing server location",
+   "value": "India",
+   "ref": "8.8"
+  },
+  {
+   "fact": "System auditor certifications",
+   "value": "CISA / CISSP / ISA / DISA",
+   "ref": "8.8"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "What is an IPO?",
+   "a": "The process by which a company offers its shares to the public for sale for the first time (going public)."
+  },
+  {
+   "q": "Expand ASBA.",
+   "a": "Application Supported by Blocked Amount."
+  },
+  {
+   "q": "How does ASBA work?",
+   "a": "Application money is blocked in the investor's bank account until allotment; only the allotted amount is debited, the rest unblocked."
+  },
+  {
+   "q": "From when is ASBA mandatory for all investors?",
+   "a": "All public issues opening from 01 January 2016."
+  },
+  {
+   "q": "Who is a Book Running Lead Manager?",
+   "a": "The lead merchant banker appointed by the issuer, named in the offer document; gives the exchange the syndicate member list."
+  },
+  {
+   "q": "Who must use UPI in public issues, and up to what amount?",
+   "a": "Individual investors applying up to ₹5 lakh through syndicate members, brokers, DPs or RTAs."
+  },
+  {
+   "q": "Listing timeline for public issues opening on or after Dec 1, 2023?",
+   "a": "T+3 from issue closure."
+  },
+  {
+   "q": "Name the exchange platforms for MF transactions.",
+   "a": "NSE's Mutual Fund Service System (MFSS) and BSE StAR MF."
+  },
+  {
+   "q": "Which brokers can transact MF units on the exchange platform?",
+   "a": "ARN holders who have passed NISM certification and are registered distributors with the mutual fund."
+  },
+  {
+   "q": "Who receives MF funds pay-in after pool accounts were discontinued?",
+   "a": "The clearing corporation, directly from the investor's bank account."
+  },
+  {
+   "q": "MF units pay-out timeline?",
+   "a": "T+0 for liquid funds; T+1 for other funds."
+  },
+  {
+   "q": "Discretionary vs non-discretionary PM?",
+   "a": "Discretionary uses its own judgement on investments; non-discretionary invests as per the client's directions."
+  },
+  {
+   "q": "Minimum net worth of a portfolio manager?",
+   "a": "₹5 crore."
+  },
+  {
+   "q": "Minimum investment per PMS client?",
+   "a": "₹50 lakh (first single lump sum); not for accredited investors or Co-investment PMs."
+  },
+  {
+   "q": "What is a Co-investment Portfolio Manager?",
+   "a": "A manager of Category I/II AIFs serving only their investors and investing in unlisted securities where those AIFs invest."
+  },
+  {
+   "q": "PM fees payable to SEBI?",
+   "a": "Application ₹1 lakh (non-refundable), registration ₹10 lakh, then ₹5 lakh every three years."
+  },
+  {
+   "q": "How may a PM invest in mutual funds?",
+   "a": "Only through direct plans."
+  },
+  {
+   "q": "How often must a PM report to the client?",
+   "a": "As agreed, but at least every three months, and whenever the client asks."
+  },
+  {
+   "q": "Where must PMS distributors register?",
+   "a": "With APMI, the Association of Portfolio Managers in India."
+  },
+  {
+   "q": "Does free 'value-added' research need SEBI registration?",
+   "a": "Yes. Research Analyst registration under the 2014 regulations is mandatory even without a separate fee."
+  },
+  {
+   "q": "Does a broker giving incidental advice need IA registration?",
+   "a": "No, but it must comply with the IA Regulations' general obligations and responsibilities."
+  },
+  {
+   "q": "What is PaRRVA?",
+   "a": "Past Risk and Return Verification Agency; performance claims by IAs, RAs and algo providers must use metrics it verifies."
+  },
+  {
+   "q": "Under the Depositories Act, what is a DP in relation to the depository?",
+   "a": "An agent of the depository."
+  },
+  {
+   "q": "Who grants a DP its certificate of registration?",
+   "a": "SEBI."
+  },
+  {
+   "q": "Eligibility to offer MTF?",
+   "a": "Corporate broker with net worth of at least ₹3 crore, plus prior permission of the exchange."
+  },
+  {
+   "q": "MTF margin for Group 1 F&O stocks vs other Group 1 stocks/ETFs?",
+   "a": "VaR + 3 x ELM vs VaR + 5 x ELM."
+  },
+  {
+   "q": "MTF borrowing cap for a broker?",
+   "a": "Total indebtedness not more than 5 times net worth."
+  },
+  {
+   "q": "MTF maximum allowable exposure?",
+   "a": "Borrowed funds plus 50% of net worth; single client max 10% of this."
+  },
+  {
+   "q": "Can a broker use one client's funds for another's MTF?",
+   "a": "No, not even with the first client's authorisation."
+  },
+  {
+   "q": "Are losses from margin funding covered by IPF?",
+   "a": "No. SGF and IPF cover exchange transactions, but losses from the MTF facility itself are not covered by IPF."
+  },
+  {
+   "q": "Time limit for exchange to decide an IBT application?",
+   "a": "7 calendar days from the complete application."
+  },
+  {
+   "q": "Net worth for a broker offering IBT on its own?",
+   "a": "₹50 lakh."
+  },
+  {
+   "q": "What devices count as STWT?",
+   "a": "Wireless devices using Internet Protocol, such as mobile phones and laptops with data cards."
+  },
+  {
+   "q": "Where must the broker's order-routing server be located?",
+   "a": "In India."
+  }
+ ],
+ "questions": [
+  {
+   "q": "The process by which a company offers its shares for sale to the public for the first time is called:",
+   "options": [
+    "FPO",
+    "IPO",
+    "Private placement",
+    "QIP"
+   ],
+   "answer": 1,
+   "why": "An Initial Public Offering (IPO) is when a company goes public by offering shares to the public for the first time.",
+   "ref": "8.2",
+   "level": "easy"
+  },
+  {
+   "q": "ASBA stands for:",
+   "options": [
+    "Applying Sponsoring Brokers Amount",
+    "Application Supports for Brokers Amount",
+    "Application Supported by Blocked Amount",
+    "Allotment Subject to Bank Approval"
+   ],
+   "answer": 2,
+   "why": "ASBA is Application Supported by Blocked Amount: money stays blocked in the investor's account until allotment.",
+   "ref": "8.2",
+   "level": "easy"
+  },
+  {
+   "q": "To provide margin trading facility, a corporate broker must have a net worth of at least:",
+   "options": [
+    "₹3 crore",
+    "₹1 crore",
+    "₹5 crore",
+    "₹50 lakh"
+   ],
+   "answer": 0,
+   "why": "Only corporate brokers with net worth of at least ₹3 crore are eligible to offer MTF, with prior permission of the exchange.",
+   "ref": "8.7",
+   "level": "easy"
+  },
+  {
+   "q": "What is the minimum net worth required of a portfolio manager?",
+   "options": [
+    "₹1 crore",
+    "₹3 crore",
+    "₹50 lakh",
+    "₹5 crore"
+   ],
+   "answer": 3,
+   "why": "Under the SEBI (Portfolio Managers) Regulations, 2020, a PM's net worth should not be less than ₹5 crore.",
+   "ref": "8.4",
+   "level": "easy"
+  },
+  {
+   "q": "Member X has a net worth of ₹10 crore. Its total indebtedness for the purpose of margin trading facility cannot exceed:",
+   "options": [
+    "₹50 crore",
+    "₹100 crore",
+    "₹30 crore",
+    "₹15 crore"
+   ],
+   "answer": 0,
+   "why": "Total indebtedness for MTF cannot exceed 5 times net worth: 5 x ₹10 crore = ₹50 crore.",
+   "ref": "8.7",
+   "level": "medium"
+  },
+  {
+   "q": "Under ASBA, when is the application money actually debited from the investor's bank account?",
+   "options": [
+    "On the day the bid is placed",
+    "Only after the basis of allotment is finalised, and only to the extent of allotment",
+    "On the day the issue closes, in full",
+    "On listing day, after shares are credited"
+   ],
+   "answer": 1,
+   "why": "The amount stays blocked until the basis of allotment is finalised; then only the allotted value is debited and the rest is unblocked.",
+   "ref": "8.2",
+   "level": "medium"
+  },
+  {
+   "q": "As per SEBI's April 2022 circular, which investors must use UPI when applying in a public issue through a broker, DP, RTA or syndicate member?",
+   "options": [
+    "All investors, irrespective of amount",
+    "Qualified institutional buyers",
+    "Individual investors applying up to ₹5 lakh",
+    "Individual investors applying above ₹5 lakh"
+   ],
+   "answer": 2,
+   "why": "All individual investors applying in public issues for up to ₹5 lakh must use UPI and give their UPI ID in the bid-cum-application form.",
+   "ref": "8.2",
+   "level": "medium"
+  },
+  {
+   "q": "The T+3 timeline for listing after closure of a public issue applies to issues opening on or after:",
+   "options": [
+    "January 1, 2016",
+    "April 5, 2022",
+    "December 1, 2023",
+    "September 24, 2024"
+   ],
+   "answer": 2,
+   "why": "T+3 listing is applicable to all public issues opening on or after December 1, 2023.",
+   "ref": "8.2",
+   "level": "medium"
+  },
+  {
+   "q": "After SEBI discontinued pool accounts for MF transactions on exchange platforms, the funds pay-in for an MF purchase is:",
+   "options": [
+    "Received by the stock broker and then passed to the AMC",
+    "Received directly by the clearing corporation from the investor's account",
+    "Received by the RTA from the broker's pool account",
+    "Collected by the depository participant"
+   ],
+   "answer": 1,
+   "why": "Funds pay-in is received directly by the clearing corporation from the investor's account; brokers/clearing members do not handle pay-in or pay-out.",
+   "ref": "8.3",
+   "level": "medium"
+  },
+  {
+   "q": "On the exchange MF platform, units of a liquid fund are paid out on:",
+   "options": [
+    "T+0",
+    "T+1",
+    "T+2",
+    "T+8"
+   ],
+   "answer": 0,
+   "why": "Units pay-out is T+0 for liquid funds and T+1 for other funds, subject to funds arriving by the cut-off time.",
+   "ref": "8.3",
+   "level": "hard"
+  },
+  {
+   "q": "Which of the following is NOT required for a broker to place MF orders on the exchange platform?",
+   "options": [
+    "Holding an AMFI Registration Number (ARN)",
+    "Passing the NISM certification",
+    "Registering as a distributor with the mutual fund",
+    "Registering as a portfolio manager with SEBI"
+   ],
+   "answer": 3,
+   "why": "Brokers need an ARN, NISM certification and distributor registration with the mutual fund; PMS registration is unrelated.",
+   "ref": "8.3",
+   "level": "medium"
+  },
+  {
+   "q": "A portfolio manager who manages a client's funds strictly in accordance with the client's directions is a:",
+   "options": [
+    "Discretionary portfolio manager",
+    "Co-investment portfolio manager",
+    "Non-discretionary portfolio manager",
+    "Research analyst"
+   ],
+   "answer": 2,
+   "why": "The non-discretionary PM manages funds as per the client's directions; a discretionary PM exercises its own discretion.",
+   "ref": "8.4",
+   "level": "easy"
+  },
+  {
+   "q": "What is the minimum amount of funds or securities a portfolio manager can accept from a client (other than accredited investors and Co-investment PM clients)?",
+   "options": [
+    "₹25 lakh",
+    "₹50 lakh",
+    "₹1 crore",
+    "₹5 crore"
+   ],
+   "answer": 1,
+   "why": "The minimum investment per client is ₹50 lakh, measured as the first single lump sum, with exemptions for accredited investors and Co-investment PMs.",
+   "ref": "8.4",
+   "level": "easy"
+  },
+  {
+   "q": "A portfolio manager offering non-discretionary or advisory services may invest or advise up to what share of a (non-accredited) client's AUM in unlisted securities?",
+   "options": [
+    "10%",
+    "100%",
+    "50%",
+    "25%"
+   ],
+   "answer": 3,
+   "why": "Non-discretionary/advisory PMs may go up to 25% of AUM in unlisted securities; 100% is allowed only for large value accredited investors.",
+   "ref": "8.4",
+   "level": "hard"
+  },
+  {
+   "q": "Which of the following is permitted for a portfolio manager?",
+   "options": [
+    "Investing in mutual fund units through regular plans",
+    "Leveraging the client's portfolio to invest in derivatives",
+    "Investing in mutual fund units only through direct plans",
+    "Deploying client funds in bill discounting"
+   ],
+   "answer": 2,
+   "why": "PMs may invest in MF units only through direct plans; leverage for derivatives and bill discounting/badla/lending are prohibited.",
+   "ref": "8.4",
+   "level": "medium"
+  },
+  {
+   "q": "A portfolio manager must send the client a periodic report as agreed in the contract, but at intervals not exceeding:",
+   "options": [
+    "One month",
+    "Three months",
+    "Six months",
+    "One year"
+   ],
+   "answer": 1,
+   "why": "The report must be furnished as agreed but not exceeding three months, and whenever the client asks.",
+   "ref": "8.4",
+   "level": "medium"
+  },
+  {
+   "q": "What fee must a registered portfolio manager pay SEBI to keep its registration in force?",
+   "options": [
+    "₹1 lakh every year",
+    "₹10 lakh every five years",
+    "₹5 lakh every three years",
+    "₹50,000 every three years"
+   ],
+   "answer": 2,
+   "why": "After the ₹1 lakh application and ₹10 lakh registration fees, a PM pays ₹5 lakh every three years to keep its registration in force.",
+   "ref": "8.4",
+   "level": "hard"
+  },
+  {
+   "q": "A broker gives research reports to clients free of charge as a value-added service. It does not need registration under the SEBI (Research Analysts) Regulations, 2014.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "Providing research as a value-added service, even without a separate fee, requires mandatory SEBI registration as a research analyst.",
+   "ref": "8.5",
+   "level": "medium"
+  },
+  {
+   "q": "A stock broker gives investment advice to its clients that is incidental to its broking business. Under the SEBI (Investment Advisers) Regulations, 2013:",
+   "options": [
+    "It must register separately as an investment adviser",
+    "It need not register as an IA but must comply with the general obligations under the regulations",
+    "It must stop giving advice",
+    "It must register as a research analyst instead"
+   ],
+   "answer": 1,
+   "why": "A broker giving incidental advice is exempt from IA registration but must comply with the general obligations and responsibilities specified in the regulations.",
+   "ref": "8.5",
+   "level": "medium"
+  },
+  {
+   "q": "Under the Depositories Act, 1996, a depository participant is described as:",
+   "options": [
+    "An agent of the depository",
+    "An agent of the issuer company",
+    "A sub-broker of the stock exchange",
+    "A custodian appointed by SEBI"
+   ],
+   "answer": 0,
+   "why": "The Depositories Act describes a DP as an agent of the depository, through which the depository interfaces with investors.",
+   "ref": "8.6",
+   "level": "easy"
+  },
+  {
+   "q": "Under MTF, what initial margin applies to a Group 1 stock that is also traded in the F&O segment?",
+   "options": [
+    "VaR + 5 x ELM",
+    "VaR + ELM",
+    "VaR + 3 x ELM",
+    "100% of the purchase value"
+   ],
+   "answer": 2,
+   "why": "Group 1 F&O stocks need VaR + 3 times ELM; other Group 1 stocks and equity ETF units need VaR + 5 times ELM.",
+   "ref": "8.7",
+   "level": "medium"
+  },
+  {
+   "q": "A broker has a net worth of ₹4 crore and has borrowed ₹2 crore for MTF. What is the maximum exposure it can take to any single client?",
+   "options": [
+    "₹0.4 crore",
+    "₹0.6 crore",
+    "₹2 crore",
+    "₹4 crore"
+   ],
+   "answer": 0,
+   "why": "Maximum allowable exposure = borrowings + 50% of net worth = 2 + 2 = ₹4 crore; single-client cap is 10% of that, i.e. ₹0.4 crore.",
+   "ref": "8.7",
+   "level": "hard"
+  },
+  {
+   "q": "If an MTF client fails to meet a margin call, within what period can the broker liquidate the securities, as per the Rights and Obligations document?",
+   "options": [
+    "Same day",
+    "Not exceeding 5 working days from the margin call",
+    "Not exceeding 7 calendar days from the margin call",
+    "Not exceeding 30 days from the margin call"
+   ],
+   "answer": 1,
+   "why": "Liquidation conditions must be in the Rights and Obligations document, not exceeding 5 working days from the day of the margin call.",
+   "ref": "8.7",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is NOT a permitted source of funds for a broker's margin trading facility?",
+   "options": [
+    "Borrowings from scheduled commercial banks",
+    "Issue of commercial paper",
+    "Unsecured long-term loans from promoters and directors",
+    "Funds of another client who has authorised such use"
+   ],
+   "answer": 3,
+   "why": "A broker can never use one client's funds to provide MTF to another client, even with the first client's authorisation.",
+   "ref": "8.7",
+   "level": "medium"
+  },
+  {
+   "q": "By when must a broker disclose its MTF gross exposure details (client name, PAN, scrips, lenders) to the stock exchange?",
+   "options": [
+    "By 6 pm on T+1 day",
+    "By end of T day",
+    "By 9 am on T+2 day",
+    "Within one month of the half-year"
+   ],
+   "answer": 0,
+   "why": "Brokers disclose MTF details to the exchanges on or before 6 pm on T+1 day; exchanges publish scrip-wise data the following day.",
+   "ref": "8.7",
+   "level": "hard"
+  },
+  {
+   "q": "A broker wants to offer internet based trading on its own. What minimum net worth must it have?",
+   "options": [
+    "₹3 crore",
+    "₹5 crore",
+    "₹1 crore",
+    "₹50 lakh"
+   ],
+   "answer": 3,
+   "why": "A broker providing IBT on its own needs a minimum net worth of ₹50 lakh; if brokers jointly use a service provider, the exchange's criteria apply.",
+   "ref": "8.8",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is a requirement for internet based trading and securities trading using wireless technology?",
+   "options": [
+    "Session login details must be stored on the client's device for convenience",
+    "The broker's server routing orders to the exchange must be located in India",
+    "Brokers may cross trades of their clients internally",
+    "Both authentication factors in two-factor authentication may be the same"
+   ],
+   "answer": 1,
+   "why": "The order-routing server must be in India; storing login details, crossing client trades and identical 2FA factors are all prohibited.",
+   "ref": "8.8",
+   "level": "hard"
+  }
+ ]
+}

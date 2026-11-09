@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Learnings preview card</title>
+<!-- Source for og.png (the home page's link-preview image). Not published: build.mjs skips .html files in assets/.
+     Re-render after edits:
+     chrome --headless=new --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=<abs path to assets/og.png> <this file> -->
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root { --bg: #f6f8f7; --ink: #14211c; --ink-2: #3a4943; --muted: #62736b; --line: #d6e0db; --accent: #0a6a4c; --surface: #ffffff; --mark: #ffe74a; --mark-ink: #2b2600; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { background: var(--bg); color: var(--ink); font-family: "Source Serif 4", Georgia, serif; }
+  .card { box-sizing: border-box; width: 1200px; height: 630px; padding: 64px 72px 60px; display: grid; grid-template-rows: auto auto auto 1fr; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 20px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  h1 { font-family: "Bricolage Grotesque", sans-serif; font-size: 150px; line-height: .95; letter-spacing: -0.045em; font-weight: 800; margin: 26px 0 22px; }
+  h1 em { font-style: normal; color: var(--accent); }
+  p { font-size: 32px; line-height: 1.35; color: var(--ink-2); margin: 0; max-width: 940px; }
+  .shelf { align-self: end; border-top: 3px solid var(--ink); display: grid; grid-template-columns: 170px 1fr auto; gap: 24px; align-items: center; padding-top: 20px; }
+  .code { font-family: "IBM Plex Mono", monospace; font-size: 22px; font-weight: 600; color: var(--accent); }
+  .title { font-family: "Bricolage Grotesque", sans-serif; font-size: 30px; font-weight: 700; letter-spacing: -0.01em; }
+  .fresh { font-family: "IBM Plex Mono", monospace; font-size: 18px; background: var(--mark); color: var(--mark-ink); padding: 4px 12px; border-radius: 3px; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="eyebrow">Exam prep guides</div>
+  <h1>Learn<em>ings</em></h1>
+  <p>Certification workbooks rewritten in plain English: memory hooks, flashcards, practice quizzes and full mock tests.</p>
+  <div class="shelf"><span class="code">NISM VII</span><span class="title">Securities Operations and Risk Management</span><span class="fresh">July 2026</span></div>
+</div>
+</body>
+</html>

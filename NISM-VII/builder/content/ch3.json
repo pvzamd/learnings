@@ -1,0 +1,3605 @@
+{
+ "id": 3,
+ "title": "Introduction to Securities Broking Operations",
+ "short": "Broking Operations",
+ "weight": 20,
+ "minutes": 75,
+ "big_picture": "Every trade is a relay race run by three teams inside the broker. The <b>front office</b> signs up the client (KYC, account kit, UCC) and gets the order onto the exchange; the <b>middle office</b> checks every order against limits and margins, because if the client defaults the broker pays; the <b>back office</b> enriches and allocates the trade, issues the contract note, settles on T+1 and keeps the books for 8 years. Around the race sit the rules of the track: order types and matching, session timings, taxes and fees, and the IT, BCP and cyber-security safety nets.",
+ "exam_focus": [
+  "Contract note: within 24 hours, ECN rules, contents; statutory charges (STT, GST, stamp duty) vs regulatory levies (SEBI fees, exchange charges)",
+  "On-boarding: six kit documents, SARAL AOF, PAN exemptions, IPV/VIPV, KRA vs CKYCR (10 days), UCC, copy of documents in 7 days, PoA vs DDPI",
+  "Orders: market/limit/stop loss, which conditions are unavailable (GTC, GTD, AON, MF), price-time priority at passive price, call auction equilibrium",
+  "Numbers: brokerage caps (2.5%, 25 paise, ₹100 per lot), trade annulment (30/60 min, 5%, ₹1-10 lakh), bulk 0.5% vs block ₹25 crore, SEBI fee 10/5/2",
+  "Session timings: block windows 8:45-9:00 and 2:05-2:20, pre-open 9:00-9:15, normal 9:15-3:30, post-close 3:40-4:00, call auction and special pre-open",
+  "Resilience: glitch rules (5 min, 2 hours, T+1, 14 days, 10,000 clients), NSE-BSE backup (75/15 min), CSCRF goals and categories, IRRA replaced by Contingency Pool Trading (new)",
+  "Middle and back office: types of risk, client code modification, books under SC(R)R 1957 kept 8 years, T+1 timeline"
+ ],
+ "sections": [
+  {
+   "id": "3.1",
+   "title": "The Securities Trade Life Cycle",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A <b>trade</b> is the conversion of an order placed on the exchange into a <b>pay-in and pay-out of funds and securities</b>. It is not finished when it matches; it ends only when it is <b>settled</b>. Along the way it passes investors, brokers, exchanges, the clearing corporation, clearing banks, DPs and custodians, in five steps:"
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Placing of an order",
+       "text": "By the investor/client or broker."
+      },
+      {
+       "title": "Risk management and order routing",
+       "text": "Broker's RMS checks the order and routes it through the trading platform."
+      },
+      {
+       "title": "Matching and conversion into trade",
+       "text": "Exchange matches it with a counter order."
+      },
+      {
+       "title": "Confirmation of trades",
+       "text": "To broker and client; for institutions, affirmed by the custodian."
+      },
+      {
+       "title": "Clearing and settlement",
+       "text": "Obligations worked out; funds and securities change hands."
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Step",
+      "Office"
+     ],
+     "rows": [
+      [
+       "Placing the order, routing it through the platform, matching it into a trade",
+       "Front office"
+      ],
+      [
+       "Risk management",
+       "Middle office"
+      ],
+      [
+       "Confirmation; clearing and settlement",
+       "Back office"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Restaurant picture: the <b>waiter</b> takes and sends the order (front), the <b>manager</b> checks you can pay (middle), the <b>cashier/accountant</b> bills you and keeps the books (back)."
+    },
+    {
+     "type": "trap",
+     "text": "Order <i>routing</i> is front office, but the <i>risk management</i> on that order is middle office. Confirmation is back office."
+    }
+   ]
+  },
+  {
+   "id": "3.1.1",
+   "title": "Placing Orders: TWS, Phone, Internet, DMA and Algos",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The <b>Trader Workstation (TWS)</b> is the terminal through which a member enters orders into the exchange's trading system. Each trader logs in with a unique <b>Trading Member ID and User ID</b>, for trading or enquiry."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "TWS: member's own information",
+       "points": [
+        "Orders entered, modified, outstanding",
+        "Order log",
+        "Trade details"
+       ]
+      },
+      {
+       "title": "TWS: market information",
+       "points": [
+        "Order book",
+        "Security/contract price and trade information",
+        "Additional information"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Members may also build customised workstations and connect via <b>CTCL</b> (Computer to Computer Link), <b>IBT</b> (Internet Based Trading), <b>DMA</b>, <b>STWT</b> (Securities Trading through Wireless Technology), <b>ALGO</b> and <b>SOR</b> (Smart Order Router), over leased line, VSAT or <b>co-location</b> (broker/vendor systems placed in or near the exchange premises on a direct private network)."
+    },
+    {
+     "type": "p",
+     "text": "<b>Order evidence.</b> A broker may execute a client's trade <b>only after keeping evidence that the client placed the order</b>: a physical record signed by the client, telephone recording, e-mail from the authorised e-mail ID, internet transaction log, SMS record, or any other legally verifiable record. In a dispute the broker must produce it; if it can't (e.g. technical failure), it must justify why, and evidence such as the client's post-trade confirmation or payment/delivery for that trade may be considered."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Situation",
+      "Keep order evidence for"
+     ],
+     "rows": [
+      [
+       "Normal case",
+       "Period for which arbitration accepts complaints, currently <b>3 years</b>"
+      ],
+      [
+       "Dispute raised",
+       "Till final resolution"
+      ],
+      [
+       "SEBI asks to preserve",
+       "Till further intimation by SEBI"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Phone orders</b>: the client calls numbers notified by the broker; a <b>Dealing Desk Executive</b> verifies him with questions including <b>user ID and TPIN</b>. Telephone recording of client instructions is <b>mandatory</b> (SEBI, March 22, 2018). <b>Internet trading</b> and wireless trading (on the <b>WAP</b> platform) need the broker to get <b>permission from the stock exchange</b> and meet SEBI's minimum conditions."
+    },
+    {
+     "type": "p",
+     "text": "<b>Direct Market Access (DMA)</b> gives clients direct access to the exchange through the broker's infrastructure, <b>without manual intervention by the broker</b>. SEBI introduced it in <b>2008</b> for <b>institutional investors</b>. Benefits: client control over orders, faster execution, fewer manual errors, transparency, liquidity, lower impact cost on large orders, better audit trails, and better hedging/arbitrage using algos. It may be used by the client or its <b>investment manager</b> (a SEBI-registered entity, who signs the documents); the exchange may specify which categories of investors can get DMA; the broker needs <b>exchange permission</b> and must authorise each user after KYC and due diligence."
+    },
+    {
+     "type": "p",
+     "text": "<b>Algorithmic trading</b>: any order generated using automated execution logic. <b>Automated trading</b>: software that generates and pushes orders into the exchange system automatically once set parameters are met. <b>HFT</b> is latency-sensitive algo trading with high daily portfolio turnover and a high <b>order-to-trade ratio (OTR)</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Retail algos via APIs (SEBI, February 04, 2025)</b>: the <b>broker is the principal</b> and the algo provider/fintech is the <b>broker's agent</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Home-made retail algos must be registered with the exchange (through the broker) <b>only above the orders-per-second (OPS) threshold</b>; brokers must flag all orders above it as algo orders.",
+      "Algo providers are <b>not directly regulated by SEBI</b> but must be <b>empanelled with exchanges</b>.",
+      "All algo orders go through <b>broker servers located in India</b>, with minimum checks: <b>price, quantity limit, order value</b>.",
+      "Algo trading needs the <b>exchange's prior permission</b>; exchanges must give fair, equitable access to co-location.",
+      "Algo systems face a <b>system audit every six months</b> by a certified system auditor."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Whatever the channel, the broker confirms the order with the client and enters it; the exchange confirms every order it receives and <b>time-stamps</b> it. The conditions attached (market, limit, etc.) tell the exchange how to execute it."
+    },
+    {
+     "type": "hook",
+     "text": "Retail algo rule in one line: <b>broker = principal, algo provider = agent</b>. Like a driving school: the school holds the licence and the liability; the instructor works under it."
+    },
+    {
+     "type": "trap",
+     "text": "DMA was for <b>institutional</b> clients, not retail. Algo audit is every <b>six months</b>, not yearly. Algo providers are <b>empanelled with exchanges</b>, not SEBI-registered. A home-made retail algo needs registration only <b>above the OPS threshold</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.1.2",
+   "title": "Risk Management and Order Routing",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "An efficient risk management system is integral to an efficient settlement system: it measures and manages the firm's exposure to the risks central to its business. Strong internal risk controls protect:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "The firm, against market, credit, liquidity, operational and legal risks",
+      "The financial industry, against systemic risk",
+      "The firm's customers, against large non-market losses (firm failure, misappropriation, fraud)",
+      "The firm and its franchise, against reputational risk"
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The broker must run an <b>online RMS with upfront real-time checks</b> on every order, with pre-defined limits such as order quantity and value, symbol-wise user order/quantity, user/branch order and order price. Only orders within the RMS parameters reach the exchange's trading engine."
+    },
+    {
+     "type": "key",
+     "text": "Brokers collect <b>upfront margin</b> before execution, so the RMS lets through only orders backed by sufficient margin."
+    }
+   ]
+  },
+  {
+   "id": "3.1.3",
+   "title": "Order Matching, Trade Confirmation and the Contract Note (Box 3.1)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Orders match on <b>price-time priority</b>: best price first (best buy = <b>highest</b> bid, best sell = <b>lowest</b> offer), then earliest time. On a match the exchange sends a trade confirmation to the broker, who informs the client by messages and the <b>contract note</b>. Unexecuted orders can be modified/cancelled in trading hours; a trade can be cancelled only by <b>mutual consent</b>, with exchange approval under the trade annulment policy (usually for order entry errors)."
+    },
+    {
+     "type": "hook",
+     "text": "Matching rule: <b>price first, then the clock</b>. Order size never jumps the queue."
+    },
+    {
+     "type": "p",
+     "text": "<b>Contract note</b>: the <b>legal record</b> of a transaction done on an exchange through a broker. It confirms the day's trades for the client and creates a <b>legally enforceable relationship</b> between broker and client for their settlement. Every client trade needs one, in the exchange's format."
+    },
+    {
+     "type": "key",
+     "text": "Issue it <b>within 24 hours</b> of execution, physical or electronic <b>as the client chooses</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Mode",
+      "Rule"
+     ],
+     "rows": [
+      [
+       "Physical, by hand",
+       "Client acknowledges with <b>date</b>"
+      ],
+      [
+       "Physical, by post/courier",
+       "Keep <b>proof of dispatch</b>"
+      ],
+      [
+       "ECN by e-mail (usual mode)",
+       "Only to clients who opted for it; keep acknowledgement in non-tamperable form and system <b>log report</b> as proof of delivery"
+      ],
+      [
+       "ECN bounced",
+       "Keep a <b>bounce mail log</b>; send a <b>physical copy</b> within the stipulated time"
+      ],
+      [
+       "Website, SMS/IM",
+       "Also publish ECN securely on the website; SMS/IM only to the <b>registered mobile</b> uploaded on the exchange portal"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "ECNs must be <b>digitally signed, encrypted, non-tamperable</b> and comply with the <b>IT Act, 2000</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Serial numbering from the start of the <b>financial year</b>",
+      "Client name, <b>PAN</b>, client code; order no., order time, trade no., trade time, quantity, price",
+      "Annexure for weighted average prices",
+      "<b>Consideration</b> shown separately (no consideration = void under the Indian Contract Act)",
+      "Brokerage, statutory charges (STT, GST, stamp duty), regulatory levies (SEBI fees, exchange charges)",
+      "Note stamps as a % of contract value; broker's address, contacts, PAN and <b>compliance officer</b> details; signature of broker/authorised signatory"
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The broker keeps a <b>duplicate or counterfoil</b> of every contract note."
+    },
+    {
+     "type": "example",
+     "text": "Riya buys 100 shares at ₹500 on NSE for delivery. Within 24 hours she gets a contract note showing order and trade numbers with times, quantity 100, price ₹500 and the consideration of ₹50,000 as a separate line; then brokerage, STT of ₹50 (0.1% on a delivery purchase), stamp duty and GST, and the SEBI fee and exchange transaction charges. Her name, PAN and client code are on it, with the compliance officer's contacts.",
+     "title": "Reading a contract note"
+    },
+    {
+     "type": "trap",
+     "text": "A contract note is <b>not</b> the agreement signed before trading or a margin note; it confirms trades of a particular day. <b>STT, GST, stamp duty</b> are statutory; SEBI fees and exchange charges are <b>regulatory levies</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.1.4",
+   "title": "Institutional Trades: Custodian Affirmation and STP",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Institutions (mutual funds, FPIs, insurers) settle cash-segment trades through <b>custodians</b>, who are <b>clearing members</b> of the exchange. Why? The institution wants a specialist that settles on its behalf and backs the trade with the institution's collateral."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "CP code at order entry",
+       "text": "The broker tags the trade with the custodian's <b>custodian participant (CP) code</b>."
+      },
+      {
+       "title": "Custodian checks",
+       "text": "Security details, side of trade, price range etc., as specified by the institutional client."
+      },
+      {
+       "title": "Custodian confirms",
+       "text": "It confirms (affirms) whether it will settle the trade."
+      },
+      {
+       "title": "Obligation moves",
+       "text": "The clearing corporation assigns the settlement obligation to the custodian."
+      },
+      {
+       "title": "Risk monitored",
+       "text": "The custodian keeps measuring its risk against the collateral the institution has submitted."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Since <b>2004</b>, SEBI requires all institutional trades to go through <b>Straight Through Processing (STP)</b>: one system captures and processes the trade electronically <b>in one pass, from first 'deal' to final settlement</b>, across front, middle and back office. No manual re-entry, faster and cheaper settlement, fewer errors, shorter clearing time, and a flexible infrastructure for online processing."
+    },
+    {
+     "type": "key",
+     "text": "STP: one-pass electronic processing from deal to settlement, mandatory for institutional trades since <b>2004</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.1.5",
+   "title": "Clearing and Settlement: First Look",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The exchange sends trades to the <b>clearing corporation (CC)</b>. After custodian/clearing member affirmation, the CC applies <b>multilateral netting</b> to fix obligations. It settles through <b>clearing banks</b> (funds) and <b>depositories</b> (securities), linking the two. Members must deliver funds/securities <b>before pay-in time</b>; the CC then pays out."
+    },
+    {
+     "type": "key",
+     "text": "SEBI's circular of <b>March 21, 2024</b> introduced an <b>optional T+0</b> settlement in equity cash, alongside <b>T+1</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.2",
+   "title": "Front Office Operations and Sales",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The <b>front office</b> does <b>order capture and execution</b> and owns the client relationship. Dealers and sales staff sit here; dealers are 'the face of the broker'. The sales force pitches trading ideas, takes orders, passes them to the trading desk and brings in new clients."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Front office",
+       "points": [
+        "Order capture and execution",
+        "Client relationship",
+        "Dealers, sales staff"
+       ]
+      },
+      {
+       "title": "Middle office",
+       "points": [
+        "Validations, bookings, confirmations",
+        "Risk management and surveillance"
+       ]
+      },
+      {
+       "title": "Back office",
+       "points": [
+        "Confirmation, payments, settlement, accounting",
+        "Where the trade ends"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Advertisements</b> must not breach the Code of Conduct under the <b>Stock Brokers Regulations, 2026</b> or exchange bye-laws (this covers websites, subsidiaries and group companies too). Every advertisement needs the <b>prior approval of the stock exchange</b> and must follow the exchange's Code for Advertisements."
+    },
+    {
+     "type": "trap",
+     "text": "Advertisement approval: <b>stock exchange</b>, not SEBI or the depository."
+    }
+   ]
+  },
+  {
+   "id": "3.2.1.2a",
+   "title": "Trading Account Opening: The Account Opening Kit",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "SEBI requires the standard documents to be given <b>in electronic or physical form, as the client prefers</b> (asked in the form); if electronic, the broker keeps <b>logs</b>. The <b>Account Opening Form</b> has two parts: <b>Part I, the KYC form</b> (CERSAI's template, used by all intermediaries for individuals and legal entities) and <b>Part II, additional information</b> for trading (bank and demat details, trading preferences, past actions, nomination)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "#",
+      "Standard document",
+      "Purpose"
+     ],
+     "rows": [
+      [
+       "1",
+       "Account Opening Form (KYC + additional info)",
+       "Who the client is"
+      ],
+      [
+       "2",
+       "Rights and Obligations of broker and client",
+       "Incl. extra R&O for internet/wireless trading"
+      ],
+      [
+       "3",
+       "Uniform Risk Disclosure Document (RDD)",
+       "Risks of dealing in securities, all segments/exchanges"
+      ],
+      [
+       "4",
+       "Guidance Note",
+       "Do's and Don'ts for investors"
+      ],
+      [
+       "5",
+       "Policies and Procedures of the broker",
+       "The broker's own rules"
+      ],
+      [
+       "6",
+       "Tariff sheet",
+       "All charges incl. brokerage, to avoid disputes"
+      ]
+     ],
+     "caption": "The six standard documents"
+    },
+    {
+     "type": "p",
+     "text": "Clients also get contact details of the <b>compliance officer</b>/senior officials and the exchange's <b>investor grievance cell</b>. Any <b>voluntary clause</b> added by the broker is non-mandatory; if it dilutes the broker's responsibility or conflicts with mandatory documents or rules, it is <b>null and void</b>."
+    },
+    {
+     "type": "hook",
+     "text": "Six-pack kit: <b>Form, Rights, Risks, Guide, Policies, Price list</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>SARAL AOF</b>: a simplified form for <b>new individual investors</b> in the <b>cash segment</b> who do <b>not</b> use internet trading, margin trading, derivatives or a PoA (they can add these later). The Rights and Obligations, RDD, Guidance Note and identity/address proofs still apply, but <b>only one proof of address</b> is needed. PMLA/AML rules still apply."
+    },
+    {
+     "type": "p",
+     "text": "<b>FPIs</b> submit a <b>Common Application Form (CAF)</b> and 'Annexure to CAF' (master circular of May 30, 2024); FPI registration was simplified on November 12, 2024."
+    },
+    {
+     "type": "trap",
+     "text": "SARAL is <b>cash segment only</b>, with no internet trading, margin trading, derivatives or PoA at the start."
+    }
+   ]
+  },
+  {
+   "id": "3.2.1.2b",
+   "title": "KYC, Digital KYC and In-Person Verification",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>KYC</b> is the customer identification process: verifying identity, address, financial status, occupation and other prescribed details. All intermediaries use the <b>same KYC form and documents</b>, physically or digitally. KYC and <b>Customer Due Diligence (CDD)</b> are the base of anti-money laundering: collect and verify <b>Proof of Identity</b> and <b>Proof of Address</b> under the <b>PMLA, 2002</b>, PML (Maintenance of Records) Rules, 2005 and SEBI's AML Master Circular of June 06, 2024."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Consent",
+       "text": "Take the client's <b>express consent</b>."
+      },
+      {
+       "title": "Capture",
+       "text": "PAN, name, photo, contacts captured digitally; signed by e-signature such as <b>Aadhaar e-Sign</b>."
+      },
+      {
+       "title": "Verify Aadhaar",
+       "text": "UIDAI <b>e-KYC</b> or offline <b>QR code/XML</b>."
+      },
+      {
+       "title": "Other documents",
+       "text": "Via <b>DigiLocker</b> or digitally signed."
+      },
+      {
+       "title": "Verify contacts",
+       "text": "Mobile and e-mail verified by <b>OTP</b>."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "To use Aadhaar authentication, brokers act as <b>KUAs/Sub-KUAs</b> (KYC User Agencies) under Ministry of Finance guidelines: they register with <b>UIDAI</b> and sign an agreement with a KUA. After a Supreme Court judgement (<b>April 30, 2025</b>), digital KYC must be accessible to <b>persons with disabilities</b>; all digital platforms of regulated entities must comply with the <b>RPwD Act, 2016</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>In-Person Verification (IPV)</b> is <b>mandatory</b>. The KYC form records the IPV person's name, designation, organisation, signature and date. IPV by one SEBI intermediary <b>can be relied upon</b> by another, and the broker's <b>Authorised Persons</b> may also do it."
+    },
+    {
+     "type": "p",
+     "text": "<b>Video IPV (VIPV)</b> through the broker's app is allowed: done <b>live</b> by a trained official after <b>informed consent</b>; clear video, face uncovered; <b>random questions</b> with display of the officially valid document, KYC form and signature (or OTP); Aadhaar photo must <b>match</b>; recording stored tamper-proof with <b>date and time stamp</b>, plus activity log and official's credentials."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "IPV needed",
+       "points": [
+        "Normal on-boarding (physical or video)",
+        "Broker staff or Authorised Person can do it"
+       ]
+      },
+      {
+       "title": "IPV NOT needed",
+       "points": [
+        "KYC done through <b>Aadhaar authentication of UIDAI</b>",
+        "KYC submitted <b>online</b> with documents via <b>DigiLocker</b> or other online-verifiable source"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "IPV <b>can</b> be relied upon across SEBI intermediaries, and Authorised Persons <b>can</b> perform it. Reject options like 'only the broker's own employee may do IPV'."
+    }
+   ]
+  },
+  {
+   "id": "3.2.1.2c",
+   "title": "KYC Documents Checklist",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>PAN</b> is the <b>sole identification number</b> for the securities market, <b>whatever the transaction amount</b>. Brokers verify it <b>online on the Income Tax website</b> without insisting on the card. Under the <b>Income-tax Act, 2025</b>, a PAN not linked to Aadhaar becomes <b>inoperative</b>; the KRA system flags linkage status."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Who",
+      "PAN treatment"
+     ],
+     "rows": [
+      [
+       "Central/State Government and court-appointed officials (Official Liquidator, Court Receiver)",
+       "Exempt"
+      ],
+      [
+       "Residents of <b>Sikkim</b>",
+       "Exempt"
+      ],
+      [
+       "UN entities/multilateral agencies exempt from Indian tax",
+       "Exempt"
+      ],
+      [
+       "Institutions: FPIs, MFs, VCFs, FVCIs, banks, DFIs, SIDCs, IRDAI insurers, PFIs",
+       "<b>Custodian</b> verifies PAN with the original and gives certified copies"
+      ],
+      [
+       "FPIs",
+       "May produce CBDT's <b>E-PAN</b>"
+      ]
+     ],
+     "caption": "PAN exemptions and special cases"
+    },
+    {
+     "type": "p",
+     "text": "<b>Proof of Address/Identity</b>: Passport, Aadhaar, Voter ID, Driving Licence, etc. If permanent and correspondence addresses differ, prove <b>both</b>. A <b>third party's</b> address can be the correspondence address only if that party's KYC is done (CDD as per <b>Rule 9 of the PML Rules</b>). The name on the KYC form must <b>match</b> the PoI. Identify any <b>beneficial owner</b> other than the client (AML Master Circular, June 06, 2024) and update CDD data periodically. Non-individuals give extra documents."
+    },
+    {
+     "type": "p",
+     "text": "<b>Mobile and e-mail</b> go into the <b>KRA system</b>; never those of employees, APs or distributors. <b>Bank</b>: a <b>cancelled cheque leaf</b> plus bank statement/passbook copy; the account is mapped, and money is generally accepted only from mapped account(s) (more than one allowed, with proof), so that funds come only from the client himself. <b>Demat</b>: copy of the DP's <b>client master</b>; clients often give the broker a <b>DDPI/PoA</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Running account authorisation</b>: funds must be settled <b>within 24 hours of pay-out</b> unless the client authorises a running account. It must be <b>signed by the client only, not a PoA holder</b>, and the broker must still actually settle <b>at least once a calendar quarter or month</b>, as the client prefers."
+    },
+    {
+     "type": "example",
+     "text": "Arjun's sale proceeds of ₹1,00,000 are paid out to the broker on Tuesday. With no running account authorisation, the broker must send the money to Arjun within 24 hours. If Arjun signs one and picks monthly settlement, the broker can hold the balance for his next trades but must settle at least once a month.",
+     "title": "Running account"
+    },
+    {
+     "type": "p",
+     "text": "<b>Rights and Obligations</b>: client info, brokerage, margins, settlement, close-out, dispute resolution, termination, plus internet/wireless provisions. <b>Risk Disclosure Document</b>: risks of volatility, low liquidity, rumours, news, systems and options, plus features and risks of wireless/SOR trading; must be read before trading."
+    },
+    {
+     "type": "p",
+     "text": "<b>Nomination</b> is <b>voluntary</b> (SEBI, <b>September 26, 2023</b>): nominate or opt out, but the account is activated only after the 'choice of nomination' is received in SEBI's format."
+    },
+    {
+     "type": "p",
+     "text": "<b>Financial proof</b> is compulsory for <b>derivatives</b> clients (others as per the broker's RMS): ITR acknowledgement, annual accounts, salary slip/Form 16, net-worth certificate, <b>bank statement for the last 6 months</b>, demat holding statement, other asset proof, or self-declaration with support."
+    },
+    {
+     "type": "key",
+     "text": "Brokers must keep all client information <b>confidential</b>, except where a law requires disclosure."
+    },
+    {
+     "type": "trap",
+     "text": "Running account letter: <b>client signs</b>, never a PoA holder; settle at least <b>monthly or quarterly</b>. Bank statement: <b>6 months</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.2.1.3",
+   "title": "KRA and the Central KYC Records Registry (3.2.1.3-3.2.1.4)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "In <b>2011</b> SEBI created the <b>KYC Registration Agency (KRA)</b> system to centralise securities-market KYC and avoid repeating it with every intermediary. Clients can trade once KYC is done, but those whose KYC attributes <b>KRAs cannot verify</b> cannot transact further until verified. KRAs show KYC status on their websites and must disseminate and display the <b>Investor Charter</b>."
+    },
+    {
+     "type": "p",
+     "text": "The <b>CKYCR</b> (Central KYC Records Registry) is <b>one KYC for the whole financial sector</b>. The Government of India authorised <b>CERSAI</b> (set up under Section 20(1) of the <b>SARFAESI Act, 2002</b>) to act as CKYCR under the PML Rules, 2005. Since the <b>2015</b> amendment to the PML Rules, every reporting entity shares KYC with CKYCR in CERSAI's template."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Account opens",
+       "text": "Broker starts an account-based relationship."
+      },
+      {
+       "title": "Upload within 10 days",
+       "text": "Broker files the client's KYC with CKYCR within <b>10 days</b>."
+      },
+      {
+       "title": "CKYC number",
+       "text": "A unique <b>KYC Identification Number</b> is sent to the client by SMS/e-mail."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Existing KYC records are uploaded when updated information is received. Reference: SEBI KYC Master Circular, October 12, 2023."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "KRA",
+       "points": [
+        "Devised by SEBI in 2011",
+        "Securities market only",
+        "Unverified KYC = no further transactions",
+        "Disseminates the Investor Charter"
+       ]
+      },
+      {
+       "title": "CKYCR",
+       "points": [
+        "CERSAI, authorised by Government of India",
+        "Whole financial sector, inter-usable KYC",
+        "Upload within 10 days",
+        "Client gets a CKYC number"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "KRA = <b>SEBI, 2011</b>, securities market. CKYCR = <b>CERSAI</b>, whole financial sector, upload in <b>10 days</b> (not 7, which is for the client's copy of documents)."
+    }
+   ]
+  },
+  {
+   "id": "3.2.1.5",
+   "title": "Unique Client Code (UCC)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Since <b>2001</b>, brokers must allot every client a <b>Unique Client Code (UCC)</b> after KYC and use it on every order. The UCC is <b>mapped to PAN</b> and to the client's <b>demat account</b>. Why? So that every order on the exchange can be traced to one real, verified person, which stops trading in fictitious or borrowed names."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Allot",
+       "text": "Broker allots UCC after KYC, linked to PAN."
+      },
+      {
+       "title": "Upload first",
+       "text": "UCC and PAN uploaded to the exchange <b>before</b> any trade."
+      },
+      {
+       "title": "Validate",
+       "text": "Exchange validates UCC and PAN on every order, <b>PRO and CLI</b>, at order entry."
+      },
+      {
+       "title": "Share",
+       "text": "Exchange shares PAN, segment, TM/CM code and UCC with depositories to map the demat account."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Brokers also upload client name, mobile, address and e-mail, and <b>exchanges SMS/e-mail trade details to investors by the end of the trading day</b>. Each client needs a <b>separate mobile and e-mail</b> (never an employee's, remisier's or AP's), except, on <b>specific written request</b>, clients of <b>one family</b> or the <b>authorised person of an HUF, company, firm or trust</b>. Key KYC details must be kept updated."
+    },
+    {
+     "type": "p",
+     "text": "The client gets a copy of all signed documents <b>free, within 7 days</b>, and acknowledges it. The trading code, UCC and e-mail ID for ECNs are communicated in writing."
+    },
+    {
+     "type": "p",
+     "text": "<b>Two trading codes</b>: investors who by regulation cannot trade without funds/securities to their credit and settle <b>delivery only</b> may get <b>up to two codes</b> (buy and sell), so legs are <b>not netted</b>; both map to <b>one UCC</b> and STT is on a delivery basis."
+    },
+    {
+     "type": "hook",
+     "text": "UCC = the client's 'Aadhaar at the exchange': one per client, tied to PAN and demat, checked on every order."
+    },
+    {
+     "type": "trap",
+     "text": "Look-alike timelines: contract note <b>24 hours</b>, copy of documents <b>7 days</b>, CKYCR upload <b>10 days</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.2.1.6",
+   "title": "Power of Attorney and DDPI (3.2.1.6-3.2.1.7)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A <b>PoA</b> lets the broker (or broker-DP) operate the client's demat and bank accounts for deliveries and fund pay-in/pay-out (SEBI circulars of 2010 and August 27, 2020)."
+    },
+    {
+     "type": "key",
+     "text": "PoA is <b>optional</b>: it cannot be insisted on and services cannot be denied without it. Exception: <b>internet based trading</b> is exempted from this clause."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "PoA may move client funds for",
+       "points": [
+        "Settlement/margin for trades via the <b>same broker</b>",
+        "Recovering dues from such trading",
+        "MFs, public issues, rights, offers taken via the broker",
+        "Fees/charges due to the broker/DP"
+       ]
+      },
+      {
+       "title": "PoA must NOT allow",
+       "points": [
+        "Off-market trades except between related parties",
+        "Funds for trades via <b>another broker</b>",
+        "Opening a trading account or BO account anywhere"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "A PoA must name the BO and bank accounts covered and be in the name of the <b>SEBI-registered entity</b>, not an employee. Off-market transfers need a <b>DIS signed by the client</b> or an <b>eDIS</b>, with <b>OTP</b> consent."
+    },
+    {
+     "type": "p",
+     "text": "<b>DDPI (Demat Debit and Pledge Instruction)</b>, introduced in April 2022 to curb PoA misuse, can be used <b>only</b> for: (1) delivering securities for settlement of trades through the <b>same broker</b>; (2) <b>pledging/re-pledging</b> for margin to the TM/CM; (3) <b>mutual fund</b> transactions on exchange platforms; (4) tendering shares in <b>open offers</b>."
+    },
+    {
+     "type": "p",
+     "text": "DDPI is optional: the client may use a physical <b>DIS or eDIS</b> instead, and cannot be compelled or denied service. <b>Existing PoAs stay valid until revoked</b>, but no new PoAs are executed for these purposes."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "PoA",
+       "points": [
+        "Broad authority over demat and bank accounts",
+        "Optional (IBT exempted from the clause)",
+        "Old ones valid till revoked; not executed for DDPI purposes any more"
+       ]
+      },
+      {
+       "title": "DDPI",
+       "points": [
+        "Narrow: 4 purposes only",
+        "Optional; DIS/eDIS is the alternative",
+        "Introduced April 2022 to curb PoA misuse"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "DDPI = a PoA on a short leash: <b>settle, pledge, MF, open offer</b>. Nothing else."
+    },
+    {
+     "type": "trap",
+     "text": "DDPI did <b>not</b> cancel existing PoAs. Neither can be used for trades through <b>another</b> broker."
+    }
+   ]
+  },
+  {
+   "id": "3.2.1.8",
+   "title": "Brokerage",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Brokerage is <b>mutually agreed</b>, cannot exceed the exchange/SEBI maximum, and must appear in the <b>tariff sheet</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Segment",
+      "Maximum brokerage"
+     ],
+     "rows": [
+      [
+       "Equity",
+       "<b>2.5% of trade value</b>, excluding statutory levies"
+      ],
+      [
+       "Equity, share price ₹10 or less",
+       "<b>25 paise per share</b>"
+      ],
+      [
+       "Minimum",
+       "<b>None</b> specified"
+      ],
+      [
+       "Futures",
+       "Same as equity"
+      ],
+      [
+       "Options",
+       "On <b>premium</b> (not strike): <b>2.5% of premium or ₹100 per lot, whichever is higher</b>"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "text": "One option lot (75 units) bought at ₹40 premium: premium value ₹3,000, 2.5% = ₹75, but ₹100 per lot is higher, so the cap is <b>₹100</b>. 1,000 shares at ₹4: cap is 25 paise x 1,000 = <b>₹250</b>.",
+     "title": "Brokerage caps"
+    },
+    {
+     "type": "p",
+     "text": "<b>Full service</b> brokers charge more, <b>discount</b> brokers much less, <b>online</b> brokers serve a niche retail segment cheaply. Schemes can be <b>volume, slab or scrip wise</b>, and differ for intraday vs delivery. Brokerage must be shown on the IBT/wireless <b>order placement window</b> <b>before</b> the order is placed."
+    },
+    {
+     "type": "trap",
+     "text": "Options brokerage: on <b>premium</b>, and the <b>higher</b> of 2.5% or ₹100 per lot. No minimum brokerage."
+    }
+   ]
+  },
+  {
+   "id": "3.2.2",
+   "title": "Order Management and Price Conditions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Order management = entering, modifying, cancelling and matching orders, <b>during market hours only</b>. An order has six components: <b>price, time, quantity, security, action (buy/sell) and client identity (UCC/PAN)</b>. Conditions are of three kinds: <b>price, time, quantity</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Security",
+      "B/S",
+      "Qty",
+      "Price",
+      "Time",
+      "Pro/Cli",
+      "UCC and PAN",
+      "CP code"
+     ],
+     "rows": [
+      [
+       "ABCDE (12345)",
+       "B",
+       "5",
+       "76.50",
+       "Day",
+       "Cli",
+       "A001 / XXXXXXXXXX",
+       "-"
+      ]
+     ],
+     "caption": "A sample order entry"
+    },
+    {
+     "type": "p",
+     "text": "<b>Market order</b>: executes at the best available price(s) across market depth; no price is given. <b>Market with protection</b> combines market and limit: it executes only up to a level the trader sets, so it can't fill at any price. A <b>limit order</b> sets the price (buy at or below, sell at or above); it may never fill. Unmatched orders resting in the book are <b>passive</b>; incoming ones are <b>active</b>; trades happen at the <b>passive price</b>."
+    },
+    {
+     "type": "example",
+     "text": "Best sell: 100 @ ₹807.60, then 119 @ ₹807.75. A <b>market buy of 100</b> trades 100 @ ₹807.60. A <b>limit buy of 200 @ ₹807.60</b> trades 100 @ ₹807.60 and the other 100 waits in the book as the new best buy at ₹807.60.",
+     "title": "Examples 3.1 and 3.2"
+    },
+    {
+     "type": "hook",
+     "text": "Market order = certainty of <b>execution</b>, not price. Limit order = certainty of <b>price</b>, not execution. Market with protection = a market order wearing a seat belt."
+    },
+    {
+     "type": "p",
+     "text": "<b>Stop loss order</b>: enters the market only when price reaches or crosses the <b>trigger price</b>; the client gives a trigger plus a limit (or market) price. A trader who bought at ₹100 and will risk only ₹5 places a sell stop loss, trigger ₹96, limit ₹95."
+    },
+    {
+     "type": "table",
+     "head": [
+      "",
+      "Sell stop loss",
+      "Buy stop loss"
+     ],
+     "rows": [
+      [
+       "Protects",
+       "Bought position (400 ABC @ ₹830)",
+       "Sold position (400 ABC @ ₹830)"
+      ],
+      [
+       "Trigger",
+       "₹800: fires when price falls to ₹800 or below",
+       "₹880: fires when last traded price reaches ₹880 or above"
+      ],
+      [
+       "Limit price",
+       "Equal to or <b>below</b> trigger, e.g. ₹790",
+       "Equal to or <b>above</b> trigger, e.g. ₹890"
+      ],
+      [
+       "After trigger",
+       "SL-limit sells only at ₹790 or better; SL-market takes best bid",
+       "SL-limit buys only at ₹890 or better; SL-market takes best offer"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Trigger = alarm bell; limit = worst acceptable price. Sell: limit at or below the bell. Buy: at or above."
+    }
+   ]
+  },
+  {
+   "id": "3.2.2.1",
+   "title": "Time, Quantity and Other Order Conditions; Proprietary Trading",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Condition",
+      "Meaning",
+      "Available?"
+     ],
+     "rows": [
+      [
+       "DAY",
+       "Valid for the day; unmatched part cancelled at day end",
+       "Yes"
+      ],
+      [
+       "IOC (Immediate or Cancel)",
+       "Matches on release; <b>partial fill possible</b>, rest cancelled at once",
+       "Yes"
+      ],
+      [
+       "GTC (Good Till Cancelled)",
+       "Stays across days till cancelled; max days set by exchange",
+       "<b>No</b>"
+      ],
+      [
+       "GTD (Good Till Days/Date)",
+       "Stays till a date; <b>calendar days incl. holidays and the order day</b>",
+       "<b>No</b>"
+      ],
+      [
+       "COL (Cancel on Logout)",
+       "All the user's outstanding orders cancelled on logging out of TWS",
+       "Not barred"
+      ],
+      [
+       "DQ (Disclosed Quantity)",
+       "Shows only part: 1,000 with DQ 200 shows 200 at a time; exchange may set a minimum DQ",
+       "Yes"
+      ],
+      [
+       "MF (Minimum Fill)",
+       "Each fill at least MF: 1,000 with MF 200 = max 5 trades",
+       "<b>No</b>"
+      ],
+      [
+       "AON (All or None)",
+       "Only the full quantity may match; else waits",
+       "<b>No</b>"
+      ]
+     ],
+     "caption": "Time and quantity conditions (GTC, GTD, AON, MF are currently unavailable as per SEBI directives)"
+    },
+    {
+     "type": "example",
+     "text": "IOC buy 200 @ ₹807.60 against a best sell of 100 @ ₹807.60: 100 trade, the other 100 is <b>cancelled</b> immediately.",
+     "title": "Example 3.3: IOC"
+    },
+    {
+     "type": "hook",
+     "text": "Parked by SEBI: the two 'Good Till' orders (<b>GTC, GTD</b>) and the two fussy-quantity orders (<b>AON, MF</b>)."
+    },
+    {
+     "type": "trap",
+     "text": "Asked which order you can place today? <b>DAY, IOC or DQ</b>, never GTC, GTD, AON or MF. And an IOC order <b>can</b> be partly filled; only the unfilled part is cancelled."
+    },
+    {
+     "type": "p",
+     "text": "<b>Pro</b> = member's own account; <b>Cli</b> = on behalf of a client. Pro trading through terminals is allowed at <b>one location</b> only; other terminals trade only for clients. More locations need an <b>undertaking</b> with reasons, allowed by the exchange case by case."
+    },
+    {
+     "type": "key",
+     "text": "A broker must disclose to clients <b>upfront, at the KYC agreement stage</b>, whether it also does proprietary trading."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Broker of the SAME exchange",
+       "points": [
+        "Only with the exchange's <b>prior permission</b>",
+        "With <b>only one</b> such broker",
+        "Pro or client trading"
+       ]
+      },
+      {
+       "title": "Broker of ANOTHER exchange",
+       "points": [
+        "Only <b>one</b> such broker",
+        "For <b>proprietary</b> trading",
+        "After <b>intimating</b> the parent exchange"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Same exchange = <b>prior permission</b>; another exchange = <b>intimation</b>. Either way, <b>only one</b> broker."
+    }
+   ]
+  },
+  {
+   "id": "3.2.2.2",
+   "title": "Order Routing and Matching: Continuous and Call Auction (3.2.2.2-3.2.2.3)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "After client/dealer confirmation and the broker's software checks, the order goes to the exchange, which gives a <b>unique order number with time stamp</b>. A trade confirmation appears on the broker's terminal as soon as it executes. Orders can be modified/cancelled in trading hours and pre-open while not fully executed; for a partly filled order, only the <b>open part</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Continuous matching on <b>price-time priority</b> in the normal market",
+      "Best buy = highest price; best sell = lowest; same price: earliest first",
+      "Trades at the <b>passive order price</b>; one active order may hit several passive orders",
+      "<b>Quantity is not a factor</b> in priority"
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Book: buys 50 @ ₹121.20, 100 @ ₹121.10; sells 50 @ ₹121.50, 200 @ ₹121.80. A market buy of 50 fills at ₹121.50. A limit sell of 500 @ ₹121.20 fills only 50; 450 rest as best sell @ ₹121.20. Elsewhere, a buy 200 @ ₹807.65 against a sell 100 @ ₹807.60 fills 100 at <b>₹807.60</b>.",
+     "title": "Walking the order book"
+    },
+    {
+     "type": "p",
+     "text": "<b>Call auction</b> sets a fair <b>opening price</b> or trades <b>illiquid stocks</b>: orders are collected in a window (no trades, book visible), then all eligible orders execute at <b>one equilibrium price</b> that <b>maximises traded quantity</b>; unmatched orders are cancelled or carried forward per exchange rules."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Max quantity",
+       "text": "Pick the price with the maximum tradable quantity."
+      },
+      {
+       "title": "Tie: min unmatched",
+       "text": "If several, the one with minimum unmatched quantity."
+      },
+      {
+       "title": "Tie: nearest reference",
+       "text": "If still tied, the one closest to the reference price (e.g. previous close)."
+      },
+      {
+       "title": "Mid-value rule",
+       "text": "If the reference price is the mid-value of the two closest prices, the reference price itself."
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Price ₹",
+      "Buy",
+      "Sell",
+      "Cum. demand",
+      "Cum. supply",
+      "Tradable"
+     ],
+     "rows": [
+      [
+       "103",
+       "13,500",
+       "11,500",
+       "50,500",
+       "11,500",
+       "11,500"
+      ],
+      [
+       "104",
+       "9,500",
+       "9,800",
+       "37,000",
+       "21,300",
+       "21,300"
+      ],
+      [
+       "105",
+       "12,000",
+       "15,000",
+       "27,500",
+       "36,300",
+       "<b>27,500</b>"
+      ],
+      [
+       "106",
+       "6,500",
+       "12,000",
+       "15,500",
+       "48,300",
+       "15,500"
+      ],
+      [
+       "107",
+       "5,000",
+       "12,500",
+       "9,000",
+       "60,800",
+       "9,000"
+      ],
+      [
+       "108",
+       "4,000",
+       "8,500",
+       "4,000",
+       "69,300",
+       "4,000"
+      ]
+     ],
+     "caption": "Demand counts bids at or above the price; supply counts offers at or below; tradable = the smaller"
+    },
+    {
+     "type": "key",
+     "text": "Equilibrium price = <b>₹105</b> (27,500 shares). Buyers at ₹105 or more and sellers at ₹105 or less all trade at ₹105."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Continuous matching",
+       "points": [
+        "Normal market",
+        "Instant, order by order",
+        "Price-time priority; passive price",
+        "Many prices through the day"
+       ]
+      },
+      {
+       "title": "Call auction",
+       "points": [
+        "Pre-open, special pre-open, illiquid stocks",
+        "Orders batched; no trades during entry",
+        "One equilibrium price maximising volume"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Trades occur at the <b>passive</b> price, and a bigger order gets <b>no</b> priority."
+    }
+   ]
+  },
+  {
+   "id": "3.2.3",
+   "title": "Order Modification, Trade Execution and Trade Annulment (3.2.3-3.2.4)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Orders can be modified until fully executed and cancelled in market hours to the extent not executed. Once matched, the exchange notifies the broker, who tells the client immediately or at day end; the <b>official</b> communication is the <b>contract note</b>. After execution only the <b>client code</b> and <b>CP code</b> can be modified."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Client code changes for <b>non-institutional</b> trades only to fix a <b>genuine entry error</b>; the exchange runs a <b>special inspection</b>.",
+      "Moving a trade to the broker's <b>error account</b> isn't a modification if it is later <b>liquidated in the market</b>. Error account codes are disclosed to exchanges; a management-approved <b>error policy</b> is required.",
+      "Penalties go to the exchange's <b>Investor Protection Fund</b>; waivable for a proven genuine error.",
+      "<b>Pro trades can never become client trades, or vice versa.</b>",
+      "Institutional: between schemes/sub-accounts of the <b>same institution</b> allowed, no penalty; between <b>unrelated</b> institutions, penalty.",
+      "<b>CP code</b> can be modified on the trade day within exchange/CC timings."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Trade annulment (SEBI, July 16, 2015)",
+      "Rule"
+     ],
+     "rows": [
+      [
+       "Request window",
+       "Within <b>30 minutes</b> of the trade"
+      ],
+      [
+       "Exceptional cases",
+       "Up to <b>60 minutes</b>, reasons recorded"
+      ],
+      [
+       "Application fee",
+       "<b>5%</b> of trade value, min <b>₹1 lakh</b>, max <b>₹10 lakh</b> (exchange may raise the cap)"
+      ],
+      [
+       "Fee credited to",
+       "Exchange's <b>Investor Protection Fund</b>"
+      ],
+      [
+       "Suo motu",
+       "Exchange can examine trades on its own"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Trade of ₹10 lakh: 5% = ₹50,000, so the fee is the floor, <b>₹1 lakh</b>. Trade of ₹5 crore: 5% = ₹25 lakh, so the fee is capped at <b>₹10 lakh</b>.",
+     "title": "Annulment fee"
+    },
+    {
+     "type": "hook",
+     "text": "Annulment '30-60, 5-1-10'."
+    },
+    {
+     "type": "trap",
+     "text": "Annulment fees and client code penalties go to the exchange's <b>Investor Protection Fund</b>, not SEBI. And the workbook's 3.2.3 says orders 'not fully or partially executed' can be cancelled; read with 3.2.2.2, the <b>unexecuted part</b> of a partly filled order can still be cancelled."
+    }
+   ]
+  },
+  {
+   "id": "3.3",
+   "title": "Middle Office: Risk Management (3.3-3.3.1)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The middle office sits between front and back: validations, bookings, confirmations, and above all <b>risk management and surveillance</b>. The reason: the <b>obligation to settle lies with the broker</b>, so if a client defaults the broker pays the clearing corporation."
+    },
+    {
+     "type": "p",
+     "text": "<b>Margin</b> is what the CC levies on the broker for positions, in proportion to exposure. The broker <b>collects it upfront</b> from clients, allows trading against their collateral, checks risk as each order arrives, and sets <b>exposure and turnover limits per client</b>. SEBI/exchanges set requirements by broker type (exchange terminals, CTCL, IBT, STWT, SOR, algo). Firm-level procedures:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Standards and reports",
+      "Position limits",
+      "Investment guidelines and strategies",
+      "Systems to report compliance with policies",
+      "Assessing effectiveness of strategies, policies, procedures"
+     ]
+    },
+    {
+     "type": "example",
+     "text": "A client buys shares worth ₹5 lakh on Monday and then doesn't pay. On T+1 the clearing corporation still expects ₹5 lakh from the broker, and the broker must pay it from its own pocket. That is why the RMS asks for upfront margin and enforces client limits before the order ever reaches the exchange.",
+     "title": "Why the broker cares"
+    },
+    {
+     "type": "hook",
+     "text": "The broker is the guarantor; the middle office is the bouncer checking every order at the door."
+    }
+   ]
+  },
+  {
+   "id": "3.3.1.2",
+   "title": "Types of Risk for Members",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Risk",
+      "Meaning and broker examples"
+     ],
+     "rows": [
+      [
+       "<b>Operational</b>",
+       "Loss from failed internal processes, manual/system errors or external events: handling client assets, non-compliance, trading errors, non-payment/non-delivery, <b>client denying a matched order</b>, sudden bank closure, unauthorised trading, fraud, poor books, inexperienced staff, unstable or easily accessed systems"
+      ],
+      [
+       "<b>Market</b>",
+       "Loss from adverse price moves: <b>concentration of client collateral</b> in stocks/sectors, broker's own investments; driven by fiscal gap, debt, terrorism, energy shocks, interest rates; includes cost of borrowing securities, dividend and correlation risk"
+      ],
+      [
+       "<b>Credit</b>",
+       "Default by a borrower: loans to group companies, client debit balances, client funding, <b>short margin collection</b>, <b>non-confirmation of DVP trade by custodian</b>; reduced by collateral, margin payments and netting clauses"
+      ],
+      [
+       "<b>Legal</b>",
+       "Contract can't be enforced: illegal, or the other party lacked authority"
+      ],
+      [
+       "<b>Systemic</b>",
+       "'Domino effect' of failures, or a 'crisis of confidence' making markets illiquid"
+      ],
+      [
+       "<b>Technology</b>",
+       "Technical glitches and cyber-attacks"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Risk management should begin <b>at the point nearest to where risk is assumed</b>: trade entry, client documentation, client engagement, limits."
+    },
+    {
+     "type": "hook",
+     "text": "Systemic risk = dominoes: one firm falls, knocks over the next, and soon nobody trusts anybody."
+    },
+    {
+     "type": "trap",
+     "text": "Custodian not confirming a DVP trade and short margin = <b>credit</b>; client denying a matched order = <b>operational</b>; concentrated client collateral = <b>market</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.3.2",
+   "title": "Surveillance Mechanism",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Rumours</b>: staff must not circulate unverified news; social media/messaging use is supervised with logs kept as records; market news can be forwarded only with the <b>Compliance Officer's approval</b>, or <b>both</b> employee and officer face SEBI action. Violations of the Code of Conduct under the <b>SEBI (PIT) Regulations, 2015</b> must be reported to exchanges."
+    },
+    {
+     "type": "p",
+     "text": "<b>Chapter IV of the SEBI (Stock Brokers) Regulations, 2026</b> (institutional mechanism against fraud and market abuse) requires: surveillance systems and internal controls, documented policies, fraud prevention/detection duties, escalation and reporting, and a <b>whistle blower policy</b>. Members also need a <b>Surveillance Policy</b>, client monitoring and <b>mandatory warnings on trading software</b> (PMLA)."
+    },
+    {
+     "type": "p",
+     "text": "<b>Reversal trades</b> (non-genuine trades to shift profit/loss or fake volume) are cancelled by the exchanges' <b>Reversal Trade Cancellation Mechanism (RTCM)</b>, which works <b>intraday</b>."
+    },
+    {
+     "type": "key",
+     "text": "Forwarding market news? Only with the <b>Compliance Officer's</b> approval, or both the employee and the officer face SEBI action."
+    }
+   ]
+  },
+  {
+   "id": "3.4",
+   "title": "Back Office: Trade Enrichment and Trade Allocation (3.4-3.4.2)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The back office handles <b>post-market processing</b>: confirmation, payments, settlements and accounting. It is where the trade ends."
+    },
+    {
+     "type": "p",
+     "text": "<b>Trade enrichment</b> adds further information to an already executed trade, <b>automatically after each trade</b>: whatever is needed to clear F&O or settle cash trades. Back-office masters (client-wise <b>brokerage</b> rates, <b>GST, stamp duty, STT</b> tables) are appended to each trade to compute client-wise brokerage, client-wise fund/securities obligations and taxes, and to produce exchange obligations, contract notes and settlement and tax figures."
+    },
+    {
+     "type": "p",
+     "text": "<b>Trade allocation</b>: for institutions, the front office may place one order under CP code <b>'INST'</b> and the back office splits it across the client's schemes (pro rata, all or nothing, etc.), as a hedge fund does across its portfolios."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "One order",
+       "text": "Executed under CP code 'INST'."
+      },
+      {
+       "title": "Deal sheets",
+       "text": "Front office sends scheme-wise allocation details."
+      },
+      {
+       "title": "Allocate and issue",
+       "text": "Back office allocates to schemes and issues contract notes."
+      },
+      {
+       "title": "Upload",
+       "text": "Broker uploads allocation details to the clearing corporation."
+      }
+     ]
+    },
+    {
+     "type": "example",
+     "text": "A mutual fund buys 30,000 bank shares in one order under 'INST'. The deal sheet says 15,000 to its large-cap scheme, 10,000 to its balanced scheme and 5,000 to its ELSS scheme. The back office splits the trade, issues scheme-wise contract notes and uploads the allocation to the CC.",
+     "title": "Trade allocation"
+    }
+   ]
+  },
+  {
+   "id": "3.4.3",
+   "title": "Clearing and Settlement Process (T+1)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The broker issues a contract note at the end of trade day setting out the client's obligations. The clearing corporation, using trade data from the exchange, sends an <b>obligation report</b> (a statement of mutual contentment) to clearing members and custodians, who must settle on time or pay penalties."
+    },
+    {
+     "type": "key",
+     "text": "<b>T+1</b> rolling settlement fully implemented from <b>January 27, 2023</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Activity",
+      "Day"
+     ],
+     "rows": [
+      [
+       "Trading; download of provisional obligation",
+       "T"
+      ],
+      [
+       "Custodial confirmation; download of final obligation",
+       "T+1"
+      ],
+      [
+       "Securities and funds pay-in and pay-out; valuation debit",
+       "T+1"
+      ],
+      [
+       "Auction (on or by)",
+       "T+1"
+      ],
+      [
+       "Auction settlement (on or by)",
+       "<b>T+2</b>"
+      ]
+     ],
+     "caption": "Table 3.1: T+1 cash market cycle (working days)"
+    },
+    {
+     "type": "p",
+     "text": "Saturdays, Sundays, bank holidays and exchange holidays are excluded: a Friday trade settles on Monday (Tuesday if Monday is a bank holiday)."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Broker and client",
+       "points": [
+        "Contract note with price, charges, net obligation",
+        "Buyer pays into the broker's client bank account; seller delivers via earmarking/block",
+        "Broker consolidates obligations, collects margin, stays liable to the CC if the client defaults"
+       ]
+      },
+      {
+       "title": "Clearing member and CC",
+       "points": [
+        "CC <b>novates</b> trades and becomes central counterparty",
+        "CC nets obligations, sets pay-in/pay-out, collects margin",
+        "Pay-out: funds to members; securities <b>directly to client demat</b>"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "On pay-out, securities go <b>directly to the client's demat account</b> while funds go to the <b>member</b>. Auction settlement is <b>T+2</b>, not T+1."
+    }
+   ]
+  },
+  {
+   "id": "3.4.4",
+   "title": "Accounting: Books, Records and How Long to Keep Them",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Books are kept under <b>Rule 15 of the Securities Contracts (Regulation) Rules, 1957</b> and <b>Regulation 15 of the SEBI (Stock Brokers) Regulations, 2026</b> (electronic records must meet the <b>IT Act, 2000</b>). Keep <b>separate books per exchange</b>, <b>separate client ledgers per segment</b>, and client-wise books. Under CC interoperability, ledgers may be segment-wise and consolidated across exchanges, but the exchange-wise break-up must be shown in inspections."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Book",
+      "Contents"
+     ],
+     "rows": [
+      [
+       "Register of transactions (<b>sauda book</b>)",
+       "Every trade: security, value, rates gross/net of brokerage, client"
+      ],
+      [
+       "Clients' ledger",
+       "Each client's transactions"
+      ],
+      [
+       "General ledger and journal",
+       "Expenses, salaries, petty cash; journal holds adjustment entries"
+      ],
+      [
+       "Cash book and bank pass book",
+       "Cash and cheque transactions, balanced <b>daily</b>"
+      ],
+      [
+       "Documents register",
+       "Securities received/delivered (physical and DP records)"
+      ],
+      [
+       "Contract note duplicates/counterfoils",
+       "Copies of contract notes"
+      ],
+      [
+       "Margin deposit book",
+       "Margins paid, collected, payable, collectable"
+      ],
+      [
+       "Member's contract books",
+       "Contracts with other members of the same exchange"
+      ],
+      [
+       "Others",
+       "Clients' written consent for principal trades; account opening forms, KYC, agreements"
+      ]
+     ]
+    },
+    {
+     "type": "key",
+     "text": "<b>Regulation 16</b>: preserve books and records for <b>at least eight years</b>."
+    },
+    {
+     "type": "p",
+     "text": "Books must separate (a) <b>money from or for each client</b> from (b) <b>the member's own money</b>, with chronological client-wise records of money and securities received and delivered. Client collateral may be used <b>only for that client's</b> margin/pay-in, with an audit trail."
+    },
+    {
+     "type": "trap",
+     "text": "<b>8 years</b> for books vs <b>3 years</b> for order evidence. Books are under the <b>SC(R) Rules, 1957</b>, not the SC(R) Act, 1956."
+    }
+   ]
+  },
+  {
+   "id": "3.4.5",
+   "title": "Information Technology, Outsourcing and BCP/DR (3.4.5-3.4.5.1)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Brokers need one integrated system for back office, real-time order execution and risk, with archiving, audit trail, <b>DR protocols</b> and <b>standby databases</b>. Software needs <b>UAT and mock trading</b>, with reports certified by <b>independent system auditors</b> before release. Brokers should consider <b>software escrow</b>; large brokers, <b>multiple vendors</b>; and staff must be trained."
+    },
+    {
+     "type": "p",
+     "text": "<b>System audits</b> are periodic, by broker category (exchange system, CTCL/DMA, algo), covering controls, RMS, passwords, network, access, backup, database security and change management. SEBI's <b>January 31, 2025</b> circular added technology-based monitoring of these audits."
+    },
+    {
+     "type": "key",
+     "text": "Brokers must <b>not outsource core business and compliance functions</b>, e.g. order execution and monitoring of clients' trading."
+    },
+    {
+     "type": "p",
+     "text": "<b>BCP/DR</b>: a written plan for significant disruptions is desirable for all; it is <b>mandatory</b> for brokers above the <b>minimum client base specified by exchanges</b>. It must let the broker meet its obligations to customers and cover its relationships with other broker-dealers and counterparties. They need a BCP-DR policy with SOPs, health monitoring of critical systems, and periodic review."
+    },
+    {
+     "type": "trap",
+     "text": "BCP/DR is <b>mandatory</b> only above the exchange-specified minimum client base (desirable for all). Order execution and monitoring of client trading are <b>core</b> and cannot be outsourced."
+    }
+   ]
+  },
+  {
+   "id": "3.4.5.2",
+   "title": "Handling Technical Glitches and Exchange Outages",
+   "blocks": [
+    {
+     "type": "new",
+     "text": "<b>IRRA discontinued.</b> By circular dated <b>March 27, 2026</b>, SEBI discontinued the <b>Investor Risk Reduction Access (IRRA)</b> platform, because exchanges now offer an alternative: the <b>Contingency Pool Trading facility</b>. It lets brokers <b>square off clients' outstanding open positions during business disruptions</b>, over the <b>exchange's internal network within its premises</b>, using <b>dedicated terminals</b> allocated by the broker and connected to the exchange trading platform."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Before: IRRA platform",
+       "points": [
+        "Offered by the stock exchanges",
+        "Let clients of a broker hit by an outage reduce risk on open positions",
+        "<b>Discontinued</b> by SEBI circular of March 27, 2026"
+       ]
+      },
+      {
+       "title": "Now: Contingency Pool Trading",
+       "points": [
+        "Offered by the <b>stock exchanges</b>",
+        "Broker squares off clients' open positions during disruptions",
+        "Inside the exchange premises, on its internal network, via dedicated terminals"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Interoperable segments</b>: <b>NSE and BSE</b> act as backup venues for each other. Common products can be offset on the working exchange; for exclusive scrips, exchanges create reserve contracts or correlated products. The affected exchange informs SEBI and the other exchange within <b>75 minutes</b>; the backup activates its BCP within <b>15 minutes</b> of that. SEBI's <b>January 09, 2023</b> SOP covers outage definition, reporting, trading on unaffected venues, <b>extension of trading hours</b> and BCP updates."
+    },
+    {
+     "type": "p",
+     "text": "<b>Technical glitch</b>: any malfunction (hardware, software, network, process; own or outsourced) in a broker's trading/risk systems during market hours that stops, slows or varies log-in, order handling or margin/fund viewing for <b>five minutes or more</b> continuously. The framework covers brokers offering <b>IBT/STWT</b> with <b>more than 10,000 registered clients</b> (excluding closed accounts) as on <b>31 March</b> of the previous financial year. SEBI lists some issues that are not glitches, and glitches that don't affect service to clients attract no financial disincentive."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Inform",
+       "text": "Exchanges and clients within <b>2 hours</b>."
+      },
+      {
+       "title": "Preliminary Incident Report",
+       "text": "To the exchange within <b>T+1</b> day."
+      },
+      {
+       "title": "Root Cause Analysis",
+       "text": "To the exchange within <b>14 days</b>."
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Brokers must plan <b>capacity</b> for growing clients and monitor systems through the API-based <b>Logging and Monitoring Mechanism (LAMA)</b> with exchanges."
+    },
+    {
+     "type": "example",
+     "text": "A broker with 2 lakh app clients sees its order screen freeze from 10:00 to 10:12 am on Monday. Twelve minutes is over the 5-minute mark, so it is a technical glitch. The broker must inform the exchanges and clients by 12:00 noon, file the Preliminary Incident Report by Tuesday (T+1) and the RCA within 14 days.",
+     "title": "Glitch timeline"
+    },
+    {
+     "type": "hook",
+     "text": "Glitch clock <b>5-2-1-14</b>: 5 minutes, 2 hours, T+1, 14 days. Exchange outage clock <b>75-15</b>."
+    },
+    {
+     "type": "trap",
+     "text": "IRRA is gone; for broker outages the answer now is the exchanges' <b>Contingency Pool Trading</b> facility. Don't mix the glitch framework's <b>10,000 clients</b> with CSCRF client thresholds."
+    }
+   ]
+  },
+  {
+   "id": "3.4.5.3",
+   "title": "Cybersecurity and Cyber Resilience Framework (CSCRF)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "SEBI's <b>CSCRF</b> (circular of <b>August 20, 2024</b>, effective in phases from <b>January 1, 2025</b>) applies to brokers, depositories and other regulated entities (REs) and <b>supersedes</b> earlier cyber guidelines. Cyber resilience = ability to anticipate, withstand and recover from attacks."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "5 resiliency goals",
+       "points": [
+        "Anticipate",
+        "Withstand",
+        "Contain",
+        "Recover",
+        "Evolve"
+       ]
+      },
+      {
+       "title": "6 core functions",
+       "points": [
+        "Governance",
+        "Identification",
+        "Protection",
+        "Detection",
+        "Response",
+        "Recovery"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "A <b>Security Operation Centre (SOC)</b> is required (own, group-level or third-party). For smaller entities, <b>NSE and BSE</b> must run <b>Market SOCs (M-SOC)</b>. The framework stresses 'informed preparedness' (spotting attacks early), 'localisation' (isolating a crisis so trusted functions continue) and 'Evolve' (upgrading defences as threats change). Compliance is non-negotiable."
+    },
+    {
+     "type": "p",
+     "text": "CSCRF takes a <b>graded approach</b>, sorting REs into <b>five categories</b> by clients, trading volume, AUM, etc.: MIIs, Qualified, Mid-size, Small-size and Self-certification REs."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Category",
+      "Registered clients",
+      "Yearly client trading volume (₹ crore)"
+     ],
+     "rows": [
+      [
+       "Qualified",
+       "> 10 lakh",
+       "> 10,00,000"
+      ],
+      [
+       "Mid-size",
+       "> 1 lakh to 10 lakh",
+       "> 1,00,000 to 10,00,000"
+      ],
+      [
+       "Small-size",
+       "> 10,000 to 1 lakh",
+       "> 10,000 to 1,00,000"
+      ],
+      [
+       "Self-certification",
+       "> 1,000 to 10,000",
+       "> 1,000 to 10,000"
+      ]
+     ],
+     "caption": "CSCRF thresholds for stock brokers"
+    },
+    {
+     "type": "key",
+     "text": "<b>Exempt</b>: brokers with <b>under ₹1,000 crore</b> yearly client volume <b>and under 1,000</b> clients. All members need an <b>SOP for cyber incidents</b>."
+    },
+    {
+     "type": "example",
+     "text": "A broker has 50,000 registered clients whose trading volume is ₹40,000 crore a year. Both fall in the 'more than 10,000 up to 1 lakh' and 'more than ₹10,000 crore up to ₹1,00,000 crore' bands, so it is a <b>Small-size RE</b>. A broker with 800 clients and ₹600 crore volume is exempt.",
+     "title": "Which CSCRF category?"
+    },
+    {
+     "type": "hook",
+     "text": "Goals as a boxer: see it coming, take the hit, limit damage, get up, get better."
+    },
+    {
+     "type": "trap",
+     "text": "Detection/Protection are <b>functions</b>; Contain/Evolve are <b>goals</b>. M-SOCs are run by <b>NSE and BSE</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.4.5.4",
+   "title": "Software Vendor Failure and Cloud Services (3.4.5.4-3.4.5.5)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "If a software vendor fails, brokers must switch smoothly: explore <b>software escrow</b>, (for large brokers) use <b>more than one vendor</b>, and put regulator-specified clauses in vendor contracts."
+    },
+    {
+     "type": "p",
+     "text": "SEBI's <b>cloud framework</b> (<b>March 06, 2023</b>) is principle-based: governance/risk/compliance, choice of providers, data ownership and <b>localisation</b>, due diligence, security, legal duties, DR/BCP, vendor lock-in."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Cloud model",
+      "Status"
+     ],
+     "rows": [
+      [
+       "Public, community",
+       "Permitted under the framework"
+      ],
+      [
+       "Private",
+       "Treated as <b>on-premise</b>: permitted, governed by other SEBI circulars, not this framework"
+      ],
+      [
+       "Hybrid",
+       "Permitted; framework plus other circulars apply"
+      ],
+      [
+       "Others",
+       "<b>Prohibited</b> unless explicitly permitted"
+      ]
+     ]
+    },
+    {
+     "type": "key",
+     "text": "<b>HSM</b> (Hardware Security Module) is mandatory for <b>MIIs and Qualified REs</b>; others may use an alternative approved by their Board/Partners/Proprietor."
+    },
+    {
+     "type": "trap",
+     "text": "A <b>private</b> cloud counts as on-premise, so it is outside the cloud framework but still permitted. Only models not covered are prohibited."
+    }
+   ]
+  },
+  {
+   "id": "3.4.6",
+   "title": "STT, Transaction Charges, Stamp Duty and SEBI Fees (3.4.6-3.4.8)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>STT</b> applies to every purchase/sale of listed securities (shares, derivatives, equity-oriented MF units). The <b>broker collects it</b> and remits it to the exchange/CC, which gives brokers an end-of-day STT report (total, member-wise, client-wise)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Transaction",
+      "STT",
+      "Paid by"
+     ],
+     "rows": [
+      [
+       "Equity share/business trust unit, <b>delivery</b> purchase",
+       "0.1%",
+       "Buyer"
+      ],
+      [
+       "Equity share/business trust unit, <b>delivery</b> sale",
+       "0.1%",
+       "Seller"
+      ],
+      [
+       "Equity-oriented fund unit, delivery sale",
+       "0.001%",
+       "Seller"
+      ],
+      [
+       "Equity/fund unit/business trust unit sold <b>without delivery</b> (intraday)",
+       "0.025%",
+       "Seller"
+      ],
+      [
+       "Sale of option (equity/index)",
+       "0.1% of <b>premium</b>",
+       "Seller"
+      ],
+      [
+       "Option <b>exercised</b>",
+       "0.125% of <b>intrinsic value</b>",
+       "<b>Buyer</b>"
+      ],
+      [
+       "Sale of future (equity/index)",
+       "0.02%",
+       "Seller"
+      ]
+     ],
+     "caption": "STT rates (derivative rates subject to change from April 01, 2026, per the workbook)"
+    },
+    {
+     "type": "p",
+     "text": "Physically settled stock F&O pay the <b>delivery rate (0.1%) on both sides</b>. No STT on currency derivatives, interest rate derivatives or debt."
+    },
+    {
+     "type": "example",
+     "text": "Delivery purchase of 100 shares at ₹500 = ₹50,000: STT <b>₹50</b> (buyer). Intraday sale of ₹50,000: STT <b>₹12.50</b> (seller only).",
+     "title": "STT in rupees"
+    },
+    {
+     "type": "p",
+     "text": "<b>Exchange transaction charges</b> are collected by brokers and paid to exchanges, generally <b>monthly</b>. Since <b>July 2024</b>, MIIs must charge <b>uniform</b> rates with no volume-based slab discounts."
+    },
+    {
+     "type": "p",
+     "text": "<b>Stamp duty</b> used to vary state by state. To make it uniform and build a pan-India market, since <b>July 01, 2020</b> (Indian Stamp Act, 1899 amended by the <b>Finance Act, 2019</b>, plus 2019 Rules), it is collected <b>at one place, by one agency</b> (exchange/authorised CC or depository), <b>on one instrument</b>, and shared with states by the <b>buyer's state of domicile</b>. Brokers collect it from clients and remit it, like STT."
+    },
+    {
+     "type": "p",
+     "text": "<b>SEBI turnover fees</b> fund the regulator; brokers collect them, exchanges pass them to SEBI <b>monthly</b>. Turnover includes trades executed and contracts settled on expiry."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Segment",
+      "SEBI fee per ₹1 crore"
+     ],
+     "rows": [
+      [
+       "Equity, equity F&O, currency derivatives",
+       "<b>₹10</b> (0.0001%)"
+      ],
+      [
+       "Interest rate derivatives",
+       "<b>₹5</b>"
+      ],
+      [
+       "Debt",
+       "<b>₹2</b>"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "SEBI fee ladder <b>10-5-2</b>: equity family ₹10, interest rate derivatives ₹5, debt ₹2, per ₹1 crore."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Statutory charges",
+       "points": [
+        "STT",
+        "GST",
+        "Stamp duty"
+       ]
+      },
+      {
+       "title": "Regulatory levies",
+       "points": [
+        "SEBI turnover fees",
+        "Exchange transaction charges"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Statutory = <b>STT, GST, stamp duty</b>; regulatory levies = <b>SEBI fees, exchange charges</b>. Exercised options: STT on intrinsic value, paid by the <b>buyer</b>. IRD fee is ₹5, debt ₹2."
+    }
+   ]
+  },
+  {
+   "id": "3.4.9",
+   "title": "Bulk Deals and Block Deals",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Bulk deal</b> (SEBI, January 14, 2004): total quantity bought/sold in a scrip <b>more than 0.5%</b> of the company's listed equity shares, via one or more trades in the day in the normal market. The broker discloses scrip, client, quantity and price to the exchange: a <b>single trade</b> <b>immediately</b>; <b>cumulative</b> trades (pro or any single client code) <b>within one hour of market close</b>. Exchanges publish it the <b>same day after market hours</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Block deal</b>: a single transaction of <b>at least ₹25 crore</b> in a separate window (allowed since <b>September 2005</b>, revised <b>October 08, 2025</b>), so large trades don't move the price against buyer or seller."
+    },
+    {
+     "type": "table",
+     "head": [
+      "",
+      "Morning window",
+      "Afternoon window"
+     ],
+     "rows": [
+      [
+       "Time",
+       "<b>8:45-9:00 am</b>",
+       "<b>2:05-2:20 pm</b>"
+      ],
+      [
+       "Reference price",
+       "Previous close (or adjusted close/base price)",
+       "<b>VWAP of 1:45-2:00 pm</b>, published 2:00-2:05 pm; else VWAP of 9:00 am-1:45 pm (incl. pre-open trades); else previous close"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Order price within <b>3%</b> of the reference price (the workbook prints '+3%')",
+      "Minimum order <b>₹25 crore</b>; every trade must end in <b>delivery</b>, no squaring off or reversal",
+      "Disclosed with client details; exchanges publish the same day after market hours",
+      "Also applies to the block window under optional <b>T+0</b>"
+     ]
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Bulk deal",
+       "points": [
+        "More than <b>0.5%</b> of listed shares",
+        "Normal market, one or many trades"
+       ]
+      },
+      {
+       "title": "Block deal",
+       "points": [
+        "Minimum <b>₹25 crore</b>, single trade",
+        "Separate window; delivery compulsory"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Bulk is a <b>percentage</b> (0.5%), block is a <b>value</b> (₹25 crore). Afternoon window is 2:05-2:20, reference VWAP 1:45-2:00."
+    }
+   ]
+  },
+  {
+   "id": "3.4.10",
+   "title": "Trading Sessions in the Equity Segment",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Session",
+      "Timing",
+      "Key features"
+     ],
+     "rows": [
+      [
+       "Morning block window",
+       "8:45-9:00 am",
+       "Block deals only"
+      ],
+      [
+       "Pre-open (regular)",
+       "9:00-9:15 am (15 min)",
+       "Order entry first <b>8 min</b>, random close in last <b>1 min</b>; call auction; all equity and SME securities"
+      ],
+      [
+       "Normal market",
+       "9:15 am-3:30 pm",
+       "Continuous matching, price-time priority"
+      ],
+      [
+       "Afternoon block window",
+       "2:05-2:20 pm",
+       "Block deals only"
+      ],
+      [
+       "Auction market",
+       "From 2:00/2:30 pm",
+       "Buy-in auction for <b>short deliveries</b>, run by exchange for the CC; <b>solicitor period 30 min</b>, then matching"
+      ],
+      [
+       "Post-close",
+       "3:40-4:00 pm",
+       "<b>Only market orders</b>; single price = closing price"
+      ],
+      [
+       "Call auction, illiquid securities",
+       "9:30 am-3:30 pm",
+       "<b>6 one-hour sessions</b>; order entry first 45 min, random close between 44th and 45th minute"
+      ],
+      [
+       "Special pre-open (IPO, re-listed)",
+       "9:00-10:00 am (60 min)",
+       "Order entry first <b>45 min</b>; call auction"
+      ]
+     ],
+     "caption": "Equity session timings for T+1 (the workbook table misprints the special pre-open end as '10:00 pm')"
+    },
+    {
+     "type": "p",
+     "text": "The <b>pre-open</b> curbs opening volatility and discovers a fair opening price from overnight news, through order collection then matching at the demand-supply equilibrium. (For the special pre-open the workbook adds 'random closure in last 10 minutes'.)"
+    },
+    {
+     "type": "p",
+     "text": "<b>Trade for Trade (TFT)</b>: each trade settled separately, <b>no netting</b>; mainly stocks under <b>surveillance action</b>; <b>100% margin</b>; price band mainly <b>2%/5%</b>. <b>SME platform</b>: SME stocks trade in the continuous market or a daily call auction window; <b>market making is mandatory for 3 years</b> (two-way quotes within a spread, separate workstation); market lot <b>₹1 lakh</b> and multiples."
+    },
+    {
+     "type": "p",
+     "text": "<b>Offer for Sale (OFS)</b> via the exchange: eligible sellers offer shares; any investor except <b>promoters/promoter group</b> can buy (promoters may buy if the seller is a non-promoter)."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Announcement <b>T-1</b>; <b>non-retail bids on T</b>; <b>retail bids on T+1</b>",
+      "Bids with <b>100% upfront margin</b> can be modified/cancelled anytime in trading hours; bids <b>without margin (institutions only)</b> can only be revised upward",
+      "Pay-in default penalty <b>10% of order value</b>; <b>no Settlement Guarantee Fund</b>; settlement via CC; contract note at allotment price and quantity"
+     ]
+    },
+    {
+     "type": "example",
+     "text": "A promoter announces an OFS on Monday (T-1). Institutions and other non-retail investors bid on Tuesday (T); retail investors bid on Wednesday (T+1). An investor who bids ₹10 lakh and then fails to pay in is charged a penalty of ₹1 lakh (10%).",
+     "title": "OFS timeline"
+    },
+    {
+     "type": "hook",
+     "text": "Clock face: block at 8:45, pre-open bell at 9:00, market 9:15 to 3:30 with a block coffee break at 2:05, post-close encore 3:40 to 4:00."
+    },
+    {
+     "type": "trap",
+     "text": "Regular pre-open starts at <b>9:00 am</b> (8:45 is the block window; 9:15 is normal market). Post-close allows <b>only market orders</b>. OFS: <b>retail bids on T+1</b>, penalty <b>10%</b>, no SGF."
+    }
+   ]
+  },
+  {
+   "id": "3.4.11",
+   "title": "Securities Lending and Borrowing Scheme (SLBS)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>SLB</b> lets holders <b>lend idle shares for a fee</b> and traders borrow them (for short selling or arbitrage) for a fixed period."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Feature",
+      "Detail"
+     ],
+     "rows": [
+      [
+       "Platform",
+       "Screen-based, anonymous order matching"
+      ],
+      [
+       "Securities",
+       "F&O stocks, eligible non-F&O stocks, ETFs"
+      ],
+      [
+       "Tenure",
+       "Monthly contracts <b>up to 12 months</b>; reverse leg on the <b>1st Thursday</b> of the series month"
+      ],
+      [
+       "Quote",
+       "<b>Lending fee per share</b>"
+      ],
+      [
+       "Participants",
+       "Retail, proprietary and institutional, via <b>Approved Intermediaries</b> through clearing members (incl. banks, custodians)"
+      ],
+      [
+       "Corporate benefits",
+       "Stay with the <b>lender</b>"
+      ],
+      [
+       "Settlement",
+       "Via CC: first leg lender delivers, borrower pays fee; reverse leg shares returned; guaranteed with initial margin and daily MTM; security-wise position limits"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Sunita lends 1,000 idle shares at ₹2 a share and earns ₹2,000; any dividend meanwhile is still hers.",
+     "title": "Earning on idle shares"
+    },
+    {
+     "type": "trap",
+     "text": "Corporate benefits stay with the <b>lender</b>. The fee is quoted <b>per share</b>; tenure up to <b>12 months</b>."
+    }
+   ]
+  },
+  {
+   "id": "3.4.12",
+   "title": "Regulatory Compliances",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Compliance with SEBI and exchange laws, rules, regulations and bye-laws is mandatory; breaches attract penal action. The main ones:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Maintain/furnish documents under <b>section 15 of the SEBI Act</b>",
+      "Maintain books under the <b>SC(R) Rules, 1957</b> and SEBI (Stock Brokers) Regulations, 2026 (e.g. sauda book)",
+      "Rules on terminals and office management, dealing with Authorised Persons and other intermediaries, and dealing with clients",
+      "Send account statements to clients; submit periodic reports to exchanges (detail in section 4.2)"
+     ]
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Steps in the trade life cycle",
+   "value": "5 (order, risk/routing, matching, confirmation, clearing and settlement)",
+   "ref": "3.1"
+  },
+  {
+   "fact": "Retention of order-placing evidence (normal case)",
+   "value": "Arbitration limitation period, currently 3 years",
+   "ref": "3.1.1"
+  },
+  {
+   "fact": "Retention of order evidence if a dispute is raised",
+   "value": "Till final resolution of the dispute",
+   "ref": "3.1.1"
+  },
+  {
+   "fact": "Telephone recording of client orders made mandatory",
+   "value": "SEBI circular, March 22, 2018",
+   "ref": "3.1.1"
+  },
+  {
+   "fact": "DMA introduced by SEBI (for institutional investors)",
+   "value": "2008",
+   "ref": "3.1.1"
+  },
+  {
+   "fact": "Algorithmic trading defined (SEBI circular)",
+   "value": "March 30, 2012",
+   "ref": "3.1.1"
+  },
+  {
+   "fact": "Retail algo trading via APIs guidelines",
+   "value": "SEBI circular, February 04, 2025",
+   "ref": "3.1.1"
+  },
+  {
+   "fact": "System audit of a broker's algo trading system",
+   "value": "Every 6 months, by a certified system auditor",
+   "ref": "3.1.1"
+  },
+  {
+   "fact": "Internal risk control functions",
+   "value": "4",
+   "ref": "3.1.2"
+  },
+  {
+   "fact": "STP mandated for all institutional trades",
+   "value": "2004",
+   "ref": "3.1.4"
+  },
+  {
+   "fact": "Contract note to be issued",
+   "value": "Within 24 hours of execution",
+   "ref": "3.1.3"
+  },
+  {
+   "fact": "Contract note serial numbering restarts",
+   "value": "From the beginning of each financial year",
+   "ref": "3.1.3"
+  },
+  {
+   "fact": "ECNs must comply with",
+   "value": "IT Act, 2000",
+   "ref": "3.1.3"
+  },
+  {
+   "fact": "Optional T+0 settlement introduced",
+   "value": "SEBI circular, March 21, 2024",
+   "ref": "3.1.5"
+  },
+  {
+   "fact": "Advertisements: approval needed from",
+   "value": "Stock exchange (prior approval)",
+   "ref": "3.2"
+  },
+  {
+   "fact": "Parts of the Account Opening Form",
+   "value": "2 (KYC form + additional information)",
+   "ref": "3.2.1.2a"
+  },
+  {
+   "fact": "Standard documents in the account opening kit",
+   "value": "6",
+   "ref": "3.2.1.2a"
+  },
+  {
+   "fact": "SARAL AOF: proofs of address required",
+   "value": "Only 1",
+   "ref": "3.2.1.2a"
+  },
+  {
+   "fact": "FPI master circular (CAF) / simplified FPI registration",
+   "value": "May 30, 2024 / November 12, 2024",
+   "ref": "3.2.1.2a"
+  },
+  {
+   "fact": "Prevention of Money-Laundering Act",
+   "value": "2002",
+   "ref": "3.2.1.2b"
+  },
+  {
+   "fact": "PML (Maintenance of Records) Rules",
+   "value": "2005",
+   "ref": "3.2.1.2b"
+  },
+  {
+   "fact": "SEBI Master Circular on AML",
+   "value": "June 06, 2024",
+   "ref": "3.2.1.2b"
+  },
+  {
+   "fact": "Supreme Court judgement on accessible digital KYC",
+   "value": "April 30, 2025",
+   "ref": "3.2.1.2b"
+  },
+  {
+   "fact": "Rights of Persons with Disabilities Act",
+   "value": "2016",
+   "ref": "3.2.1.2b"
+  },
+  {
+   "fact": "PAN becomes inoperative if not linked with Aadhaar under",
+   "value": "Income-tax Act, 2025",
+   "ref": "3.2.1.2c"
+  },
+  {
+   "fact": "Third-party correspondence address: CDD under",
+   "value": "Rule 9 of the PML Rules",
+   "ref": "3.2.1.2c"
+  },
+  {
+   "fact": "Funds settlement without running account authorisation",
+   "value": "Within 24 hours of pay-out",
+   "ref": "3.2.1.2c"
+  },
+  {
+   "fact": "Running account: actual settlement at least",
+   "value": "Once a calendar quarter or month (client's choice)",
+   "ref": "3.2.1.2c"
+  },
+  {
+   "fact": "Nomination for trading accounts made voluntary",
+   "value": "SEBI circular, September 26, 2023",
+   "ref": "3.2.1.2c"
+  },
+  {
+   "fact": "Bank statement as financial proof (derivatives)",
+   "value": "Last 6 months",
+   "ref": "3.2.1.2c"
+  },
+  {
+   "fact": "KRA system devised by SEBI",
+   "value": "2011",
+   "ref": "3.2.1.3"
+  },
+  {
+   "fact": "CERSAI set up under",
+   "value": "Section 20(1), SARFAESI Act, 2002",
+   "ref": "3.2.1.3"
+  },
+  {
+   "fact": "PML Rules amended to require sharing KYC with CKYCR",
+   "value": "2015",
+   "ref": "3.2.1.3"
+  },
+  {
+   "fact": "Upload of client KYC to CKYCR",
+   "value": "Within 10 days of start of account-based relationship",
+   "ref": "3.2.1.3"
+  },
+  {
+   "fact": "SEBI Master Circular on KYC norms",
+   "value": "October 12, 2023",
+   "ref": "3.2.1.3"
+  },
+  {
+   "fact": "UCC made mandatory by SEBI",
+   "value": "2001",
+   "ref": "3.2.1.5"
+  },
+  {
+   "fact": "Exchanges send trade details to investors (SMS/e-mail)",
+   "value": "By end of the trading day",
+   "ref": "3.2.1.5"
+  },
+  {
+   "fact": "Copy of executed account documents to client",
+   "value": "Free of charge, within 7 days",
+   "ref": "3.2.1.5"
+  },
+  {
+   "fact": "Trading codes for delivery-only investors",
+   "value": "Up to 2 (buy and sell), mapped to 1 UCC",
+   "ref": "3.2.1.5"
+  },
+  {
+   "fact": "PoA guideline circulars",
+   "value": "April 23, 2010; August 31, 2010; August 27, 2020",
+   "ref": "3.2.1.6"
+  },
+  {
+   "fact": "Purposes for which DDPI can be used",
+   "value": "4",
+   "ref": "3.2.1.6"
+  },
+  {
+   "fact": "DDPI introduced",
+   "value": "April 2022",
+   "ref": "3.2.1.6"
+  },
+  {
+   "fact": "Maximum brokerage, equity",
+   "value": "2.5% of trade value (excluding statutory levies)",
+   "ref": "3.2.1.8"
+  },
+  {
+   "fact": "Maximum brokerage, share price ₹10 or less",
+   "value": "25 paise per share",
+   "ref": "3.2.1.8"
+  },
+  {
+   "fact": "Minimum brokerage",
+   "value": "None specified",
+   "ref": "3.2.1.8"
+  },
+  {
+   "fact": "Maximum brokerage, options",
+   "value": "2.5% of premium or ₹100 per lot, whichever is higher",
+   "ref": "3.2.1.8"
+  },
+  {
+   "fact": "Components of an order",
+   "value": "6",
+   "ref": "3.2.2"
+  },
+  {
+   "fact": "Categories of order conditions",
+   "value": "3 (price, time, quantity)",
+   "ref": "3.2.2"
+  },
+  {
+   "fact": "Order types currently not available (SEBI directives)",
+   "value": "GTC, GTD, AON, MF",
+   "ref": "3.2.2.1"
+  },
+  {
+   "fact": "GTD day count",
+   "value": "Calendar days, incl. holidays and the day of placing",
+   "ref": "3.2.2.1"
+  },
+  {
+   "fact": "MF example: order 1,000 with MF 200",
+   "value": "Maximum 5 trades",
+   "ref": "3.2.2.1"
+  },
+  {
+   "fact": "Locations for pro trading through terminals",
+   "value": "1 (more only with undertaking, case by case)",
+   "ref": "3.2.2.1"
+  },
+  {
+   "fact": "Brokers of the same exchange a broker may deal with",
+   "value": "Only 1, with prior exchange permission",
+   "ref": "3.2.2.1"
+  },
+  {
+   "fact": "Brokers of another exchange a broker may deal with",
+   "value": "Only 1, for proprietary trading, after intimation",
+   "ref": "3.2.2.1"
+  },
+  {
+   "fact": "Call auction example equilibrium price",
+   "value": "₹105 (27,500 shares)",
+   "ref": "3.2.2.2"
+  },
+  {
+   "fact": "Trade annulment request window",
+   "value": "Within 30 minutes of the trade",
+   "ref": "3.2.3"
+  },
+  {
+   "fact": "Trade annulment, exceptional cases",
+   "value": "Up to 60 minutes",
+   "ref": "3.2.3"
+  },
+  {
+   "fact": "Trade annulment application fee",
+   "value": "5% of trade value; min ₹1 lakh, max ₹10 lakh",
+   "ref": "3.2.3"
+  },
+  {
+   "fact": "Trade annulment circular",
+   "value": "July 16, 2015",
+   "ref": "3.2.3"
+  },
+  {
+   "fact": "Annulment fees and client code penalties credited to",
+   "value": "Exchange's Investor Protection Fund",
+   "ref": "3.2.3"
+  },
+  {
+   "fact": "Firm-level exposure procedures",
+   "value": "5",
+   "ref": "3.3"
+  },
+  {
+   "fact": "Types of risk listed for members",
+   "value": "6 (operational, market, credit, legal, systemic, technology)",
+   "ref": "3.3.1.2"
+  },
+  {
+   "fact": "Insider trading regulations (CoC violations reported)",
+   "value": "SEBI (PIT) Regulations, 2015",
+   "ref": "3.3.2"
+  },
+  {
+   "fact": "Institutional mechanism against fraud/market abuse",
+   "value": "Chapter IV, SEBI (Stock Brokers) Regulations, 2026",
+   "ref": "3.3.2"
+  },
+  {
+   "fact": "T+1 fully implemented",
+   "value": "January 27, 2023",
+   "ref": "3.4.3"
+  },
+  {
+   "fact": "T+1: pay-in and pay-out",
+   "value": "T+1 working day",
+   "ref": "3.4.3"
+  },
+  {
+   "fact": "T+1: auction / auction settlement",
+   "value": "On or by T+1 / on or by T+2",
+   "ref": "3.4.3"
+  },
+  {
+   "fact": "Books prescribed under",
+   "value": "Rule 15, SC(R) Rules 1957 and Regulation 15, SEBI (Stock Brokers) Regulations 2026",
+   "ref": "3.4.4"
+  },
+  {
+   "fact": "Preservation of books and records (Regulation 16)",
+   "value": "Minimum 8 years",
+   "ref": "3.4.4"
+  },
+  {
+   "fact": "Cash book and bank pass book balanced",
+   "value": "Daily",
+   "ref": "3.4.4"
+  },
+  {
+   "fact": "Technology-based monitoring of system audits",
+   "value": "SEBI circular, January 31, 2025",
+   "ref": "3.4.5"
+  },
+  {
+   "fact": "IRRA platform discontinued",
+   "value": "SEBI circular, March 27, 2026",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "Exchange outage: notify SEBI and alternate exchange",
+   "value": "Within 75 minutes",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "Alternate exchange activates BCP",
+   "value": "Within 15 minutes of intimation",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "SOP for stock exchange outages",
+   "value": "SEBI circular, January 09, 2023",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "Technical glitch threshold",
+   "value": "Contiguous 5 minutes or more",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "Glitch framework applies to IBT/STWT brokers with",
+   "value": "More than 10,000 registered clients (as on 31 March of previous FY)",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "Inform exchanges and clients of a glitch",
+   "value": "Within 2 hours",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "Preliminary Incident Report",
+   "value": "Within T+1 day",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "Root Cause Analysis report",
+   "value": "Within 14 days",
+   "ref": "3.4.5.2"
+  },
+  {
+   "fact": "CSCRF circular / effective from",
+   "value": "August 20, 2024 / January 1, 2025 (in phases)",
+   "ref": "3.4.5.3"
+  },
+  {
+   "fact": "CSCRF goals / functions / RE categories",
+   "value": "5 / 6 / 5",
+   "ref": "3.4.5.3"
+  },
+  {
+   "fact": "Qualified RE (brokers)",
+   "value": "More than 10 lakh clients; more than ₹10,00,000 crore volume",
+   "ref": "3.4.5.3"
+  },
+  {
+   "fact": "Mid-size RE (brokers)",
+   "value": "More than 1 lakh to 10 lakh clients; ₹1,00,000-10,00,000 crore",
+   "ref": "3.4.5.3"
+  },
+  {
+   "fact": "Small-size RE (brokers)",
+   "value": "More than 10,000 to 1 lakh clients; ₹10,000-1,00,000 crore",
+   "ref": "3.4.5.3"
+  },
+  {
+   "fact": "Self-certification RE (brokers)",
+   "value": "More than 1,000 to 10,000 clients; ₹1,000-10,000 crore",
+   "ref": "3.4.5.3"
+  },
+  {
+   "fact": "Brokers exempt from CSCRF",
+   "value": "Under ₹1,000 crore volume and under 1,000 clients",
+   "ref": "3.4.5.3"
+  },
+  {
+   "fact": "Cloud services framework",
+   "value": "SEBI circular, March 06, 2023",
+   "ref": "3.4.5.4"
+  },
+  {
+   "fact": "STT: delivery purchase / delivery sale of equity",
+   "value": "0.1% (buyer) / 0.1% (seller)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "STT: sale of equity-oriented fund unit (delivery)",
+   "value": "0.001% (seller)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "STT: non-delivery (intraday) equity sale",
+   "value": "0.025% (seller)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "STT: sale of option",
+   "value": "0.1% of premium (seller)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "STT: option exercised",
+   "value": "0.125% of intrinsic value (buyer)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "STT: sale of future",
+   "value": "0.02% (seller)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "STT: physically settled stock derivatives",
+   "value": "0.1% on both sides",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "Derivatives STT rates subject to change from",
+   "value": "April 01, 2026",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "Uniform exchange transaction charges mandated",
+   "value": "July 2024",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "Exchange transaction charges / SEBI fees remitted",
+   "value": "Monthly / monthly",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "Uniform stamp duty collection effective",
+   "value": "July 01, 2020 (Finance Act, 2019; Indian Stamp Act, 1899)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "SEBI fee: equity, equity derivatives, currency derivatives",
+   "value": "₹10 per ₹1 crore (0.0001%)",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "SEBI fee: interest rate derivatives",
+   "value": "₹5 per ₹1 crore",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "SEBI fee: debt segment",
+   "value": "₹2 per ₹1 crore",
+   "ref": "3.4.6"
+  },
+  {
+   "fact": "Bulk deal threshold",
+   "value": "More than 0.5% of listed equity shares",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Bulk deal disclosure: single trade / cumulative",
+   "value": "Immediately / within 1 hour of market close",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Bulk deal disclosure circular",
+   "value": "January 14, 2004",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Block deal window permitted / revised",
+   "value": "September 2005 / October 08, 2025",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Block deal minimum size",
+   "value": "₹25 crore",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Morning block window",
+   "value": "8:45 am to 9:00 am (ref: previous close)",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Afternoon block window",
+   "value": "2:05 pm to 2:20 pm (ref: VWAP 1:45-2:00 pm)",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Afternoon window VWAP disseminated",
+   "value": "2:00 pm to 2:05 pm",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Afternoon fallback reference VWAP",
+   "value": "Trades from 9:00 am to 1:45 pm",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Block deal price band",
+   "value": "Within 3% of reference price",
+   "ref": "3.4.9"
+  },
+  {
+   "fact": "Pre-open session",
+   "value": "9:00 am to 9:15 am (15 minutes)",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "Pre-open order entry",
+   "value": "First 8 minutes, random closure in last 1 minute",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "Normal market",
+   "value": "9:15 am to 3:30 pm",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "Auction market opens / solicitor period",
+   "value": "2:00 pm/2:30 pm / 30 minutes",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "Post-close session",
+   "value": "3:40 pm to 4:00 pm (market orders only)",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "Call auction for illiquid securities",
+   "value": "6 one-hour sessions, 9:30 am to 3:30 pm",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "Illiquid call auction order entry",
+   "value": "First 45 minutes, random close between 44th and 45th minute",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "Special pre-open (IPO, re-listed)",
+   "value": "9:00 am to 10:00 am (60 minutes); order entry first 45 minutes",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "TFT segment margin / price band",
+   "value": "100% / mainly 2% or 5%",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "SME market making mandatory for",
+   "value": "3 years",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "SME market lot",
+   "value": "₹1 lakh and multiples of ₹1 lakh",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "OFS timeline",
+   "value": "Announce T-1; non-retail bid T; retail bid T+1",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "OFS pay-in default penalty",
+   "value": "10% of order value",
+   "ref": "3.4.10"
+  },
+  {
+   "fact": "SLB contract tenure",
+   "value": "Monthly contracts up to 12 months",
+   "ref": "3.4.11"
+  },
+  {
+   "fact": "SLB reverse leg settlement",
+   "value": "1st Thursday of the series month",
+   "ref": "3.4.11"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "Which office handles risk management in a broking firm?",
+   "a": "The middle office (along with surveillance)."
+  },
+  {
+   "q": "Which trade life cycle steps are back office functions?",
+   "a": "Confirmation of trades, and clearing and settlement."
+  },
+  {
+   "q": "What is co-location?",
+   "a": "Exchange lets brokers/data vendors place systems in or near its premises, linked to the trading platform by a direct private network."
+  },
+  {
+   "q": "Name the six acceptable forms of order-placing evidence.",
+   "a": "Signed physical record, telephone recording, e-mail from authorised ID, internet log, SMS record, any other legally verifiable record."
+  },
+  {
+   "q": "What is DMA?",
+   "a": "Direct Market Access: clients reach the exchange through the broker's infrastructure without manual broker intervention. Introduced 2008 for institutions."
+  },
+  {
+   "q": "Define algorithmic trading.",
+   "a": "Any order generated using automated execution logic."
+  },
+  {
+   "q": "What marks out High Frequency Trading?",
+   "a": "Latency-sensitive algo trading with high daily portfolio turnover and high order-to-trade ratio (OTR)."
+  },
+  {
+   "q": "In retail API algo trading, who is principal and who is agent?",
+   "a": "The broker is the principal; the algo provider/fintech is the broker's agent."
+  },
+  {
+   "q": "What is STP?",
+   "a": "Straight Through Processing: one-pass electronic processing from deal to settlement; mandatory for institutional trades since 2004."
+  },
+  {
+   "q": "Who confirms an institutional trade, and how is it routed to them?",
+   "a": "The custodian (a clearing member), via the CP code entered at order entry."
+  },
+  {
+   "q": "What is a contract note?",
+   "a": "The legal record and confirmation of a day's trades, creating a legally enforceable broker-client relationship. Issued within 24 hours."
+  },
+  {
+   "q": "ECN bounced. What now?",
+   "a": "Keep a bounce mail log and send a physical contract note within the stipulated time, with proof of delivery."
+  },
+  {
+   "q": "Statutory charges vs regulatory levies on a contract note?",
+   "a": "Statutory: STT, GST, stamp duty. Regulatory: SEBI turnover fees, exchange transaction charges."
+  },
+  {
+   "q": "What are the two parts of the Account Opening Form?",
+   "a": "Part I: KYC form (CERSAI template). Part II: additional trading-account information."
+  },
+  {
+   "q": "Who can use SARAL AOF?",
+   "a": "New individual investors in the cash segment not using internet trading, margin trading, derivatives or PoA."
+  },
+  {
+   "q": "When is IPV not required?",
+   "a": "When KYC is done via Aadhaar authentication of UIDAI, or submitted online with documents via DigiLocker/online-verifiable source."
+  },
+  {
+   "q": "Who may perform IPV for a broker?",
+   "a": "The broker's staff or its Authorised Persons; IPV by another SEBI intermediary can also be relied upon."
+  },
+  {
+   "q": "Who is exempt from mandatory PAN?",
+   "a": "Central/State Government and court-appointed officials, Sikkim residents, and tax-exempt UN/multilateral agencies."
+  },
+  {
+   "q": "Who signs a running account authorisation?",
+   "a": "Only the client, never a PoA holder. Settlement still at least quarterly or monthly."
+  },
+  {
+   "q": "What is a KRA?",
+   "a": "KYC Registration Agency: SEBI's 2011 system centralising securities-market KYC records."
+  },
+  {
+   "q": "Who acts as the Central KYC Records Registry?",
+   "a": "CERSAI, authorised by the Government of India; brokers upload KYC within 10 days."
+  },
+  {
+   "q": "What is mapped to the UCC?",
+   "a": "The client's PAN and demat account; exchanges validate UCC and PAN on every order."
+  },
+  {
+   "q": "When can one mobile number be uploaded for several clients?",
+   "a": "On specific written request: members of one family, or the authorised person of an HUF, company, firm or trust."
+  },
+  {
+   "q": "Why allot two trading codes to a client?",
+   "a": "For delivery-only investors, so buy and sell legs aren't netted; both map to one UCC."
+  },
+  {
+   "q": "Is PoA compulsory?",
+   "a": "No. Services can't be denied without it; only internet based trading is exempted from this clause."
+  },
+  {
+   "q": "What are DDPI's four permitted uses?",
+   "a": "Settlement deliveries via same broker, margin pledge to TM/CM, MF transactions on exchange, tendering in open offers."
+  },
+  {
+   "q": "Maximum brokerage on options?",
+   "a": "2.5% of premium or ₹100 per lot, whichever is higher; charged on premium, not strike."
+  },
+  {
+   "q": "What is a market with protection order?",
+   "a": "A market order that executes only up to a price level set by the trader."
+  },
+  {
+   "q": "Passive vs active order?",
+   "a": "Passive: resting unmatched in the book. Active: incoming order that matches. Trades happen at the passive price."
+  },
+  {
+   "q": "What does IOC mean?",
+   "a": "Immediate or Cancel: matches on release; any unmatched part is cancelled immediately. Partial fills allowed."
+  },
+  {
+   "q": "What is a Disclosed Quantity order?",
+   "a": "Shows only part of the order to the market, releasing the next part as each is traded."
+  },
+  {
+   "q": "Which order conditions are currently unavailable?",
+   "a": "GTC, GTD, AON and MF, as per SEBI directives."
+  },
+  {
+   "q": "Call auction: how is the equilibrium price chosen?",
+   "a": "Maximum tradable quantity; then minimum unmatched quantity; then closest to reference price."
+  },
+  {
+   "q": "Can a pro trade be modified into a client trade?",
+   "a": "Never, and vice versa."
+  },
+  {
+   "q": "Trade annulment: window and fee?",
+   "a": "Within 30 minutes (60 in exceptional cases); fee 5% of trade value, ₹1 lakh to ₹10 lakh, to the IPF."
+  },
+  {
+   "q": "What is operational risk?",
+   "a": "Loss from inadequate or failed internal processes, manual/system errors or external events."
+  },
+  {
+   "q": "What is systemic risk?",
+   "a": "A domino effect of failures across markets, or a crisis of confidence causing illiquidity."
+  },
+  {
+   "q": "What is RTCM?",
+   "a": "Reversal Trade Cancellation Mechanism: exchanges cancel reversal trades on an intraday basis."
+  },
+  {
+   "q": "What is trade enrichment?",
+   "a": "Automatically adding clearing/settlement details, brokerage and taxes to each executed trade."
+  },
+  {
+   "q": "What does CP code 'INST' signal?",
+   "a": "A single institutional order to be allocated across the client's schemes at the back office."
+  },
+  {
+   "q": "What is the sauda book?",
+   "a": "The register of transactions: every trade with security, value, rates and client."
+  },
+  {
+   "q": "What replaced the IRRA platform in 2026?",
+   "a": "Stock exchanges' Contingency Pool Trading facility, to square off clients' open positions during disruptions."
+  },
+  {
+   "q": "What is LAMA?",
+   "a": "API-based Logging and Monitoring Mechanism between exchanges and brokers' trading systems."
+  },
+  {
+   "q": "CSCRF's five resiliency goals?",
+   "a": "Anticipate, Withstand, Contain, Recover, Evolve."
+  },
+  {
+   "q": "Who runs Market SOCs?",
+   "a": "NSE and BSE, for smaller regulated entities."
+  },
+  {
+   "q": "Bulk deal vs block deal?",
+   "a": "Bulk: over 0.5% of listed shares in the normal market. Block: single trade of at least ₹25 crore in a separate window."
+  },
+  {
+   "q": "Who keeps corporate benefits in SLB?",
+   "a": "The lender, the actual owner of the securities."
+  },
+  {
+   "q": "Stamp duty on securities is shared on what basis?",
+   "a": "The state of domicile of the buyer."
+  }
+ ],
+ "questions": [
+  {
+   "q": "SEBI introduced the Direct Market Access (DMA) facility mainly for:",
+   "options": [
+    "Institutional clients",
+    "Retail investors",
+    "Specific international broking firms",
+    "Authorised persons"
+   ],
+   "answer": 0,
+   "why": "SEBI introduced DMA in 2008 and permitted institutional investors to use it.",
+   "ref": "3.1.1",
+   "level": "easy"
+  },
+  {
+   "q": "Which of the following statements is FALSE?",
+   "options": [
+    "On receiving an order, the exchange sends an order confirmation to the broker",
+    "Depending on its terms and market prices, an order may execute immediately, partially or fully",
+    "The exchange time-stamps every order it receives",
+    "An order can be entered for a client irrespective of whether he has sufficient funds or securities"
+   ],
+   "answer": 3,
+   "why": "The broker's RMS lets through only orders within limits and backed by sufficient upfront margin.",
+   "ref": "3.1.2",
+   "level": "medium"
+  },
+  {
+   "q": "A contract note is best described as:",
+   "options": [
+    "A legal agreement the client signs with the broker before any transaction",
+    "A note holding the client's margin details",
+    "Confirmation of trades done on a particular day, with securities, prices and other details",
+    "The client registration form uploaded to the exchange"
+   ],
+   "answer": 2,
+   "why": "A contract note confirms the trades done on a day for the client and is the legal record of those transactions.",
+   "ref": "3.1.3",
+   "level": "easy"
+  },
+  {
+   "q": "Maintenance of different books of account by stock brokers is prescribed under:",
+   "options": [
+    "Securities Contracts (Regulation) Act, 1956",
+    "SEBI (Intermediaries) Regulations",
+    "SECC Regulations, 2018",
+    "Securities Contracts (Regulation) Rules, 1957"
+   ],
+   "answer": 3,
+   "why": "Rule 15 of the SC(R) Rules, 1957 (with Regulation 15 of the SEBI Stock Brokers Regulations) prescribes the books.",
+   "ref": "3.4.4",
+   "level": "medium"
+  },
+  {
+   "q": "A broker must obtain prior approval for every advertisement from:",
+   "options": [
+    "The stock exchange",
+    "SEBI",
+    "The depositories",
+    "The clearing corporation"
+   ],
+   "answer": 0,
+   "why": "Members must obtain prior approval from the exchange and follow its Code for Advertisements.",
+   "ref": "3.2",
+   "level": "easy"
+  },
+  {
+   "q": "The SEBI turnover fee for the interest rate derivatives segment is:",
+   "options": [
+    "₹1 per ₹1 crore",
+    "₹2 per ₹1 crore",
+    "₹5 per ₹1 crore",
+    "₹10 per ₹1 crore"
+   ],
+   "answer": 2,
+   "why": "IRD attracts ₹5 per crore; equity and currency derivatives ₹10; debt ₹2.",
+   "ref": "3.4.6",
+   "level": "easy"
+  },
+  {
+   "q": "Market making is mandatory for an initial period of 3 years in the:",
+   "options": [
+    "SME segment",
+    "Interest rate derivatives segment",
+    "Index futures and options segment",
+    "SLB segment"
+   ],
+   "answer": 0,
+   "why": "Market making is mandatory for 3 years for SME securities.",
+   "ref": "3.4.10",
+   "level": "easy"
+  },
+  {
+   "q": "The regular pre-open session in the equity segment starts at:",
+   "options": [
+    "9:00 am",
+    "8:45 am",
+    "9:15 am",
+    "9:30 am"
+   ],
+   "answer": 0,
+   "why": "Pre-open runs 9:00-9:15 am; 8:45 is the morning block window and 9:15 the normal market.",
+   "ref": "3.4.10",
+   "level": "easy"
+  },
+  {
+   "q": "The Investor Risk Reduction Access (IRRA) platform, discontinued by SEBI in March 2026, was provided by:",
+   "options": [
+    "SEBI",
+    "Clearing corporations",
+    "Depositories",
+    "Stock exchanges"
+   ],
+   "answer": 3,
+   "why": "IRRA was an exchange platform; SEBI discontinued it because exchanges now offer an alternative, the Contingency Pool Trading facility.",
+   "ref": "3.4.5.2",
+   "level": "medium"
+  },
+  {
+   "q": "Which of these is a statutory levy?",
+   "options": [
+    "Exchange transaction charges",
+    "SEBI turnover fees",
+    "Brokerage",
+    "Securities Transaction Tax"
+   ],
+   "answer": 3,
+   "why": "STT (with GST and stamp duty) is statutory; SEBI fees and exchange charges are regulatory levies.",
+   "ref": "3.1.3",
+   "level": "easy"
+  },
+  {
+   "q": "After SEBI's circular of March 27, 2026, what lets a broker square off clients' outstanding open positions during a business disruption?",
+   "options": [
+    "The IRRA platform",
+    "The stock exchanges' Contingency Pool Trading facility",
+    "The Reversal Trade Cancellation Mechanism",
+    "LAMA"
+   ],
+   "answer": 1,
+   "why": "SEBI discontinued IRRA because exchanges provide the Contingency Pool Trading facility for exactly this.",
+   "ref": "3.4.5.2",
+   "level": "medium"
+  },
+  {
+   "q": "The exchanges' Contingency Pool Trading facility operates:",
+   "options": [
+    "Over the internet from the broker's disaster recovery site",
+    "Through the depositories' systems",
+    "Via the exchange's internal network within its premises, on dedicated terminals allocated by the broker",
+    "Through the Market SOC run by NSE and BSE"
+   ],
+   "answer": 2,
+   "why": "It runs on the exchange's internal network inside its physical premises, with broker-allocated dedicated terminals.",
+   "ref": "3.4.5.2",
+   "level": "medium"
+  },
+  {
+   "q": "A contract note must be issued to the client within:",
+   "options": [
+    "24 hours of execution",
+    "48 hours of execution",
+    "7 days of execution",
+    "The settlement day"
+   ],
+   "answer": 0,
+   "why": "The contract note is issued within 24 hours of execution of the contract.",
+   "ref": "3.1.3",
+   "level": "easy"
+  },
+  {
+   "q": "An electronic contract note e-mailed to a client bounces. The broker must:",
+   "options": [
+    "Do nothing, as the ECN is also on its website",
+    "Send a physical contract note within the stipulated time and keep proof of delivery",
+    "Inform SEBI within 24 hours",
+    "Send only an SMS alert"
+   ],
+   "answer": 1,
+   "why": "Where ECNs are not delivered or bounce, the broker sends a physical copy within the stipulated time and maintains proof of delivery.",
+   "ref": "3.1.3",
+   "level": "medium"
+  },
+  {
+   "q": "In the normal case, how long must a broker keep evidence of a client's order placement?",
+   "options": [
+    "1 year",
+    "2 years",
+    "3 years (the arbitration limitation period)",
+    "8 years"
+   ],
+   "answer": 2,
+   "why": "Records are kept for the period arbitration accepts complaints, currently three years (longer if a dispute is pending).",
+   "ref": "3.1.1",
+   "level": "medium"
+  },
+  {
+   "q": "Under Regulation 16 of the SEBI (Stock Brokers) Regulations, 2026, books and records must be preserved for at least:",
+   "options": [
+    "3 years",
+    "5 years",
+    "8 years",
+    "10 years"
+   ],
+   "answer": 2,
+   "why": "Books and records under Regulation 15 are preserved for a minimum of eight years.",
+   "ref": "3.4.4",
+   "level": "easy"
+  },
+  {
+   "q": "A broker must upload a new client's KYC records to the CKYCR within:",
+   "options": [
+    "10 days of commencing the relationship",
+    "7 days",
+    "24 hours",
+    "30 days"
+   ],
+   "answer": 0,
+   "why": "Stock brokers file the KYC with CKYCR within 10 days after commencement of an account-based relationship.",
+   "ref": "3.2.1.3",
+   "level": "easy"
+  },
+  {
+   "q": "A copy of all documents executed by the client must be given to him:",
+   "options": [
+    "Free of charge, within 7 days",
+    "On payment of a fee, within 30 days",
+    "Only if he asks for it",
+    "Free of charge, within 15 days"
+   ],
+   "answer": 0,
+   "why": "Copies are given free of charge within 7 days from execution, with the client's acknowledgement.",
+   "ref": "3.2.1.5",
+   "level": "easy"
+  },
+  {
+   "q": "Which statement about running account authorisation is correct?",
+   "options": [
+    "It must be signed by the client, and the account settled at least once a calendar quarter or month as he prefers",
+    "It may be signed by the client's PoA holder",
+    "Once given, the broker need never settle the account",
+    "It requires settlement only once a year"
+   ],
+   "answer": 0,
+   "why": "Authorisation is signed by the client only, and actual settlement happens at least quarterly or monthly per the client's preference.",
+   "ref": "3.2.1.2c",
+   "level": "medium"
+  },
+  {
+   "q": "Which of these is NOT exempt from the mandatory PAN requirement?",
+   "options": [
+    "Investors residing in Sikkim",
+    "An Official Liquidator appointed by a court",
+    "UN entities exempt from Indian tax",
+    "Non-resident Indians"
+   ],
+   "answer": 3,
+   "why": "Exemptions cover government/court officials, Sikkim residents and tax-exempt UN/multilateral bodies. NRIs are not exempt.",
+   "ref": "3.2.1.2c",
+   "level": "medium"
+  },
+  {
+   "q": "In-Person Verification is NOT required when:",
+   "options": [
+    "The client is a senior citizen",
+    "KYC is completed using Aadhaar authentication of UIDAI",
+    "The client trades only in the cash segment",
+    "The client opts for physical contract notes"
+   ],
+   "answer": 1,
+   "why": "IPV is not needed where KYC uses UIDAI Aadhaar authentication, or online KYC with DigiLocker documents.",
+   "ref": "3.2.1.2b",
+   "level": "easy"
+  },
+  {
+   "q": "SARAL AOF can be used by a new individual investor who:",
+   "options": [
+    "Wants internet trading in derivatives",
+    "Wants margin trading",
+    "Trades only in the cash segment without internet trading, margin, derivatives or PoA",
+    "Is a foreign portfolio investor"
+   ],
+   "answer": 2,
+   "why": "SARAL is for new individuals in the cash segment not availing internet trading, margin trading, derivatives or PoA.",
+   "ref": "3.2.1.2a",
+   "level": "medium"
+  },
+  {
+   "q": "For investors who must settle on a delivery-only basis, a broker may allot up to two trading codes. These codes are:",
+   "options": [
+    "Mapped to two different UCCs",
+    "Mapped to the same UCC, so buy and sell legs are not netted",
+    "Allowed only for proprietary trading",
+    "Meant for intraday traders"
+   ],
+   "answer": 1,
+   "why": "Both codes map to the same UCC; keeping buys and sells separate prevents netting, and STT is on a delivery basis.",
+   "ref": "3.2.1.5",
+   "level": "medium"
+  },
+  {
+   "q": "Statement: With the introduction of DDPI, all existing Powers of Attorney given by clients stood automatically cancelled.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "False. Existing PoAs remain valid until the client revokes them; new PoAs are no longer executed for DDPI purposes.",
+   "ref": "3.2.1.6",
+   "level": "medium"
+  },
+  {
+   "q": "Statement: Stock exchanges validate UCC and PAN at order entry for both PRO and CLI orders.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "why": "True. Exchanges validate UCC and PAN for all orders in all markets, PRO and CLI.",
+   "ref": "3.2.1.5",
+   "level": "easy"
+  },
+  {
+   "q": "A client buys 1 lot (75 units) of an option at a premium of ₹40. The maximum brokerage the broker may charge is:",
+   "options": [
+    "₹75",
+    "₹100",
+    "2.5% of the strike price value",
+    "₹175"
+   ],
+   "answer": 1,
+   "why": "Premium value ₹3,000 x 2.5% = ₹75; ₹100 per lot is higher, and the rule is whichever is higher.",
+   "ref": "3.2.1.8",
+   "level": "hard"
+  },
+  {
+   "q": "For a share priced at ₹8, the maximum brokerage per share is:",
+   "options": [
+    "₹1",
+    "There is no limit for low-priced shares",
+    "20 paise",
+    "25 paise"
+   ],
+   "answer": 3,
+   "why": "If the share value is ₹10 or less, a maximum of 25 paise per share can be collected.",
+   "ref": "3.2.1.8",
+   "level": "medium"
+  },
+  {
+   "q": "Which of these does NOT decide priority in continuous order matching?",
+   "options": [
+    "Price",
+    "Time of entry",
+    "Quantity",
+    "Both price and time"
+   ],
+   "answer": 2,
+   "why": "Matching is on price-time priority; quantity is not a factor.",
+   "ref": "3.2.2.2",
+   "level": "easy"
+  },
+  {
+   "q": "The best sell order is 100 shares @ ₹807.60 (next 119 @ ₹807.75). A limit buy order for 200 @ ₹807.65 arrives. What happens?",
+   "options": [
+    "200 shares trade at ₹807.65",
+    "100 trade at ₹807.65 and 100 are cancelled",
+    "100 trade at ₹807.60 and 100 rest in the book as the best buy at ₹807.65",
+    "No trade, as quantities differ"
+   ],
+   "answer": 2,
+   "why": "Trades happen at the passive order's price (₹807.60); the unmatched balance waits as the best buy.",
+   "ref": "3.2.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "A client who bought at ₹830 places a sell stop loss with trigger ₹800 and limit ₹790. When the price falls to ₹800:",
+   "options": [
+    "A sell order at ₹790 enters the market and matches only with a buy at ₹790 or better",
+    "The shares are sold at exactly ₹800",
+    "The shares are sold at any available price",
+    "A buy order at ₹790 is placed"
+   ],
+   "answer": 0,
+   "why": "Once triggered, an SL-limit sell goes in at the limit price and matches only at that price or better.",
+   "ref": "3.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "Which of these order conditions can be used today?",
+   "options": [
+    "Good Till Cancelled (GTC)",
+    "All or None (AON)",
+    "Minimum Fill (MF)",
+    "Immediate or Cancel (IOC)"
+   ],
+   "answer": 3,
+   "why": "GTC, GTD, AON and MF are currently not available as per SEBI directives; IOC is.",
+   "ref": "3.2.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "Statement: An IOC order can be partly executed, with the unmatched portion cancelled immediately.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "why": "True. Partial match is possible for IOC; the rest is cancelled at once.",
+   "ref": "3.2.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "In a call auction, two prices both give the maximum tradable quantity. The equilibrium price is the one with:",
+   "options": [
+    "The higher price",
+    "Minimum unmatched order quantity",
+    "The larger number of orders",
+    "The earliest orders"
+   ],
+   "answer": 1,
+   "why": "The tie-breaker after maximum quantity is minimum unmatched quantity, then closeness to the reference price.",
+   "ref": "3.2.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "In a call auction, cumulative demand/supply are: ₹104: 37,000/21,300; ₹105: 27,500/36,300; ₹106: 15,500/48,300. The equilibrium price is:",
+   "options": [
+    "₹106",
+    "₹104",
+    "Cannot be determined",
+    "₹105"
+   ],
+   "answer": 3,
+   "why": "Tradable quantity is the lower of demand and supply: 21,300, 27,500, 15,500. The maximum, 27,500, is at ₹105.",
+   "ref": "3.2.2.2",
+   "level": "hard"
+  },
+  {
+   "q": "A broker of one exchange wants to deal with a broker of another exchange for proprietary trading. It may do so:",
+   "options": [
+    "With any number of brokers, after SEBI approval",
+    "With only one such broker, after intimating its parent exchange",
+    "Never",
+    "Only with prior SEBI permission"
+   ],
+   "answer": 1,
+   "why": "A broker can deal with only one broker of another exchange for proprietary trading, after intimating the parent exchange.",
+   "ref": "3.2.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "A trade annulment request is normally to be made within:",
+   "options": [
+    "15 minutes of the trade",
+    "30 minutes of the trade (up to 60 in exceptional cases)",
+    "2 hours of the trade",
+    "The end of the trading day"
+   ],
+   "answer": 1,
+   "why": "Requests are made within 30 minutes; exchanges may consider up to 60 minutes in exceptional cases.",
+   "ref": "3.2.3",
+   "level": "easy"
+  },
+  {
+   "q": "A broker seeks annulment of a ₹10 lakh trade. The application fee is:",
+   "options": [
+    "₹50,000",
+    "Nil",
+    "₹10 lakh",
+    "₹1 lakh"
+   ],
+   "answer": 3,
+   "why": "5% of ₹10 lakh is ₹50,000, below the minimum, so the minimum fee of ₹1 lakh applies.",
+   "ref": "3.2.3",
+   "level": "hard"
+  },
+  {
+   "q": "Which trade modification is NEVER allowed?",
+   "options": [
+    "Correcting a genuine client-code entry error in a non-institutional trade",
+    "Moving a trade between two schemes of the same mutual fund",
+    "Changing a proprietary trade into a client trade",
+    "Modifying the CP code on trade day within permitted time"
+   ],
+   "answer": 2,
+   "why": "Proprietary trades can't be modified as client trades and vice versa.",
+   "ref": "3.2.3",
+   "level": "medium"
+  },
+  {
+   "q": "For a broker, 'non-confirmation of a DVP trade by the custodian' is an example of:",
+   "options": [
+    "Operational risk",
+    "Market risk",
+    "Credit risk",
+    "Legal risk"
+   ],
+   "answer": 2,
+   "why": "The workbook lists it, with client debit balances and short margin collection, under credit risk.",
+   "ref": "3.3.1.2",
+   "level": "medium"
+  },
+  {
+   "q": "Under the technical glitch framework, a malfunction counts as a 'technical glitch' if it lasts for a contiguous period of:",
+   "options": [
+    "2 minutes or more",
+    "5 minutes or more",
+    "10 minutes or more",
+    "15 minutes or more"
+   ],
+   "answer": 1,
+   "why": "A glitch is a stoppage, slowdown or variance for a contiguous period of five minutes or more.",
+   "ref": "3.4.5.2",
+   "level": "easy"
+  },
+  {
+   "q": "After a technical glitch, the Root Cause Analysis report must reach the exchange within:",
+   "options": [
+    "T+1 day",
+    "7 days",
+    "30 days",
+    "14 days"
+   ],
+   "answer": 3,
+   "why": "Inform within 2 hours, preliminary report within T+1, RCA within 14 days.",
+   "ref": "3.4.5.2",
+   "level": "medium"
+  },
+  {
+   "q": "If one exchange suffers an outage, it must inform SEBI and the alternate exchange within:",
+   "options": [
+    "15 minutes",
+    "75 minutes",
+    "2 hours",
+    "30 minutes"
+   ],
+   "answer": 1,
+   "why": "The affected exchange informs within 75 minutes; the alternate venue activates BCP within 15 minutes of intimation.",
+   "ref": "3.4.5.2",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is NOT one of CSCRF's five cyber resiliency goals?",
+   "options": [
+    "Detection",
+    "Anticipate",
+    "Contain",
+    "Evolve"
+   ],
+   "answer": 0,
+   "why": "Goals: Anticipate, Withstand, Contain, Recover, Evolve. Detection is one of the six core functions.",
+   "ref": "3.4.5.3",
+   "level": "medium"
+  },
+  {
+   "q": "A broker has 50,000 registered clients and ₹40,000 crore yearly clientele trading volume. Under CSCRF it is a:",
+   "options": [
+    "Qualified RE",
+    "Mid-size RE",
+    "Small-size RE",
+    "Self-certification RE"
+   ],
+   "answer": 2,
+   "why": "Clients above 10,000 up to 1 lakh and volume above ₹10,000 up to ₹1,00,000 crore fall in Small-size.",
+   "ref": "3.4.5.3",
+   "level": "hard"
+  },
+  {
+   "q": "STT on an equity option that is exercised is:",
+   "options": [
+    "0.1% on premium, paid by the seller",
+    "0.125% on intrinsic value, paid by the buyer",
+    "0.02% on contract value, paid by the seller",
+    "0.025% on intrinsic value, paid by the buyer"
+   ],
+   "answer": 1,
+   "why": "Exercised options attract 0.125% on intrinsic value, payable by the buyer of the option.",
+   "ref": "3.4.6",
+   "level": "medium"
+  },
+  {
+   "q": "A broker must disclose a bulk deal when the quantity traded in a scrip exceeds:",
+   "options": [
+    "0.5% of the company's listed equity shares",
+    "1% of listed shares",
+    "₹25 crore in value",
+    "5% of listed shares"
+   ],
+   "answer": 0,
+   "why": "Bulk deal disclosure applies above 0.5% of the number of listed equity shares; ₹25 crore is the block deal minimum.",
+   "ref": "3.4.9",
+   "level": "easy"
+  },
+  {
+   "q": "The reference price for the afternoon block deal window is:",
+   "options": [
+    "The previous day's closing price",
+    "The opening price of the day",
+    "The VWAP of trades in the cash segment between 1:45 pm and 2:00 pm",
+    "The VWAP of the whole trading day"
+   ],
+   "answer": 2,
+   "why": "Afternoon window (2:05-2:20 pm) uses VWAP of 1:45-2:00 pm; the morning window uses the previous close.",
+   "ref": "3.4.9",
+   "level": "medium"
+  },
+  {
+   "q": "Which describes the post-close session?",
+   "options": [
+    "3:30-3:40 pm, limit orders only",
+    "3:40-4:00 pm, only market orders, at the closing price",
+    "3:40-4:00 pm, both limit and market orders",
+    "4:00-4:30 pm, block deals only"
+   ],
+   "answer": 1,
+   "why": "Post-close runs 3:40-4:00 pm; only market orders are allowed, with single price matching at the close price.",
+   "ref": "3.4.10",
+   "level": "easy"
+  },
+  {
+   "q": "In an Offer for Sale through the stock exchange, if an investor defaults on pay-in, the penalty is:",
+   "options": [
+    "10% of the order value",
+    "5% of the order value",
+    "Recovered from the Settlement Guarantee Fund",
+    "25% of the order value"
+   ],
+   "answer": 0,
+   "why": "Default attracts a 10% penalty on order value; the SGF is not available for OFS.",
+   "ref": "3.4.10",
+   "level": "medium"
+  },
+  {
+   "q": "Under the Securities Lending and Borrowing Scheme, corporate benefits on lent shares go to the:",
+   "options": [
+    "Borrower",
+    "Clearing corporation",
+    "Approved intermediary",
+    "Lender"
+   ],
+   "answer": 3,
+   "why": "Corporate actions and benefits remain with the lender, the actual owner.",
+   "ref": "3.4.11",
+   "level": "easy"
+  }
+ ]
+}

@@ -1,0 +1,2241 @@
+{
+ "id": 2,
+ "title": "Market Participants in the Securities Market",
+ "short": "Market Participants",
+ "weight": 10,
+ "minutes": 65,
+ "big_picture": "Think of the securities market as a busy railway system. Investors are the passengers with money, issuers are the destinations that need it, intermediaries (exchanges, clearing corporations, depositories, brokers, custodians) run the trains and stations, and SEBI is the railway authority that writes the rule book and punishes those who break it. This chapter is a who's who of that system plus the main laws (SCRA, SEBI Act, Depositories Act, Companies Act, PMLA, insider trading and PFUTP rules) that keep it honest.",
+ "exam_focus": [
+  "Investor categories: RII (₹2 lakh), institutional, NII, FPI Category I vs II, accredited investor thresholds and validity",
+  "Membership types (only trading, self-clearing, trading-cum-clearing, PCM) and who has trading vs clearing rights",
+  "Clearing corporation basics: novation, pay-in / pay-out; depositories NSDL and CDSL and who can be a DP",
+  "Broker eligibility: age 21, HSC, 2 years' experience, ₹30 lakh paid-up capital; fit and proper; Authorised Persons",
+  "Who regulates what: SEBI, RBI, IRDAI, PFRDA, IFSCA; rules vs regulations; Section 24 of the Companies Act",
+  "PMLA: offence, 3-7 years punishment, 5-year record keeping, burden of proof on the accused",
+  "Insider trading (connected person, 6 months, UPSI list) vs PFUTP / front running vs dabba trading penalties"
+ ],
+ "sections": [
+  {
+   "id": "2.1",
+   "title": "Introduction: Who Is in the Market",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Savers (surplus generators) and spenders (deficit generators) meet in the securities market. <b>Investors</b> place surplus funds in securities issued by <b>issuers</b>, in return for interest, dividend, capital appreciation, bonus and so on. <b>Intermediaries</b> are the conduits between them, and <b>regulators</b> supervise the whole process."
+    },
+    {
+     "type": "key",
+     "text": "Regulators develop fair market practices, regulate issuers, investors and intermediaries, protect investors, and ensure high service standards from intermediaries, a supply of quality securities and non-manipulated demand."
+    },
+    {
+     "type": "hook",
+     "text": "Four I's and an R: <b>Investors, Issuers, Intermediaries</b>, and the <b>Regulator</b> watching all three."
+    }
+   ]
+  },
+  {
+   "id": "2.2",
+   "title": "Investors",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Based on primary issue categories, investors are <b>Retail Individual Investors (RII)</b>, <b>Institutional Investors</b> and <b>Non-Institutional Investors (NII)</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Category",
+      "Who",
+      "Note"
+     ],
+     "rows": [
+      [
+       "Retail Individual Investor",
+       "Individuals: resident Indians, NRIs, HUFs",
+       "Applies / bids for <b>not more than ₹2 lakh</b>"
+      ],
+      [
+       "Institutional Investor",
+       "Domestic financial institutions, banks, insurance companies, mutual funds, Foreign Portfolio Investors, others specified by SEBI",
+       "FPI = entity established or incorporated outside India that invests in India"
+      ],
+      [
+       "Non-Institutional Investor",
+       "Anyone other than RII and institutional: family offices, corporates, partnership firms etc.",
+       "So an individual bidding ₹3 lakh in an IPO falls here, not in RII"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The <b>SEBI (Foreign Portfolio Investors) Regulations, 2019</b> split FPIs into two categories:"
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Category I",
+       "points": [
+        "Government and government-related investors: central banks, sovereign wealth funds, international / multilateral organisations",
+        "Entities controlled or <b>at least 75%</b> owned (directly / indirectly) by them",
+        "Pension funds and university funds",
+        "Appropriately regulated entities: insurers, banks, AMCs, investment managers / advisers, portfolio managers, broker / swap dealers",
+        "Entities from <b>FATF member countries</b> (with conditions)",
+        "Entities managed by a FATF-country Category I FPI manager, or 75%+ owned by an eligible FATF-country entity"
+       ]
+      },
+      {
+       "title": "Category II",
+       "points": [
+        "Appropriately regulated funds not eligible for Category I",
+        "Endowments and foundations; charitable organisations",
+        "Corporate bodies; family offices; individuals",
+        "Regulated entities investing on behalf of their clients",
+        "Unregulated funds in the form of limited partnerships and trusts",
+        "Note: Category II <b>corporate bodies, individuals and family offices are treated as non-institutional</b>"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "<b>Category I = governments, regulated institutions and FATF-linked big players</b>. Category II = everyone else."
+    },
+    {
+     "type": "p",
+     "text": "<b>Accredited Investors (AIs)</b> are investors who understand financial products and their risk-return and can take informed decisions (called Qualified or Professional Investors elsewhere). SEBI has introduced the concept in India."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Who",
+      "Eligibility"
+     ],
+     "rows": [
+      [
+       "Individuals, HUFs, family trusts, sole proprietorships",
+       "Annual income <b>≥ ₹2 crore</b>; OR net worth <b>≥ ₹7.5 crore</b> (≥ ₹3.75 crore in financial assets); OR income <b>≥ ₹1 crore + net worth ≥ ₹5 crore</b> (≥ ₹2.5 crore in financial assets)"
+      ],
+      [
+       "Partnership firms (Indian Partnership Act, 1932)",
+       "<b>Each partner</b> independently meets the individual criteria"
+      ],
+      [
+       "Trusts (other than family trusts)",
+       "Assets under management ≥ ₹50 crore"
+      ],
+      [
+       "Body corporate",
+       "Net worth ≥ ₹50 crore"
+      ],
+      [
+       "Foreign investors",
+       "Rupee equivalent of their income / net worth"
+      ],
+      [
+       "Deemed AIs (no certificate needed)",
+       "Central and State Governments, their developmental agencies and funds, QIBs under ICDR 2018, Category I FPIs, sovereign wealth funds, multilateral agencies, others SEBI specifies"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Individual AI test is <b>2, or 7.5, or 1 + 5</b> (crore). The financial-asset part is always <b>half the net worth</b> figure (3.75 of 7.5, 2.5 of 5). Trusts and companies: a flat <b>₹50 crore</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Accreditation Agencies:</b> subsidiaries of depositories and stock exchanges (or other institutions meeting SEBI criteria) issue the certificate, <b>solely on the basis of KYC and financial information</b>.",
+      "<b>Validity:</b> criteria met for the preceding 1 financial year = valid <b>2 years</b>; met in each of the preceding 2 financial years = <b>3 years</b>; newly incorporated entity meeting the net worth test on the application date = <b>2 years</b>.",
+      "<b>Benefits:</b> lower ticket size than the regulatory minimum; a 'regulation-light' framework (relaxed prudential norms, filings, audit / valuation / reporting frequency); access to products offered exclusively to AIs."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Market makers</b> provide liquidity by giving <b>two-way (buy and sell) quotes continuously</b>, for a minimum amount and with a reasonable bid-ask spread. They work under SEBI or exchange guidelines (SEBI market maker circular of January 20, 2000; 'Liquidity Enhancement Scheme in the Equity Cash and Equity Derivatives Segments', April 23, 2014). In regular cash and derivatives markets, liquidity schemes are mainly run by exchanges, but on the <b>SME exchange, market making is mandatory</b> for all listed and traded scrips."
+    },
+    {
+     "type": "trap",
+     "text": "RII limit is <b>₹2 lakh</b> (not ₹5 lakh or ₹10 lakh). AI certificate valid for <b>2 years</b> (1 year of data) or <b>3 years</b> (2 years of data). Market making is compulsory only on the <b>SME</b> exchange."
+    }
+   ]
+  },
+  {
+   "id": "2.3",
+   "title": "Issuers",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Public and private sector companies, banks and FIs tap the market to fund expansion; even mutual funds mobilise savings. Domestically, issuers raise money through equity shares, preference shares, debentures and bonds, by public offer and / or private placement. Since the <b>1991 reforms</b>, Indian companies can also raise equity abroad."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Instrument",
+      "What it is"
+     ],
+     "rows": [
+      [
+       "GDR (Global Depository Receipt)",
+       "Negotiable instrument issued by a foreign depository bank <b>other than in the US</b>, representing shares of a foreign company; generally traded on <b>European</b> exchanges"
+      ],
+      [
+       "ADR (American Depository Receipt)",
+       "Negotiable certificate issued by a <b>US</b> depository bank; trades on US markets like a domestic share"
+      ],
+      [
+       "FCCB (Foreign Currency Convertible Bond)",
+       "Bond issued by an Indian company to non-residents in <b>foreign currency</b>; fixed coupon; convertible into shares at a predetermined price"
+      ],
+      [
+       "ECB (External Commercial Borrowing)",
+       "Commercial loans (bank loans, buyers' / suppliers' credit, securitised instruments, FRNs, fixed rate bonds) from recognised foreign sources; popular because borrowing costs abroad are low"
+      ],
+      [
+       "Masala bond",
+       "<b>Rupee-denominated</b> bond issued <b>outside India</b> by an Indian entity"
+      ],
+      [
+       "Overseas listing",
+       "Certain Indian companies may now list directly on overseas exchanges"
+      ]
+     ],
+     "caption": "Raising money abroad: regulated mainly by RBI under FEMA, and by SEBI for equity instruments"
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "ADR / GDR",
+       "points": [
+        "Indian company raises money abroad",
+        "Listed overseas (US / Europe)"
+       ]
+      },
+      {
+       "title": "IDR",
+       "points": [
+        "Foreign company raises money in India, in rupees",
+        "Listed in India; <b>Standard Chartered Bank</b> was the first IDR issuer"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "<b>A</b>DR = <b>A</b>merica; <b>G</b>DR = the rest of the <b>G</b>lobe (mainly Europe). <b>Masala</b> = Indian flavour (rupee) served abroad."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Regulation",
+      "What it covers"
+     ],
+     "rows": [
+      [
+       "SEBI (Issue of Capital and Disclosure Requirements) Regulations, <b>2018</b> (ICDR)",
+       "Conditions and eligibility for public and rights issues; obligations of issuers and intermediaries; preferential issues, QIPs, bonus issues; IDRs; disclosures. The merchant banker / lead manager manages the issue and acts as Book Running Lead Manager (BRLM) in book-built issues"
+      ],
+      [
+       "SEBI (Listing Obligations and Disclosure Requirements) Regulations, <b>2015</b> (LODR)",
+       "Listing agreement with the exchange; disclosures and obligations of listed entities; in-principle approval before further issues"
+      ],
+      [
+       "Other",
+       "Securitised Debt Instruments and Security Receipts Regulations, 2008; Municipal Debt Securities Regulations, 2015; Non-Convertible Securities Regulations, 2021"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Where the company is listed",
+      "In-principle approval needed from"
+     ],
+     "rows": [
+      [
+       "On exchange(s) with nationwide trading terminals",
+       "The nationwide exchange(s) where it is listed"
+      ],
+      [
+       "Not on any nationwide exchange",
+       "All exchanges where the securities are proposed to be listed"
+      ],
+      [
+       "On both nationwide and non-nationwide exchanges",
+       "All nationwide exchanges"
+      ]
+     ],
+     "caption": "LODR: in-principle approval before issuing further shares"
+    }
+   ]
+  },
+  {
+   "id": "2.4.1",
+   "title": "Market Infrastructure Institutions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Intermediation</b> means enabling buyers and sellers (through information and facilitation) to trade securities and acquire all rights attached to them. <b>Stock exchanges, clearing corporations and depositories</b> are together called <b>Market Infrastructure Institutions (MIIs)</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "MII",
+      "Core job",
+      "Key law"
+     ],
+     "rows": [
+      [
+       "Stock exchange",
+       "Trading platform where buyers and sellers meet",
+       "SCRA, 1956; SECC Regulations, 2018"
+      ],
+      [
+       "Clearing corporation",
+       "Clearing, settlement and risk management; central counterparty",
+       "SECC Regulations, 2018"
+      ],
+      [
+       "Depository",
+       "Holds securities electronically; transfers by book entry",
+       "Depositories Act, 1996"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Stock exchange:</b> trading moved from the 'ring' to online systems (VSATs, leased lines, internet). SCRA defines it as a body of individuals constituted before corporatisation and demutualisation (sections 4A, 4B), or a body corporate under the Companies Act, for assisting, regulating or coordinating dealing in securities. Its functions:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Provide the trading platform",
+      "Disseminate information",
+      "Investor education, awareness and protection",
+      "Facilitate grievance redressal",
+      "Surveillance and investigation",
+      "Listing of securities and monitoring compliance of listed companies",
+      "Inspection and monitoring of member compliance"
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "An exchange is seven things at once: a <b>market</b>, a <b>newsroom</b>, a <b>school</b>, a <b>complaints desk</b>, a <b>police station</b>, a <b>gatekeeper</b> (listing) and an <b>inspector</b> (of members)."
+    },
+    {
+     "type": "p",
+     "text": "<b>Clearing corporation:</b> under the SECC Regulations, 2018, an entity that clears and settles trades in securities dealt on a recognised exchange; includes a clearing house and a <b>limited purpose clearing corporation</b> (Chapter IV-A of SECC). Its functions: <b>clearing, settlement and risk management</b>. It acts as <b>central counterparty</b>, giving a financial guarantee for all trades: this is called <b>novation</b>."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Pay-in (first phase)",
+       "points": [
+        "Clearing members and custodians (for institutional deals) bring money and / or securities <b>into</b> the clearing corporation"
+       ]
+      },
+      {
+       "title": "Pay-out (second phase)",
+       "points": [
+        "The clearing corporation pays money / delivers securities <b>out</b> to clearing members and custodians"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Ravi sells 100 shares at ₹1,500 and Meena buys them; they never know each other. After the trade, the clearing corporation becomes the buyer to Ravi and the seller to Meena. If Meena defaults, Ravi still receives ₹1,50,000 from the clearing corporation. That guarantee is novation.",
+     "title": "Novation"
+    },
+    {
+     "type": "p",
+     "text": "<b>Depository:</b> holds securities in electronic form and transfers them by book entry, enabling paperless trading with speed, accuracy and safety. Under the Depositories Act, 1996 it is a company formed under the Companies Act, 1956 and registered under section 12(1A) of the SEBI Act, 1992. India has <b>two</b>: <b>NSDL</b> and <b>CDSL</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Depositories serve clients through agents called <b>Depository Participants (DPs)</b>, appointed by the depository with SEBI approval.",
+      "Who can be a DP: banks, FIs, NBFCs, clearing corporations, RTAs, custodians, State Financial Corporations and SEBI-registered trading members.",
+      "Besides custody and dematerialisation, depositories offer transaction services (buying, selling, transfer)."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2.4.2.1",
+   "title": "Trading Members, Clearing Members and Authorised Persons",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A <b>stock broker</b> is a person with trading rights on a recognised exchange, including a trading member. He can trade on his own account and for clients, and may be an individual (sole proprietor), partnership firm, LLP, company or bank (banks may become members of the <b>currency derivatives segment</b> subject to prudential norms). Investors <b>cannot access the exchange directly</b>; they must trade through a registered broker. <b>Clearing members</b> have clearing and settlement rights in a recognised clearing corporation."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Membership type",
+      "Trading rights",
+      "Clearing rights",
+      "Clears whose trades"
+     ],
+     "rows": [
+      [
+       "Only trading member",
+       "Yes",
+       "<b>No</b>",
+       "None: must clear through a trading-cum-clearing member or a PCM"
+      ],
+      [
+       "Trading-cum-self-clearing member",
+       "Yes",
+       "Yes",
+       "Only its own trades (own account and its clients), not custodial participants"
+      ],
+      [
+       "Trading-cum-clearing member",
+       "Yes",
+       "Yes",
+       "Own trades plus other trading members and custodial participants"
+      ],
+      [
+       "Professional clearing member (PCM)",
+       "<b>No</b>",
+       "Yes",
+       "Trading members and custodial participants"
+      ]
+     ]
+    },
+    {
+     "type": "key",
+     "text": "PCM eligibility: SEBI-registered custodians and banks recognised by the clearing corporation. <b>Custodians</b> too are clearing members but not trading members: they settle trades of a broker's clients when assigned and must confirm whether they will settle."
+    },
+    {
+     "type": "hook",
+     "text": "<b>PCM = Pure Clearing Member</b>: it never trades. 'Only trading member' is the opposite: trades but never clears."
+    },
+    {
+     "type": "p",
+     "text": "<b>Registration:</b> under the <b>SEBI (Stock Brokers) Regulations, 2026</b> (which replaced the 1992 Regulations), a new entity applies to SEBI <b>through the stock exchange or clearing corporation</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>One certificate of registration</b> from SEBI, whatever the number of exchanges, clearing corporations or segments; operating on each exchange / segment still needs that exchange's approval.",
+      "No separate registration is needed for a broker to act as clearing member (with the clearing corporation's approval), or vice versa.",
+      "SEBI sets <b>segment-wise net worth</b> and deposits, and fees; membership of each segment is separate.",
+      "Admission criteria: age, capital adequacy, financial track record, education, experience and <b>'fit and proper'</b> status (SEBI Intermediaries Regulations, 2008); exchanges may add more."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Base Minimum Capital (BMC):</b> a deposit with the exchange against which <b>no trading exposure</b> is allowed, set by the member's risk profile (detailed in Chapter 4)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Criteria",
+      "Individual",
+      "Partnership firm / LLP",
+      "Company"
+     ],
+     "rows": [
+      [
+       "Law",
+       "Indian citizen",
+       "Indian Partnership Act, 1932 / LLP Act, 2008",
+       "Companies Act, 2013"
+      ],
+      [
+       "Minimum age",
+       "21 years",
+       "21 years (designated partners)",
+       "21 years (designated directors)"
+      ],
+      [
+       "Who runs it",
+       "Self",
+       "At least <b>2 designated partners</b>",
+       "At least <b>2 designated directors</b>"
+      ],
+      [
+       "Education",
+       "HSC or equivalent",
+       "HSC or equivalent",
+       "HSC or equivalent (each designated director)"
+      ],
+      [
+       "Experience",
+       "At least 2 years as partner, authorised assistant, authorised remisier or apprentice to a member",
+       "2 years in securities-related work",
+       "2 years in securities-related work"
+      ],
+      [
+       "Capital / ownership",
+       "-",
+       "Identify Dominant Promoter Group (DPG); changes need prior Exchange / SEBI permission",
+       "Minimum paid-up equity <b>₹30 lakh</b> (currently); DPG norms"
+      ]
+     ],
+     "caption": "Membership eligibility (Securities Contracts (Regulation) Rules, 1957)"
+    },
+    {
+     "type": "hook",
+     "text": "<b>21 - 2 - HSC - 2</b>: age 21, two designated persons, HSC, two years of experience. Add ₹30 lakh paid-up capital for companies."
+    },
+    {
+     "type": "list",
+     "items": [
+      "LLP / company: designated partners or directors must not be disqualified under rule 8 of SCRR, nor have been directors / partners of a member declared <b>defaulter or expelled</b>.",
+      "SEBI also checks infrastructure, directors' experience and disciplinary proceedings against key management persons.",
+      "At all times the <b>proprietor, one designated director / partner, or the Compliance Officer</b> must hold the SEBI / exchange certification (a continued admittance norm), and net worth and deposits must be maintained."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Fit and proper person</b> (Schedule II, SEBI Intermediaries Regulations, 2008): for the applicant, broker, AP, trading or clearing member, and its principal officer, directors, promoters and key management persons, SEBI may consider:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Integrity, reputation and character",
+      "Absence of convictions and restraint orders",
+      "Competence, including financial solvency and net worth",
+      "Absence of categorisation as a <b>wilful defaulter</b>"
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Fit and proper = <b>I-C-C-W</b>: Integrity, no Convictions, Competence, not a Wilful defaulter."
+    },
+    {
+     "type": "p",
+     "text": "<b>Authorised Person (AP):</b> not an exchange member, but any person (individual, partnership firm, LLP or body corporate) appointed by a stock broker to provide access to the exchange's trading platform <b>as the broker's agent</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Appointed with exchange approval: <b>specific prior approval for each AP</b>, and it is <b>segment specific</b>.",
+      "Must meet SEBI / exchange criteria and have adequate office space, equipment and manpower.",
+      "Written agreement in the exchange-prescribed form: scope, responsibilities, confidentiality, commission sharing, termination.",
+      "The broker is <b>responsible for all acts of omission and commission</b> of its AP, as if they were its own."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "One SEBI registration covers all exchanges and segments, but <b>exchange approval</b> and <b>segment membership</b> are still separate. An AP is <b>not</b> a member of the exchange."
+    }
+   ]
+  },
+  {
+   "id": "2.4.2.2",
+   "title": "Custodians",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A custodian carries on the business of providing custodial services and must be <b>registered with SEBI</b>. Its job is to safeguard clients' securities and track corporate actions for them."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Maintain the client's securities account",
+      "Collect benefits or rights accruing on the securities",
+      "Keep the client informed of issuer actions affecting those benefits or rights",
+      "Maintain and reconcile records of these services"
+     ]
+    },
+    {
+     "type": "key",
+     "text": "Custodians are <b>clearing members, not trading members</b>. When a trade is assigned to them they must confirm whether they will settle it. If the custodian <b>fails to confirm</b>, the obligation falls on the <b>trading member (or its clearing member)</b> that executed the trade."
+    },
+    {
+     "type": "example",
+     "text": "A foreign fund buys ₹50 crore of shares through broker XYZ and assigns the trade to its custodian. If the custodian confirms, it settles the trade. If it does not confirm, XYZ (or XYZ's clearing member) must settle the ₹50 crore.",
+     "title": "Custodian confirmation"
+    }
+   ]
+  },
+  {
+   "id": "2.5",
+   "title": "Regulators",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Regulators make sure participants behave so that the market stays a trusted source of finance and investors are protected."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Regulator",
+      "Regulates"
+     ],
+     "rows": [
+      [
+       "SEBI",
+       "Securities market <b>and the commodity derivatives market</b>"
+      ],
+      [
+       "RBI",
+       "Banking sector"
+      ],
+      [
+       "IRDAI",
+       "Insurance sector"
+      ],
+      [
+       "PFRDA",
+       "Pension fund sector"
+      ],
+      [
+       "IFSCA",
+       "Unified regulator for financial products, services and institutions in the IFSC"
+      ],
+      [
+       "Ministry of Finance, Ministry of Corporate Affairs",
+       "Government oversight"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Most powers under SCRA are exercised by the <b>Department of Economic Affairs (DEA), Ministry of Finance</b>; a few by SEBI. SEBI also exercises DEA's SCRA powers <b>concurrently</b>.",
+      "<b>RBI</b> concurrently exercises powers over contracts in gold-related securities, money market securities, securities derived from these, and ready forward contracts in debt securities.",
+      "The <b>SEBI Act and the Depositories Act</b> are administered primarily by SEBI.",
+      "<b>Rules</b> under securities laws are framed by the <b>Government</b>; <b>regulations</b> are framed by <b>SEBI</b>; SEBI administers all of them.",
+      "Companies Act powers on <b>issue and transfer of securities and non-payment of dividend</b> are administered by SEBI for listed public companies and those proposing to list.",
+      "Self-Regulatory Organisations (SROs) enforce their own rules and the securities laws relevant to them."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "<b>Government writes Rules, SEBI writes Regulations.</b>"
+    }
+   ]
+  },
+  {
+   "id": "2.5.1",
+   "title": "Role of SEBI",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "SEBI was established under <b>Section 3 of the SEBI Act, 1992</b>, an Act of Parliament. Its primary role: <b>protect investors' interests, promote development of the securities market, and regulate it</b>."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Protecting the interests of investors in securities",
+      "Promoting the development of the securities market",
+      "Regulating business in stock exchanges and other securities markets",
+      "Registering and regulating stock brokers, Authorised Persons etc.",
+      "Promoting and regulating self-regulatory organisations",
+      "Prohibiting fraudulent and unfair trade practices",
+      "Calling for information, inspections, inquiries and audits of exchanges, intermediaries, SROs, mutual funds and others"
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "SEBI's three-word mission: <b>Protect, Promote, Regulate</b>."
+    }
+   ]
+  },
+  {
+   "id": "2.5.2a",
+   "title": "Regulatory Framework: The Four Acts and Key Rules",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Liberalisation of the Indian securities market began in <b>1992</b>, aiming to protect investors, regulate and develop the market."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Act",
+      "Core purpose"
+     ],
+     "rows": [
+      [
+       "SEBI Act, <b>1992</b>",
+       "Gives SEBI statutory powers to protect investors, develop and regulate the market"
+      ],
+      [
+       "Securities Contracts (Regulation) Act, <b>1956</b>",
+       "Central Government control over exchanges, contracts in securities and listing"
+      ],
+      [
+       "Depositories Act, <b>1996</b>",
+       "Allows multiple depositories; led to NSDL and CDSL"
+      ],
+      [
+       "Companies Act, <b>2013</b>",
+       "Issue, allotment, transfer of securities and company management; delegates securities powers to SEBI"
+      ]
+     ],
+     "caption": "The four main Acts"
+    },
+    {
+     "type": "hook",
+     "text": "In date order: <b>SCRA 56, SEBI 92, Depositories 96, Companies 2013</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Other key law / regulation",
+      "Year"
+     ],
+     "rows": [
+      [
+       "Securities Contracts (Regulation) Rules",
+       "1957"
+      ],
+      [
+       "SC(R) (Stock Exchanges and Clearing Corporations) Regulations",
+       "2018"
+      ],
+      [
+       "SEBI (Stock Brokers) Regulations",
+       "2026"
+      ],
+      [
+       "SEBI (Prohibition of Insider Trading) Regulations",
+       "2015"
+      ],
+      [
+       "Prevention of Money Laundering Act",
+       "2002"
+      ],
+      [
+       "SEBI (Prohibition of Fraudulent and Unfair Trade Practices relating to the Securities Market) Regulations",
+       "2003"
+      ],
+      [
+       "SEBI (Custodians) Regulations",
+       "1996"
+      ],
+      [
+       "SEBI (Substantial Acquisition of Shares and Takeovers) Regulations",
+       "2011"
+      ],
+      [
+       "SEBI {KYC Registration Agency} Regulations",
+       "2011"
+      ],
+      [
+       "SEBI (Intermediaries) Regulations",
+       "2008"
+      ],
+      [
+       "SEBI (Depositories and Participants) Regulations",
+       "2018"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>SEBI Act, 1992:</b> jurisdiction over companies that list or propose to list (issue of capital and transfer of securities) and over all intermediaries and persons associated with the securities market. SEBI can conduct enquiries, audits and inspections, adjudicate offences, register and regulate intermediaries and penalise violations. It has full autonomy. Its orders are appealable before the <b>Securities Appellate Tribunal (SAT)</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>SCRA, 1956:</b> direct and indirect control of virtually all aspects of securities trading and exchanges, to prevent undesirable transactions. It gives the <b>Central Government</b> jurisdiction over (a) stock exchanges, through recognition and continued supervision, (b) contracts in securities and (c) listing. Exchanges frame their own listing regulations, which must conform to the minimum listing criteria in the Rules."
+    },
+    {
+     "type": "p",
+     "text": "<b>Depositories Act, 1996:</b> allows <b>multiple depositories</b> to create competition. Only a company under the Companies Act, sponsored by specified institutions, can set up a depository, after getting a <b>certificate of registration and a certificate of commencement of business</b> from SEBI. A depository <b>cannot open accounts directly</b>; investors deal through its DPs. The Act sets out the rights and obligations of depositories, DPs, issuers and beneficial owners."
+    },
+    {
+     "type": "p",
+     "text": "<b>Companies Act, 2013:</b> covers issue, allotment and transfer of securities, disclosure standards in public issues, underwriting, premium and discounts, rights and bonus issues, interest and dividends, and annual reports. <b>Section 24</b> delegates power to SEBI: provisions on (i) issue and transfer of securities and (ii) non-payment of dividend, for listed companies and those intending to list, are administered by <b>SEBI</b>; in any other case, by the Central Government."
+    },
+    {
+     "type": "new",
+     "text": "The only highlighted change in this chapter is in the sample question on this point: 'Stock Exchanges' now appears as option (d). The answer is still <b>SEBI</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>SCRR, 1957:</b> made by the Central Government under <b>section 30 of SCRA</b>. Covers application for and recognition of exchanges, qualifications for membership, books and documents exchanges and brokers must maintain, and listing requirements (including units of Collective Investment Schemes)."
+    },
+    {
+     "type": "p",
+     "text": "<b>SECC Regulations, 2018</b> (notified <b>October 3, 2018</b>): recognition, net worth, ownership and governance of exchanges and clearing corporations; monitoring of shareholding limits and 'fit and proper' criteria for all shareholders; KMP compensation as per SEBI norms; listing of exchanges; and <b>segregation of regulatory departments</b> from other departments. Read with SCRA and SCRR."
+    }
+   ]
+  },
+  {
+   "id": "2.5.2b",
+   "title": "SEBI (Stock Brokers) Regulations, 2026",
+   "blocks": [
+    {
+     "type": "key",
+     "text": "The <b>SEBI (Stock Brokers) Regulations, 2026</b> replaced the 1992 Regulations. They cover registration of stock brokers and clearing members and their operational and general obligations."
+    },
+    {
+     "type": "p",
+     "text": "<b>Chapter VIII</b> contains the code of conduct (full list in Annexure 1). Among other things the broker must maintain high standards of integrity, promptitude and fairness; act with due skill, care and diligence; avoid manipulative, fraudulent or deceptive transactions and rumours; and never create a false market."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Execute client orders faithfully at the <b>best available market price</b>.",
+      "Issue a <b>contract note</b> for all transactions <b>without delay</b>, in the form specified by the exchange.",
+      "Maintain prescribed books of account, records and documents (Chapter 3)."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "An option reading 'SEBI (Stock Brokers) Regulations, 1992' is outdated: the current framework is the <b>2026</b> Regulations."
+    }
+   ]
+  },
+  {
+   "id": "2.5.2c",
+   "title": "Prevention of Money Laundering Act, 2002 and SEBI AML Guidelines",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "PMLA defines money laundering as <b>any process or activity connected with proceeds of crime</b>, including its concealment, possession, acquisition or use, and projecting or claiming it as untainted property. The Act aims to prevent money laundering and confiscate property derived from or involved in it."
+    },
+    {
+     "type": "key",
+     "text": "<b>Section 3 (offence):</b> anyone who directly or indirectly attempts, knowingly assists, is knowingly a party to, or is actually involved in any of six activities with proceeds of crime: <b>concealment, possession, acquisition, use, projecting as untainted, claiming as untainted</b>. It is a <b>continuing activity</b> as long as the person enjoys the proceeds."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Section",
+      "What it says"
+     ],
+     "rows": [
+      [
+       "4",
+       "Punishment: <b>rigorous imprisonment of 3 to 7 years plus fine</b>; up to <b>10 years</b> if the proceeds relate to offences in paragraph 2 of Part A of the Schedule (the narcotics offences)"
+      ],
+      [
+       "6",
+       "Central Government appoints an <b>Adjudicating Authority</b>"
+      ],
+      [
+       "9",
+       "On confiscation, property <b>vests absolutely in the Central Government</b>, free of encumbrances"
+      ],
+      [
+       "11",
+       "Adjudicating Authority has <b>civil court powers</b> (Code of Civil Procedure): discovery and inspection, enforcing attendance and examination on oath, compelling production of records, evidence on affidavits, issuing commissions. Summoned persons must attend and tell the truth; proceedings are judicial proceedings under IPC sections 193 and 228"
+      ],
+      [
+       "12",
+       "Reporting entity record-keeping and reporting (below)"
+      ],
+      [
+       "12AA",
+       "Enhanced due diligence for specified transactions"
+      ],
+      [
+       "16, 17",
+       "Powers of authorities for summons, searches and seizures"
+      ],
+      [
+       "24",
+       "<b>Burden of proof on the accused</b>: proceeds are presumed involved in money laundering unless proved otherwise"
+      ],
+      [
+       "25, 26",
+       "Appellate Tribunal and appeals to it"
+      ],
+      [
+       "41, 42",
+       "Appeals to the <b>High Court</b> against Appellate Tribunal orders, within the stipulated time"
+      ],
+      [
+       "43",
+       "Central Government designates Courts of Session as <b>Special Courts</b>"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Section 12</b>: every <b>reporting entity</b> (banking company, financial institution, intermediary, or person carrying on a designated business or profession) must:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "(a) Keep records of <b>all transactions</b> so that each can be reconstructed: <b>5 years from the date of the transaction</b>.",
+      "(b) Furnish information on prescribed transactions, attempted or executed, to the <b>Director</b> (Director / Additional / Joint Director appointed under section 49).",
+      "(c) Keep identity records of clients and beneficial owners, account files and correspondence: <b>5 years after the business relationship ends or the account is closed, whichever is later</b>.",
+      "(d) Keep all such information <b>confidential</b>. The Central Government may exempt any reporting entity or class."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Section 12AA, enhanced due diligence (EDD):</b> before each <b>specified transaction</b> the reporting entity must (a) verify the client's identity by <b>Aadhaar authentication</b> (or another prescribed mode if the person cannot get Aadhaar), (b) examine ownership and financial position, including <b>source of funds</b>, and (c) record the <b>purpose</b> of the transaction and the intended relationship. EDD information is kept <b>5 years from the transaction date</b>. If the client does not comply, the transaction is <b>not allowed</b>. If it looks suspicious, monitoring of the client is stepped up."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Specified transactions: cash withdrawal or deposit above a prescribed amount; foreign exchange transactions above a prescribed amount; high value imports or remittances; others prescribed in the interest of revenue or for high money-laundering / terror-financing risk."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "PMLA in numbers: <b>3 to 7</b> years in jail (<b>10</b> for narcotics-linked proceeds), records for <b>5</b> years. Six verbs of the offence: <b>hide, hold, get, use, pass off, claim</b> (as clean)."
+    },
+    {
+     "type": "trap",
+     "text": "Transaction records: 5 years from the <b>transaction</b>. Identity records: 5 years from the <b>end of the relationship / account closure, whichever is later</b>. Both are 5, never 7, 8 or 10."
+    },
+    {
+     "type": "p",
+     "text": "<b>SEBI AML / CFT master circular:</b> explains PMLA in practice and the steps to discourage and detect money laundering and terror financing. It covers all <b>section 12 SEBI Act</b> intermediaries (stock brokers, share transfer agents, bankers and registrars to an issue, trustees to a trust deed, AMCs, DPs, merchant bankers, portfolio managers, investment advisers), stock exchanges and depositories: all reporting entities under PMLA and the <b>PML (Maintenance of Records) Rules, 2005</b>. The Rules let SEBI specify the records to keep and require an internal mechanism to detect and report transactions."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Topics: AML policies and written procedures, client due diligence, acceptance and identification, reliance on third parties, risk management, <b>suspicious transaction</b> monitoring and reporting, freezing of funds, records, reporting to <b>FIU-India</b>, designated officers, hiring, training and investor education.",
+      "Clients are classified <b>Low, Medium or High risk</b> using location, nature of business, volume and value of turnover, nature of transactions and manner of payment. Special category clients (e.g. <b>politically exposed persons</b>, clients from high-risk countries) may get an even higher risk rating.",
+      "Intermediaries must appoint a <b>Principal Officer</b> and a <b>Designated Director</b> for PMLA compliance."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "2.5.2d",
+   "title": "SEBI (Prohibition of Insider Trading) Regulations, 2015",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Insider trading</b> is dealing in a company's securities on the basis of <b>unpublished price sensitive information (UPSI)</b> to make a profit or avoid a loss. It gives insiders an unfair edge and damages market integrity, so it is an offence under the <b>SEBI (Prohibition of Insider Trading) Regulations, 2015</b>, in force from <b>May 2015</b>. They define insiders, restrict communication and trading, require disclosures, and set systems for listed and to-be-listed companies and intermediaries."
+    },
+    {
+     "type": "key",
+     "text": "<b>Insider</b> (Reg 2(g)) = (i) a <b>connected person</b>, or (ii) anyone <b>in possession of or having access to UPSI</b>, however obtained. The <b>onus</b> of showing possession / access is first on the <b>person levelling the charge</b>; the trader may then show he had no possession or access, did not trade, or is covered by an exonerating circumstance."
+    },
+    {
+     "type": "p",
+     "text": "<b>Connected person</b> (Reg 2(d)): anyone who is, or <b>during the 6 months before the act</b> was, associated with the company in any capacity (frequent communication with officers, contractual, fiduciary or employment relationship, director, officer, employee, professional or business relationship) that gives or may reasonably give access to UPSI."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Deemed connected persons (unless the contrary is established)"
+     ],
+     "rows": [
+      [
+       "Relatives of connected persons; persons sharing household or residence with them"
+      ],
+      [
+       "Holding, associate or subsidiary company"
+      ],
+      [
+       "Intermediaries under section 12 of the SEBI Act, and their employees / directors"
+      ],
+      [
+       "Investment companies, trustee companies, AMCs, and their employees / directors; members of a mutual fund's board of trustees or its board"
+      ],
+      [
+       "Officials of a stock exchange, clearing house or clearing corporation; officials / employees of a SEBI-recognised SRO"
+      ],
+      [
+       "Board members or employees of a public financial institution (Section 2(72), Companies Act, 2013)"
+      ],
+      [
+       "The company's banker"
+      ],
+      [
+       "Any concern, firm, HUF, company or AOP in which a director, his immediate relative or the company's banker holds <b>more than 10%</b>"
+      ],
+      [
+       "A firm, its partner or employee where a connected person is also a partner"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>UPSI</b> (Reg 2(n)): information about a company or its securities, not generally available, that is likely to materially affect the price once public. Ordinarily includes:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Financial results; dividends; change in capital structure",
+      "Mergers, de-mergers, acquisitions, delisting, disposals, expansion, award or termination of orders / contracts outside the normal course",
+      "Changes in key managerial personnel (<b>other than</b> superannuation or end of term), and resignation of a Statutory or Secretarial Auditor",
+      "Change in ratings, <b>other than ESG ratings</b>",
+      "Proposed fund raising; agreements that may affect management or control",
+      "Initiation of a forensic audit and receipt of the final forensic audit report",
+      "Outcome of litigation or disputes that may affect the company",
+      "Grant, withdrawal, surrender, cancellation or suspension of key licences or regulatory approvals"
+     ]
+    },
+    {
+     "type": "key",
+     "text": "Structure: <b>Chapter II</b> restrictions on communication and trading by insiders; <b>Chapter II(A)</b> the same for <b>mutual fund units</b>; <b>Chapter III</b> disclosures of trading by insiders. The UPSI list is illustrative, not exhaustive."
+    },
+    {
+     "type": "trap",
+     "text": "Not UPSI: a KMP retiring on superannuation or end of term, and an <b>ESG</b> rating change. UPSI: an auditor's resignation, any other rating change. Connected-person look-back is <b>6 months</b>; the holding threshold is <b>more than 10%</b>."
+    }
+   ]
+  },
+  {
+   "id": "2.5.2e",
+   "title": "PFUTP Regulations, 2003 and Front Running",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The <b>SEBI (Prohibition of Fraudulent and Unfair Trade Practices relating to the Securities Market) Regulations, 2003</b> let SEBI investigate market manipulation and fraudulent or unfair practices."
+    },
+    {
+     "type": "p",
+     "text": "<b>Fraud</b> (Reg 2(1)(c)): any act, expression, omission or concealment, deceitful or not, by a person or his agent or accomplice, to induce another to deal in securities, <b>whether or not there is wrongful gain or avoided loss</b>. Includes knowing misrepresentation or concealment, active concealment, promises with no intent to perform, reckless or baseless statements, deception that denies informed consent, acts other laws call fraudulent, and an issuer's misinformation that moves the market price."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Regulation 3</b>: no person shall, directly or indirectly, (a) deal in securities fraudulently; (b) use a manipulative or deceptive device in connection with listed / to-be-listed securities; (c) employ any device, scheme or artifice to defraud; (d) engage in any act or practice that operates as fraud or deceit.",
+      "<b>Regulation 4(1)</b>: no manipulative, fraudulent or unfair trade practice. Always deemed included: <b>diversion or siphoning</b> of a listed company's assets or manipulating its books to influence the price, and trading through <b>mule accounts</b>."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Theme",
+      "Deemed manipulative, fraudulent or unfair (Reg 4(2))"
+     ],
+     "rows": [
+      [
+       "Fake trading",
+       "Creating a false or misleading appearance of trading; deals not meant to transfer beneficial ownership but to move prices; <b>transactions without intention to perform or to change ownership</b>; circular trades between persons including intermediaries"
+      ],
+      [
+       "Price rigging",
+       "Inducing others (even by paying them) to trade to move prices; manipulating a price, incl. a reference / benchmark price"
+      ],
+      [
+       "Issue fraud",
+       "Inducing subscriptions (e.g. by advancing money) to fraudulently secure minimum subscription; illegal mobilisation of funds through a collective investment scheme"
+      ],
+      [
+       "False information",
+       "Publishing untrue information (results, M&A, approvals) while dealing; spreading false or misleading information or advice through any media, physical or digital; planting false news"
+      ],
+      [
+       "Intermediary misconduct",
+       "Trading for a client without knowledge or instructions; misusing client funds / securities held in a fiduciary capacity; inducing trades to boost brokerage; predating or falsifying contract notes, client instructions or statements; <b>mis-selling</b>"
+      ],
+      [
+       "Information edge",
+       "Placing an order while holding non-public information about a substantial impending transaction in that security, its underlying or derivative"
+      ],
+      [
+       "Stolen securities",
+       "Selling, dealing or pledging stolen, counterfeit or fraudulently issued securities (physical or demat), unless the person was a holder in due course or the securities were earlier traded in a bona fide transaction"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Mis-selling</b>: selling securities or related services by knowingly making false or misleading statements, knowingly concealing material facts or associated risk, or not taking reasonable care that the product suits the buyer."
+    },
+    {
+     "type": "p",
+     "text": "<b>Front running</b>: using non-public information to buy or sell securities, futures or options <b>ahead of a substantial order</b> in the same or related securities, expecting the price to move once the information is public. Typically a dealer or broker places his own or the firm's order ahead of a pending client order. It violates <b>Section 12A (a), (b) and (e) of the SEBI Act, 1992</b>, or Regulations 3(a) to (d) and 4(q) of PFUTP."
+    },
+    {
+     "type": "example",
+     "text": "A dealer gets a client order to buy 5 lakh shares of ABC Ltd, enough to push the price up from ₹200. He first buys 10,000 shares for himself at ₹200, then executes the client order. The price rises to ₹206 and he sells, pocketing ₹60,000. That is front running.",
+     "title": "Front running"
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Insider trading (PIT, 2015)",
+       "points": [
+        "Trading on <b>UPSI about the company</b> (results, mergers, dividends...)",
+        "Insider = connected person or anyone with UPSI"
+       ]
+      },
+      {
+       "title": "Front running (PFUTP, 2003)",
+       "points": [
+        "Trading ahead of a <b>large pending order</b> using knowledge of that order",
+        "Typically a dealer or broker jumping ahead of a client"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Where SEBI has reasonable grounds to believe trading is detrimental to investors or the market, it can order an <b>investigation</b> of the intermediary or persons associated with the market.",
+      "Based on the investigating officer's report, SEBI can <b>suspend or cancel registration</b>; violators are liable to <b>penalty</b>; SEBI can also run <b>parallel civil enforcement</b> proceedings on the same facts."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "'Entering into a transaction without intention to perform it or to change ownership' is a <b>fraudulent and unfair trade practice</b> (PFUTP), not insider trading or money laundering."
+    }
+   ]
+  },
+  {
+   "id": "2.5.2f",
+   "title": "Dabba Trading (Illegal Trading in Securities)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Under SCRA, trading in shares between persons who are not members of a recognised exchange is illegal, and exchange members must be SEBI-registered stock brokers. <b>Dabba trading</b> is trading by unregistered persons outside the exchange: they use prices from the exchange, internet or TV, note deals in a separate book (physical or electronic), settle only <b>price differences</b> without delivery, and use <b>cash</b> rather than banks to avoid an audit trail."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Investors face <b>credit risk</b>: the operator may default or go bankrupt, and investors have <b>no access</b> to the exchange's complaint redressal or arbitration mechanism.",
+      "Cash dealings breed <b>black money</b>, a parallel economy, money laundering and crime; cause tax evasion; offer <b>no settlement guarantee</b>; and bypass regulation."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "SCRA section",
+      "What it prohibits"
+     ],
+     "rows": [
+      [
+       "13",
+       "Contracts in securities other than between members of a recognised exchange in a <b>notified area</b> (notified by the Central Government in the Official Gazette)"
+      ],
+      [
+       "16",
+       "All contracts except spot delivery contracts and those permitted under SCRA and exchange rules are illegal"
+      ],
+      [
+       "17",
+       "Dealing in securities without a <b>licence from SEBI</b>"
+      ],
+      [
+       "18A",
+       "Derivatives are legal only if traded on a recognised exchange and settled on its clearing house"
+      ],
+      [
+       "19",
+       "Organising, assisting or being a member of an <b>unrecognised</b> stock exchange"
+      ]
+     ]
+    },
+    {
+     "type": "key",
+     "text": "<b>Section 23(1) SCRA:</b> contravening sections <b>13, 16, 17 or 19</b> is punishable with imprisonment <b>up to 10 years</b>, or fine <b>up to ₹25 crore</b>, or both. <b>Section 25:</b> these are <b>cognizable</b> offences under the CrPC, 1973, so state police can investigate. <b>Section 26:</b> state authorities can lodge complaints. Dabba trading also attracts IPC sections 406 (criminal breach of trust), 420 (cheating) and 120-B (criminal conspiracy). The workbook prints \"130-B\"; that is a typo for 120-B."
+    },
+    {
+     "type": "hook",
+     "text": "<b>Dabba = box.</b> Everything stays inside the operator's box: no exchange, no clearing guarantee, no bank trail, no grievance desk."
+    },
+    {
+     "type": "trap",
+     "text": "Punishment: <b>10 years / ₹25 crore</b>, not 5 years / ₹10 crore. Section 23(1) lists 13, 16, 17 and 19 (18A is violated but is not in that list)."
+    }
+   ]
+  },
+  {
+   "id": "2.5.2g",
+   "title": "Custodian and KRA Regulations",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>SEBI (Custodian) Regulations, 1996:</b> a custodian must register with SEBI; to get the certificate it needs a minimum <b>net worth of ₹75 crore</b> and must be 'fit and proper' under Schedule II of the Intermediaries Regulations, 2008."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Chapter III sets out obligations; custodians follow the code of conduct in the <b>Third Schedule</b> and must review, monitor and evaluate their controls.",
+      "Custodial business must be <b>separate and segregated</b> from other activities; its officers and employees may not do any other activity.",
+      "An <b>agreement with each client</b> covering when securities and money are accepted or released and how rights / entitlements are received.",
+      "A <b>separate custody account for each client</b>, in the client's name; one client's assets never mixed with another's.",
+      "Internal controls against manipulation of records (including audits), safekeeping against theft and natural hazards, and compliance with SEBI's <b>Investor Charter</b>."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>SEBI {KYC Registration Agency} Regulations, 2011:</b> KYC Registration Agencies (KRAs) remove the need for an investor to repeat KYC with every intermediary and give a uniform KYC process. All members must register with one or more SEBI-registered KRAs."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Who",
+      "Obligation",
+      "Timeline"
+     ],
+     "rows": [
+      [
+       "Intermediary",
+       "Client may open an account and transact as soon as KYC is complete",
+       "-"
+      ],
+      [
+       "Intermediary",
+       "Upload initial KYC of new clients to the KRA system",
+       "Within <b>3 working days</b> of completing KYC"
+      ],
+      [
+       "KRA",
+       "Send a letter to the client confirming details of initial / updated KYC (keep proof of dispatch)",
+       "Within <b>2 working days</b> of receipt"
+      ],
+      [
+       "KRA",
+       "Comprehensive audit of systems by an independent auditor; report to its Board",
+       "<b>Annually</b>"
+      ],
+      [
+       "KRA",
+       "Send Action Taken Report on that audit to SEBI",
+       "Within <b>3 months</b>"
+      ],
+      [
+       "KRA",
+       "Upload verified KYC to the Central KYC Records Registry (CKYCRR)",
+       "Within <b>7 days</b> of receipt (integration from <b>August 1, 2024</b>)"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Intermediary: forward missing documents promptly if the KRA flags them; upload existing clients' data in the uniform format without duplication; provide KYC information when needed; keep <b>electronic</b> KYC records (physical records not necessary); maintain internal controls on data security.",
+      "KRA: provide KYC information in <b>data and image form</b>; coordinate with other KRAs to prevent duplication and keep formats uniform; keep an <b>audit trail</b> of uploads, changes and downloads; flag <b>PAN-exempt</b> clients (e.g. residents of <b>Sikkim</b>, UN entities / multilateral agencies exempt from tax)."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "KYC clock: <b>3 - 2 - 7</b>. Intermediary uploads in 3 working days, KRA writes to the client in 2 working days, KRA pushes to CKYCRR in 7 days."
+    }
+   ]
+  },
+  {
+   "id": "2.5.2h",
+   "title": "Intermediaries and Depositories & Participants Regulations",
+   "blocks": [
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Included as 'intermediary' (Intermediaries Regs, 2008)",
+       "points": [
+        "Persons under sections 11(2)(b), (ba) and 12(1), (1A) of the SEBI Act",
+        "AMCs (under the Mutual Funds Regulations, 1996)",
+        "Clearing members",
+        "Foreign portfolio investors",
+        "Trading members of derivatives or currency derivatives segments"
+       ]
+      },
+      {
+       "title": "Excluded",
+       "points": [
+        "Foreign venture capital investors",
+        "Mutual funds",
+        "Collective investment schemes",
+        "Venture capital funds"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The Regulations cover registration of intermediaries, general obligations (investor grievance redressal, compliance officer, investment advice, code of conduct), inspection and disciplinary proceedings."
+    },
+    {
+     "type": "key",
+     "text": "<b>Chapter III B, Usage of Artificial Intelligence:</b> any SEBI-regulated person using AI / ML tools, built in-house or bought from third parties, is <b>solely responsible</b> for (a) privacy, security and integrity of investor and stakeholder data, (b) the output it relies on, and (c) compliance with applicable laws, whatever the scale of use. <b>Chapter III C</b> deals with <b>verification of past risk and return metrics</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>SEBI (Depositories and Participants) Regulations, 2018:</b> registration, ownership and governance of depositories and DPs; their rights and obligations; and procedures for pledge and hypothecation, listing of securities, surrender of securities etc."
+    },
+    {
+     "type": "trap",
+     "text": "A <b>mutual fund</b> is not an 'intermediary' under these Regulations, but its <b>AMC</b> is. Using a third-party AI tool does not shift responsibility away from the regulated entity."
+    }
+   ]
+  },
+  {
+   "id": "A1",
+   "title": "Code of Conduct for Stock Brokers (Annexure 1)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Three groups of duties: general conduct, duties to investors, and duties to other brokers."
+    },
+    {
+     "type": "table",
+     "head": [
+      "General: a stock broker shall"
+     ],
+     "rows": [
+      [
+       "Maintain high standards of <b>integrity, promptitude and fairness</b>"
+      ],
+      [
+       "Act with due <b>skill, care and diligence</b>"
+      ],
+      [
+       "Not indulge in manipulative, fraudulent or deceptive transactions or schemes, or spread rumours to distort the market or for personal gain"
+      ],
+      [
+       "Not create a <b>false market</b>, alone or in concert, or harm investors or the smooth functioning of the market"
+      ],
+      [
+       "Not indulge in <b>excessive speculative business</b> beyond reasonable levels not commensurate with his financial soundness"
+      ],
+      [
+       "Abide by the Act, rules and regulations of the Government, SEBI and the exchange"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Duty towards the investor"
+     ],
+     "rows": [
+      [
+       "Execute orders at the <b>best available market price</b>; not refuse a <b>small investor</b> merely because of the small volume"
+      ],
+      [
+       "Promptly inform the client of execution or non-execution; pay promptly for securities sold and deliver securities bought promptly"
+      ],
+      [
+       "Issue a <b>contract note without delay</b> for all transactions, in the exchange's form"
+      ],
+      [
+       "Keep clients' personal investment and other confidential information confidential; no improper use"
+      ],
+      [
+       "Not encourage trades solely to generate brokerage; no false or misleading quotations or advice to induce business"
+      ],
+      [
+       "Not knowingly deal for a client who has <b>failed to meet commitments with another broker</b>"
+      ],
+      [
+       "Disclose whether acting as <b>principal or agent</b>; avoid conflicts of interest, disclose any that arise, and never put the client's interest below his own"
+      ],
+      [
+       "Recommend only what he reasonably believes is <b>suitable</b> for the client, based on the client's holdings, finances and objectives"
+      ],
+      [
+       "When giving investment advice in public media, disclose his interest (and that of dependent family members and employer), including long or short positions; an employee giving advice must make the same disclosure"
+      ],
+      [
+       "Have adequately trained staff to give fair, prompt and competent service"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Duty towards other stock brokers"
+     ],
+     "rows": [
+      [
+       "Cooperate in comparing unmatched transactions; not knowingly deliver <b>bad delivery</b> documents, and help replace them promptly"
+      ],
+      [
+       "Cooperate to protect clients' rights to dividends, bonus shares, rights shares and other entitlements"
+      ],
+      [
+       "Complete settlement obligations with other brokers"
+      ],
+      [
+       "<b>Not advertise</b> his business publicly unless permitted by the exchange"
+      ],
+      [
+       "Not use unfair means to <b>poach clients</b> from other brokers"
+      ],
+      [
+       "Submit required returns to SEBI and the exchange, with no false or misleading statements"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Count them: <b>6 - 10 - 6</b> (general, investor, other brokers). The investor list is longest because the client comes first."
+    },
+    {
+     "type": "trap",
+     "text": "A broker <b>may not refuse a small investor</b> because the volume is small, and <b>may not advertise</b> without exchange permission. Media advice requires disclosing the interest of <b>dependent family members and the employer</b> too."
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Retail Individual Investor: maximum application",
+   "value": "Not more than ₹2 lakh",
+   "ref": "2.2"
+  },
+  {
+   "fact": "SEBI (Foreign Portfolio Investors) Regulations",
+   "value": "2019",
+   "ref": "2.2"
+  },
+  {
+   "fact": "FPI Category I: ownership by government-related investors",
+   "value": "At least 75%",
+   "ref": "2.2"
+  },
+  {
+   "fact": "Accredited individual: income test",
+   "value": "Annual income ≥ ₹2 crore",
+   "ref": "2.2"
+  },
+  {
+   "fact": "Accredited individual: net worth test",
+   "value": "≥ ₹7.5 crore, of which ≥ ₹3.75 crore financial assets",
+   "ref": "2.2"
+  },
+  {
+   "fact": "Accredited individual: combined test",
+   "value": "Income ≥ ₹1 crore + net worth ≥ ₹5 crore (≥ ₹2.5 crore financial)",
+   "ref": "2.2"
+  },
+  {
+   "fact": "Accredited investor: trust (non-family) AUM",
+   "value": "≥ ₹50 crore",
+   "ref": "2.2"
+  },
+  {
+   "fact": "Accredited investor: body corporate net worth",
+   "value": "≥ ₹50 crore",
+   "ref": "2.2"
+  },
+  {
+   "fact": "AI certificate validity: criteria met for preceding 1 FY",
+   "value": "2 years",
+   "ref": "2.2"
+  },
+  {
+   "fact": "AI certificate validity: criteria met in each of preceding 2 FYs",
+   "value": "3 years",
+   "ref": "2.2"
+  },
+  {
+   "fact": "AI certificate validity: newly incorporated entity",
+   "value": "2 years",
+   "ref": "2.2"
+  },
+  {
+   "fact": "SEBI market maker guidelines circular",
+   "value": "January 20, 2000",
+   "ref": "2.2"
+  },
+  {
+   "fact": "Liquidity Enhancement Scheme circular",
+   "value": "April 23, 2014",
+   "ref": "2.2"
+  },
+  {
+   "fact": "Reforms allowing Indian companies to raise equity abroad",
+   "value": "1991",
+   "ref": "2.3"
+  },
+  {
+   "fact": "SEBI ICDR Regulations",
+   "value": "2018",
+   "ref": "2.3"
+  },
+  {
+   "fact": "SEBI LODR Regulations",
+   "value": "2015",
+   "ref": "2.3"
+  },
+  {
+   "fact": "Securitised Debt Instruments and Security Receipts Regulations",
+   "value": "2008",
+   "ref": "2.3"
+  },
+  {
+   "fact": "Municipal Debt Securities Regulations",
+   "value": "2015",
+   "ref": "2.3"
+  },
+  {
+   "fact": "Non-Convertible Securities Regulations",
+   "value": "2021",
+   "ref": "2.3"
+  },
+  {
+   "fact": "Number of depositories in India",
+   "value": "2 (NSDL and CDSL)",
+   "ref": "2.4.1"
+  },
+  {
+   "fact": "Depository registration under SEBI Act",
+   "value": "Section 12(1A)",
+   "ref": "2.4.1"
+  },
+  {
+   "fact": "SCRA sections on corporatisation and demutualisation",
+   "value": "Sections 4A and 4B",
+   "ref": "2.4.1"
+  },
+  {
+   "fact": "Limited purpose clearing corporation provisions",
+   "value": "Chapter IV-A of SECC Regulations",
+   "ref": "2.4.1"
+  },
+  {
+   "fact": "SEBI (Stock Brokers) Regulations (current)",
+   "value": "2026 (replaced 1992 Regulations)",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "SEBI certificates of registration per broker",
+   "value": "One, for all exchanges and segments",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Minimum age of individual member / designated partner / director",
+   "value": "21 years",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Minimum education for members",
+   "value": "HSC or equivalent",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Minimum experience",
+   "value": "2 years",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Designated partners / directors required",
+   "value": "At least 2",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Corporate member: minimum paid-up equity capital",
+   "value": "₹30 lakh (currently)",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Partnership firm law / LLP law",
+   "value": "Indian Partnership Act, 1932 / LLP Act, 2008",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Membership qualifications under",
+   "value": "Securities Contracts (Regulation) Rules, 1957 (rule 8)",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "Fit and proper criteria",
+   "value": "Schedule II, SEBI (Intermediaries) Regulations, 2008",
+   "ref": "2.4.2.1"
+  },
+  {
+   "fact": "SEBI established under",
+   "value": "Section 3, SEBI Act, 1992",
+   "ref": "2.5.1"
+  },
+  {
+   "fact": "Liberalisation of securities market began",
+   "value": "1992",
+   "ref": "2.5.2a"
+  },
+  {
+   "fact": "Four main Acts",
+   "value": "SCRA 1956, SEBI Act 1992, Depositories Act 1996, Companies Act 2013",
+   "ref": "2.5.2a"
+  },
+  {
+   "fact": "Companies Act section delegating securities powers to SEBI",
+   "value": "Section 24",
+   "ref": "2.5.2a"
+  },
+  {
+   "fact": "SCRR, 1957 made under",
+   "value": "Section 30 of SCRA, 1956",
+   "ref": "2.5.2a"
+  },
+  {
+   "fact": "SECC Regulations notified",
+   "value": "October 3, 2018",
+   "ref": "2.5.2a"
+  },
+  {
+   "fact": "Insider Trading Regulations",
+   "value": "2015 (in force May 2015)",
+   "ref": "2.5.2d"
+  },
+  {
+   "fact": "PFUTP Regulations",
+   "value": "2003",
+   "ref": "2.5.2e"
+  },
+  {
+   "fact": "SEBI (Custodians) Regulations",
+   "value": "1996",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "SEBI (Substantial Acquisition of Shares and Takeovers) Regulations",
+   "value": "2011",
+   "ref": "2.5.2a"
+  },
+  {
+   "fact": "SEBI KRA Regulations",
+   "value": "2011",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "SEBI (Depositories and Participants) Regulations",
+   "value": "2018",
+   "ref": "2.5.2h"
+  },
+  {
+   "fact": "Code of conduct in Stock Brokers Regulations",
+   "value": "Chapter VIII",
+   "ref": "2.5.2b"
+  },
+  {
+   "fact": "Prevention of Money Laundering Act",
+   "value": "2002",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA: offence of money laundering",
+   "value": "Section 3",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA punishment",
+   "value": "Rigorous imprisonment 3 to 7 years + fine (Section 4)",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA punishment for scheduled (Part A para 2) offences",
+   "value": "Up to 10 years",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA: Adjudicating Authority / confiscation vesting",
+   "value": "Section 6 / Section 9",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA: civil court powers of Adjudicating Authority",
+   "value": "Section 11",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "Proceedings deemed judicial under IPC sections",
+   "value": "193 and 228",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA: reporting entity obligations / enhanced due diligence",
+   "value": "Section 12 / Section 12AA",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "Transaction records retention",
+   "value": "5 years from date of transaction",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "Identity records retention",
+   "value": "5 years after relationship ends or account closes, whichever later",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "EDD information retention",
+   "value": "5 years from date of transaction",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA: summons, search and seizure",
+   "value": "Sections 16 and 17",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA: burden of proof on accused",
+   "value": "Section 24",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PMLA: Appellate Tribunal / High Court appeals / Special Courts",
+   "value": "Sections 25-26 / 41-42 / 43",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "PML (Maintenance of Records) Rules",
+   "value": "2005",
+   "ref": "2.5.2c"
+  },
+  {
+   "fact": "Connected person look-back period",
+   "value": "6 months before the act",
+   "ref": "2.5.2d"
+  },
+  {
+   "fact": "Deemed connected: holding of director / relative / banker in a concern",
+   "value": "More than 10%",
+   "ref": "2.5.2d"
+  },
+  {
+   "fact": "Insider / connected person / UPSI definitions",
+   "value": "Reg 2(g) / Reg 2(d) / Reg 2(n)",
+   "ref": "2.5.2d"
+  },
+  {
+   "fact": "Front running violates SEBI Act",
+   "value": "Section 12A (a), (b) and (e)",
+   "ref": "2.5.2e"
+  },
+  {
+   "fact": "PFUTP definition of fraud",
+   "value": "Regulation 2(1)(c)",
+   "ref": "2.5.2e"
+  },
+  {
+   "fact": "SCRA sections violated by dabba trading",
+   "value": "13, 16, 17, 18A, 19",
+   "ref": "2.5.2f"
+  },
+  {
+   "fact": "SCRA Section 23(1) punishment",
+   "value": "Up to 10 years, or fine up to ₹25 crore, or both",
+   "ref": "2.5.2f"
+  },
+  {
+   "fact": "SCRA offences cognizable under",
+   "value": "Section 25 (CrPC, 1973)",
+   "ref": "2.5.2f"
+  },
+  {
+   "fact": "IPC sections cited for dabba trading",
+   "value": "406, 420 and 120-B (workbook typo: 130-B)",
+   "ref": "2.5.2f"
+  },
+  {
+   "fact": "Custodian minimum net worth",
+   "value": "₹75 crore",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "Custodian code of conduct",
+   "value": "Third Schedule of Custodian Regulations",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "Intermediary uploads KYC to KRA",
+   "value": "Within 3 working days of KYC completion",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "KRA confirmation letter to client",
+   "value": "Within 2 working days of receipt",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "KRA independent systems audit",
+   "value": "Annually",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "KRA Action Taken Report to SEBI",
+   "value": "Within 3 months",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "KRA upload to CKYCRR",
+   "value": "Within 7 days of receipt",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "KRA-CKYCRR integration start",
+   "value": "August 1, 2024",
+   "ref": "2.5.2g"
+  },
+  {
+   "fact": "Intermediaries Regulations: AI chapter / past risk-return chapter",
+   "value": "Chapter III B / Chapter III C",
+   "ref": "2.5.2h"
+  },
+  {
+   "fact": "Code of conduct duties: general / investor / other brokers",
+   "value": "6 / 10 / 6",
+   "ref": "A1"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "Four participants of the securities market?",
+   "a": "Investors, issuers, intermediaries and regulators"
+  },
+  {
+   "q": "Who is a Retail Individual Investor?",
+   "a": "An individual (resident, NRI or HUF) applying for not more than ₹2 lakh"
+  },
+  {
+   "q": "Who is a Non-Institutional Investor?",
+   "a": "Anyone other than RIIs and institutional investors, e.g. family offices, corporates, partnership firms"
+  },
+  {
+   "q": "Which Category II FPIs are treated as non-institutional?",
+   "a": "Corporate bodies, individuals and family offices"
+  },
+  {
+   "q": "Are pension funds and university funds Category I or II FPIs?",
+   "a": "Category I"
+  },
+  {
+   "q": "Individual accredited investor criteria?",
+   "a": "Income ₹2 cr+; or net worth ₹7.5 cr+ (half financial); or income ₹1 cr+ with net worth ₹5 cr+ (half financial)"
+  },
+  {
+   "q": "Who issues accreditation certificates?",
+   "a": "Accreditation Agencies: subsidiaries of depositories and stock exchanges, based only on KYC and financial information"
+  },
+  {
+   "q": "Accreditation validity?",
+   "a": "2 years if criteria met for 1 preceding FY (or new entity); 3 years if met in each of 2 preceding FYs"
+  },
+  {
+   "q": "Main job of a market maker?",
+   "a": "Give continuous two-way quotes for a minimum amount with a reasonable bid-ask spread"
+  },
+  {
+   "q": "Where is market making mandatory?",
+   "a": "On the SME exchange, for all listed and traded scrips"
+  },
+  {
+   "q": "ADR vs GDR?",
+   "a": "ADR: issued by a US depository bank, trades in the US. GDR: non-US depository bank, mainly European exchanges."
+  },
+  {
+   "q": "What is a Masala bond?",
+   "a": "A rupee-denominated bond issued outside India by an Indian entity"
+  },
+  {
+   "q": "First entity to issue an IDR in India?",
+   "a": "Standard Chartered Bank"
+  },
+  {
+   "q": "What are MIIs?",
+   "a": "Market Infrastructure Institutions: stock exchanges, clearing corporations and depositories"
+  },
+  {
+   "q": "What is novation?",
+   "a": "The clearing corporation becoming central counterparty, guaranteeing every trade on the exchange"
+  },
+  {
+   "q": "Pay-in vs pay-out?",
+   "a": "Pay-in: members bring funds / securities to the clearing corporation (first phase). Pay-out: clearing corporation delivers them (second phase)."
+  },
+  {
+   "q": "Who can become a Depository Participant?",
+   "a": "Banks, FIs, NBFCs, clearing corporations, RTAs, custodians, State Financial Corporations, SEBI-registered trading members"
+  },
+  {
+   "q": "Which member has clearing rights but no trading rights?",
+   "a": "Professional Clearing Member (and custodians)"
+  },
+  {
+   "q": "Trading-cum-self-clearing vs trading-cum-clearing member?",
+   "a": "Self-clearing clears only its own (and its clients') trades; trading-cum-clearing also clears other members' and custodial trades"
+  },
+  {
+   "q": "How many SEBI registrations does a broker on 3 exchanges need?",
+   "a": "One certificate of registration; each exchange / segment approval is still needed"
+  },
+  {
+   "q": "What is Base Minimum Capital?",
+   "a": "A deposit with the exchange against which no trading exposure is allowed, based on the member's risk profile"
+  },
+  {
+   "q": "Four fit and proper criteria?",
+   "a": "Integrity / reputation / character; no convictions or restraint orders; competence incl. solvency and net worth; not a wilful defaulter"
+  },
+  {
+   "q": "Is an Authorised Person a member of the exchange?",
+   "a": "No. An AP is the broker's agent; the broker is responsible for all its acts"
+  },
+  {
+   "q": "What if a custodian fails to confirm a trade?",
+   "a": "The trading member or its clearing member that executed the trade must settle it"
+  },
+  {
+   "q": "Who frames rules and who frames regulations under securities laws?",
+   "a": "Rules: Central Government. Regulations: SEBI. SEBI administers both."
+  },
+  {
+   "q": "Under which section was SEBI established?",
+   "a": "Section 3 of the SEBI Act, 1992"
+  },
+  {
+   "q": "Where do appeals against SEBI orders go?",
+   "a": "Securities Appellate Tribunal (SAT)"
+  },
+  {
+   "q": "Which Companies Act section delegates securities powers to SEBI?",
+   "a": "Section 24 (issue and transfer of securities, non-payment of dividend, for listed / to-be-listed companies)"
+  },
+  {
+   "q": "Two certificates a depository needs from SEBI?",
+   "a": "Certificate of registration and certificate of commencement of business"
+  },
+  {
+   "q": "PMLA punishment for money laundering?",
+   "a": "Rigorous imprisonment of 3 to 7 years plus fine; up to 10 years for scheduled narcotics offences"
+  },
+  {
+   "q": "Under PMLA, who bears the burden of proof?",
+   "a": "The accused must prove the proceeds are untainted (Section 24)"
+  },
+  {
+   "q": "Who is an insider under the PIT Regulations?",
+   "a": "A connected person, or anyone in possession of or with access to UPSI"
+  },
+  {
+   "q": "What is front running?",
+   "a": "Trading ahead of a substantial pending order using non-public knowledge of it, e.g. a dealer jumping a client order"
+  },
+  {
+   "q": "Punishment for dabba trading under SCRA Section 23(1)?",
+   "a": "Up to 10 years imprisonment, or fine up to ₹25 crore, or both"
+  },
+  {
+   "q": "Custodian minimum net worth?",
+   "a": "₹75 crore"
+  },
+  {
+   "q": "KYC timelines for intermediary and KRA?",
+   "a": "Intermediary uploads in 3 working days; KRA writes to client in 2 working days; KRA uploads to CKYCRR in 7 days"
+  },
+  {
+   "q": "Is a mutual fund an 'intermediary' under the Intermediaries Regulations?",
+   "a": "No. Mutual funds, CIS, VCFs and FVCIs are excluded; AMCs are included."
+  }
+ ],
+ "questions": [
+  {
+   "q": "\"Entering into a transaction in securities without the intention to perform it or to change ownership of the securities\" is an example of:",
+   "options": [
+    "Insider trading",
+    "Money laundering",
+    "A fraudulent and unfair trade practice",
+    "Market making"
+   ],
+   "answer": 2,
+   "why": "It is listed in Regulation 4(2) of the PFUTP Regulations, 2003 as a manipulative, fraudulent or unfair trade practice.",
+   "ref": "2.5.2e",
+   "level": "easy"
+  },
+  {
+   "q": "Which type of member does NOT have trading rights?",
+   "options": [
+    "Only trading member",
+    "Trading-cum-self-clearing member",
+    "Trading-cum-clearing member",
+    "Professional clearing member"
+   ],
+   "answer": 3,
+   "why": "A professional clearing member has only clearing rights; it clears trades of trading members and custodial participants.",
+   "ref": "2.4.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "The clearing corporation providing a financial guarantee for all transactions executed on the exchange is known as:",
+   "options": [
+    "Insurance",
+    "Novation",
+    "Indemnification",
+    "Coverage"
+   ],
+   "answer": 1,
+   "why": "As central counterparty the clearing corporation guarantees every trade; this process is called novation.",
+   "ref": "2.4.1",
+   "level": "easy"
+  },
+  {
+   "q": "Under PMLA, records of transactions must be maintained for how long from the date of the transaction?",
+   "options": [
+    "Five years",
+    "Seven years",
+    "Three years",
+    "Ten years"
+   ],
+   "answer": 0,
+   "why": "Section 12 requires transaction records to be kept for five years from the date of the transaction.",
+   "ref": "2.5.2c",
+   "level": "easy"
+  },
+  {
+   "q": "The Companies Act, 2013 delegates the power to regulate issue and transfer of securities of listed companies to:",
+   "options": [
+    "Clearing corporations",
+    "SEBI",
+    "Depositories",
+    "Stock exchanges"
+   ],
+   "answer": 1,
+   "why": "Section 24 makes SEBI the administrator of provisions on issue and transfer of securities and non-payment of dividend for listed / to-be-listed companies.",
+   "ref": "2.5.2a",
+   "level": "easy"
+  },
+  {
+   "q": "A Retail Individual Investor is one who applies for specified securities for a value of not more than:",
+   "options": [
+    "₹50,000",
+    "₹1 lakh",
+    "₹5 lakh",
+    "₹2 lakh"
+   ],
+   "answer": 3,
+   "why": "An RII is an individual (resident, NRI or HUF) bidding for not more than ₹2 lakh; above that the individual is non-institutional.",
+   "ref": "2.2",
+   "level": "easy"
+  },
+  {
+   "q": "Under the SEBI (FPI) Regulations, 2019, pension funds and university funds fall under:",
+   "options": [
+    "Category I",
+    "Category II",
+    "Category III",
+    "They are not eligible as FPIs"
+   ],
+   "answer": 0,
+   "why": "Pension funds and university funds are listed among Category I FPIs.",
+   "ref": "2.2",
+   "level": "medium"
+  },
+  {
+   "q": "An applicant met the accredited investor criteria in each of the preceding two financial years. The accreditation certificate will be valid for:",
+   "options": [
+    "1 year",
+    "2 years",
+    "3 years",
+    "5 years"
+   ],
+   "answer": 2,
+   "why": "Criteria met in each of the preceding two FYs gives 3 years' validity; one FY (or a new entity) gives 2 years.",
+   "ref": "2.2",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following, on its own, qualifies an individual as an Accredited Investor?",
+   "options": [
+    "Annual income of ₹1 crore",
+    "Annual income of ₹2 crore",
+    "Net worth of ₹5 crore",
+    "Net worth of ₹2.5 crore in financial assets"
+   ],
+   "answer": 1,
+   "why": "Income of ₹2 crore qualifies alone; ₹1 crore income qualifies only together with net worth of ₹5 crore (half in financial assets).",
+   "ref": "2.2",
+   "level": "hard"
+  },
+  {
+   "q": "Market making has been made mandatory for all scrips listed and traded on:",
+   "options": [
+    "The SME exchange",
+    "The equity derivatives segment",
+    "The currency derivatives segment",
+    "The debt segment"
+   ],
+   "answer": 0,
+   "why": "For the SME exchange, market making is mandatory for all listed and traded scrips; elsewhere liquidity schemes are mainly run by exchanges.",
+   "ref": "2.2",
+   "level": "medium"
+  },
+  {
+   "q": "A Masala bond is:",
+   "options": [
+    "A foreign currency bond issued in India by a foreign company",
+    "A rupee-denominated bond issued in India by a foreign bank",
+    "A foreign currency convertible bond issued by an Indian company",
+    "A rupee-denominated bond issued outside India by an Indian entity"
+   ],
+   "answer": 3,
+   "why": "Masala bonds are rupee-denominated bonds issued outside India by Indian entities to raise rupee funds from foreign investors.",
+   "ref": "2.3",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following CANNOT become a Depository Participant as per SEBI regulations?",
+   "options": [
+    "A Registrar and Transfer Agent",
+    "A State Financial Corporation",
+    "A listed manufacturing company",
+    "A SEBI-registered trading member"
+   ],
+   "answer": 2,
+   "why": "DPs can be banks, FIs, NBFCs, clearing corporations, RTAs, custodians, State Financial Corporations and SEBI-registered trading members; an ordinary company is not on the list.",
+   "ref": "2.4.1",
+   "level": "medium"
+  },
+  {
+   "q": "What is the current minimum paid-up equity capital for a company seeking trading membership of a stock exchange?",
+   "options": [
+    "₹30 lakh",
+    "₹10 lakh",
+    "₹50 lakh",
+    "₹1 crore"
+   ],
+   "answer": 0,
+   "why": "The eligibility table specifies minimum paid-up equity capital of ₹30 lakh (as specified from time to time).",
+   "ref": "2.4.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "Who is responsible for all acts of omission and commission of an Authorised Person?",
+   "options": [
+    "The Authorised Person alone",
+    "The stock exchange",
+    "SEBI",
+    "The trading member who appointed the AP"
+   ],
+   "answer": 3,
+   "why": "The acts of the AP are deemed to be those of the trading member, which is responsible for them.",
+   "ref": "2.4.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "A custodian to whom a trade is assigned fails to confirm it. Who must settle the trade?",
+   "options": [
+    "The trading member or its clearing member who executed the trade",
+    "The clearing corporation's settlement guarantee fund",
+    "The client directly with the exchange",
+    "SEBI"
+   ],
+   "answer": 0,
+   "why": "If the custodian does not confirm, the onus of settling falls on the trading member or clearing member of the trading member who executed the trade.",
+   "ref": "2.4.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "Under the securities laws, who frames the regulations and who frames the rules?",
+   "options": [
+    "Regulations: Government; Rules: SEBI",
+    "Regulations: SEBI; Rules: Government",
+    "Both: stock exchanges",
+    "Regulations: RBI; Rules: Ministry of Corporate Affairs"
+   ],
+   "answer": 1,
+   "why": "Rules under securities laws are framed by the Government and regulations by SEBI; all are administered by SEBI.",
+   "ref": "2.5",
+   "level": "medium"
+  },
+  {
+   "q": "The punishment for money laundering under Section 4 of PMLA (ordinary case) is rigorous imprisonment of:",
+   "options": [
+    "1 to 3 years",
+    "3 to 7 years",
+    "5 to 10 years",
+    "Up to 25 years"
+   ],
+   "answer": 1,
+   "why": "Section 4 prescribes rigorous imprisonment of not less than 3 years, extendable to 7 years, plus fine (10 years for certain scheduled offences).",
+   "ref": "2.5.2c",
+   "level": "medium"
+  },
+  {
+   "q": "Under Section 24 of PMLA, when a person is charged with money laundering, the burden of proving that the proceeds are untainted lies on:",
+   "options": [
+    "The Enforcement Directorate",
+    "The reporting entity",
+    "The Adjudicating Authority",
+    "The accused"
+   ],
+   "answer": 3,
+   "why": "The court presumes the proceeds are involved in money laundering unless the contrary is proved, so the burden is on the accused.",
+   "ref": "2.5.2c",
+   "level": "medium"
+  },
+  {
+   "q": "A 'connected person' under the Insider Trading Regulations includes a person associated with the company at any time during how many months before the concerned act?",
+   "options": [
+    "3 months",
+    "12 months",
+    "6 months",
+    "24 months"
+   ],
+   "answer": 2,
+   "why": "A connected person is one who is or has been associated with the company during the six months prior to the concerned act.",
+   "ref": "2.5.2d",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is NOT ordinarily treated as UPSI under the Insider Trading Regulations?",
+   "options": [
+    "Change in ESG rating",
+    "Proposed fund raising",
+    "Resignation of the Statutory Auditor",
+    "Initiation of a forensic audit"
+   ],
+   "answer": 0,
+   "why": "Changes in ratings count as UPSI except ESG ratings; fund raising, auditor resignation and forensic audits are listed.",
+   "ref": "2.5.2d",
+   "level": "hard"
+  },
+  {
+   "q": "Under Section 23(1) of SCRA, a person indulging in dabba trading in violation of sections 13, 16, 17 or 19 can be punished with:",
+   "options": [
+    "Imprisonment up to 3 years or fine up to ₹5 crore",
+    "Imprisonment up to 5 years or fine up to ₹10 crore",
+    "Imprisonment up to 10 years or fine up to ₹25 crore, or both",
+    "Only a monetary penalty imposed by the exchange"
+   ],
+   "answer": 2,
+   "why": "Section 23(1) provides imprisonment up to ten years or fine up to ₹25 crore, or both; these offences are cognizable.",
+   "ref": "2.5.2f",
+   "level": "medium"
+  },
+  {
+   "q": "After completing KYC of a new client, an intermediary must upload the KYC information to the KRA system within:",
+   "options": [
+    "3 working days",
+    "2 working days",
+    "7 days",
+    "30 days"
+   ],
+   "answer": 0,
+   "why": "The intermediary uploads within 3 working days; the KRA then writes to the client within 2 working days.",
+   "ref": "2.5.2g",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is excluded from the definition of 'intermediary' under the SEBI (Intermediaries) Regulations, 2008?",
+   "options": [
+    "Foreign portfolio investor",
+    "Clearing member",
+    "Asset management company",
+    "Mutual fund"
+   ],
+   "answer": 3,
+   "why": "The definition includes AMCs, clearing members and FPIs but excludes foreign venture capital investors, mutual funds, CIS and venture capital funds.",
+   "ref": "2.5.2h",
+   "level": "hard"
+  },
+  {
+   "q": "A depository can directly open accounts and provide services to investors without going through a Depository Participant.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "A depository cannot open accounts directly; investors must enter into an agreement with it through a DP.",
+   "ref": "2.5.2a",
+   "level": "easy"
+  },
+  {
+   "q": "Under the Code of Conduct, a stock broker shall not advertise his business publicly unless permitted by the stock exchange.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "why": "This is one of the duties towards other stock brokers in Annexure 1.",
+   "ref": "A1",
+   "level": "easy"
+  }
+ ]
+}

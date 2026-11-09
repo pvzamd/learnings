@@ -1,0 +1,1627 @@
+{
+ "id": 1,
+ "title": "Introduction to the Securities Market",
+ "short": "Securities Market",
+ "weight": 5,
+ "minutes": 35,
+ "big_picture": "Money sits idle with savers while companies and governments need it to build things. Financial markets are the pipes between them: the money market for short-term needs (1 day to 1 year) and the securities market for long-term capital, where new securities are sold in the primary market and then traded in the secondary market. This chapter is a tour of the product shelf (shares, debt, derivatives, money market paper, REITs, InvITs, gold bonds) and of GIFT City's IFSC, India's offshore-style financial zone.",
+ "exam_focus": [
+  "Primary vs secondary market; public issue, private placement, rights and bonus; OTC vs exchange trading",
+  "Money market tenors: call (overnight), notice (up to 14 days), term (15 days to 1 year), T-bills 91 / 182 / 364, CMBs under 91 days",
+  "CP and CD facts: ₹5 lakh multiples, 7 days to 1 year, CP rating A3, AIFI CDs 1 to 3 years",
+  "Derivatives: call vs put, forward vs futures, which contracts are cash vs physically settled and their expiry days",
+  "Currency and interest rate derivative specs: 12:30 pm expiry, FBIL rate, ₹2 lakh bond futures lot, last Thursday",
+  "REIT / InvIT numbers: ₹500 crore assets, ₹250 crore offer, 25% cap, trading lots, InvIT private placement ₹25 lakh",
+  "IFSC: GIFT City, IFSCA (2020), what can be traded there and who can deal"
+ ],
+ "sections": [
+  {
+   "id": "1.1",
+   "title": "Introduction: Financial Markets and 'Securities'",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Some people have spare money (savers), others need it (users). Households, businesses and governments play <b>both</b> roles at different times. Financial markets are the pipes that move surplus money to productive use; intermediaries such as banks, FIs, mutual funds and insurers channel it from lenders to users."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Aggregate</b> funds from many investors (impossible without markets).",
+      "Move funds at a <b>cost</b> attractive to both savers and borrowers.",
+      "Spread <b>information</b> to all, so the price of funds reflects everything known.",
+      "Let participants re-allocate on new information: <b>liquidity and exit options</b> are a core function.",
+      "Regulators streamline the systems and processes for transfer of funds."
+     ]
+    },
+    {
+     "type": "key",
+     "text": "Financial market = <b>Money market</b> + <b>Capital (securities) market</b>: a transmission mechanism between investors and borrowers, linked by formal trading rules and a communication network. The securities market <b>decouples saving from investing</b>, so both are limited only by the economy's capacity, not by individuals."
+    },
+    {
+     "type": "table",
+     "head": [
+      "#",
+      "'Securities' under the Securities Contracts (Regulation) Act, 1956 (SCRA)"
+     ],
+     "rows": [
+      [
+       "i",
+       "Shares, scrips, stocks, bonds, debentures, debenture stock and similar marketable securities of a company / body corporate"
+      ],
+      [
+       "ii",
+       "Derivatives"
+      ],
+      [
+       "iii",
+       "Units of a Collective Investment Scheme"
+      ],
+      [
+       "iv",
+       "Security receipts (SARFAESI Act, 2002)"
+      ],
+      [
+       "v",
+       "Units of a pooled investment vehicle"
+      ],
+      [
+       "vi",
+       "Units of a mutual fund scheme"
+      ],
+      [
+       "vii",
+       "Securitised debt: certificates from a special purpose distinct entity holding debt / receivables (incl. mortgage debt)"
+      ],
+      [
+       "viii",
+       "Government securities"
+      ],
+      [
+       "ix",
+       "Instruments declared securities by the Central Government"
+      ],
+      [
+       "x",
+       "Rights or interest in securities"
+      ],
+      [
+       "xi",
+       "Electronic Gold Receipts (issued against deposit of physical gold, under SEBI regulations)"
+      ],
+      [
+       "xii",
+       "Zero Coupon Zero Principal Instruments"
+      ]
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "ULIPs are <b>not</b> securities: SCRA excludes any unit linked insurance policy combining life cover with investment, issued by an insurer under the Insurance Act, 1938."
+    },
+    {
+     "type": "hook",
+     "text": "Marketable, pooled, derived, securitised or government-issued = security. Life cover plus investment (ULIP) = not. The two newest entries are about <b>Gold and Zero</b>."
+    }
+   ]
+  },
+  {
+   "id": "1.2",
+   "title": "Securities Market: Primary and Secondary",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Two <b>interdependent and inseparable</b> segments: the primary market (new issues) and the secondary market (trading existing issues). People buy in an IPO because they know they can sell later on the exchange."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Primary market",
+       "points": [
+        "Issuer raises capital; has <b>direct contact</b> with investors",
+        "Routes: IPO, FPO (Further / Follow-on Public Offer), rights issue, private placement",
+        "Provides capital at reasonable rates for expansion, diversification, consolidation",
+        "Exchanges only provide a platform for issuance and listing"
+       ]
+      },
+      {
+       "title": "Secondary market",
+       "points": [
+        "Provides <b>liquidity</b>; deals are between two investors, <b>issuer not involved</b>",
+        "Two mediums: <b>OTC</b> (informal, negotiated, settled bilaterally) and <b>exchange / Screen Based Trading System</b> (anonymous, fixed settlement schedule, clearing corporation is counterparty and guarantees settlement)",
+        "An active secondary market promotes primary market growth"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Route",
+      "Offered to",
+      "Cost"
+     ],
+     "rows": [
+      [
+       "Public issue (IPO / FPO)",
+       "Anybody and everybody",
+       "Issue price"
+      ],
+      [
+       "Private placement",
+       "A select group of people",
+       "Agreed price"
+      ],
+      [
+       "Rights issue",
+       "Existing shareholders (fresh shares)",
+       "A particular price"
+      ],
+      [
+       "Bonus issue / stock split",
+       "Existing shareholders",
+       "No cost"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Market",
+      "Major players"
+     ],
+     "rows": [
+      [
+       "Primary",
+       "Merchant bankers, MFs, FIs, FPIs, individuals, issuers, lawyers, bankers to the issue, brokers, depositories, SCSBs (Self-Certified Syndicate Banks), DPs"
+      ],
+      [
+       "Secondary",
+       "Exchanges, clearing corporations, stock brokers, MFs / AMCs, FIs, FPIs, investment companies, individuals, DPs, banks"
+      ],
+      [
+       "Both",
+       "RTAs, custodians and depositories (infrastructure)"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Priya gets 30 shares in ABC Ltd's IPO at ₹500 and pays ₹15,000 to ABC (primary). Later she sells them on NSE at ₹540 to an unknown buyer; the ₹16,200 comes via the clearing corporation and ABC gets nothing (secondary).",
+     "title": "Same share, two markets"
+    },
+    {
+     "type": "trap",
+     "text": "Select group of people = <b>private placement</b>; existing shareholders at a price = <b>rights</b>; existing shareholders at no cost = <b>bonus</b>. The exam swaps these freely."
+    }
+   ]
+  },
+  {
+   "id": "1.3",
+   "title": "Money Market",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "The <b>short-term</b> market: instruments of <b>1 day to 1 year</b>, used mostly by government, banks and corporates to tide over short-term needs. RBI uses it to transmit monetary policy (reserve ratios, Open Market Operations, policy rates). Participants range from RBI and all types of banks to PDs, FIs, insurers, MFs, NBFCs, corporates and PF / pension funds."
+    },
+    {
+     "type": "key",
+     "text": "Two segments: (a) <b>borrowing and lending</b>, with or without collateral; (b) <b>asset market</b> (buying and selling money market instruments such as CDs, CPs, T-bills, bankers' acceptances)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Instrument",
+      "Tenor",
+      "Key facts"
+     ],
+     "rows": [
+      [
+       "Call money",
+       "Overnight (stretched over holidays)",
+       "Unsecured, <b>purely interbank</b>: only SCBs and Primary Dealers"
+      ],
+      [
+       "Notice money",
+       "Beyond overnight, up to <b>14 days</b>",
+       "Uncollateralised"
+      ],
+      [
+       "Term money",
+       "<b>15 days to 1 year</b>",
+       "Uncollateralised"
+      ]
+     ],
+     "caption": "All three are dealt / reported on RBI's NDS-CALL platform, managed by CCIL"
+    },
+    {
+     "type": "hook",
+     "text": "Call - Notice - Term is a ladder: <b>tonight, up to a fortnight, then up to a year</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Repo (ready forward contract):</b> borrow by <i>selling</i> securities with an agreement to buy them back at a higher price that includes the interest. <b>Reverse repo</b> is the mirror: collateralised lending. Repo tenor = time between the two legs; interest is on the first-leg amount and is received in the second leg. RBI regulates repos; they are allowed on G-Secs and corporate bonds. G-Sec repos trade on <b>CROMS</b> (Clearcorp Dealing Systems) and are settled by <b>CCIL</b>. Participants: SCBs, PDs, MFs, NBFCs, FIs, insurers, corporates, PF / pension funds, payment banks and small finance banks."
+    },
+    {
+     "type": "example",
+     "text": "Bank A sells G-Secs to Mutual Fund B for ₹100 crore and buys them back after 7 days for ₹100.12 crore. Bank A did a <b>repo</b> (borrowed); MF B did a <b>reverse repo</b> (lent) and earned ₹12 lakh interest.",
+     "title": "Repo in numbers"
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "TREPS (tri-party repo in G-Secs)",
+       "points": [
+        "Triparty Agent handles collateral, settlement, custody; RBI authorised <b>CCIL</b> as TPA and CCP",
+        "Anonymous platform of Clearcorp Dealing Systems; open to all repo-eligible entities",
+        "Borrowings <b>exempt from CRR/SLR</b>; security acquired is SLR-eligible",
+        "Seller may <b>substitute</b> the security"
+       ]
+      },
+      {
+       "title": "Exchange traded tri-party repo (corporate debt)",
+       "points": [
+        "Aim: improve corporate bond liquidity; follows RBI directions",
+        "TPA: <b>AMC Repo Clearing Ltd (ARCL)</b>, a Limited Purpose Clearing Corporation, which also clears, settles and guarantees",
+        "Trades on the exchange Debt Market Segment (Tri-party repo sub-segment)"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Instrument",
+      "Issuer",
+      "Tenor",
+      "Must-know facts"
+     ],
+     "rows": [
+      [
+       "T-bills",
+       "Government of India",
+       "91, 182, 364 days",
+       "Zero coupon: issued at discount, redeemed at par; weekly RBI auction on <b>Wednesday</b>; traded on NDS-OM"
+      ],
+      [
+       "Cash Management Bills",
+       "Government of India",
+       "Under 91 days",
+       "Cover temporary cash-flow mismatches; absorb excess liquidity after the weekly T-bill auction"
+      ],
+      [
+       "Commercial Paper",
+       "Companies, NBFCs, AIFIs",
+       "7 days to 1 year",
+       "Unsecured; ₹5 lakh multiples; demat; min rating <b>A3</b>; Issuing and Paying Agent for each issue; RBI governs"
+      ],
+      [
+       "Certificate of Deposit",
+       "Banks; AIFIs",
+       "Banks 7 days-1 year; AIFIs 1-3 years",
+       "Negotiable, unsecured usance promissory note against deposits; ₹5 lakh multiples"
+      ]
+     ],
+     "caption": "Discounted instruments"
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>CP condition:</b> any bank / FI fund-based facility of the issuer must be a <b>standard asset</b> at the time of issue. Other entities (co-ops, government entities, trusts, LLPs, other bodies corporate in India) need <b>net worth of ₹100 crore+</b>.",
+      "<b>Repo in corporate bonds</b> (RBI, <b>2010</b>): eligible collateral is listed corporate bonds / debentures (not own or related entities'), CPs, CDs, Debt ETF units, municipal debt securities and specified local authority securities."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "T-bill tenors double: <b>91 x 2 = 182, x 2 = 364</b>. CMBs are shorter than the shortest T-bill."
+    },
+    {
+     "type": "trap",
+     "text": "Repo = <b>borrowing</b>, reverse repo = <b>lending</b>. TPA for G-Sec tri-party repo is CCIL; for exchange corporate debt repo it is ARCL."
+    }
+   ]
+  },
+  {
+   "id": "1.4.1",
+   "title": "Products: Equity / Cash Market",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Products trade on exchange segments and sometimes OTC. The <b>equity / cash segment</b> handles shares, G-Secs, debentures, warrants, mutual fund units and ETFs."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Product",
+      "Key features"
+     ],
+     "rows": [
+      [
+       "Equity share",
+       "Fractional ownership; no maturity; variable returns (dividend, capital gains); voting rights; <b>last</b> in liquidation; riskier than debt"
+      ],
+      [
+       "Preference share",
+       "Dividend paid <b>before</b> equity dividend; preferential rights over equity in profits"
+      ],
+      [
+       "Debenture",
+       "Loan to the company: maturity date, predefined interest; in India usually secured by tangible assets"
+      ],
+      [
+       "Government Security",
+       "Sovereign debt of Central / State Govt, issued by auction; local-currency G-Secs are risk free (government can print currency). State dated securities = SGS"
+      ],
+      [
+       "Warrant",
+       "Right to buy equity shares after a specified period at a given price"
+      ],
+      [
+       "Mutual fund",
+       "Pools money with a common objective; professional, diversified; open- or close-ended; <b>close-ended schemes trade on the equity segment</b>; equity MFs riskier than debt MFs; liquid funds hold money market paper"
+      ],
+      [
+       "ETF",
+       "Tracks an index / commodity / bonds / basket; trades like a stock all day; <b>replicates</b>, not beats, the index; value based on NAV"
+      ]
+     ]
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Fully convertible",
+       "points": [
+        "Converted fully into shares of the same company"
+       ]
+      },
+      {
+       "title": "Partly convertible (PCD)",
+       "points": [
+        "Part converted; mix of debt and equity"
+       ]
+      },
+      {
+       "title": "Non-convertible (NCD)",
+       "points": [
+        "Pure debt, repaid at maturity"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Indian Depository Receipt (IDR):</b> foreign companies cannot list directly in India, so they raise rupees through IDRs: rupee depository receipts created by a <b>Domestic Depository</b> (SEBI-registered custodian) against the foreign company's shares, which are held by a <b>foreign custodian</b>. IDRs are listed on Indian exchanges."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Hold, trade, or convert / redeem into the underlying shares, allowed <b>after 1 year from listing</b>.",
+      "<b>Two-way fungibility</b>, but shares-to-IDR conversion only within the <b>headroom</b> = IDRs originally issued minus IDRs outstanding (adjusted for IDRs redeemed)."
+     ]
+    },
+    {
+     "type": "example",
+     "text": "10 lakh IDRs issued; 3 lakh later converted into shares, so 7 lakh outstanding. Headroom = 3 lakh: at most 3 lakh shares can be converted back into IDRs.",
+     "title": "IDR headroom"
+    },
+    {
+     "type": "trap",
+     "text": "Equity is paid <b>last</b> in liquidation; preference dividend comes <b>before</b> equity dividend. Debentures can be pure debt (NCD) or quasi-equity (convertible). IDRs: <b>foreign</b> issuer, <b>Indian</b> investors, rupees."
+    }
+   ]
+  },
+  {
+   "id": "1.4.2",
+   "title": "Derivatives: The Basics",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A derivative is a contract whose value is <b>derived</b> from an underlying: stocks, bonds, commodities, currencies, interest rates or indices. Forms: forwards, futures, options, swaps; traded OTC or on exchanges."
+    },
+    {
+     "type": "key",
+     "text": "Derivatives entered the definition of 'securities' via the <b>Securities Laws (Second Amendment) Act, 1999</b>. <b>SCRA Section 18A</b>: derivative contracts are legal and valid if traded on a recognised exchange, settled on its clearing house per its bye-laws, and between parties / on terms notified by the Central Government."
+    },
+    {
+     "type": "p",
+     "text": "SCRA's definition covers: a security derived from a debt instrument, share, loan, risk instrument or contract for differences; a contract deriving value from prices or price indices of securities; commodity derivatives; and other instruments the Central Government declares."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Product",
+      "Definition",
+      "Where"
+     ],
+     "rows": [
+      [
+       "Forward",
+       "Promise to deliver an asset on a set future date at a set price; <b>non-standardised</b>",
+       "OTC"
+      ],
+      [
+       "Futures",
+       "Agreement to buy / sell at a future date and price; <b>standardised</b> (quantity, quality, delivery time and place); a special type of forward",
+       "Exchange"
+      ],
+      [
+       "Options",
+       "Buyer gets a <b>right but not an obligation</b> to buy / sell at a set price within or at the end of a period",
+       "Exchange and OTC"
+      ],
+      [
+       "Swap",
+       "Exchange of future cash flows by a set formula; a series of forwards; hedges interest, currency, commodity risk",
+       "Mainly OTC"
+      ]
+     ]
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Call option",
+       "points": [
+        "Right, not obligation, to <b>BUY</b> a given quantity at a given price on or before a date"
+       ]
+      },
+      {
+       "title": "Put option",
+       "points": [
+        "Right, not obligation, to <b>SELL</b> a given quantity at a given price on or before a date"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "<b>Call</b> the shares towards you (buy); <b>put</b> them away (sell)."
+    },
+    {
+     "type": "key",
+     "text": "Exchange-traded derivatives are <b>futures and options</b>, on stocks, indices, currencies, interest rates and commodities. For derivatives, 'OTC' means anything off-exchange, <b>including electronic trading platforms</b>."
+    }
+   ]
+  },
+  {
+   "id": "1.4.2.1",
+   "title": "Equity Derivatives",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Index F&O are available on benchmarks such as BSE's SENSEX, MSEI's SX40 and NSE's NIFTY 50, plus sectoral (bank) indices, under SEBI eligibility criteria. SEBI's expiry-day rules:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "All equity derivative expiries of an exchange fall on <b>either Tuesday or Thursday</b>.",
+      "Each exchange gets only <b>one weekly benchmark index options</b> contract.",
+      "All other contracts (index futures, non-benchmark index F&O, single stock F&O): <b>minimum tenor 1 month</b>, expiring in the <b>last week of the month</b> (last Tuesday / Thursday).",
+      "Changing the settlement day needs <b>prior SEBI approval</b>."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Feature",
+      "Rule"
+     ],
+     "rows": [
+      [
+       "Monthly index contracts",
+       "Generally 3-month cycle"
+      ],
+      [
+       "Long-dated index options",
+       "Up to 5 years; quarterly (Mar, Jun, Sep, Dec) and half-yearly (Jun, Dec)"
+      ],
+      [
+       "'Long dated' means",
+       "Expiry of <b>more than 9 months</b>"
+      ],
+      [
+       "Expiry day is a holiday",
+       "Expire on the <b>previous</b> trading day"
+      ],
+      [
+       "New contract",
+       "Next trading day after the near-month (or weekly) expiry"
+      ],
+      [
+       "Settlement",
+       "Index F&O: <b>cash</b>. Stock F&O: <b>physical</b>"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "Stocks for F&O are chosen by the exchange using SEBI criteria: market capitalisation, median quarter sigma order size, trading volume, delivery volume etc."
+    },
+    {
+     "type": "hook",
+     "text": "You cannot deliver a NIFTY, so <b>index = cash</b>. A share can be delivered, so <b>stock = physical</b>."
+    },
+    {
+     "type": "trap",
+     "text": "Only <b>benchmark index options</b> can be weekly, one per exchange. Single stock contracts are monthly (minimum 1 month)."
+    }
+   ]
+  },
+  {
+   "id": "1.4.2.2",
+   "title": "Currency Derivatives",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Began in <b>2008</b> with USD-INR futures (NSE August 29, BSE October 1, MSEI October 7, 2008). Traded on the <b>Currency Derivatives Segment</b>; all contracts are <b>cash settled in INR</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Feature",
+      "Futures",
+      "Options (monthly)"
+     ],
+     "rows": [
+      [
+       "Pairs",
+       "USDINR, EURINR, GBPINR, JPYINR + crosses EURUSD, GBPUSD, USDJPY",
+       "Monthly and weekly available"
+      ],
+      [
+       "Cycle",
+       "Up to 12 months",
+       "3 serial monthly + 3 quarterly (Mar / Jun / Sep / Dec)"
+      ],
+      [
+       "Last trading day",
+       "2 working days before last business day of the month, <b>12:30 pm</b>",
+       "Same"
+      ],
+      [
+       "Final settlement price",
+       "FBIL reference rate; crosses derived from FCY-INR rates",
+       "FBIL reference rate on expiry"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "FBIL = <b>Financial Benchmarks India Pvt. Ltd</b>, independent benchmark administrator for interest rates and FX.",
+      "Weekly contracts on some pairs generally expire <b>Friday, 12:30 pm</b>."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "<b>4 + 3 = 7 pairs</b>: four rupee pairs (dollar, euro, pound, yen) and three crosses made only from those currencies. Currency contracts expire at lunch time, <b>12:30 pm</b>."
+    },
+    {
+     "type": "trap",
+     "text": "Expiry rules differ: currency = 2 working days before the last business day; interest rate derivatives = last Thursday; equity = Tuesday or Thursday."
+    }
+   ]
+  },
+  {
+   "id": "1.4.2.3",
+   "title": "Interest Rate Derivatives",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Started with Interest Rate Futures (standardised contracts on a notional bond, interest-bearing instrument, index or interest rate, including money market futures); <b>interest rate options arrived in 2019</b>. IRFs exist on single GoI securities in <b>4-8, 8-11 and 11-15 year</b> baskets, <b>91-day T-Bills</b> and <b>Overnight MIBOR</b>. SEBI has also allowed futures on Corporate Bond Indices. Options are on single-bond GoI securities."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Feature",
+      "Single bond futures and options"
+     ],
+     "rows": [
+      [
+       "Lot size",
+       "2,000 bonds x ₹100 = <b>₹2,00,000</b>"
+      ],
+      [
+       "Contracts",
+       "3 serial monthly + 3 quarterly"
+      ],
+      [
+       "Last trading day",
+       "<b>Last Thursday</b> of expiry month (holiday: previous trading day)"
+      ],
+      [
+       "Final settlement price",
+       "VWAP of the bond in the <b>last 2 hours</b> on NDS-OM; if fewer than <b>5 trades</b>, FIMMDA / FBIL price"
+      ]
+     ]
+    },
+    {
+     "type": "key",
+     "text": "IRDs trade on the <b>Currency Derivatives segment</b>. SEBI permits physical settlement, but all are currently <b>cash settled</b>."
+    }
+   ]
+  },
+  {
+   "id": "1.4.2.4",
+   "title": "Commodity Derivatives",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Derived from commodities such as gold, silver, metals, energy and agricultural goods; may be <b>cash settled or physically settled</b> with actual delivery. Traded on the <b>Commodity Derivatives Segment</b>."
+    }
+   ]
+  },
+  {
+   "id": "1.4.3",
+   "title": "Debt Market",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "G-Secs, money market instruments, bonds and debentures, traded OTC, on electronic platforms or exchanges. Two parts: the <b>G-Sec market</b> and the <b>corporate bond market</b>."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Treasury bills",
+       "points": [
+        "Original maturity <b>under 1 year</b>",
+        "Central Government only"
+       ]
+      },
+      {
+       "title": "Dated securities",
+       "points": [
+        "Original maturity <b>1 year or more</b>",
+        "Central and State Governments (State Government Securities)"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "G-Secs acknowledge government debt and carry practically no default risk: <b>'risk-free gilt-edged'</b>. Investors: banks, insurers, PFs, MFs, state governments, FPIs.",
+      "<b>Primary:</b> RBI auctions (yield or price based). <b>Secondary:</b> mainly RBI's <b>NDS-OM</b>; also OTC, RBI Retail Direct, exchanges.",
+      "RBI (Access Criteria for NDS-OM) Directions, <b>2025</b>: access via direct, indirect or <b>Stock Broker Connect</b> (a broker gives its individual demat clients access). SEBI lets brokers do this through a <b>Separate Business Unit (SBU)</b>."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "State Governments issue <b>only dated securities</b>, never T-bills. (The workbook calls them both 'SGS' and 'SDS'.)"
+    },
+    {
+     "type": "p",
+     "text": "<b>Corporate bonds</b> are issued by non-government entities (companies, municipal corporations) for expansion, modernisation, restructuring and M&A, by public offer or private placement. About <b>99%</b> are <b>privately placed</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Platform",
+      "What it does"
+     ],
+     "rows": [
+      [
+       "EBP (Electronic Book Provider / Bidding Platform)",
+       "Primary private placements; SEBI circular of <b>April 21, 2016</b>. Mandatory (by issue size etc.) for debt securities, non-convertible redeemable preference shares, municipal debt; optional for securitised debt, security receipts, CPs, CDs and REIT / SM REIT / InvIT units"
+      ],
+      [
+       "OTC + reporting platform",
+       "Secondary trades negotiated by phone / intermediaries; regulated entities must report them on the exchange platform in time"
+      ],
+      [
+       "RFQ (Request for Quote)",
+       "Launched <b>early 2020</b>; screen-based quotes with audit trail; <b>pre-trade transparency</b>"
+      ],
+      [
+       "Exchange trading",
+       "Regulated entities trade directly or via brokers; others only via brokers"
+      ],
+      [
+       "Online Bond Platform",
+       "Electronic system (not an exchange or EBP) offering listed / to-be-listed debt to non-institutional investors; the provider (OBPP) must register as a <b>stock broker in the debt segment</b>"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "<b>EBP</b> is where a bond is born, <b>RFQ</b> is where institutions haggle, an <b>OBP</b> is the retail shop window."
+    }
+   ]
+  },
+  {
+   "id": "1.4.4",
+   "title": "Other Asset Classes: REITs, InvITs, SGBs, Rights Entitlements",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>REIT:</b> SEBI-registered trust investing in commercial real estate; defined as pooling <b>₹50 crore or more</b> to issue units to at least <b>200 investors</b>, who get the income without day-to-day control. <b>InvIT:</b> SEBI-registered trust investing in infrastructure. Both governed by SEBI Regulations of <b>2014</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Feature",
+      "REIT",
+      "InvIT"
+     ],
+     "rows": [
+      [
+       "Asset value / offer size",
+       "≥ ₹500 crore / ≥ ₹250 crore",
+       "≥ ₹500 crore / ≥ ₹250 crore"
+      ],
+      [
+       "Route",
+       "Initial offer <b>only by public issue</b>",
+       "Public issue (IPO) and / or private placement"
+      ],
+      [
+       "Min subscription",
+       "₹10,000-15,000",
+       "Public ₹10,000-15,000; private <b>₹25 lakh</b>"
+      ],
+      [
+       "Max per non-sponsor investor",
+       "25% of unit capital",
+       "25% of unit capital"
+      ],
+      [
+       "Investor count",
+       "≥ <b>200</b> public unit holders",
+       "Public: refund if < <b>20</b> subscribers or < <b>90%</b> subscribed. Private: <b>5 to 1,000</b>"
+      ],
+      [
+       "Trading lot",
+       "1 unit",
+       "Public 1 unit; private <b>₹25 lakh</b>"
+      ],
+      [
+       "Listing",
+       "Mandatory",
+       "Mandatory (nationwide exchange), public or private"
+      ]
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Follow-on routes for both: FPO, preferential allotment, QIP, rights, bonus, OFS etc.",
+      "InvIT private placement: via <b>placement memorandum</b>, only to institutional investors or bodies corporate (Indian or foreign). No InvIT public issue while <b>subordinate units</b> are outstanding.",
+      "SEBI circular of <b>November 28, 2025</b>: REITs reclassified as <b>equity related instruments</b> (for MF / SIF participation).",
+      "<b>SM REITs</b> (introduced <b>2024</b>): smaller asset size; one SM REIT can run <b>multiple schemes</b> like a mutual fund; minimum subscription <b>₹10 lakh</b>."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "<b>500 / 250 / 25 / 10-15</b> fits both: ₹500 crore assets, ₹250 crore offer, 25% cap, ₹10-15 thousand minimum. Odd ones out: REIT 200 holders; InvIT public 20 subscribers / 90%; InvIT private is a ₹25 lakh club of 5 to 1,000."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Sovereign Gold Bond",
+      "Detail"
+     ],
+     "rows": [
+      [
+       "Launched / nature",
+       "2015; government securities in grams of gold, 1 gram and multiples"
+      ],
+      [
+       "Tenor",
+       "<b>8 years</b>; paid and redeemed in rupees at the gold price (could be higher or lower)"
+      ],
+      [
+       "Interest",
+       "<b>2.50% p.a.</b> on the initial investment, paid <b>semi-annually</b>"
+      ],
+      [
+       "Investors",
+       "Resident individuals, HUFs, trusts, universities, charitable trusts"
+      ],
+      [
+       "Form",
+       "Physical or demat; exchange-tradable only in demat"
+      ],
+      [
+       "Status",
+       "Per footnote, no fresh tranches currently open for direct subscription"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Rights Entitlements (REs):</b> the right to apply for rights shares in proportion to holdings, credited in demat to shareholders on the record date under a <b>separate ISIN</b>. REs trade on exchanges like shares, so a holder can sell and anyone can buy; the RE holder then applies via the SEBI-specified mechanism."
+    },
+    {
+     "type": "example",
+     "text": "You hold 100 XYZ shares; a 1:5 rights issue credits 20 REs. Not wanting to invest, you sell them on NSE at ₹12 each for ₹240. The buyer must apply and pay the issue price to get the shares.",
+     "title": "Rights entitlement"
+    },
+    {
+     "type": "trap",
+     "text": "SGB interest (2.50%) is on the <b>initial investment</b>, half-yearly, not on the current gold value. Investors apply only while a tranche is open."
+    }
+   ]
+  },
+  {
+   "id": "1.5",
+   "title": "International Financial Services Centres (IFSC)",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "An IFSC serves customers <b>outside the domestic jurisdiction</b>: cross-border banking, insurance, asset management and capital markets, in a currency <b>other than the rupee</b>. India's first is at <b>GIFT City, Gandhinagar, Gujarat</b>: an offshore centre on Indian soil."
+    },
+    {
+     "type": "list",
+     "items": [
+      "A <b>deemed foreign territory</b>; entities there are <b>non-residents</b> under FEMA.",
+      "Regulator: <b>IFSCA</b>, a statutory unified authority established in <b>2020</b> (IFSCA Act, 2019).",
+      "Tax: <b>10-year income tax holiday within a 15-year block</b> (main text); footnote: Union Budget 2026 made it <b>20 years within 25</b>. Investors are exempt from capital gains tax, STT and GST on offshore services.",
+      "<b>Direct listing</b> of Indian public companies' shares on international exchanges: Schedule XI of the FEM (Non-debt Instruments) Rules, 2019, and in GIFT the <b>IFSCA (Issuance and Listing of Securities) Regulations, 2021</b>. Operational for <b>unlisted</b> companies; SEBI is yet to issue guidelines for listed ones.",
+      "Bullion exchange, clearing corporation, depository and vault managers: <b>IFSCA (Bullion Exchange) Regulations, 2020</b>."
+     ]
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Tradable on IFSC exchanges (SEBI IFSC Guidelines, 2015)",
+       "points": [
+        "Equity shares of companies incorporated <b>outside</b> India",
+        "Depository receipts; debt securities of eligible issuers",
+        "Currency, interest rate, index and commodity derivatives",
+        "REITs / InvITs of permissible jurisdictions; others SEBI specifies"
+       ]
+      },
+      {
+       "title": "Who may deal",
+       "points": [
+        "Persons not resident in India; NRIs",
+        "Resident FIs eligible under FEMA to invest offshore (within permitted limit)",
+        "Resident persons eligible under FEMA, within the <b>Liberalised Remittance Scheme</b>, subject to SEBI's minimum investment"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "key",
+     "text": "<b>NSE and BSE</b> both run IFSC exchanges (index, stock, currency, commodity derivatives and debt). Brokers need no specific SEBI approval for GIFT-IFSC: they may use a <b>Separate Business Unit</b>, a branch qualifying as SBU, or a subsidiary."
+    },
+    {
+     "type": "trap",
+     "text": "Shares of a <b>private Indian company</b> cannot trade on IFSC exchanges. Tax holiday: answer 10 / 15 unless the question mentions Budget 2026 (20 / 25)."
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Act that defines 'securities'",
+   "value": "Securities Contracts (Regulation) Act, 1956",
+   "ref": "1.1"
+  },
+  {
+   "fact": "Security receipts are defined in",
+   "value": "SARFAESI Act, 2002",
+   "ref": "1.1"
+  },
+  {
+   "fact": "ULIPs excluded from 'securities': insurer under",
+   "value": "Insurance Act, 1938",
+   "ref": "1.1"
+  },
+  {
+   "fact": "Money market instrument tenor",
+   "value": "1 day to 1 year",
+   "ref": "1.3"
+  },
+  {
+   "fact": "Call money tenor",
+   "value": "Overnight",
+   "ref": "1.3"
+  },
+  {
+   "fact": "Notice money tenor",
+   "value": "Beyond overnight, up to 14 days",
+   "ref": "1.3"
+  },
+  {
+   "fact": "Term money tenor",
+   "value": "15 days to 1 year",
+   "ref": "1.3"
+  },
+  {
+   "fact": "Call money participants",
+   "value": "Only SCBs and Primary Dealers",
+   "ref": "1.3"
+  },
+  {
+   "fact": "T-bill tenors",
+   "value": "91, 182 and 364 days",
+   "ref": "1.3"
+  },
+  {
+   "fact": "T-bill auction frequency / day",
+   "value": "Weekly, on Wednesday",
+   "ref": "1.3"
+  },
+  {
+   "fact": "Cash Management Bill maturity",
+   "value": "Less than 91 days",
+   "ref": "1.3"
+  },
+  {
+   "fact": "CP / CD denomination",
+   "value": "₹5 lakh and multiples",
+   "ref": "1.3"
+  },
+  {
+   "fact": "CP maturity",
+   "value": "7 days to 1 year",
+   "ref": "1.3"
+  },
+  {
+   "fact": "CP minimum credit rating",
+   "value": "A3",
+   "ref": "1.3"
+  },
+  {
+   "fact": "CP: net worth for other entities (co-ops, trusts, LLPs etc.)",
+   "value": "₹100 crore or higher",
+   "ref": "1.3"
+  },
+  {
+   "fact": "CD maturity (banks)",
+   "value": "7 days to 1 year",
+   "ref": "1.3"
+  },
+  {
+   "fact": "CD maturity (AIFIs)",
+   "value": "1 year to 3 years",
+   "ref": "1.3"
+  },
+  {
+   "fact": "Repo in corporate bonds introduced by RBI",
+   "value": "2010",
+   "ref": "1.3"
+  },
+  {
+   "fact": "IDR conversion / redemption allowed",
+   "value": "After 1 year from listing",
+   "ref": "1.4.1"
+  },
+  {
+   "fact": "Derivatives added to 'securities' by",
+   "value": "Securities Laws (Second Amendment) Act, 1999",
+   "ref": "1.4.2"
+  },
+  {
+   "fact": "SCRA section on legality of derivative contracts",
+   "value": "Section 18A",
+   "ref": "1.4.2"
+  },
+  {
+   "fact": "Equity derivatives expiry day",
+   "value": "Tuesday or Thursday (one per exchange)",
+   "ref": "1.4.2.1"
+  },
+  {
+   "fact": "Weekly benchmark index options allowed per exchange",
+   "value": "One",
+   "ref": "1.4.2.1"
+  },
+  {
+   "fact": "Minimum tenor of other equity derivatives",
+   "value": "1 month; expiry in last week of month",
+   "ref": "1.4.2.1"
+  },
+  {
+   "fact": "Monthly index contract cycle",
+   "value": "3 months",
+   "ref": "1.4.2.1"
+  },
+  {
+   "fact": "Long-dated index options",
+   "value": "Up to 5 years; quarterly and half-yearly expiries",
+   "ref": "1.4.2.1"
+  },
+  {
+   "fact": "Option counts as long-dated if expiry is",
+   "value": "More than 9 months",
+   "ref": "1.4.2.1"
+  },
+  {
+   "fact": "Currency futures launched (USD-INR)",
+   "value": "2008 (NSE Aug 29; BSE Oct 1; MSEI Oct 7)",
+   "ref": "1.4.2.2"
+  },
+  {
+   "fact": "Currency pairs for futures",
+   "value": "4 INR pairs + 3 cross pairs",
+   "ref": "1.4.2.2"
+  },
+  {
+   "fact": "Currency futures maximum trading cycle",
+   "value": "12 months",
+   "ref": "1.4.2.2"
+  },
+  {
+   "fact": "Currency F&O last trading day",
+   "value": "2 working days before last business day of month, 12:30 pm",
+   "ref": "1.4.2.2"
+  },
+  {
+   "fact": "Currency options (monthly) contracts",
+   "value": "3 serial monthly + 3 quarterly",
+   "ref": "1.4.2.2"
+  },
+  {
+   "fact": "Weekly currency contracts expire",
+   "value": "Friday, 12:30 pm",
+   "ref": "1.4.2.2"
+  },
+  {
+   "fact": "Interest rate options introduced",
+   "value": "2019",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "IRF maturity baskets (GoI bonds)",
+   "value": "4-8, 8-11 and 11-15 years",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "Other IRF underlyings",
+   "value": "91-day T-Bill, Overnight MIBOR",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "Single bond futures lot size",
+   "value": "2,000 bonds x ₹100 = ₹2,00,000",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "IRD contracts available",
+   "value": "3 serial monthly + 3 quarterly",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "IRD last trading day",
+   "value": "Last Thursday of expiry month",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "IRD final settlement price window",
+   "value": "VWAP of last 2 hours on NDS-OM",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "IRD fallback trigger",
+   "value": "Fewer than 5 trades in last 2 hours: FIMMDA / FBIL price",
+   "ref": "1.4.2.3"
+  },
+  {
+   "fact": "Share of corporate bonds via private placement",
+   "value": "About 99%",
+   "ref": "1.4.3"
+  },
+  {
+   "fact": "SEBI circular on EBP for private placement",
+   "value": "April 21, 2016",
+   "ref": "1.4.3"
+  },
+  {
+   "fact": "RFQ platform launched",
+   "value": "Early 2020",
+   "ref": "1.4.3"
+  },
+  {
+   "fact": "RBI NDS-OM access directions",
+   "value": "2025",
+   "ref": "1.4.3"
+  },
+  {
+   "fact": "REIT / InvIT regulations",
+   "value": "2014",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REIT definition",
+   "value": "Pools ₹50 crore or more; at least 200 investors",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REIT / InvIT minimum asset value",
+   "value": "₹500 crore",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REIT / InvIT minimum offer size",
+   "value": "₹250 crore",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REIT minimum public unit holders",
+   "value": "200",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REIT / InvIT max holding by one non-sponsor investor",
+   "value": "25% of unit capital",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REIT / InvIT public offer minimum subscription",
+   "value": "₹10,000 to ₹15,000",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REIT trading lot / InvIT public trading lot",
+   "value": "1 unit",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "REITs reclassified as equity related instruments",
+   "value": "SEBI circular, November 28, 2025",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "SM REITs introduced",
+   "value": "2024",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "SM REIT minimum subscription",
+   "value": "₹10 lakh",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "InvIT public issue refund triggers",
+   "value": "Fewer than 20 subscribers or under 90% subscribed",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "InvIT private placement minimum investment",
+   "value": "₹25 lakh",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "InvIT private placement investor count",
+   "value": "5 to 1,000",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "InvIT private placement trading lot",
+   "value": "₹25 lakh",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "SGB scheme launched",
+   "value": "2015",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "SGB denomination",
+   "value": "1 gram of gold and multiples",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "SGB tenor",
+   "value": "8 years",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "SGB interest",
+   "value": "2.50% p.a., paid semi-annually",
+   "ref": "1.4.4"
+  },
+  {
+   "fact": "IFSCA established",
+   "value": "2020 (IFSCA Act, 2019)",
+   "ref": "1.5"
+  },
+  {
+   "fact": "IFSC income tax holiday (workbook text)",
+   "value": "10 years within a 15-year block",
+   "ref": "1.5"
+  },
+  {
+   "fact": "IFSC tax holiday after Union Budget 2026 (footnote)",
+   "value": "20 years within a 25-year block",
+   "ref": "1.5"
+  },
+  {
+   "fact": "Direct listing scheme location",
+   "value": "Schedule XI, FEM (Non-debt Instruments) Rules, 2019",
+   "ref": "1.5"
+  },
+  {
+   "fact": "IFSCA (Issuance and Listing of Securities) Regulations",
+   "value": "2021",
+   "ref": "1.5"
+  },
+  {
+   "fact": "IFSCA (Bullion Exchange) Regulations",
+   "value": "2020",
+   "ref": "1.5"
+  },
+  {
+   "fact": "SEBI IFSC Guidelines",
+   "value": "2015",
+   "ref": "1.5"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "Which Act defines 'securities' in India?",
+   "a": "Securities Contracts (Regulation) Act, 1956 (SCRA)"
+  },
+  {
+   "q": "Is a ULIP a 'security' under SCRA?",
+   "a": "No. ULIPs combining life cover and investment, issued by an insurer, are excluded."
+  },
+  {
+   "q": "Primary vs secondary market in one line?",
+   "a": "Primary: issuer sells new securities to investors. Secondary: investors trade existing securities; issuer not involved."
+  },
+  {
+   "q": "Private placement vs rights issue?",
+   "a": "Private placement: select group of people. Rights issue: fresh shares to existing shareholders at a price."
+  },
+  {
+   "q": "Who guarantees settlement of exchange trades?",
+   "a": "The clearing corporation, acting as counterparty"
+  },
+  {
+   "q": "Money market tenor range?",
+   "a": "1 day to 1 year"
+  },
+  {
+   "q": "Call, notice, term money tenors?",
+   "a": "Call: overnight. Notice: up to 14 days. Term: 15 days to 1 year."
+  },
+  {
+   "q": "Who can participate in the call money market?",
+   "a": "Only Scheduled Commercial Banks and Primary Dealers"
+  },
+  {
+   "q": "Repo vs reverse repo?",
+   "a": "Repo: borrowing by selling securities with a buy-back promise. Reverse repo: collateralised lending."
+  },
+  {
+   "q": "What is TREPS?",
+   "a": "Tri-party repo in G-Secs on Clearcorp's anonymous platform, CCIL as TPA and CCP; borrowings exempt from CRR/SLR"
+  },
+  {
+   "q": "Who is the tri-party agent for exchange-traded corporate debt repo?",
+   "a": "AMC Repo Clearing Ltd (ARCL), a limited purpose clearing corporation"
+  },
+  {
+   "q": "T-bill tenors and auction day?",
+   "a": "91, 182 and 364 days; RBI auctions weekly on Wednesday"
+  },
+  {
+   "q": "CP: minimum size, tenor and rating?",
+   "a": "₹5 lakh and multiples; 7 days to 1 year; minimum rating A3"
+  },
+  {
+   "q": "CD tenor for banks vs AIFIs?",
+   "a": "Banks: 7 days to 1 year. AIFIs: 1 to 3 years."
+  },
+  {
+   "q": "What is an IDR?",
+   "a": "A rupee depository receipt issued by a domestic depository against shares of a foreign company, listed in India"
+  },
+  {
+   "q": "When can an IDR be converted into underlying shares?",
+   "a": "After 1 year from the date of listing"
+  },
+  {
+   "q": "Call option vs put option?",
+   "a": "Call: right, not obligation, to buy. Put: right, not obligation, to sell."
+  },
+  {
+   "q": "Forward vs futures?",
+   "a": "Forward: non-standardised, OTC. Futures: standardised, exchange traded."
+  },
+  {
+   "q": "How are index F&O and stock F&O settled?",
+   "a": "Index F&O: cash settled. Stock F&O: physically settled."
+  },
+  {
+   "q": "Equity derivative expiry days allowed?",
+   "a": "Tuesday or Thursday; one weekly benchmark index option per exchange; others monthly, last week"
+  },
+  {
+   "q": "Currency F&O last trading day?",
+   "a": "Two working days before the last business day of the expiry month, at 12:30 pm"
+  },
+  {
+   "q": "Final settlement price of USDINR futures?",
+   "a": "FBIL (Financial Benchmarks India Pvt Ltd) reference rate"
+  },
+  {
+   "q": "Lot size of single bond interest rate futures?",
+   "a": "2,000 bonds of ₹100 each = ₹2,00,000 face value"
+  },
+  {
+   "q": "On which segment do interest rate derivatives trade?",
+   "a": "Currency Derivatives segment"
+  },
+  {
+   "q": "What is an Online Bond Platform Provider required to do?",
+   "a": "Register with SEBI as a stock broker in the debt segment of a recognised exchange"
+  },
+  {
+   "q": "REIT and InvIT trading lot (public issue)?",
+   "a": "One unit"
+  },
+  {
+   "q": "InvIT private placement: minimum investment and investor count?",
+   "a": "₹25 lakh minimum; 5 to 1,000 investors; trading lot ₹25 lakh"
+  },
+  {
+   "q": "SGB tenor and interest?",
+   "a": "8 years; 2.50% p.a. on initial investment, paid semi-annually"
+  },
+  {
+   "q": "Rights Entitlements get what identifier?",
+   "a": "A separate ISIN, distinct from the company's main shares"
+  },
+  {
+   "q": "India's first IFSC and its regulator?",
+   "a": "GIFT City, Gandhinagar; regulated by IFSCA (established 2020)"
+  },
+  {
+   "q": "Who may deal in securities listed in IFSC?",
+   "a": "Non-residents, NRIs, eligible resident FIs, and residents within LRS limits"
+  }
+ ],
+ "questions": [
+  {
+   "q": "A company issues new shares only to a select group of people rather than to the public. This is called:",
+   "options": [
+    "Public issue",
+    "Private placement",
+    "Rights issue",
+    "Bonus issue"
+   ],
+   "answer": 1,
+   "why": "An issue made to a select group of people is a private placement; an issue open to anybody is a public issue.",
+   "ref": "1.2",
+   "level": "easy"
+  },
+  {
+   "q": "Which statement about options is correct?",
+   "options": [
+    "A call option gives the buyer the right but not the obligation to sell the underlying",
+    "A put option gives the buyer the right but not the obligation to buy the underlying",
+    "A put option obliges the buyer to sell the underlying",
+    "A call option gives the buyer the right but not the obligation to buy the underlying"
+   ],
+   "answer": 3,
+   "why": "Call = right to buy; put = right to sell. In both cases the buyer has a right, not an obligation.",
+   "ref": "1.4.2",
+   "level": "easy"
+  },
+  {
+   "q": "Fractional ownership in a company is represented by:",
+   "options": [
+    "Equity shares",
+    "Debentures",
+    "Bonds",
+    "Commercial paper"
+   ],
+   "answer": 0,
+   "why": "Equity shares represent fractional ownership; shareholders collectively own the company. Debentures and bonds are loans.",
+   "ref": "1.4.1",
+   "level": "easy"
+  },
+  {
+   "q": "Which of these is NOT permitted for trading on stock exchanges in IFSC under the SEBI IFSC Guidelines, 2015?",
+   "options": [
+    "Equity shares of a company incorporated outside India",
+    "Currency and interest rate derivatives",
+    "Equity shares of a private Indian company",
+    "Depository receipts"
+   ],
+   "answer": 2,
+   "why": "The permitted list includes foreign-incorporated company shares, DRs and currency / interest rate derivatives, but not shares of private Indian companies.",
+   "ref": "1.5",
+   "level": "medium"
+  },
+  {
+   "q": "Notice money in the Indian interbank market refers to unsecured borrowing for a period of:",
+   "options": [
+    "Overnight only",
+    "Beyond overnight and up to 14 days",
+    "15 days to 1 year",
+    "More than 1 year"
+   ],
+   "answer": 1,
+   "why": "Call = overnight; notice = beyond overnight up to 14 days; term = 15 days to 1 year.",
+   "ref": "1.3",
+   "level": "easy"
+  },
+  {
+   "q": "The call money market in India is restricted to:",
+   "options": [
+    "All banks, mutual funds and corporates",
+    "NBFCs and insurance companies",
+    "Scheduled Commercial Banks and Primary Dealers",
+    "Any repo-eligible entity"
+   ],
+   "answer": 2,
+   "why": "Call money is a purely interbank market restricted to SCBs and PDs, dealt on RBI's NDS-CALL.",
+   "ref": "1.3",
+   "level": "medium"
+  },
+  {
+   "q": "What is the minimum credit rating required for issuing Commercial Paper?",
+   "options": [
+    "AAA",
+    "A1",
+    "BBB",
+    "A3"
+   ],
+   "answer": 3,
+   "why": "The minimum CRA rating for CP issuance is 'A3' as per SEBI's rating symbols.",
+   "ref": "1.3",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is true about TREPS?",
+   "options": [
+    "Funds borrowed on TREPS are exempt from RBI's CRR/SLR computation",
+    "It is run by AMC Repo Clearing Ltd as tri-party agent",
+    "Only Scheduled Commercial Banks can trade on it",
+    "The seller of the security cannot substitute the security"
+   ],
+   "answer": 0,
+   "why": "TREPS borrowings are exempt from CRR/SLR, CCIL is the TPA, all repo-eligible entities can trade and the seller can substitute the security.",
+   "ref": "1.3",
+   "level": "hard"
+  },
+  {
+   "q": "How are single stock futures and options settled in India?",
+   "options": [
+    "Physically settled",
+    "Cash settled",
+    "Settled at the FBIL reference rate",
+    "Either, at the client's choice"
+   ],
+   "answer": 0,
+   "why": "All stock futures and option contracts are physically settled; index F&O are cash settled.",
+   "ref": "1.4.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "Generally, an option contract is treated as 'long dated' when its expiry is more than:",
+   "options": [
+    "3 months",
+    "6 months",
+    "9 months",
+    "12 months"
+   ],
+   "answer": 2,
+   "why": "Option contracts with expiry of more than 9 months are treated as long dated.",
+   "ref": "1.4.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "The last trading day of a monthly USDINR futures contract is:",
+   "options": [
+    "Last Thursday of the month at 3:30 pm",
+    "Two working days before the last business day of the expiry month, at 12:30 pm",
+    "Last business day of the month at 12:30 pm",
+    "Every Friday at 12:30 pm"
+   ],
+   "answer": 1,
+   "why": "Monthly currency contracts expire two working days prior to the last business day of the expiry month at 12:30 pm.",
+   "ref": "1.4.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "The lot size of a single bond interest rate futures contract on GoI securities is:",
+   "options": [
+    "200 bonds = ₹20,000",
+    "1,000 bonds = ₹1,00,000",
+    "5,000 bonds = ₹5,00,000",
+    "2,000 bonds = ₹2,00,000"
+   ],
+   "answer": 3,
+   "why": "Lot size is 2,000 bonds at ₹100 each, a face value of ₹2,00,000.",
+   "ref": "1.4.2.3",
+   "level": "medium"
+  },
+  {
+   "q": "If fewer than 5 trades occur in the underlying bond during the last two hours, the final settlement price of a bond future is:",
+   "options": [
+    "The FIMMDA / FBIL price",
+    "The previous day's closing price",
+    "The RBI reference rate",
+    "The exchange's theoretical price"
+   ],
+   "answer": 0,
+   "why": "The FSP is normally the VWAP of the last two hours on NDS-OM; with fewer than 5 trades, the FIMMDA / FBIL price is used.",
+   "ref": "1.4.2.3",
+   "level": "hard"
+  },
+  {
+   "q": "Redemption or conversion of an IDR into underlying shares is permitted:",
+   "options": [
+    "Immediately on listing",
+    "After 6 months from listing",
+    "After 1 year from listing",
+    "Only at maturity"
+   ],
+   "answer": 2,
+   "why": "IDRs can be redeemed / converted into underlying shares after 1 year from the date of listing.",
+   "ref": "1.4.1",
+   "level": "medium"
+  },
+  {
+   "q": "What is the trading lot for units of an InvIT that raised funds by private placement?",
+   "options": [
+    "₹25 lakh",
+    "One unit",
+    "₹10 lakh",
+    "₹10,000 to ₹15,000"
+   ],
+   "answer": 0,
+   "why": "Privately placed InvIT units trade in lots of ₹25 lakh; publicly issued InvIT units trade in lots of one unit.",
+   "ref": "1.4.4",
+   "level": "medium"
+  },
+  {
+   "q": "A REIT must make its initial offer of units by way of:",
+   "options": [
+    "Private placement",
+    "Qualified institutional placement",
+    "Rights issue",
+    "Public issue only"
+   ],
+   "answer": 3,
+   "why": "A REIT's initial offer must be a public issue; later issues may use FPO, QIP, preferential, rights etc.",
+   "ref": "1.4.4",
+   "level": "medium"
+  },
+  {
+   "q": "The tenor of a Sovereign Gold Bond is:",
+   "options": [
+    "5 years",
+    "8 years",
+    "10 years",
+    "15 years"
+   ],
+   "answer": 1,
+   "why": "SGBs have a tenor of 8 years and pay 2.50% p.a. semi-annually on the initial investment.",
+   "ref": "1.4.4",
+   "level": "easy"
+  },
+  {
+   "q": "Unit linked insurance policies issued by insurers are included in the definition of 'securities' under SCRA, 1956.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "The SCRA definition expressly excludes ULIPs that combine life risk cover with investment and are issued by an insurer.",
+   "ref": "1.1",
+   "level": "easy"
+  },
+  {
+   "q": "In the secondary market, the issuer has direct contact with the investor.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "Direct issuer-investor contact happens in the primary market; secondary market deals are between two investors.",
+   "ref": "1.2",
+   "level": "easy"
+  }
+ ]
+}

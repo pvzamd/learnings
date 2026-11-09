@@ -1,0 +1,2959 @@
+{
+ "id": 4,
+ "title": "Risk Management",
+ "short": "Risk Management",
+ "weight": 15,
+ "minutes": 55,
+ "big_picture": "A clearing corporation promises every buyer their shares and every seller their money, even if a broker goes bust. To keep that promise it behaves like a cautious landlord: it takes a deposit before you trade (VaR, ELM, SPAN), checks the meter every day (mark to market), pulls the plug when someone gets too big or too stretched (position limits, risk reduction mode, circuit breakers) and keeps a disaster fund with a strict order of who pays first (Core SGF). The rest of the chapter is the broker's side of the bargain: collect margins from clients upfront, protect client money and securities, and file the right report on the right date.",
+ "exam_focus": [
+  "Cash segment margins: VaR group rates (Group I min 9%, Group II min 21.5%, Group III 50%/75%), ELM 3.5% (2% for index ETFs), TFTS 100%, MTM grossed across clients, 20% minimum upfront, T+5 reporting.",
+  "Derivatives margins: SPAN (16 scenarios, 99% VaR, MPOR at least 2 days), ELM table and deep-OTM rates, calendar spread charges (1.75% / 2.2%), delivery margin 4 days before expiry, upfront option premium, expiry-day extra 2% ELM.",
+  "New in July 2026: no calendar spread benefit on expiry day only for spreads involving the expiring contract (the 29th/30th/31st illustration).",
+  "New in July 2026: unpaid securities auto-pledged to the CUSPA, 5 trading days to pay, auto-release at end of 6th day, extension request by 6 p.m. on 5th day for one calendar week, no bank/NBFC pledge, no exposure.",
+  "Thresholds that look alike: RRM at 90% and exit below 85%; MWPL ban at 95%; circuit breakers 10/15/20%; cash equivalents at least 50%; single bank 20%; liquid net worth ₹50 lakh; BMC ₹10/15/25/50 lakh.",
+  "Client protection: margin pledge chain, peak margin snapshots (minimum 4, higher shortfall penalised), collateral blocking order, upstreaming of client funds, UPI block / 3-in-1 for QSBs.",
+  "Deadlines and Core SGF: STR 7 days, CTR/NTR by 15th, Annual Global Statement within 30 days of FY end, half-yearly reports within 2 months; Core SGF 50/25/25 shares, MRC by 15th, default waterfall order."
+ ],
+ "sections": [
+  {
+   "id": "4.1.1",
+   "title": "Cash Segment Risk Framework: The Big Picture",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A clearing corporation (CC) gives a <b>settlement guarantee</b>: funds and securities get settled even if a broker/clearing member fails. To survive such failures it follows SEBI's risk management measures. The risk management system must be well documented and accessible to clients and the Exchange/CC."
+    },
+    {
+     "type": "hook",
+     "text": "Think of the CC as a landlord guaranteeing everyone's rent: a deposit before you move in (upfront margins), a meter reading every night (MTM), a cut-off for tenants who overspend (limits, risk reduction mode) and a repair fund (Core SGF)."
+    },
+    {
+     "type": "p",
+     "text": "<b>Upfront rule.</b> As in derivatives, TMs/CMs must collect <b>VaR margin and ELM upfront</b> from cash segment clients. Other margins (MTM, delivery, special) are payable on call, but for penalty purposes brokers get until <b>settlement day</b> to collect them. That window is for practical difficulties, not a right for clients to pay late."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Full pay-in of funds and securities by settlement day = all other margins deemed collected. Otherwise, penalties.",
+      "No need to collect MTM if initial margins already cover the potential loss.",
+      "No short-collection penalty if a <b>minimum 20% upfront margin</b> is collected in lieu of VaR and ELM.",
+      "Actual/short/non-collection is reported to the Exchange on a <b>T+5</b> basis."
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Riya buys 1,000 shares of a Group I stock at ₹500 = ₹5,00,000. VaR 9% + ELM 3.5% = ₹62,500. Her broker takes ₹1,00,000 (20%) upfront, so no short-collection penalty can arise. If an MTM call follows, the broker has until settlement day; if Riya completes full pay-in by then, it counts as collected."
+    },
+    {
+     "type": "p",
+     "text": "CC risk containment includes capital adequacy of members, monitoring of member performance and track record, stringent margins, position limits based on capital, online monitoring of positions and <b>automatic disablement from trading</b> when limits are breached. Other salient features (cash and derivatives): online real-time risk management, online monitoring of margin against liquid assets and of position limits, scientific margin levels, different margins for different losses, intraday and EOD MTM, client-level collateral segregation, alerts at various collateral-utilisation levels, risk reduction mode and cross margining."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Cash segment framework (5 components)",
+       "points": [
+        "Margin",
+        "Liquid assets",
+        "Base minimum capital",
+        "Pre-trade risk control",
+        "Risk reduction mode"
+       ]
+      },
+      {
+       "title": "Derivatives framework (5 components)",
+       "points": [
+        "Margins",
+        "Liquid net worth and liquid assets",
+        "Pre-trade risk control",
+        "Risk reduction mode",
+        "Position limits"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4.1.1.1",
+   "title": "Cash Segment Margins: VaR, ELM and MTM",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Margining</b> = the CC computing the potential loss on a member's open positions (buy and sell) across all clients, and checking that its liquid assets cover it. The cash segment has three margins:"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Margin",
+      "Covers",
+      "Collected",
+      "Released"
+     ],
+     "rows": [
+      [
+       "VaR margin",
+       "Largest loss on <b>99.9%</b> of days",
+       "Upfront, against total liquid assets, on gross open position",
+       "With pay-in (incl. early pay-in)"
+      ],
+      [
+       "Extreme Loss Margin",
+       "Losses beyond VaR (tail events)",
+       "Real time, against total liquid assets, on gross open position",
+       "On completion of pay-in"
+      ],
+      [
+       "MTM loss (incl. intraday crystallised)",
+       "Losses already incurred",
+       "Before next day's trading, from cash/cash equivalents only",
+       "With pay-in (incl. early pay-in)"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "VaR = a normal bad day. ELM = the freak day. MTM = the loss already made."
+    },
+    {
+     "type": "p",
+     "text": "<b>Liquidity groups.</b> If a member defaults, the CC must sell its positions, and illiquid stocks are harder to sell, so they need a bigger cushion. <b>Scrip sigma (σ)</b> = volatility at the end of the previous day, by EWMA of daily returns (as in derivatives)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Group",
+      "Traded on (last 6 months)",
+      "Impact cost",
+      "VaR margin"
+     ],
+     "rows": [
+      [
+       "I: Liquid",
+       "≥ 80% of days",
+       "≤ 1%",
+       "6σ, minimum <b>9%</b>"
+      ],
+      [
+       "II: Less liquid",
+       "≥ 80% of days",
+       "> 1%",
+       "6σ, minimum <b>21.5%</b>"
+      ],
+      [
+       "III: Illiquid",
+       "< 80% of days",
+       "N/A",
+       "<b>50%</b> if traded at least weekly on any exchange, else <b>75%</b>"
+      ]
+     ],
+     "caption": "Table 4.1: VaR margin by liquidity group"
+    },
+    {
+     "type": "list",
+     "items": [
+      "All <b>SME</b> securities are Group III. Listed under six months: use the whole trading history.",
+      "Groups are recomputed on the <b>15th</b> of each month (previous 6 months) and apply from the <b>1st of next month</b>.",
+      "New listing, first month: the group in which its market cap is at least that of <b>80%</b> of the group's stocks. A change of ISIN by corporate action = treated as newly listed.",
+      "Group III is reviewed <b>weekly</b>: not traded for a week → 75%; at 75% and trades → 50% from the next trading day.",
+      "ETFs are margined like stocks; <b>broad-based index ETFs</b> (not sectoral) get VaR 6σ, minimum <b>6%</b>, and ELM <b>2%</b>."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Mean impact cost</b> = average % price move caused by a hypothetical <b>₹1 lakh</b> order versus the mean of best bid and offer (ideal price), from <b>4 random snapshots a day</b> in fixed 10-minute windows, over 6 months, buy and sell sides. Exchanges use a common method and publish results on their websites."
+    },
+    {
+     "type": "example",
+     "text": "Best bid ₹99.90, best offer ₹100.10: ideal price ₹100. A ₹1 lakh buy order fills at an average ₹100.50, so impact cost = 0.5%. Traded on 80%+ of days too? Then it is Group I.",
+     "title": "Impact cost in one line"
+    },
+    {
+     "type": "p",
+     "text": "<b>VaR collection</b>: upfront at the time of trade, on the <b>gross open position</b> = gross of all net positions of all clients plus proprietary, with <b>no netting across settlements</b>. Rates are updated <b>at least 5 times a day</b>: previous close at start, 11:00 a.m., 12:30 p.m., 2:00 p.m. and end of day."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Who",
+      "Security / settlement",
+      "Buy",
+      "Sell",
+      "Net"
+     ],
+     "rows": [
+      [
+       "Client A",
+       "X / 2005001",
+       "1,000",
+       "1,100",
+       "-100"
+      ],
+      [
+       "Client A",
+       "Y / 2005002",
+       "3,000",
+       "2,550",
+       "450"
+      ],
+      [
+       "Client B",
+       "Z / 2005001",
+       "1,500",
+       "1,650",
+       "-150"
+      ],
+      [
+       "Client B",
+       "Y / 2005002",
+       "3,000",
+       "1,650",
+       "1,350"
+      ],
+      [
+       "Client C",
+       "X / 2005001",
+       "4,500",
+       "2,400",
+       "2,100"
+      ],
+      [
+       "Client C",
+       "Z / 2005002",
+       "7,000",
+       "10,450",
+       "-3,450"
+      ],
+      [
+       "Prop",
+       "Y / 2005001",
+       "250",
+       "1,200",
+       "-950"
+      ],
+      [
+       "Prop",
+       "Z / 2005002",
+       "1,050",
+       "0",
+       "1,050"
+      ]
+     ],
+     "caption": "Workbook example (₹)"
+    },
+    {
+     "type": "example",
+     "text": "Add the absolute nets per security per settlement: X/2005001 = 100 + 2,100 = <b>2,200</b>; Y/2005001 = 950; Z/2005001 = 150; X/2005002 = 0; Y/2005002 = 450 + 1,350 = <b>1,800</b>; Z/2005002 = 3,450 + 1,050 = <b>4,500</b>. C's net sale in Z does not cancel the prop net buy in Z.",
+     "title": "Gross open position"
+    },
+    {
+     "type": "trap",
+     "text": "Gross open position = <b>net within each client, gross across clients</b>. Never netted across clients or across settlements."
+    },
+    {
+     "type": "p",
+     "text": "<b>ELM</b> covers losses beyond VaR: <b>3.5% for any stock</b>, <b>2% for broad-based index ETFs</b>. Real time, on gross open position, no netting across settlements, released on completion of pay-in. It replaced the terms 'exposure limits' and 'second line of defence'."
+    },
+    {
+     "type": "key",
+     "text": "Trade for Trade Surveillance (TFTS) securities: upfront margin (VaR + ELM) = <b>100%</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>MTM loss</b>: each transaction is marked to the day's closing price (latest available close if untraded). If the net position is nil, the buy-sell difference is a notional loss. MTM is computed client by client and only <b>losses</b> are added at broker level."
+    },
+    {
+     "type": "example",
+     "text": "Client A: X +₹300, Y −₹1,200 = <b>−₹900</b>. Client B: Z −₹1,300, Y +₹200 = <b>−₹1,100</b>. Client C: +₹1,400. Broker pays ₹900 + ₹1,100 = <b>₹2,000</b>; C's profit cannot cover A and B.",
+     "title": "MTM grossed across clients"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Collected <b>before the start of next day's trading</b>, only from the cash/cash-equivalent part of liquid assets.",
+      "TFTS: each trade is marked to market at the closing price.",
+      "No set-off across two settlements (T+1 and T+0); netting is allowed within the day's MTM computation. Released with pay-in, including early pay-in."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Intraday Crystallised MTM (ICMTM)</b> catches losses on positions opened and closed the same day, which would never appear in an EOD position. It is computed at <b>weighted average prices</b> on trades subject to upfront margining, adjusted against liquid assets in real time, netted across securities of the same client (not across two rolling settlements), grossed across clients and prop, not computed for TFTS, included in EOD MTM, and released on pay-in/early pay-in. If crystallised losses exceed free collateral, the entity goes into <b>risk reduction mode</b>."
+    },
+    {
+     "type": "example",
+     "text": "A client buys 200 shares at an average ₹1,000 and sells them by noon at ₹985. Flat position, but ₹3,000 lost: ICMTM blocks it at once."
+    },
+    {
+     "type": "p",
+     "text": "<b>Highly volatile stocks</b> (also applies in F&O). Intraday move = max of (High − Low), (High − Previous Close), (Low − Previous Close)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Move above 10% on",
+      "Minimum total margin",
+      "Lasts till"
+     ],
+     "rows": [
+      [
+       "<b>3+ days</b> in last 1 month",
+       "Max intraday move in last 1 month",
+       "Monthly derivatives expiry after <b>3 months</b> from levy"
+      ],
+      [
+       "<b>10+ days</b> in last 6 months",
+       "Max intraday move in last 6 months",
+       "Monthly derivatives expiry after <b>1 year</b> from levy"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "'3 in 1 → 3 months; 10 in 6 → 1 year.'"
+    },
+    {
+     "type": "p",
+     "text": "<b>Margin caps.</b> Buy: VaR + ELM + MTM together cannot exceed the <b>purchase value</b> (a buyer can't lose more than he paid). Sale: VaR + ELM cannot exceed the sale value, and MTM is levied on top (a seller's loss grows as the price rises)."
+    },
+    {
+     "type": "example",
+     "text": "Buy 100 Group III shares at ₹50 = ₹5,000. VaR 75% + ELM 3.5% = ₹3,925, plus an MTM loss of ₹1,500 = ₹5,425. The charge is capped at ₹5,000.",
+     "title": "The cap at work"
+    }
+   ]
+  },
+  {
+   "id": "4.1.1.2",
+   "title": "Liquid Assets and Institutional Trades",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Liquid assets deposited with the CC are the core of the system. They must cover <b>MTM losses, VaR, ELM and Base Minimum Capital</b>, and are valued <b>daily</b> after haircuts."
+    },
+    {
+     "type": "hook",
+     "text": "Liquid assets cover 'MVEB': MTM, VaR, ELM, BMC."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Type",
+      "Item",
+      "Haircut",
+      "Limit"
+     ],
+     "rows": [
+      [
+       "Cash equivalent",
+       "Cash",
+       "0",
+       "No limit"
+      ],
+      [
+       "Cash equivalent",
+       "Bank FDs, bank guarantees",
+       "0",
+       "Limit on CC exposure to a single bank"
+      ],
+      [
+       "Cash equivalent",
+       "Central Government securities",
+       "Based on liquidity and tenor",
+       "No limit"
+      ],
+      [
+       "Cash equivalent",
+       "Growth plans of overnight MF schemes",
+       "<b>5%</b>",
+       "No limit"
+      ],
+      [
+       "Cash equivalent",
+       "Other overnight, liquid and G-sec MF schemes",
+       "<b>10%</b>",
+       "No limit"
+      ],
+      [
+       "Other liquid asset",
+       "Equity with impact cost ≤ <b>0.1%</b> (₹1 lakh order), traded ≥ <b>99%</b> of days in 6 months",
+       "VaR (6σ, min 9%)",
+       "Single-issuer limit"
+      ],
+      [
+       "Other liquid asset",
+       "Other MF units",
+       "VaR (6σ, min 9%)",
+       "No limit"
+      ],
+      [
+       "Other liquid asset",
+       "Corporate bonds",
+       "Fixed % or VaR-based; at least <b>10%</b> to begin with",
+       "≤ <b>10%</b> of CM's total liquid assets"
+      ]
+     ],
+     "caption": "Table 4.2: Liquid assets, haircuts and limits"
+    },
+    {
+     "type": "key",
+     "text": "Cash equivalents must be at least <b>50%</b> of liquid assets. Other liquid assets cannot pay MTM losses, and any excess over cash equivalents is not counted."
+    },
+    {
+     "type": "example",
+     "text": "A member deposits ₹40 lakh cash/FDs and ₹70 lakh of approved shares (post-haircut). Only ₹40 lakh of shares counts: liquid assets = ₹80 lakh, and MTM must come from the ₹40 lakh cash part."
+    },
+    {
+     "type": "list",
+     "items": [
+      "No collateral issued by the CM/TM itself or its group/associate entities, and none acquired through <b>bespoke transactions</b> (CM sole subscriber to the debt issue).",
+      "Bank exposure through cash/FD/BG must be diversified. Overall daily exposure to a <b>single bank</b> (cash, FD, BG, equity, debt) via CM collateral ≤ <b>20%</b> of total liquid assets.",
+      "Exposure to equity/debt may be subject to a single-issuer limit; corporate bond exposure is capped by the issuer's long-term credit rating.",
+      "Equity that stops qualifying must be replaced by the CM at the earliest. CCs publish the approved securities list generally <b>monthly</b>."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Look-alikes: single bank ≤ <b>20%</b> of liquid assets; corporate bonds ≤ <b>10%</b> of liquid assets; corporate bond haircut ≥ <b>10%</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Institutional trades</b> pay normal margins but are exempt from upfront collection: margined on a <b>T+1 basis</b>, collected from the <b>custodian</b> on confirmation. Rejected/unaccepted by the custodian → margin levied on the <b>executing member</b>. Institutions here: Category I and II FPIs (not corporate bodies, individuals or family offices), MFs, public financial institutions (Sec 2(72), Companies Act 2013), banks (Sec 5(1)(c), Banking Regulation Act 1949), IRDA-registered insurers and PFRDA-registered pension funds."
+    },
+    {
+     "type": "trap",
+     "text": "Category II FPIs that are corporate bodies, individuals or family offices are margined <b>upfront</b>, like non-institutional clients."
+    },
+    {
+     "type": "p",
+     "text": "<b>Pre-open call auction</b> (including IPO and re-listed scrips) uses <b>order-level</b> risk checks: an order without enough available capital for its margin is not accepted."
+    }
+   ]
+  },
+  {
+   "id": "4.1.1.3",
+   "title": "Margin Shortfall and Base Minimum Capital",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A margin shortfall violates CC rules and attracts <b>penalty</b>. The CC may advise the Exchange to withdraw the CM's membership rights, including trading facilities of all its TMs and clearing for its custodial participants, and may, <b>without further notice</b>, close out positions, levy penalties, collect deposits or invoke BGs/FDRs."
+    },
+    {
+     "type": "p",
+     "text": "<b>Base Minimum Capital (BMC)</b> is a deposit for contingencies in any segment. It gives <b>no exposure</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Category",
+      "BMC"
+     ],
+     "rows": [
+      [
+       "Only proprietary trading, no algo",
+       "₹10 lakh"
+      ],
+      [
+       "Only client trading, no algo",
+       "₹15 lakh"
+      ],
+      [
+       "Proprietary + client trading, no algo",
+       "₹25 lakh"
+      ],
+      [
+       "All brokers with algo trading",
+       "₹50 lakh"
+      ]
+     ],
+     "caption": "Table 4.3: BMC (cash, derivatives, debt)"
+    },
+    {
+     "type": "hook",
+     "text": "10-15-25-50: prop only, clients only, both, any algo."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Several segments of the <b>same</b> exchange: pay the <b>highest</b> BMC, not the sum. Exchanges may ask for more.",
+      "At least <b>50%</b> in cash and cash equivalents.",
+      "Exchanges without nation-wide terminals: <b>40%</b> of these amounts.",
+      "BMC is maintained at <b>₹1 lakh</b> if average daily turnover is below <b>₹1 crore</b> for any three consecutive months."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4.1.1.5",
+   "title": "Additional Margins and Early Pay-in",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Exchanges/CCs may add risk measures beyond SEBI's. Ad-hoc margins should only cover situations not anticipated in the system design; if used regularly, the exchange should build them into the system. They must rest on <b>objective criteria</b> and not discriminate between members subjectively."
+    },
+    {
+     "type": "p",
+     "text": "<b>Early pay-in (EPI).</b> Funds or securities paid in early are excluded from margin computation to that extent. EPI of securities = <b>all margins deemed collected</b>, so no short-collection penalty. SEBI's <b>July 16, 2021</b> circular brought a <b>block mechanism</b>: the seller's shares stay in his demat, <b>blocked in favour of the CC</b>, which matches the block with the client's net obligation. Mandatory for all EPI from <b>November 14, 2022</b>; not applicable to clients clearing through custodians."
+    },
+    {
+     "type": "example",
+     "text": "Meera sells 500 shares worth ₹2,000 each. Her broker blocks them in her demat for the CC on trade day: the ₹10 lakh sell position needs no margin."
+    }
+   ]
+  },
+  {
+   "id": "4.1.1.7",
+   "title": "Pre-trade Risk Controls and Circuit Breakers",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Pre-order</b> checks act before an order enters the system; <b>pre-trade</b> checks act before execution. Some are run by the TM, some by the exchange. Orders in stocks under surveillance (GSM, ASM, ESM, unsolicited SMS/videos) trigger an <b>alert</b> on the terminal."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Pre-order checks",
+       "points": [
+        "Order value above <b>₹10 crore</b> rejected in normal market; brokers also set client-wise value/quantity checks",
+        "Client-level <b>cumulative open order value</b> check (limit set by broker)",
+        "Dynamic price bands",
+        "UCC/PAN check: no orders for clients whose UCC/PAN is not uploaded"
+       ]
+      },
+      {
+       "title": "Pre-trade checks",
+       "points": [
+        "Trade execution range (derivatives, around reference price)",
+        "Self-trade check: same PAN/CP code on both sides → active or passive order cancelled",
+        "Market price protection: market order that stops at a set price",
+        "Kill switch: cancel all orders in one command",
+        "Cancel on Logout (COL)"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Price bands.</b> In 2001 SEBI set scrip-wise bands of <b>2% to 20%</b> for compulsory rolling settlement scrips, except those with derivatives, which got <b>dynamic</b> bands. The revised dynamic band is <b>10% of previous close/adjusted base price</b> for F&O stocks, index futures and stock futures. Features: uniform flexing across exchanges; tiered flexing of <b>5%, 3%, 2%</b> after cooling-off periods of <b>15, 30, 60 minutes</b>; sliding bands (opposite band moves too); temporary price floors/ceilings for options during the underlying's cooling-off."
+    },
+    {
+     "type": "example",
+     "text": "An F&O stock closed at ₹1,000, so today's dynamic band is ₹900 to ₹1,100. A buy order at ₹1,150 is rejected at entry: a pre-order check.",
+     "title": "Dynamic price band"
+    },
+    {
+     "type": "p",
+     "text": "<b>Market-wide circuit breakers</b> trigger at <b>10%, 15% and 20%</b> moves of the <b>BSE Sensex or NSE Nifty 50, whichever is breached first</b>."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Time of breach",
+      "10%",
+      "15%",
+      "20%"
+     ],
+     "rows": [
+      [
+       "Before 1:00 p.m.",
+       "1 hour halt",
+       "2 hours halt",
+       "Rest of day"
+      ],
+      [
+       "1:00 p.m. to before 2:00 p.m.",
+       "30 minutes",
+       "1 hour",
+       "Rest of day"
+      ],
+      [
+       "2:00 p.m. to before 2:30 p.m.",
+       "30 minutes",
+       "Rest of day",
+       "Rest of day"
+      ],
+      [
+       "At/after 2:30 p.m.",
+       "No halt",
+       "Rest of day",
+       "Rest of day"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "20% ends the day any time. 15% ends it after 2 p.m. 10% after 2:30 p.m. does nothing."
+    },
+    {
+     "type": "trap",
+     "text": "Circuit breakers are <b>index</b>-based (Sensex or Nifty 50, whichever is breached first). Stock-level limits are price bands, a different tool."
+    }
+   ]
+  },
+  {
+   "id": "4.1.1.8",
+   "title": "Risk Reduction Mode",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "When <b>90%</b> of a broker's collateral available for margins is used, the exchange/CC must put it in <b>risk reduction mode (RRM)</b>: it can cut risk but not add to it."
+    },
+    {
+     "type": "list",
+     "items": [
+      "All unexecuted orders are cancelled. Only <b>Immediate or Cancel</b> orders are allowed.",
+      "New orders are checked for margin: risk-reducing orders are accepted; risk-increasing ones without enough margin are rejected. <b>Non-margined orders are not accepted.</b>",
+      "No orders with custodial participant code; no client code or CP code modification.",
+      "Back to normal mode when utilisation falls below <b>85%</b> (current CC level)."
+     ]
+    },
+    {
+     "type": "key",
+     "text": "Enter RRM at 90% collateral utilisation; exit below 85%. Example: ₹10 crore collateral → RRM at ₹9 crore used, normal again below ₹8.5 crore."
+    },
+    {
+     "type": "p",
+     "text": "With client-level segregation, only the part of a client's margin above <b>90% of that client's own collateral</b> spills onto the broker. <b>TM level</b>: these client excesses + TM prop margin are tested against TM prop collateral. <b>CM level</b>: each TM's excess above 90% of its prop collateral, + excesses of the CM's own clients + CM prop margin, are tested against CM prop collateral."
+    },
+    {
+     "type": "example",
+     "text": "TM prop collateral ₹1 crore. Client X: collateral ₹10 lakh, margin ₹10 lakh → excess over ₹9 lakh = ₹1 lakh. Client Y: ₹20 lakh collateral, ₹15 lakh margin → nil. TM prop margin ₹80 lakh. Load = ₹81 lakh = 81%: not in RRM.",
+     "title": "TM-level RRM check"
+    }
+   ]
+  },
+  {
+   "id": "4.1.2",
+   "title": "Derivatives: Initial Margin and SPAN",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Initial margin</b> is payable <b>upfront</b> by clearing members on all open positions, down to client level. It includes <b>SPAN margin, margin on consolidated crystallised obligation, delivery margin</b> and any additional margin the CC specifies. Client positions are netted per client and grossed across clients (no set-off between clients); proprietary positions are netted at TM/CM level with no set-off against clients. Margins are aggregated first at TM level, then at CM level."
+    },
+    {
+     "type": "p",
+     "text": "<b>SPAN</b> (Standard Portfolio Analysis of Risk, developed by the Chicago Mercantile Exchange) computes real-time initial margin as the <b>worst scenario loss</b> on a client's whole portfolio of futures and options on the same underlying, across maturities and across price and volatility scenarios. It is based on <b>99% VaR</b> over a horizon set by the product's Margin Period of Risk."
+    },
+    {
+     "type": "key",
+     "text": "VaR = maximum likely price change over a given interval (horizon) at a given confidence level (percentile). SPAN improves on it in two ways: <b>16 'what-if' scenarios</b>, and margin on the <b>entire portfolio</b>, not position by position."
+    },
+    {
+     "type": "example",
+     "text": "Long 1 lot Nifty futures + long 1 lot Nifty puts: in a crash the futures lose and the puts gain. SPAN values both together in each scenario, so the margin is far below the sum of the two legs.",
+     "title": "Why portfolio margining matters"
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Margin Period of Risk (MPOR)</b>: set by the CC per product based on liquidity, <b>minimum 2 days</b>; initial margin is scaled up accordingly.",
+      "<b>Risk parameters</b>: contracts are valued under the 16 scenarios (scenario contract values), then applied to actual portfolios in real time. Values are updated <b>at least 5 times a day</b>: previous close, 11:00 a.m., 12:30 p.m., 2:00 p.m., end of day."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Cash segment VaR = <b>99.9%</b>; derivatives SPAN = <b>99%</b> VaR."
+    }
+   ]
+  },
+  {
+   "id": "4.1.2.1",
+   "title": "Derivatives: Other Margins, ELM and Cross Margining",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Calendar spread</b> = long one expiry and short another of the same underlying. The legs largely offset, so a smaller spread charge applies, based on the <b>delta</b> of the portfolio in each month (near-month option delta 100 + far-month option delta −100 = same charge as long 100 near / short 100 far futures)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Product",
+      "Calendar spread charge"
+     ],
+     "rows": [
+      [
+       "Index derivatives",
+       "<b>1.75%</b> of far month contract"
+      ],
+      [
+       "Single stock derivatives",
+       "<b>2.2%</b> of far month contract"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "text": "Long 1 lot Nifty current-month futures, short 1 lot next-month futures. Far month value ₹15,00,000 → spread charge 1.75% = ₹26,250, far below margin on two naked legs.",
+     "title": "Calendar spread charge"
+    },
+    {
+     "type": "p",
+     "text": "<b>Expiry day.</b> Basis risk is high on expiry day (the expiring contract can move very differently from later ones) and volumes are huge, so the calendar spread benefit is <b>not available on expiry day for contracts expiring that day</b>."
+    },
+    {
+     "type": "new",
+     "text": "SEBI circular of <b>February 05, 2026</b>: existing calendar spread margins stay <b>unchanged for all expiries except contracts expiring that day</b>. If monthly expiries fall on the 29th (current), 30th (next) and 31st (far), then on the 29th, spreads of <b>29th + 30th</b> or <b>29th + 31st</b> get <b>no</b> calendar spread treatment, while spreads of <b>30th + 31st continue</b> to get it."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Spread held on the 29th (current month expiry day)",
+      "Calendar spread benefit?"
+     ],
+     "rows": [
+      [
+       "29th + 30th",
+       "No"
+      ],
+      [
+       "29th + 31st",
+       "No"
+      ],
+      [
+       "30th + 31st",
+       "Yes, continues"
+      ]
+     ],
+     "caption": "New in July 2026"
+    },
+    {
+     "type": "hook",
+     "text": "'If a leg dies today, the spread benefit dies today.'"
+    },
+    {
+     "type": "p",
+     "text": "<b>Margin on consolidated crystallised obligation</b>: money a client already owes but has not settled. If the client-level net is payable, that amount is the margin; released on completion of settlement. MTM must be paid by all members <b>before trading starts next day</b>."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Intraday basis",
+       "points": [
+        "Premium payable/receivable",
+        "Futures crystallised profit/loss (weighted average prices)"
+       ]
+      },
+      {
+       "title": "End-of-day basis",
+       "points": [
+        "Futures MTM profit/loss",
+        "Options premium payable/receivable",
+        "Exercise/assignment of expired options",
+        "Final settlement of expired futures"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Net Option Value (NOV)</b> = long option value − short option value (last close, updated intraday). It is <b>added to the CM's liquid net worth</b>, so option MTM gains/losses adjust net worth and are <b>not settled in cash</b>."
+    },
+    {
+     "type": "example",
+     "text": "LNW ₹1 crore; clients long options worth ₹20 lakh and short options worth ₹35 lakh. NOV = −₹15 lakh, so effective LNW = ₹85 lakh.",
+     "title": "NOV adjusts net worth"
+    },
+    {
+     "type": "p",
+     "text": "<b>Upfront premium from option buyers.</b> Options are non-linear, highly leveraged and timed, so to prevent undue intraday leverage SEBI requires TMs/CMs to collect premium upfront; upfront margin includes <b>net options premium payable</b>, verified in intraday snapshots with penalties. Applies in equity derivatives from <b>February 01, 2025</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Delivery margin</b> (physically settled contracts): on the <b>lower of potential deliverable positions or in-the-money long options</b>, from <b>4 days before expiry</b>. Thursday expiry → from previous Friday EOD."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Product",
+      "ELM"
+     ],
+     "rows": [
+      [
+       "Index futures / short index options",
+       "<b>2%</b> of notional (gross open futures / short position)"
+      ],
+      [
+       "Stock futures / short stock options",
+       "<b>3.5%</b> of notional"
+      ],
+      [
+       "Deep OTM index options (strike > 10% from previous close)",
+       "<b>3%</b>"
+      ],
+      [
+       "Index options with residual maturity > 9 months",
+       "<b>5%</b>"
+      ],
+      [
+       "Deep OTM stock options (strike > 30% from previous close)",
+       "<b>5.25%</b>"
+      ],
+      [
+       "Futures calendar spread",
+       "ELM on <b>one third</b> of far-month value (no spread treatment if a leg expires that day)"
+      ]
+     ],
+     "caption": "ELM in equity derivatives (charged on top of initial margin)"
+    },
+    {
+     "type": "trap",
+     "text": "Options ELM is charged only on <b>short</b> positions (buyers have already paid premium), at the same rates as futures: index 2%, stock 3.5%."
+    },
+    {
+     "type": "p",
+     "text": "<b>Expiry-day tail cover</b>: an <b>additional 2% ELM</b> on <b>short index options</b> expiring that day, both those open at day start and those written during the day."
+    },
+    {
+     "type": "example",
+     "text": "Short Nifty options expiring today, notional ₹50 lakh: normal ELM 2% (₹1 lakh) + expiry-day 2% (₹1 lakh) = ₹2 lakh."
+    },
+    {
+     "type": "p",
+     "text": "<b>Volatile stocks</b>: the cash segment triggers apply in F&O too; minimum total margin (<b>SPAN + ELM + additional</b>) = maximum intraday move. <b>Additional margins</b> may include surveillance margin, margin for volatile stocks, for securities in the ban period, or for client concentration. For strikes far from the close, the <b>net short value</b> is collected <b>in cash on T+1</b> and held till expiry or square-up."
+    },
+    {
+     "type": "p",
+     "text": "<b>Cross margining</b> (SEBI, <b>December 02, 2008</b>, all participants) lets offsetting cash and F&O positions share margin. Eligible pairs: index futures with constituent stock futures or cash stocks; ETF with constituent stock futures or cash stocks; index futures with ETF; stock futures with the same cash stock; index futures on eligible indices; and highly correlated indices."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Constituent baskets must be a <b>complete replica</b> of the index in the specified ratio. Same CM or different CMs both qualify.",
+      "Futures legs must be in the <b>same expiry month</b> for the basic benefit. Computed client-wise in real time; for institutions, after trade confirmation.",
+      "<b>Highly correlated indices</b>: correlation > <b>0.90</b>; ≥ <b>80%</b> common constituents; smaller index's constituents ≥ <b>80%</b> weight in the larger.",
+      "With different expiries, the benefit is <b>revoked at the start of the expiry day</b> of the first-expiring leg."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Offsetting position",
+      "Spread margin"
+     ],
+     "rows": [
+      [
+       "Eligible offsets, same expiry",
+       "<b>25%</b>"
+      ],
+      [
+       "Correlated index futures, same expiry",
+       "<b>30%</b>"
+      ],
+      [
+       "Index vs constituents, different expiry (constituents share one expiry)",
+       "<b>35%</b>"
+      ],
+      [
+       "Correlated indices, different expiry",
+       "<b>40%</b>"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "25-30-35-40: the less exact the hedge, the higher the spread margin."
+    },
+    {
+     "type": "example",
+     "text": "A complete Nifty 50 replica basket in cash worth ₹10 lakh against short Nifty futures worth ₹10 lakh (same month). If normal margins on both legs total ₹3,00,000, the 25% spread margin is ₹75,000.",
+     "title": "Cross margin benefit"
+    },
+    {
+     "type": "p",
+     "text": "SEBI's <b>November 30, 2022</b> circular allows net settlement of cash and F&O on expiry of stock derivatives: physically settled positions and offsetting cash obligations get margin benefit."
+    }
+   ]
+  },
+  {
+   "id": "4.1.2.2",
+   "title": "Liquid Net Worth, Pre-trade Controls and Risk Disclosures",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Liquid Net Worth (LNW)</b> = liquid assets deposited for initial margin and capital adequacy <b>minus</b> initial margin and ELM on total gross open positions. It must never fall below <b>₹50 lakh</b>."
+    },
+    {
+     "type": "example",
+     "text": "Deposit ₹3 crore; initial margin ₹1.8 crore; ELM ₹0.5 crore. LNW = ₹70 lakh. If initial margin rises to ₹2.1 crore, LNW = ₹40 lakh: a breach."
+    },
+    {
+     "type": "p",
+     "text": "Derivatives pre-trade controls: <b>quantity freeze, price band, dynamic price band, trade execution range, self-trade check</b>. RRM applies at <b>90%</b> utilisation, as in cash. Brokers must show SEBI's F&O <b>Risk disclosures</b> on their websites and to clients, as a login pop-up the client must <b>acknowledge</b> before proceeding, covering <b>at least 50%</b> of the screen."
+    }
+   ]
+  },
+  {
+   "id": "4.1.2.4",
+   "title": "Position Limits and Open Interest",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Position limits stop anyone building positions big enough to manipulate prices or cause a large default. They apply by instrument, broker, clearing member, FPI/MF, non-institutional client and market-wide; violations attract penalties."
+    },
+    {
+     "type": "p",
+     "text": "Under SEBI's <b>May 29, 2025</b> circular, OI is measured at <b>portfolio level</b> as the net <b>delta-adjusted</b> position across futures and options (<b>FutEq OI</b>), added across all UCCs. Delta: long futures +1; long call 0 to +1; long put 0 to −1; short call negative; short put positive."
+    },
+    {
+     "type": "example",
+     "text": "Long 2 lots futures + long 4 lots calls of delta 0.5 = 2 + 2 = 4 lots FutEq."
+    },
+    {
+     "type": "p",
+     "text": "<b>MWPL</b> (single stock) = <b>lower of 15% of free float and 65 × ADDV</b>, with a <b>floor of 10% of free float</b>. Once market-wide OI exceeds <b>95% of MWPL</b>, only position-reducing trades are allowed (<b>ban period</b>). A passive rise from delta movement is not a breach."
+    },
+    {
+     "type": "example",
+     "text": "Free float ₹10,000 crore (15% = ₹1,500 crore); ADDV ₹20 crore (65× = ₹1,300 crore). MWPL = ₹1,300 crore; ban above ₹1,235 crore."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Index futures/options limits are at <b>PAN level</b>, checked against total market OI at previous day end; breaches caused only by a fall in market OI are passive, not violations.",
+      "Derivatives <b>pre-open</b>: current-month stock and index futures; in the <b>last 5 trading days</b> before expiry, also next-month futures.",
+      "Index derivative limits are now monitored <b>intraday</b>, with an entity-level framework for index options using at least <b>4 random snapshots</b> a day."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "95% of MWPL = ban; 90% collateral = RRM; below 85% = normal mode."
+    }
+   ]
+  },
+  {
+   "id": "4.1.3",
+   "title": "Margin Collection by the Clearing Corporation",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "Initial margin and ELM are payable <b>upfront</b> by CMs, who collect them upfront from clients. Any eligible liquid asset, in combinations within CC limits.",
+      "CMs may give own, TM-proprietary or client securities, but can re-pledge client/TM securities <b>only via the Margin Pledge facility of NSDL and CDSL</b>.",
+      "If an entity's margin exceeds its allocated collateral plus re-pledged securities, the TM's/CM's <b>proprietary collateral is blocked</b> as deemed allocation. Allocated + re-pledged collateral must always cover the minimum margin.",
+      "CCs allow intraday inter-segment collateral transfer, and release of collateral intraday and at EOD."
+     ]
+    },
+    {
+     "type": "example",
+     "text": "A client's margin at the CC is ₹12 lakh; allocated cash ₹8 lakh + re-pledged shares ₹2 lakh = ₹10 lakh. The ₹2 lakh gap is blocked from the TM's proprietary collateral (then the CM's).",
+     "title": "Deemed allocation"
+    }
+   ]
+  },
+  {
+   "id": "4.1.4",
+   "title": "Collecting Margins from Clients and Peak Margin",
+   "blocks": [
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Cash segment",
+       "points": [
+        "Minimum <b>20% upfront</b> (covers VaR + ELM) before trade",
+        "MTM, delivery, additional margins by settlement day if full pay-in done",
+        "Report to Exchange by <b>T+5</b>"
+       ]
+      },
+      {
+       "title": "Derivatives segment",
+       "points": [
+        "Initial margin, ELM and net premium (buyers) <b>upfront</b>",
+        "Delivery and consolidated crystallised obligation margins by <b>T+1</b>",
+        "Report to Exchange by <b>T+5</b>"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "Exchanges/CCs penalise short/non-collection. <b>Non-reporting = 100% short collection.</b>",
+      "False reporting found in inspection: penalty of <b>100% of the falsely reported amount</b> plus <b>suspension of trading</b> in that segment."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>4.1.4.1 Peak margin.</b> A broker could hold enough margin for the evening and allow huge positions intraday. Random snapshots close the gap."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Snapshots",
+       "text": "CC sends at least <b>4 snapshots a day</b> of client-wise margin, taken randomly in pre-defined windows."
+      },
+      {
+       "title": "Margin file",
+       "text": "Shows each client's EOD and peak (highest snapshot) requirement."
+      },
+      {
+       "title": "Compare",
+       "text": "EOD requirement vs EOD margin held; peak requirement vs peak margin held."
+      },
+      {
+       "title": "Penalty",
+       "text": "On the <b>higher</b> of the two shortfalls."
+      },
+      {
+       "title": "Verify",
+       "text": "Exchanges check TM/CM books <b>weekly</b>."
+      }
+     ]
+    },
+    {
+     "type": "example",
+     "text": "EOD requirement ₹1,00,000, held ₹1,00,000: no EOD shortfall. Snapshot requirement ₹1,60,000, held ₹1,20,000: peak shortfall ₹40,000, which is penalised."
+    },
+    {
+     "type": "p",
+     "text": "In derivatives (including commodities), snapshot margins use fixed <b>Beginning of Day</b> parameters (SPAN + ELM); from <b>May 01, 2023</b> EOD margin does too."
+    },
+    {
+     "type": "trap",
+     "text": "The penalty is on the <b>higher</b> of the EOD and peak shortfalls, not their sum or average."
+    }
+   ]
+  },
+  {
+   "id": "4.1.5",
+   "title": "Protecting Client Collateral",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>1. Margin pledge</b> (SEBI, February 25, 2020): client securities collateral only by <b>margin pledge</b> in the depository, into a TM/CM demat tagged '<b>Client Securities Margin Pledge Account</b>'. Chain: client → TM → CM (from TM's account) → CC (approved securities, UCC-wise), with the full trail in the client's demat."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Re-pledged securities give exposure <b>to that client only</b>; the CM gets none. Non-approved securities may be pledged to the TM/CM as per their own lists.",
+      "On a client trade, the CC first blocks the CM's collateral and releases it (latest by <b>end of day</b>) to the extent of the client's re-pledged securities.",
+      "Selling pledged shares (margin pledge, pledged funded stock or CUSPA): one '<b>Pledge release for early pay in</b>' instruction releases the pledge and sets an EPI block, up to the delivery obligation, without DDPI/POA.",
+      "Invoked securities are blocked for EPI in the client's demat (trail in the pledge account); non-traded MF units use '<b>invocation cum redemption</b>'."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>2. Verification of upfront margins</b>: the peak margin framework (4.1.4.1). <b>3. DDPI</b> (Demat Debit and Pledge Instruction): for settlement transfers and pledges/re-pledges; replaces PoA and curbs its misuse."
+    },
+    {
+     "type": "p",
+     "text": "<b>4. Client-level segregation</b>: each client's collateral is visible at TM, CM and CC. TMs report client-wise to CMs; CMs report to SEs/CCs segment-wise; clients can check on a <b>web portal</b>. Cash, FD, BG and G-sec collateral must be allocated to a specific entity; CMs/CCs refuse collateral without a break-up. A client's allocation cannot exceed what that client actually gave."
+    },
+    {
+     "type": "key",
+     "text": "CMs keep at least <b>50%</b> of total collateral in cash or cash equivalents (a single client may have less; excess proprietary cash can be counted)."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Trade from",
+      "Margin blocked in order"
+     ],
+     "rows": [
+      [
+       "Client",
+       "Client → TM prop → CM prop"
+      ],
+      [
+       "TM proprietary",
+       "TM prop → CM prop"
+      ],
+      [
+       "CM proprietary",
+       "CM prop only"
+      ],
+      [
+       "Custodial participant",
+       "Before confirmation: CP (via executing TM) → executing TM prop → its CM prop. After confirmation (or auto-approval): CP (via confirming CM) → confirming CM prop. Allocation duty lies with the confirming CM"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>5. Upstreaming</b>: <b>no client funds stay with SBs/CMs at end of day</b>. They go to the CC only as <b>cash</b>, <b>lien on FDRs</b> made from client funds (conditions apply) or <b>pledge of MF overnight scheme units</b> investing in government bond overnight repo and TREPS. Client FDRs/BGs <b>cannot be upstreamed</b> and are not accepted as collateral in any segment. Not applicable to bank-CMs (including bank custodians) or to proprietary funds."
+    },
+    {
+     "type": "hook",
+     "text": "Upstreaming: client money swims upstream to the CC every evening; nothing stays overnight in the broker's pond."
+    },
+    {
+     "type": "p",
+     "text": "<b>6. UPI block</b> (trading supported by blocked amount): funds stay in the client's bank account, <b>blocked for the CC</b> via a single-block-multiple-debit UPI mandate, until expiry, release or debit; the CC settles directly. From SEBI's <b>November 11, 2024</b> circular, <b>QSBs</b> must offer either this or a <b>3-in-1 account</b>, with clients free to keep the old way."
+    }
+   ]
+  },
+  {
+   "id": "4.1.6",
+   "title": "Daily Margin Statement and Collateral Records",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Brokers send a <b>daily margin statement</b> across segments on <b>T day itself</b>: client code and name, trade day, margin available (break-up into cash, FDRs, BGs, pledged securities), margin adjustments including MTM, and margin status at end of day (balance with member or due from client)."
+    },
+    {
+     "type": "p",
+     "text": "Client collateral may only meet that client's margin/pay-in, with an audit trail. Records needed: receipt and acknowledgement, client authorisation to deposit with the CC, deposit, return, and credit of corporate benefits, periodically reconciled. Misuse attracts penalties under SCRA, SEBI Act, regulations and exchange bye-laws."
+    }
+   ]
+  },
+  {
+   "id": "4.1.7",
+   "title": "Enhanced Supervision and Surveillance Measures",
+   "blocks": [
+    {
+     "type": "list",
+     "items": [
+      "Bank/demat accounts follow SEBI nomenclature; new ones reported to exchanges <b>within one week</b>.",
+      "Exchanges monitor client funds with brokers through alerts and reconciliation, and brokers' financial health as an <b>early warning system</b>.",
+      "Internal audit: appointment and rotation of auditors, sample criteria, report quality and timelines. Brokers submit client funds, holdings and financial indicator data periodically.",
+      "PANs of directors, KMP and dealers go to exchanges; changes <b>within 7 days</b>.",
+      "<b>No further exposure</b> if a client's debit continues <b>beyond the 5th trading day</b> from pay-in (except under MTF)."
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "Look-alike deadlines: new bank/demat account details within <b>one week</b> of opening; changes in PAN details of directors/KMP/dealers within <b>7 days</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Account naming</b> (SEBI December 13, 2023): clients' funds are received in the <b>USCNBA</b> ('Name of SB/CM - USCNB account') and paid out only from the <b>DSCNBA</b> ('Name of SB/CM - DSCNB account'). The settlement account is 'Name of Stock Broker - Settlement Account'. Demat accounts only in SEBI's <b>6 categories</b>, all tagged and reported."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "GSM",
+       "points": [
+        "Price rise not justified by fundamentals (earnings, book value, net worth, P/E)"
+       ]
+      },
+      {
+       "title": "ASM",
+       "points": [
+        "Objective parameters: price variation, volatility"
+       ]
+      },
+      {
+       "title": "ESM",
+       "points": [
+        "Micro-small companies under <b>₹500 crore</b> market cap, extended to main board under <b>₹1,000 crore</b>",
+        "Parameters: high-low and close-to-close variation, market cap, standard deviation, P/E"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "They warn investors and push participants to do due diligence. Actions: <b>100% margin</b>, trade-for-trade, <b>±2% to 5%</b> price band, periodic call auction, restricted trading (e.g. once a week), additional deposit. The lists are on exchange websites."
+    },
+    {
+     "type": "hook",
+     "text": "GSM = Gap between price and fundamentals. ASM = Abnormal stats (price, volatility). ESM = Extra-small companies."
+    }
+   ]
+  },
+  {
+   "id": "4.2",
+   "title": "Compliances and Regulatory Reporting",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "SEBI and the exchanges regulate client registration, client dealing, contract notes, margins, trading software, pay-in/pay-out, branches and Authorised Persons, books and records, trading restrictions and BMC. Brokers also file reports and audit reports with their annual reports, and pay SEBI fees."
+    },
+    {
+     "type": "list",
+     "items": [
+      "A <b>client's default</b> in payment/delivery is reported to the exchange; for a company, firm or other artificial entity, the names of its directors/promoters/partners/proprietor too.",
+      "Changes in designated director, shareholding, control, name, merger/demerger, scheme of arrangement or conversion of membership need <b>prior/final approval</b> of SEBI/exchange/CC.",
+      "Laws to follow include SEBI Stock Broker, PFUTP, KRA and Insider Trading regulations, SCRR <b>1957</b>, SCRA <b>1956</b> and AML/CFT rules under PMLA <b>2002</b>."
+     ]
+    },
+    {
+     "type": "key",
+     "text": "From Chapter 3, tested in this chapter's sample questions: books and records must be preserved for at least <b>eight years</b> (Regulation 16, SEBI (Stock Broker) Regulations, 2026)."
+    }
+   ]
+  },
+  {
+   "id": "4.2.1",
+   "title": "Periodic Reports: The Compliance Calendar",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Report",
+      "NSE",
+      "MSEI",
+      "BSE"
+     ],
+     "rows": [
+      [
+       "System audit",
+       "Half-yearly, annual or once in 2 years (by nature of business)",
+       "Preliminary, corrective action, follow-on reports within exchange timelines",
+       "Same as MSEI"
+      ],
+      [
+       "Annual returns (audited financials)",
+       "By <b>October 31</b>",
+       "By <b>September 30</b>",
+       "By <b>October 31</b>"
+      ],
+      [
+       "Internal audit report; net worth certificate (half-yearly)",
+       "Within <b>2 months</b> of half year ended March/September",
+       "Same",
+       "Same"
+      ],
+      [
+       "Net worth certificate for margin trading",
+       "Within <b>1 month</b> of half year end",
+       "-",
+       "Within <b>1 month</b> of half year end"
+      ],
+      [
+       "Insurance proof",
+       "Validity ending May 31: by <b>July 31</b>; else within 1 month of expiry",
+       "Same as NSE",
+       "Within <b>30 days</b> of policy expiry"
+      ],
+      [
+       "Risk Based Supervision",
+       "Within <b>2 months</b> of half year ended March/September",
+       "Same",
+       "Same"
+      ],
+      [
+       "Cyber security incidents",
+       "Within <b>15 days</b> of quarter end; SE and SEBI told <b>immediately</b>",
+       "Same",
+       "Same"
+      ],
+      [
+       "Cyber security and resilience audit",
+       "Preliminary, corrective action, follow-on reports within exchange timelines",
+       "Same",
+       "Same"
+      ],
+      [
+       "AI/ML applications used",
+       "Within <b>15 days</b> of quarter end",
+       "Same",
+       "Same"
+      ],
+      [
+       "VAPT",
+       "Done <b>September-November</b>; final report within <b>1 month</b> (after Technology Committee approval); compliance report within <b>3 months</b>",
+       "Same",
+       "Same"
+      ]
+     ],
+     "caption": "Major periodic reports"
+    },
+    {
+     "type": "hook",
+     "text": "Half-yearly reports: 2 months. Quarterly tech reports: 15 days. Annual returns: October 31 (MSEI September 30)."
+    },
+    {
+     "type": "trap",
+     "text": "A cyber incident needs <b>immediate</b> intimation to the SE and SEBI, even though the quarterly incident report is due within 15 days."
+    },
+    {
+     "type": "p",
+     "text": "<b>Website</b> (SEBI, February 15, 2023): every broker and DP must maintain one; URL reported to exchanges/depositories <b>within a week</b>, and any change <b>within 3 days</b>."
+    }
+   ]
+  },
+  {
+   "id": "4.2.2",
+   "title": "Running Account Settlement and Unpaid Securities",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Without the client's <b>written</b> running account authorisation, funds are settled <b>within 1 working day of pay-out</b>. With it, settlement is quarterly or monthly as the client chooses: a gap of at most <b>90 or 30 days</b>. Since <b>June 20, 2019</b> there is no running account for securities, so the rules cover <b>funds</b> only. On settlement the broker sends a <b>statement of accounts</b> (ledger extract, securities register extract, reasons for retention, pledge details) and may settle across segments of the same exchange."
+    },
+    {
+     "type": "p",
+     "text": "<b>Unpaid securities.</b> If a client buys but does not pay in full, the broker should neither keep the shares in its own pool nor release them free. The answer: shares go to the client, padlocked for the broker."
+    },
+    {
+     "type": "new",
+     "text": "For trades <b>not under MTF</b>, unpaid securities are paid out to the <b>client's demat</b> and <b>auto-pledged</b> (no client instruction needed) with reason '<b>unpaid</b>' to the TM's '<b>Client Unpaid Securities Pledgee Account</b>' (<b>CUSPA</b>). The TM then emails/SMSes the client about the obligation and its right to sell. The TM must have a <b>policy</b> (standalone or in its Risk Management Policy), told to clients before it applies, with a maximum payment period of <b>5 trading days from pay-out</b>."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Daily review",
+       "text": "TM fixes the client's obligation and maximum pledge value (ledger balance, margin obligations, exchange factors). Excess pledge released by the <b>next trading day</b>."
+      },
+      {
+       "title": "Client pays",
+       "text": "Pledge released."
+      },
+      {
+       "title": "Client doesn't pay",
+       "text": "After <b>reasonable notice</b>, TM invokes; shares are blocked for EPI in the client's demat (trail in CUSPA), verified by depositories and sold under the <b>client's UCC</b>; any surplus goes to the client's ledger."
+      },
+      {
+       "title": "Nothing done",
+       "text": "Not invoked or released within 5 trading days: depositories <b>auto-release at the end of the 6th trading day</b>; shares become free balance."
+      }
+     ]
+    },
+    {
+     "type": "new",
+     "text": "<b>Extension</b>: if shares can't be sold within 5 trading days because of a <b>lower circuit with only sellers</b>, a <b>suspension/trading halt</b>, or another valid reason recognised by MIIs, the TM may request <b>by 6 p.m. on the 5th trading day after pay-out</b> an extension of <b>one calendar week</b>, and must inform the client. Miss the deadline and the system auto-releases. CUSPA shares <b>may count for margin reporting</b> to the CC, but give <b>no exposure</b> and <b>cannot be pledged/transferred to banks or NBFCs</b>."
+    },
+    {
+     "type": "example",
+     "text": "Kunal buys ₹1,00,000 of shares on Monday, pays ₹40,000. Tuesday pay-out: shares land in his demat, pledged to CUSPA. Trading days after pay-out: Wed (1), Thu (2), Fri (3), Mon (4), Tue (5). Untouched by then: auto-release at end of next Wednesday (6th). Stock in lower circuit: extension request by 6 p.m. next Tuesday.",
+     "title": "CUSPA in a real week"
+    },
+    {
+     "type": "trap",
+     "text": "Five to pay, sixth auto-release, 6 p.m. on the fifth for an extension of one <b>calendar</b> week; excess released by the next trading day."
+    },
+    {
+     "type": "hook",
+     "text": "Picture CUSPA shares sitting in the client's own demat with a padlock whose key the broker holds for at most 5 trading days (one extra calendar week only in emergencies)."
+    },
+    {
+     "type": "p",
+     "text": "Since SEBI's <b>February 25, 2020</b> circular, title transfer of client securities to the TM for margin is discontinued: <b>margin pledge</b> only. Revised running account rules (<b>December 28, 2023</b>) and settlement for clients who have not traded in the last <b>30 days</b> (<b>January 06, 2025</b>) are covered in section 6.2."
+    }
+   ]
+  },
+  {
+   "id": "4.2.3",
+   "title": "Account Statements and the Annual Global Statement",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Brokers send each client a <b>Statement of Accounts</b> for funds and securities (ledger, securities register, reasons for retention) as per the exchange's periodicity and format, telling clients to report errors within the exchange's time limit."
+    },
+    {
+     "type": "key",
+     "text": "<b>Annual Global Statement</b> (SEBI letter, November 27, 2017): within <b>30 days from end of the financial year</b>, with all transactions and charges."
+    }
+   ]
+  },
+  {
+   "id": "4.2.4",
+   "title": "Risk Based Supervision",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Risk Based Supervision (RBS)</b> is the exchanges' <b>half-yearly</b>, forward-looking assessment of brokers' business, management and controls, so supervision focuses where risk is. Four steps: <b>risk assessment</b>, <b>risk and impact rating</b>, <b>supervisory risk rating score</b>, <b>supervisory approach</b>. Brokers fall into four groups (<b>very low, low, medium, high</b> risk) and the quantum of supervision and inspections varies. SEBI's template mostly uses exchange inputs, some from members. Data is due <b>2 months</b> after the half year ending September and the year ending March."
+    }
+   ]
+  },
+  {
+   "id": "4.2.5",
+   "title": "Reporting to FIU-IND: CTR, STR and NTR",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>FIU-IND</b>, an intelligence arm under the Finance Ministry, receives reports online in its prescribed formats."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Report",
+      "Deadline"
+     ],
+     "rows": [
+      [
+       "Cash Transaction Report (monthly)",
+       "By <b>15th</b> of next month"
+      ],
+      [
+       "Suspicious Transaction Report",
+       "Within <b>7 days</b> of concluding the transaction (cash or non-cash, or a connected series) is suspicious"
+      ],
+      [
+       "Non-Profit Organisation Transaction Report (monthly)",
+       "By <b>15th</b> of next month"
+      ]
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "The STR clock runs from the <b>conclusion</b> of suspicion, not the trade date. The Principal Officer records reasons, and there must be no undue delay in concluding."
+    }
+   ]
+  },
+  {
+   "id": "4.2.6",
+   "title": "Voluntary Freezing of Trading Accounts and Qualified Stock Brokers",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "<b>Voluntary freezing</b> (SEBI, January 12, 2024): TMs need a policy covering how clients can ask to block their trading account, acknowledgement, time to freeze, the TM's action, re-enabling, and telling clients about the facility."
+    },
+    {
+     "type": "p",
+     "text": "<b>Qualified Stock Brokers (QSBs)</b> (SEBI, February 06, 2023): large brokers with enhanced duties on governance, risk management, client surveillance, operational integrity, BCP, scalable infrastructure, orderly winding down, cyber security and investor services (including online complaint redressal). Under the SB Regulations 2026, SEBI or exchanges designate them annually using weighted parameters:"
+    },
+    {
+     "type": "list",
+     "items": [
+      "Active clients; client assets with the broker; trading volumes; EOD margin obligations of all clients; proprietary trading volumes.",
+      "List released jointly by exchanges with SEBI, every year, on values as of <b>December 31</b>. A broker leaving the list keeps the obligations for <b>3 more financial years</b>."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4.3",
+   "title": "Core Settlement Guarantee Fund: Purpose and Corpus",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Each CC keeps a <b>Core SGF</b> for <b>each segment of each recognised stock exchange</b>. If a clearing member fails, the fund meets its obligations so normal settlement continues. The corpus must cover failure contingencies; it depends on volumes, delivery %, settlement liabilities, default history, capital adequacy and safety measures. The CC considers its risk system, current and projected volumes, and members' default record."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Fixed monthly",
+       "text": "The <b>Minimum Required Corpus (MRC)</b> is fixed for a month."
+      },
+      {
+       "title": "Stress tests",
+       "text": "For each day of the previous month, the highest uncovered loss from credit-risk stress tests = that day's worst case loss; these are averaged."
+      },
+      {
+       "title": "Set MRC",
+       "text": "Next month's MRC = <b>higher</b> of that average and the previous MRC."
+      },
+      {
+       "title": "By the 15th",
+       "text": "By the <b>15th</b> of each month, the CC fixes next month's MRC and reviews contributions."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4.3.2",
+   "title": "Who Contributes to Core SGF and How It Is Refilled",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Contributor",
+      "Share of MRC",
+      "Notes"
+     ],
+     "rows": [
+      [
+       "Clearing Corporation",
+       "At least <b>50%</b>",
+       "Own funds; part of its net worth"
+      ],
+      [
+       "Stock Exchange",
+       "At least <b>25%</b>",
+       "Can be via transfer of profits (<b>Regulation 33, SECC Regulations</b>)"
+      ],
+      [
+       "Clearing members (total)",
+       "Not more than <b>25%</b>",
+       "No exposure on it; pro-rata to risk; upfront or staggered (CC fills the gap meanwhile)"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "50-25-25: CC half, exchange a quarter, members at most a quarter."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Per SEBI's <b>May 04, 2016</b> circular, CM contribution is met to the extent available from the amount received from the exchange.",
+      "CC penalties go into Core SGF; interest on cash contributions accrues to it, attributed pro-rata. SEs may move excess contributions between CCs (interoperability).",
+      "Contributions are due <b>before the month starts</b>. After use, contributors refill to MRC <b>immediately</b>, but members refill <b>only once per 30 calendar days</b> (from the default notice). Shortfalls are met temporarily by the <b>CC, then the SE</b>.",
+      "CCs normally take <b>cash</b>; CMs may also give bank FDs or Central Government securities.",
+      "The CC's <b>Regulatory Oversight Committee (ROC)</b> manages the Core SGF."
+     ]
+    }
+   ]
+  },
+  {
+   "id": "4.3.3",
+   "title": "The Default Waterfall",
+   "blocks": [
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "a. Defaulter",
+       "text": "Defaulting member's monies, including its Core SGF contribution and excess in other segments."
+      },
+      {
+       "title": "b. Insurance",
+       "text": "If any."
+      },
+      {
+       "title": "c. CC resources",
+       "text": "Equal to <b>5% of segment MRC</b>."
+      },
+      {
+       "title": "d. Core SGF",
+       "text": "(I) Penalties; (II) CC contribution up to at least <b>25% of segment MRC</b>; (III) the rest pro-rata (CC, SE, non-defaulting members)."
+      },
+      {
+       "title": "e. Remaining CC resources",
+       "text": "Share in ratio of segment MRC to all MRCs, excluding other segments' Core SGF contributions and <b>₹100 crore</b> (only if resources exceed ₹100 crore)."
+      },
+      {
+       "title": "f. Other segments",
+       "text": "CC/SE contributions to other segments' Core SGFs (after their obligations) and remaining CC resources as SEBI approves."
+      },
+      {
+       "title": "g. Non-defaulters",
+       "text": "Capped additional contribution: lower of <b>2×</b> primary contribution or <b>10%</b> of Core SGF (equity/debt) / <b>20%</b> (derivatives)."
+      },
+      {
+       "title": "h. Haircut",
+       "text": "Pro-rata haircut to pay-outs."
+      }
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "'<b>D</b>o <b>I</b> <b>C</b>are? <b>C</b>over <b>C</b>ost, <b>O</b>thers <b>G</b>et <b>H</b>aircut': Defaulter, Insurance, CC 5%, Core SGF, CC rest, Other segments, Good members, Haircut."
+    },
+    {
+     "type": "trap",
+     "text": "Insurance comes <b>before</b> the CC's own 5%, and penalties are the <b>first</b> layer inside the Core SGF. Non-defaulting members pay extra only near the end, just before the haircut."
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Minimum upfront margin from clients in cash segment (in lieu of VaR + ELM)",
+   "value": "20%",
+   "ref": "4.1.1"
+  },
+  {
+   "fact": "Deadline for collecting MTM, delivery and special margins (for penalty purposes)",
+   "value": "By settlement day (full pay-in = all deemed collected)",
+   "ref": "4.1.1"
+  },
+  {
+   "fact": "Reporting of actual/short/non-collection of client margins to the Exchange",
+   "value": "T+5",
+   "ref": "4.1.1"
+  },
+  {
+   "fact": "Components of cash segment risk framework",
+   "value": "5 (margin, liquid assets, BMC, pre-trade control, RRM)",
+   "ref": "4.1.1"
+  },
+  {
+   "fact": "VaR margin confidence level (cash segment)",
+   "value": "99.9% of days",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Trading frequency for Group I and II",
+   "value": "At least 80% of days in previous 6 months",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Impact cost threshold separating Group I and Group II",
+   "value": "1% (Group I ≤ 1%; Group II > 1%)",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Group III (illiquid) trading frequency",
+   "value": "Less than 80% of days",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "VaR margin, Group I (liquid)",
+   "value": "6σ, minimum 9%",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "VaR margin, Group II (less liquid)",
+   "value": "6σ, minimum 21.5%",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "VaR margin, Group III (illiquid)",
+   "value": "50% if traded at least once a week; 75% otherwise",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "VaR margin, broad-based index ETFs",
+   "value": "6σ, minimum 6%",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Liquidity group recomputation date",
+   "value": "15th of each month; effective 1st of next month",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Look-back period for trading frequency and impact cost",
+   "value": "Previous 6 months (entire history if listed < 6 months)",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Newly listed stock's group for first month",
+   "value": "Group where its market cap ≥ that of 80% of stocks in the group",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Hypothetical order size for impact cost",
+   "value": "₹1 lakh",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Impact cost snapshots",
+   "value": "4 random snapshots a day, in fixed 10-minute windows",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Group III review frequency",
+   "value": "Weekly (75% if not traded for a week; back to 50% next day after it trades)",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "VaR rate / scenario contract value updates",
+   "value": "At least 5 times a day: previous close, 11:00 a.m., 12:30 p.m., 2:00 p.m., end of day",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "ELM in cash segment, any stock",
+   "value": "3.5%",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "ELM, broad-based index ETFs",
+   "value": "2%",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Upfront margin (VaR + ELM) for TFTS securities",
+   "value": "100%",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "MTM collection from members",
+   "value": "Before start of trading on the next day, in cash/cash equivalents",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Volatile stock trigger 1",
+   "value": "Intraday move > 10% on 3+ days in last 1 month: margin till monthly expiry after 3 months",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Volatile stock trigger 2",
+   "value": "Intraday move > 10% on 10+ days in last 6 months: margin till monthly expiry after 1 year",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Cap on margins for a cash market buy",
+   "value": "VaR + ELM + MTM ≤ purchase value",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Cap on margins for a cash market sale",
+   "value": "VaR + ELM ≤ sale value (MTM levied in addition)",
+   "ref": "4.1.1.1"
+  },
+  {
+   "fact": "Requirements liquid assets must cover",
+   "value": "4: MTM losses, VaR, ELM, BMC",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Haircut on cash, bank FDs, bank guarantees",
+   "value": "0",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Haircut on growth plans of overnight MF schemes",
+   "value": "5%",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Haircut on other overnight, liquid and G-sec MF schemes",
+   "value": "10%",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Equity accepted as liquid asset",
+   "value": "Impact cost ≤ 0.1% for ₹1 lakh order; traded on ≥ 99% of days in previous 6 months",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Haircut on liquid equity / other MF units",
+   "value": "VaR margin (6σ, minimum 9%)",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Haircut on corporate bonds",
+   "value": "Minimum 10% to begin with",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Limit on corporate bonds as liquid assets",
+   "value": "Not more than 10% of CM's total liquid assets",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Cash equivalents as share of liquid assets",
+   "value": "At least 50%",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "CC's overall daily exposure to a single bank via CM collateral",
+   "value": "Not more than 20% of total liquid assets",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "CC list of approved securities",
+   "value": "Generally monthly",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Margining of institutional trades",
+   "value": "T+1 basis, collected from custodian on confirmation",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Public financial institution definition",
+   "value": "Section 2(72), Companies Act, 2013",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "Bank definition for institutional trades",
+   "value": "Section 5(1)(c), Banking Regulation Act, 1949",
+   "ref": "4.1.1.2"
+  },
+  {
+   "fact": "BMC: only proprietary trading, no algo",
+   "value": "₹10 lakh",
+   "ref": "4.1.1.3"
+  },
+  {
+   "fact": "BMC: only client trading, no algo",
+   "value": "₹15 lakh",
+   "ref": "4.1.1.3"
+  },
+  {
+   "fact": "BMC: proprietary + client trading, no algo",
+   "value": "₹25 lakh",
+   "ref": "4.1.1.3"
+  },
+  {
+   "fact": "BMC: all brokers with algo trading",
+   "value": "₹50 lakh",
+   "ref": "4.1.1.3"
+  },
+  {
+   "fact": "BMC to be in cash and cash equivalents",
+   "value": "At least 50%",
+   "ref": "4.1.1.3"
+  },
+  {
+   "fact": "BMC for exchanges without nation-wide terminals",
+   "value": "40% of normal BMC",
+   "ref": "4.1.1.3"
+  },
+  {
+   "fact": "BMC where average daily turnover < ₹1 crore for any 3 consecutive months",
+   "value": "₹1 lakh",
+   "ref": "4.1.1.3"
+  },
+  {
+   "fact": "Block mechanism for early pay-in introduced",
+   "value": "SEBI circular of July 16, 2021",
+   "ref": "4.1.1.5"
+  },
+  {
+   "fact": "Block mechanism mandatory for all early pay-in",
+   "value": "From November 14, 2022",
+   "ref": "4.1.1.5"
+  },
+  {
+   "fact": "Maximum value per order in normal market",
+   "value": "₹10 crore",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "Scrip-wise price bands (SEBI, 2001)",
+   "value": "2% to 20%",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "Dynamic price band for F&O stocks, index futures and stock futures",
+   "value": "10% of previous close/adjusted base price",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "Tiered flexing of dynamic price bands",
+   "value": "5%, 3%, 2% after cooling-off of 15, 30, 60 minutes",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "Market-wide circuit breaker levels",
+   "value": "10%, 15%, 20% of Sensex or Nifty 50 (whichever first)",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "10% breach before 1 p.m. / 1 p.m. to before 2:30 p.m. / at or after 2:30 p.m.",
+   "value": "1 hour / 30 minutes / no halt",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "15% breach before 1 p.m. / 1 p.m. to before 2 p.m. / at or after 2 p.m.",
+   "value": "2 hours / 1 hour / rest of day",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "20% breach at any time",
+   "value": "Halt for rest of the day",
+   "ref": "4.1.1.7"
+  },
+  {
+   "fact": "Risk reduction mode trigger",
+   "value": "90% collateral utilisation",
+   "ref": "4.1.1.8"
+  },
+  {
+   "fact": "Return to normal mode",
+   "value": "Utilisation below 85%",
+   "ref": "4.1.1.8"
+  },
+  {
+   "fact": "SPAN initial margin confidence level",
+   "value": "99% VaR",
+   "ref": "4.1.2"
+  },
+  {
+   "fact": "SPAN 'what-if' scenarios",
+   "value": "16",
+   "ref": "4.1.2"
+  },
+  {
+   "fact": "Margin Period of Risk (MPOR)",
+   "value": "Minimum 2 days",
+   "ref": "4.1.2"
+  },
+  {
+   "fact": "Calendar spread charge, index derivatives",
+   "value": "1.75% of far month contract",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Calendar spread charge, single stock derivatives",
+   "value": "2.2% of far month contract",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "SEBI clarification on calendar spreads on expiry day (new)",
+   "value": "Circular of February 05, 2026",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Upfront collection of option premium from buyers",
+   "value": "From February 01, 2025 (equity derivatives)",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Delivery margin starts",
+   "value": "4 days before expiry (Thursday expiry: previous Friday EOD)",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "ELM, index futures / short index options",
+   "value": "2%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "ELM, stock futures / short stock options",
+   "value": "3.5%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "ELM on futures calendar spreads",
+   "value": "On one third of far month open position value",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "ELM, deep OTM index options (strike > 10% OTM)",
+   "value": "3%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "ELM, index options with residual maturity > 9 months",
+   "value": "5%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "ELM, deep OTM stock options (strike > 30% OTM)",
+   "value": "5.25%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Additional ELM on expiry day, short index options",
+   "value": "2%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Net short value for far strikes collected in cash",
+   "value": "On T+1, with funds settlement",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Cross margining introduced",
+   "value": "SEBI circular of December 02, 2008",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Cross margin spread margin, eligible offsets (same expiry)",
+   "value": "25%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Spread margin, correlated index futures, same expiry",
+   "value": "30%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Spread margin, index vs constituents with different expiry",
+   "value": "35%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Spread margin, correlated indices with different expiry",
+   "value": "40%",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Highly correlated indices",
+   "value": "Correlation > 0.90; ≥ 80% common constituents; ≥ 80% weightage of smaller in larger",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Net settlement of cash and F&O on stock derivative expiry",
+   "value": "SEBI circular of November 30, 2022",
+   "ref": "4.1.2.1"
+  },
+  {
+   "fact": "Minimum liquid net worth of clearing member",
+   "value": "₹50 lakh at all times",
+   "ref": "4.1.2.2"
+  },
+  {
+   "fact": "Screen area for F&O risk disclosures",
+   "value": "At least 50%",
+   "ref": "4.1.2.2"
+  },
+  {
+   "fact": "Market Wide Position Limit (single stock)",
+   "value": "Lower of 15% of free float and 65 × ADDV; floor 10% of free float",
+   "ref": "4.1.2.4"
+  },
+  {
+   "fact": "Ban period trigger",
+   "value": "Market-wide OI > 95% of MWPL",
+   "ref": "4.1.2.4"
+  },
+  {
+   "fact": "Derivatives pre-open extends to next-month futures",
+   "value": "Last 5 trading days before expiry",
+   "ref": "4.1.2.4"
+  },
+  {
+   "fact": "Intraday position limit snapshots (index options)",
+   "value": "Minimum 4 random snapshots a day",
+   "ref": "4.1.2.4"
+  },
+  {
+   "fact": "SEBI circular on FutEq OI and MWPL changes",
+   "value": "May 29, 2025",
+   "ref": "4.1.2.4"
+  },
+  {
+   "fact": "Derivatives: delivery margin and consolidated crystallised obligation margin",
+   "value": "Collected by T+1",
+   "ref": "4.1.4"
+  },
+  {
+   "fact": "Non-reporting of margin collection",
+   "value": "Treated as 100% short collection",
+   "ref": "4.1.4"
+  },
+  {
+   "fact": "False reporting of margin collected",
+   "value": "Penalty 100% of falsely reported amount + suspension of trading",
+   "ref": "4.1.4"
+  },
+  {
+   "fact": "Client-wise margin snapshots by CC",
+   "value": "Minimum 4 a day",
+   "ref": "4.1.4"
+  },
+  {
+   "fact": "Verification of margin balances with TM/CM",
+   "value": "Weekly",
+   "ref": "4.1.4"
+  },
+  {
+   "fact": "EOD derivatives margin on fixed BOD parameters",
+   "value": "From May 01, 2023",
+   "ref": "4.1.4"
+  },
+  {
+   "fact": "Margin pledge/re-pledge in depository system",
+   "value": "SEBI circular of February 25, 2020",
+   "ref": "4.1.5"
+  },
+  {
+   "fact": "Release of CM collateral blocked for client with re-pledged securities",
+   "value": "Periodically, latest by end of day",
+   "ref": "4.1.5"
+  },
+  {
+   "fact": "Cash/cash equivalent share of CM's total collateral",
+   "value": "At least 50%",
+   "ref": "4.1.5"
+  },
+  {
+   "fact": "Client funds retained by SB/CM at end of day",
+   "value": "Nil (all upstreamed to CC)",
+   "ref": "4.1.5"
+  },
+  {
+   "fact": "QSBs to offer UPI block or 3-in-1 account",
+   "value": "SEBI circular of November 11, 2024",
+   "ref": "4.1.5"
+  },
+  {
+   "fact": "Daily margin statement to clients",
+   "value": "On T day itself",
+   "ref": "4.1.6"
+  },
+  {
+   "fact": "Reporting new bank/demat accounts to exchanges",
+   "value": "Within one week of opening",
+   "ref": "4.1.7"
+  },
+  {
+   "fact": "Intimating change in PAN of directors/KMP/dealers",
+   "value": "Within 7 days",
+   "ref": "4.1.7"
+  },
+  {
+   "fact": "No further exposure if client debit continues beyond",
+   "value": "5th trading day from pay-in date (except MTF)",
+   "ref": "4.1.7"
+  },
+  {
+   "fact": "Client bank account nomenclature change (USCNBA/DSCNBA)",
+   "value": "SEBI circular of December 13, 2023",
+   "ref": "4.1.7"
+  },
+  {
+   "fact": "Permitted categories of broker demat accounts",
+   "value": "6",
+   "ref": "4.1.7"
+  },
+  {
+   "fact": "ESM framework market cap thresholds",
+   "value": "Micro-small < ₹500 crore; main board < ₹1,000 crore",
+   "ref": "4.1.7"
+  },
+  {
+   "fact": "Surveillance price band",
+   "value": "±2% to 5%",
+   "ref": "4.1.7"
+  },
+  {
+   "fact": "Preservation of books and records (Reg. 16, SB Regulations 2026)",
+   "value": "Minimum 8 years",
+   "ref": "4.2"
+  },
+  {
+   "fact": "Annual returns (audited financials): NSE and BSE",
+   "value": "By October 31",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Annual returns (audited financials): MSEI",
+   "value": "By September 30",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Internal audit report, net worth certificate, RBS data",
+   "value": "Within 2 months from half year ended March/September",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Net worth certificate for margin trading (NSE, BSE)",
+   "value": "Within 1 month from end of half year",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Insurance proof (NSE/MSEI), validity ending May 31",
+   "value": "By July 31 (other dates: within 1 month of expiry)",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Insurance proof (BSE)",
+   "value": "Within 30 days from expiry of policy",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "System audit periodicity",
+   "value": "Half-yearly, annual or once in 2 years (by nature of business)",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Cyber security incident report",
+   "value": "Within 15 days from end of quarter; immediate intimation to SE and SEBI",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "AI/ML applications report",
+   "value": "Within 15 days from end of quarter",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "VAPT window",
+   "value": "September to November every FY",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Final VAPT report / compliance report",
+   "value": "Within 1 month of VAPT completion / within 3 months of final report",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Website URL reporting / change of URL",
+   "value": "Within a week / within 3 days",
+   "ref": "4.2.1"
+  },
+  {
+   "fact": "Settlement of client funds without running account authorisation",
+   "value": "Within 1 working day of pay-out",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Maximum gap between running account settlements",
+   "value": "90 days (quarterly) / 30 days (monthly)",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Running account for securities discontinued",
+   "value": "SEBI circular of June 20, 2019",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Maximum period for client to pay for unpaid securities (new)",
+   "value": "5 trading days from pay-out",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Auto-release of CUSPA pledge (new)",
+   "value": "End of 6th trading day after pay-out",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Release of pledge above maximum pledge value (new)",
+   "value": "On or before next trading day",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "CUSPA extension request deadline (new)",
+   "value": "By 6 p.m. on 5th trading day after pay-out",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Length of CUSPA extension (new)",
+   "value": "One additional calendar week",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Title transfer of securities for margin discontinued",
+   "value": "SEBI circular of February 25, 2020",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Settlement of accounts of clients not traded recently",
+   "value": "Not traded in last 30 days (circular of January 06, 2025)",
+   "ref": "4.2.2"
+  },
+  {
+   "fact": "Annual Global Statement",
+   "value": "Within 30 days from end of financial year",
+   "ref": "4.2.3"
+  },
+  {
+   "fact": "Risk Based Supervision frequency",
+   "value": "Half-yearly",
+   "ref": "4.2.4"
+  },
+  {
+   "fact": "RBS steps / risk groups",
+   "value": "4 steps / 4 groups (very low, low, medium, high)",
+   "ref": "4.2.4"
+  },
+  {
+   "fact": "Cash Transaction Report (CTR)",
+   "value": "By 15th of succeeding month",
+   "ref": "4.2.5"
+  },
+  {
+   "fact": "Suspicious Transaction Report (STR)",
+   "value": "Within 7 days of concluding it is suspicious",
+   "ref": "4.2.5"
+  },
+  {
+   "fact": "Non-Profit Organisation Transaction Report (NTR)",
+   "value": "By 15th of succeeding month",
+   "ref": "4.2.5"
+  },
+  {
+   "fact": "Voluntary freezing of trading accounts",
+   "value": "SEBI circular of January 12, 2024",
+   "ref": "4.2.6"
+  },
+  {
+   "fact": "QSB framework circular",
+   "value": "February 06, 2023",
+   "ref": "4.2.6"
+  },
+  {
+   "fact": "QSB designation parameters",
+   "value": "5, reviewed annually, values as on December 31",
+   "ref": "4.2.6"
+  },
+  {
+   "fact": "Ex-QSB continues enhanced obligations for",
+   "value": "3 financial years",
+   "ref": "4.2.6"
+  },
+  {
+   "fact": "Core SGF maintained for",
+   "value": "Each segment of each recognised stock exchange",
+   "ref": "4.3"
+  },
+  {
+   "fact": "MRC fixed for",
+   "value": "One month",
+   "ref": "4.3"
+  },
+  {
+   "fact": "MRC review date",
+   "value": "By 15th of every month",
+   "ref": "4.3"
+  },
+  {
+   "fact": "CC contribution to Core SGF",
+   "value": "At least 50% of MRC (own funds)",
+   "ref": "4.3.2"
+  },
+  {
+   "fact": "Stock exchange contribution to Core SGF",
+   "value": "At least 25% of MRC",
+   "ref": "4.3.2"
+  },
+  {
+   "fact": "Total clearing member primary contribution",
+   "value": "Not more than 25% of MRC",
+   "ref": "4.3.2"
+  },
+  {
+   "fact": "SE contribution via transfer of profits",
+   "value": "Regulation 33 of SECC Regulations",
+   "ref": "4.3.2"
+  },
+  {
+   "fact": "CM contribution met from exchange amount",
+   "value": "SEBI circular of May 04, 2016",
+   "ref": "4.3.2"
+  },
+  {
+   "fact": "Members' replenishment of Core SGF",
+   "value": "Only once in 30 calendar days (from date of default notice)",
+   "ref": "4.3.2"
+  },
+  {
+   "fact": "CC resources in default waterfall (step c)",
+   "value": "5% of segment MRC",
+   "ref": "4.3.3"
+  },
+  {
+   "fact": "CC contribution used inside Core SGF (step d-II)",
+   "value": "At least 25% of segment MRC",
+   "ref": "4.3.3"
+  },
+  {
+   "fact": "Amount excluded from remaining CC resources (step e)",
+   "value": "₹100 crore (only if resources exceed ₹100 crore)",
+   "ref": "4.3.3"
+  },
+  {
+   "fact": "Capped additional contribution, equity/debt segment",
+   "value": "Lower of 2 × primary contribution or 10% of Core SGF",
+   "ref": "4.3.3"
+  },
+  {
+   "fact": "Capped additional contribution, derivatives segment",
+   "value": "Lower of 2 × primary contribution or 20% of Core SGF",
+   "ref": "4.3.3"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "What does a CC's settlement guarantee mean?",
+   "a": "Funds and securities will be settled even if a broker or clearing member fails to meet its obligation."
+  },
+  {
+   "q": "Name the three margins in the cash segment.",
+   "a": "VaR margin, Extreme Loss Margin and Mark to Market loss margin."
+  },
+  {
+   "q": "What does VaR margin cover in the cash segment?",
+   "a": "The largest loss that can be expected on 99.9% of days."
+  },
+  {
+   "q": "Which two measures decide a stock's liquidity group?",
+   "a": "Trading frequency over the previous six months (80% of days) and mean impact cost (1%)."
+  },
+  {
+   "q": "VaR margin for Group III (illiquid) securities?",
+   "a": "50% if traded at least once a week on any exchange; 75% otherwise."
+  },
+  {
+   "q": "What is scrip sigma?",
+   "a": "The security's volatility at the end of the previous trading day, computed by EWMA of daily returns."
+  },
+  {
+   "q": "How is mean impact cost measured?",
+   "a": "Price movement caused by a hypothetical ₹1 lakh order versus the mean of best bid and offer, from 4 daily snapshots."
+  },
+  {
+   "q": "ELM in the cash segment?",
+   "a": "3.5% for any stock; 2% for ETFs on broad-based indices."
+  },
+  {
+   "q": "Which older terms did 'Extreme Loss Margin' replace?",
+   "a": "'Exposure limits' and 'second line of defence'."
+  },
+  {
+   "q": "Upfront margin for securities in Trade for Trade Surveillance?",
+   "a": "100% (VaR + ELM)."
+  },
+  {
+   "q": "Can one client's MTM profit offset another client's MTM loss?",
+   "a": "No. MTM is netted within a client but grossed across clients; only losses are added at broker level."
+  },
+  {
+   "q": "What is ICMTM?",
+   "a": "Intraday Crystallised MTM: the loss on trades opened and closed the same day, at weighted average prices, blocked in real time."
+  },
+  {
+   "q": "What four requirements must liquid assets cover?",
+   "a": "MTM losses, VaR margin, Extreme Loss Margin and Base Minimum Capital."
+  },
+  {
+   "q": "Can non-cash liquid assets be used to pay MTM losses?",
+   "a": "No. MTM must be paid in cash or cash equivalents."
+  },
+  {
+   "q": "BMC for a broker that uses algorithmic trading?",
+   "a": "₹50 lakh, whatever its client/proprietary mix."
+  },
+  {
+   "q": "BMC for a broker on several segments of the same exchange?",
+   "a": "The highest BMC among those segments, not the total."
+  },
+  {
+   "q": "Effect of early pay-in of securities on margins?",
+   "a": "That position is excluded from margins; all margins are deemed collected and no short-collection penalty arises."
+  },
+  {
+   "q": "What does a kill switch do?",
+   "a": "Cancels all of a member's outstanding orders with a single command."
+  },
+  {
+   "q": "What triggers and ends risk reduction mode?",
+   "a": "Starts at 90% collateral utilisation; normal mode resumes when it falls below 85%."
+  },
+  {
+   "q": "What is SPAN and who developed it?",
+   "a": "Standard Portfolio Analysis of Risk, from the Chicago Mercantile Exchange: portfolio margin from the worst of 16 scenarios."
+  },
+  {
+   "q": "Minimum Margin Period of Risk for equity derivatives?",
+   "a": "2 days, set per product based on its liquidity."
+  },
+  {
+   "q": "Calendar spread charges?",
+   "a": "Index derivatives: 1.75% of far month contract. Single stock derivatives: 2.2% of far month contract."
+  },
+  {
+   "q": "On expiry day, which calendar spreads lose the spread benefit?",
+   "a": "Only spreads with a leg in the contract expiring that day; spreads between later expiries keep it."
+  },
+  {
+   "q": "What is Net Option Value and where does it go?",
+   "a": "Long option value minus short option value; added to the CM's liquid net worth. Option MTM is not settled in cash."
+  },
+  {
+   "q": "From when must option buyers pay premium upfront?",
+   "a": "February 01, 2025, in the equity derivatives segment."
+  },
+  {
+   "q": "When do delivery margins start on physically settled contracts?",
+   "a": "Four days before expiry; for a Thursday expiry, from the previous Friday EOD."
+  },
+  {
+   "q": "Additional ELM on options expiry day?",
+   "a": "2% on short index options expiring that day, both those open at day start and those written during the day."
+  },
+  {
+   "q": "Define liquid net worth of a clearing member.",
+   "a": "Liquid assets minus initial margin and ELM on gross open positions; must stay at least ₹50 lakh."
+  },
+  {
+   "q": "How is MWPL for a single stock computed?",
+   "a": "Lower of 15% of free float and 65 × ADDV, with a floor of 10% of free float."
+  },
+  {
+   "q": "What is FutEq OI?",
+   "a": "Net delta-adjusted open position across futures and options of an underlying, added up across all UCCs."
+  },
+  {
+   "q": "Derivatives: deadline to collect delivery margin and consolidated crystallised obligation margin?",
+   "a": "By T+1."
+  },
+  {
+   "q": "How is the peak margin penalty computed?",
+   "a": "On the higher of the EOD shortfall and the peak (snapshot) shortfall; minimum 4 snapshots a day."
+  },
+  {
+   "q": "What is the 'Client Securities Margin Pledge Account'?",
+   "a": "The separate demat account a TM/CM opens to receive clients' margin pledges and to re-pledge them onward."
+  },
+  {
+   "q": "What is DDPI?",
+   "a": "Demat Debit and Pledge Instruction: used for settlement transfers and pledges/re-pledges in place of a Power of Attorney."
+  },
+  {
+   "q": "USCNBA vs DSCNBA?",
+   "a": "Up Streaming account receives client funds; Down Streaming account is the only account for paying clients."
+  },
+  {
+   "q": "Which client funds forms can be upstreamed to the CC?",
+   "a": "Cash, lien on FDRs from client funds, or pledge of overnight MF scheme units bought with client funds."
+  },
+  {
+   "q": "What is CUSPA?",
+   "a": "Client Unpaid Securities Pledgee Account: the TM account to which unpaid (non-MTF) securities are auto-pledged in the client's demat."
+  },
+  {
+   "q": "Key CUSPA timelines?",
+   "a": "Client pays within 5 trading days of pay-out; auto-release at end of 6th; extension request by 6 p.m. on 5th day."
+  },
+  {
+   "q": "Can a TM give exposure against, or bank-pledge, CUSPA securities?",
+   "a": "Neither. They may count for margin reporting, but give no exposure and cannot go to banks/NBFCs."
+  },
+  {
+   "q": "When must the Annual Global Statement be issued?",
+   "a": "Within 30 days from the end of the financial year."
+  },
+  {
+   "q": "CTR, STR and NTR deadlines?",
+   "a": "CTR and NTR by the 15th of the next month; STR within 7 days of concluding suspicion."
+  },
+  {
+   "q": "Four steps of Risk Based Supervision?",
+   "a": "Risk assessment, risk and impact rating, supervisory risk rating score, supervisory approach."
+  },
+  {
+   "q": "Parameters for QSB designation?",
+   "a": "Active clients, client assets, trading volumes, clients' EOD margin obligations and proprietary trading volumes."
+  },
+  {
+   "q": "Core SGF contribution shares?",
+   "a": "CC at least 50% of MRC, stock exchange at least 25%, all clearing members together at most 25%."
+  },
+  {
+   "q": "Who manages the Core SGF?",
+   "a": "The Regulatory Oversight Committee (ROC) of the clearing corporation."
+  },
+  {
+   "q": "First and last layers of the default waterfall?",
+   "a": "First: the defaulting member's own monies. Last: pro-rata haircut to pay-outs."
+  }
+ ],
+ "questions": [
+  {
+   "q": "Which of the following is a risk containment measure used by a clearing corporation?",
+   "options": [
+    "Checking margin requirements",
+    "Checking the net worth of the client/investor",
+    "Checking whether the order placed is genuine",
+    "Checking the client's income tax returns"
+   ],
+   "answer": 0,
+   "why": "CC risk containment includes stringent margin requirements, capital adequacy of members, position limits and online monitoring. Client net worth and order genuineness are not CC risk measures.",
+   "ref": "4.1.1",
+   "level": "easy"
+  },
+  {
+   "q": "The SPAN method of computing margin is used for trades in which segment?",
+   "options": [
+    "Equity cash segment",
+    "Government securities segment",
+    "Futures and Options segment",
+    "Mutual fund distribution platform"
+   ],
+   "answer": 2,
+   "why": "CCs use SPAN (a CME product) for real-time initial margin on futures and options portfolios.",
+   "ref": "4.1.2",
+   "level": "easy"
+  },
+  {
+   "q": "Which of the following statements on record keeping by stock brokers is true?",
+   "options": [
+    "The sauda book (register of transactions) needs to be kept for only 2 years",
+    "Under the SEBI (Stock Broker) Regulations, 2026, books of account and records must be preserved for at least eight years",
+    "Members' contract books must be kept for 10 years under Rule 15 of SCRR",
+    "Records may be destroyed once the exchange has completed its annual inspection"
+   ],
+   "answer": 1,
+   "why": "Regulation 16 of the SEBI (Stock Broker) Regulations, 2026 requires books and records maintained under Regulation 15 to be preserved for a minimum of eight years.",
+   "ref": "4.2",
+   "level": "medium"
+  },
+  {
+   "q": "How often must brokers send a Global Statement to their clients?",
+   "options": [
+    "Monthly",
+    "Quarterly",
+    "Half-yearly",
+    "Annually"
+   ],
+   "answer": 3,
+   "why": "SEBI's letter of November 27, 2017 requires an Annual Global Statement, issued within 30 days from the end of the financial year.",
+   "ref": "4.2.3",
+   "level": "easy"
+  },
+  {
+   "q": "Cash and cash equivalents must make up at least what share of a member's liquid assets?",
+   "options": [
+    "25%",
+    "50%",
+    "75%",
+    "90%"
+   ],
+   "answer": 1,
+   "why": "Cash equivalents must be at least 50% of liquid assets; other liquid assets above the cash-equivalent amount are not counted.",
+   "ref": "4.1.1.2",
+   "level": "easy"
+  },
+  {
+   "q": "A market-wide index movement of what size halts trading for the rest of the day, whatever the time of breach?",
+   "options": [
+    "10%",
+    "15%",
+    "20%",
+    "25%"
+   ],
+   "answer": 2,
+   "why": "A 20% movement in Sensex or Nifty 50 halts trading for the remainder of the day at any time. A 10% or 15% breach halts trading for a limited period if it happens early in the day.",
+   "ref": "4.1.1.7",
+   "level": "easy"
+  },
+  {
+   "q": "In the equity cash segment, which margin is collected upfront along with ELM?",
+   "options": [
+    "Mark to market margin",
+    "SPAN margin",
+    "Delivery margin",
+    "VaR margin"
+   ],
+   "answer": 3,
+   "why": "In the cash segment, TMs/CMs must collect VaR margin and ELM upfront. MTM is collected later, and SPAN is the derivatives method.",
+   "ref": "4.1.1",
+   "level": "easy"
+  },
+  {
+   "q": "A stock enters the ban period, in which members and clients may only reduce positions, once market-wide open interest exceeds what share of its MWPL?",
+   "options": [
+    "95%",
+    "90%",
+    "80%",
+    "85%"
+   ],
+   "answer": 0,
+   "why": "Once market-wide OI in a scrip exceeds 95% of MWPL, positions can only be decreased through offsetting trades.",
+   "ref": "4.1.2.4",
+   "level": "easy"
+  },
+  {
+   "q": "Monthly expiries fall on the 29th (current), 30th (next) and 31st (far). On the 29th, which calendar spread position still gets calendar spread margin treatment?",
+   "options": [
+    "A spread between the 29th and 30th contracts",
+    "A spread between the 29th and 31st contracts",
+    "None. All calendar spread benefit is withdrawn on any expiry day",
+    "A spread between the 30th and 31st contracts"
+   ],
+   "answer": 3,
+   "why": "SEBI's February 05, 2026 clarification withdraws the benefit only for spreads involving the contract expiring that day. A 30th/31st spread keeps its treatment on the 29th.",
+   "ref": "4.1.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "Why did SEBI decide that calendar spread benefit will not be available on expiry day for contracts expiring that day?",
+   "options": [
+    "To increase transaction charges collected by exchanges",
+    "Because of significant basis risk and very large expiry-day volumes",
+    "Because calendar spreads are not permitted in index derivatives",
+    "Because SPAN cannot value far-month contracts on expiry day"
+   ],
+   "answer": 1,
+   "why": "On expiry day the expiring contract can move very differently from later expiries (basis risk), and volumes are very large compared to other days.",
+   "ref": "4.1.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "True or False: According to SEBI's circular of February 05, 2026, margin calculations for all calendar spread positions change on an expiry day, whichever contracts they involve.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "False. Existing calendar spread margin calculations stay unchanged for all expiries except contracts expiring on that given day.",
+   "ref": "4.1.2.1",
+   "level": "easy"
+  },
+  {
+   "q": "For a trade not covered by the margin trading facility, what happens to securities the client has not fully paid for at the time of pay-out?",
+   "options": [
+    "They are transferred to the client's demat account and auto-pledged to the TM's CUSPA with reason 'unpaid'",
+    "They are kept in the TM's pool account until the client pays",
+    "They are pledged by the TM with a bank to fund the client's shortfall",
+    "They are returned to the clearing corporation for auction"
+   ],
+   "answer": 0,
+   "why": "Unpaid securities are paid out directly to the client's demat account, followed by an auto-pledge (no client instruction needed) in favour of the Client Unpaid Securities Pledgee Account.",
+   "ref": "4.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "If a pledge on unpaid securities is neither invoked nor released within five trading days after pay-out, what happens?",
+   "options": [
+    "The TM may keep the pledge indefinitely until the client pays",
+    "The depository automatically invokes the pledge and sells the shares",
+    "The depositories automatically release the pledge at the end of the sixth trading day after pay-out",
+    "The securities move to the TM's proprietary demat account"
+   ],
+   "answer": 2,
+   "why": "The depositories auto-release the pledge at the end of the sixth trading day after pay-out, and the securities become free balance for the client.",
+   "ref": "4.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "A stock pledged to the CUSPA is stuck in a lower circuit with only sellers, so the TM cannot sell it within 5 trading days. What may the TM do?",
+   "options": [
+    "Transfer it to its own demat account and sell it later",
+    "Request, by 6 p.m. on the fifth trading day after pay-out, an extension of the pledge for one additional calendar week",
+    "Request, by 6 p.m. on the sixth trading day, an extension for one more month",
+    "Re-pledge the stock to an NBFC until the circuit opens"
+   ],
+   "answer": 1,
+   "why": "In exceptional cases like a lower circuit, suspension or other valid reasons, the TM may seek a one-calendar-week extension by 6 p.m. on the fifth trading day after pay-out, and must inform the client.",
+   "ref": "4.2.2",
+   "level": "hard"
+  },
+  {
+   "q": "Which of the following is NOT permitted for securities pledged to a TM's CUSPA?",
+   "options": [
+    "Considering them for reporting client margin collection to the CC",
+    "Selling them in the market under the client's UCC after invocation",
+    "Releasing the pledge on excess securities on or before the next trading day",
+    "Pledging them to banks/NBFCs to raise funds"
+   ],
+   "answer": 3,
+   "why": "CUSPA securities cannot be pledged or transferred to banks/NBFCs. They may count for margin reporting and can be sold under the client's UCC after invocation.",
+   "ref": "4.2.2",
+   "level": "medium"
+  },
+  {
+   "q": "True or False: Unpaid securities pledged to a TM's CUSPA may be counted for reporting client margin collection, and the TM may also give the client trading exposure against them.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "False. They may be counted for margin reporting to the CC, but the TM shall not provide any exposure to the client against them.",
+   "ref": "4.2.2",
+   "level": "hard"
+  },
+  {
+   "q": "What is the minimum VaR margin rate for a Group II (less liquid) security?",
+   "options": [
+    "21.5%",
+    "9%",
+    "50%",
+    "6%"
+   ],
+   "answer": 0,
+   "why": "Group II VaR is based on 6σ subject to a minimum of 21.5%. 9% is the Group I floor and 6% is the floor for broad-based index ETFs.",
+   "ref": "4.1.1.1",
+   "level": "medium"
+  },
+  {
+   "q": "At day end, a broker's clients show MTM results of: Client A −₹900, Client B −₹1,100, Client C +₹1,400. How much MTM must the broker deposit with the CC?",
+   "options": [
+    "₹600",
+    "₹2,000",
+    "₹3,400",
+    "Nil"
+   ],
+   "answer": 1,
+   "why": "MTM is grossed across clients and only losses are added: ₹900 + ₹1,100 = ₹2,000. Client C's profit is not set off.",
+   "ref": "4.1.1.1",
+   "level": "medium"
+  },
+  {
+   "q": "In the same settlement, Client P has a net buy position of ₹2,100 in Security X and Client Q a net sell position of ₹100 in Security X. What gross open position does the CC use for the member's VaR margin in X?",
+   "options": [
+    "₹2,000",
+    "₹2,100",
+    "₹2,200",
+    "₹100"
+   ],
+   "answer": 2,
+   "why": "Positions are netted within each client and grossed across clients: ₹2,100 + ₹100 = ₹2,200.",
+   "ref": "4.1.1.1",
+   "level": "hard"
+  },
+  {
+   "q": "In a cash market purchase, which combination of margins together cannot exceed the purchase value?",
+   "options": [
+    "VaR margin and ELM only, with MTM levied over and above",
+    "VaR margin, ELM and MTM losses together",
+    "ELM and MTM only",
+    "There is no cap on margins for a purchase"
+   ],
+   "answer": 1,
+   "why": "For a buy, VaR + ELM + MTM together cannot exceed the purchase value. For a sale, the cap covers only VaR + ELM, and MTM is levied in addition.",
+   "ref": "4.1.1.1",
+   "level": "hard"
+  },
+  {
+   "q": "If a custodian rejects an institutional trade, on whom are the margins levied?",
+   "options": [
+    "The custodian",
+    "The institutional investor directly",
+    "The member who executed the trade",
+    "The Core Settlement Guarantee Fund"
+   ],
+   "answer": 2,
+   "why": "Margins on custodian-confirmed institutional trades are levied on the custodian. On rejected or unaccepted trades they are levied on the executing member.",
+   "ref": "4.1.1.2",
+   "level": "medium"
+  },
+  {
+   "q": "What is the BMC deposit for a stock broker doing both proprietary and client trading, without algorithmic trading?",
+   "options": [
+    "₹10 lakh",
+    "₹15 lakh",
+    "₹50 lakh",
+    "₹25 lakh"
+   ],
+   "answer": 3,
+   "why": "BMC: ₹10 lakh (prop only), ₹15 lakh (clients only), ₹25 lakh (both, no algo), ₹50 lakh (any broker with algo).",
+   "ref": "4.1.1.3",
+   "level": "medium"
+  },
+  {
+   "q": "A stock broker in risk reduction mode returns to normal risk management mode when its collateral utilisation falls below:",
+   "options": [
+    "90%",
+    "80%",
+    "75%",
+    "85%"
+   ],
+   "answer": 3,
+   "why": "RRM starts at 90% utilisation, and the broker moves back to normal mode when utilisation is below the CC's level, currently 85%.",
+   "ref": "4.1.1.8",
+   "level": "easy"
+  },
+  {
+   "q": "Which of these orders will NOT be accepted from a stock broker in risk reduction mode?",
+   "options": [
+    "Non-margined orders",
+    "Orders that reduce the open position",
+    "Immediate or Cancel orders",
+    "Fresh orders backed by sufficient margin"
+   ],
+   "answer": 0,
+   "why": "In RRM only IOC orders are allowed, risk-reducing orders are accepted and new orders are checked for margin, but non-margined orders are not accepted at all.",
+   "ref": "4.1.1.8",
+   "level": "medium"
+  },
+  {
+   "q": "What is the minimum liquid net worth a clearing member must maintain at all times?",
+   "options": [
+    "₹25 lakh",
+    "₹50 lakh",
+    "₹1 crore",
+    "₹10 lakh"
+   ],
+   "answer": 1,
+   "why": "Liquid net worth (liquid assets minus initial margin and ELM) must never fall below ₹50 lakh.",
+   "ref": "4.1.2.2",
+   "level": "easy"
+  },
+  {
+   "q": "If a physically settled derivative contract expires on a Thursday, from when do delivery margins on potential in-the-money long options apply?",
+   "options": [
+    "From the previous Friday EOD (four days before expiry)",
+    "From the Wednesday before expiry",
+    "Only on expiry day",
+    "From T+1 after expiry"
+   ],
+   "answer": 0,
+   "why": "Delivery margins start four days before expiry; the workbook's example is a Thursday expiry, with margins from the previous Friday EOD.",
+   "ref": "4.1.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "On options expiry day, what additional ELM is levied on short index options expiring that day?",
+   "options": [
+    "1%",
+    "3.5%",
+    "2%",
+    "5%"
+   ],
+   "answer": 2,
+   "why": "To raise tail-risk cover on expiry day, an additional 2% ELM applies on short index options expiring that day, both those open at day start and those written during the day.",
+   "ref": "4.1.2.1",
+   "level": "medium"
+  },
+  {
+   "q": "Under cross margining, what spread margin applies to offsetting positions in correlated indices with different expiry dates?",
+   "options": [
+    "25%",
+    "30%",
+    "35%",
+    "40%"
+   ],
+   "answer": 3,
+   "why": "Correlated indices: 30% with the same expiry, 40% with different expiries. 35% applies to an index against its constituents with a different expiry, and 25% to the basic eligible offsets.",
+   "ref": "4.1.2.1",
+   "level": "hard"
+  },
+  {
+   "q": "Under the peak margin framework, which shortfall is used to levy the penalty on a TM/CM?",
+   "options": [
+    "The sum of the EOD shortfall and the peak shortfall",
+    "Only the EOD shortfall",
+    "The higher of the EOD shortfall and the peak shortfall",
+    "The average shortfall across all snapshots"
+   ],
+   "answer": 2,
+   "why": "EOD obligation is compared with EOD margin available and peak obligation with peak margin available; the higher of the two shortfalls is penalised.",
+   "ref": "4.1.4",
+   "level": "medium"
+  },
+  {
+   "q": "When a trade comes from a client account, in what order does the CC block margin?",
+   "options": [
+    "Client collateral, then TM proprietary collateral, then CM proprietary collateral",
+    "CM proprietary collateral, then TM proprietary collateral, then client collateral",
+    "TM proprietary collateral, then client collateral, then CM proprietary collateral",
+    "Client collateral, then CM proprietary collateral, then TM proprietary collateral"
+   ],
+   "answer": 0,
+   "why": "Margin is first blocked from the client's collateral, then from the TM's proprietary collateral, and finally from the CM's proprietary collateral.",
+   "ref": "4.1.5",
+   "level": "medium"
+  },
+  {
+   "q": "Within what time must a Suspicious Transaction Report (STR) be filed with FIU-IND?",
+   "options": [
+    "By the 15th of the succeeding month",
+    "Within 7 days of arriving at a conclusion that the transaction is suspicious",
+    "Within 30 days of the transaction",
+    "Within 24 hours of the transaction"
+   ],
+   "answer": 1,
+   "why": "STR is due within 7 days of concluding that a transaction is suspicious. CTR and NTR are monthly, due by the 15th of the next month.",
+   "ref": "4.2.5",
+   "level": "easy"
+  },
+  {
+   "q": "If a client has authorised a running account, what is the maximum gap between two settlements of the client's funds?",
+   "options": [
+    "90 days (quarterly) or 30 days (monthly), as the client chooses",
+    "60 days or 15 days",
+    "180 days or 90 days",
+    "One year"
+   ],
+   "answer": 0,
+   "why": "The client chooses quarterly or monthly settlement, so the gap can be at most 90 or 30 days.",
+   "ref": "4.2.2",
+   "level": "easy"
+  },
+  {
+   "q": "What is the clearing corporation's minimum contribution to the Core SGF?",
+   "options": [
+    "25% of MRC",
+    "Not more than 25% of MRC",
+    "At least 50% of MRC, from its own funds",
+    "100% of MRC"
+   ],
+   "answer": 2,
+   "why": "The CC contributes at least 50% of the MRC from its own funds, the stock exchange at least 25%, and all clearing members together not more than 25%.",
+   "ref": "4.3.2",
+   "level": "easy"
+  },
+  {
+   "q": "In the default waterfall, which resource is used first?",
+   "options": [
+    "Insurance, if any",
+    "Penalties in the Core SGF",
+    "CC resources equal to 5% of the segment MRC",
+    "Monies of the defaulting member, including its Core SGF contribution and excess monies in other segments"
+   ],
+   "answer": 3,
+   "why": "The defaulter's own monies come first, then insurance, then CC resources of 5% of segment MRC, then the Core SGF (penalties first).",
+   "ref": "4.3.3",
+   "level": "medium"
+  },
+  {
+   "q": "In the derivatives segment, what is the maximum capped additional contribution by a non-defaulting member to cover a default?",
+   "options": [
+    "Lower of 2 times its primary contribution or 20% of the segment's Core SGF",
+    "Lower of 2 times its primary contribution or 10% of the segment's Core SGF",
+    "3 times its primary contribution",
+    "There is no cap"
+   ],
+   "answer": 0,
+   "why": "Derivatives segment: lower of 2× primary contribution or 20% of Core SGF on the date of default. Equity/debt segments use 10% instead of 20%.",
+   "ref": "4.3.3",
+   "level": "hard"
+  }
+ ]
+}

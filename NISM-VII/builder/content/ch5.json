@@ -1,0 +1,1571 @@
+{
+ "id": 5,
+ "title": "Clearing Process",
+ "short": "Clearing",
+ "weight": 15,
+ "minutes": 30,
+ "big_picture": "Clearing is the 'who owes what to whom' step between the trade and the settlement. Think of a busy wedding where nobody settles bills with each other: everyone pays the caterer's cashier, who nets it all down to a few final transfers and promises nobody gets stiffed. The clearing corporation is that cashier for the stock market: it becomes buyer to every seller and seller to every buyer (novation), nets everything, and hands the final obligations to clearing members, custodians, clearing banks and depositories to settle on T+1.",
+ "exam_focus": [
+  "Novation and the clearing corporation's roles as central counterparty and settlement guarantor",
+  "The T to T+1 clock: CP code 4:15 pm, OTR 8:00 pm, custodial confirmation 7:30 am, obligations 9:00 am, pay-in about 11:00 am, funds pay-out 1:30 pm, securities pay-out 3:30 pm",
+  "Interoperability: one active CC per segment, what is excluded, the two parts of inter-CC collateral",
+  "Pool accounts, clearing bank accounts, DIS/DDPI, block mechanism and validation of pay-in instructions",
+  "Institutional trades: custodian and CP code, INST, no day trading, margin on T+1, DVP if rejected",
+  "Multilateral netting arithmetic and derivatives open-position calculation (clients never netted)",
+  "Optional T+0: 9:15 am to 1:30 pm, ±100 bps band re-calibrated every 50 bps, no auction (close-out 10% above the day's high)"
+ ],
+ "sections": [
+  {
+   "id": "5.1",
+   "title": "Introduction: T+1 Clearing and Optional T+0",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Clearing answers one question: <b>who must deliver which shares, and who must pay how much?</b> Settlement then moves them. SEBI's circular of <b>September 7, 2021</b> introduced optional T+1; after a phased roll-out, <b>all equity trades now settle on T+1</b>, so pay-in and pay-out of funds and securities both happen on T+1."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "T day, after close",
+       "text": "Exchange sends all trade details to the clearing corporation (CC)."
+      },
+      {
+       "title": "T day, up to 4:15 pm",
+       "text": "Custodial Participant (CP) code can be modified."
+      },
+      {
+       "title": "T day, time set by CC",
+       "text": "\"INST\" trades are allocated."
+      },
+      {
+       "title": "T day",
+       "text": "CC groups trades by clearing member/custodian and informs each of its clients' trades."
+      },
+      {
+       "title": "T+1, by 7:30 am",
+       "text": "Clearing members/custodians confirm institutional/CP trades."
+      },
+      {
+       "title": "T+1, by 9:00 am",
+       "text": "CC runs multilateral netting and downloads final funds and securities obligations; settlement happens the same day (T+1)."
+      }
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "SEBI circular",
+      "What it did"
+     ],
+     "rows": [
+      [
+       "September 7, 2021",
+       "Optional T+1 for cash market (phased roll-out)"
+      ],
+      [
+       "March 21, 2024",
+       "<b>Beta</b> optional T+0, alongside T+1: <b>25 scrips</b>, limited brokers"
+      ],
+      [
+       "December 10, 2024",
+       "More T+0 scrips; <b>all brokers</b> may participate; MIIs/custodians to extend T+0 to institutions; exchanges to set up a Block Deal window under T+0"
+      ]
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "T+0 is <b>optional</b> and runs <b>in addition to</b> T+1; it did not replace it. The beta had 25 <b>scrips</b>, not 25 brokers."
+    }
+   ]
+  },
+  {
+   "id": "5.2",
+   "title": "Role of the Clearing Corporation",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A trade is a contract between buyer and seller; if one defaults, the other loses. After thousands of trades are netted, it is almost impossible to find the original counterparty. So the CC uses <b>novation</b>: it becomes <b>buyer to every seller and seller to every buyer</b> and guarantees settlement to both. Robust margining ensures it holds enough of a defaulter's money to cover the loss."
+    },
+    {
+     "type": "key",
+     "text": "<b>Novation</b> (SECC Regulations, 2018): a clearing corporation interposing itself between both parties of every trade, being the legal counterparty to both."
+    },
+    {
+     "type": "hook",
+     "text": "Think of a wedding cashier: guests never pay each other; everyone pays the cashier, who pays everyone and guarantees nobody is stiffed."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Key role",
+      "Meaning"
+     ],
+     "rows": [
+      [
+       "Central Counterparty (CCP)",
+       "Buyer to every seller, seller to every buyer"
+      ],
+      [
+       "Settlement Guarantee",
+       "<b>Primary function</b>: the trade completes even if one party defaults"
+      ],
+      [
+       "Risk Management",
+       "Controls counterparty and systemic risk"
+      ],
+      [
+       "Clearing and Netting",
+       "Verifies trade details (price, volume) and computes net obligations"
+      ],
+      [
+       "Securities and Funds Transfer",
+       "Funds via <b>clearing banks</b>; securities via <b>depositories</b> (NSDL, CDSL)"
+      ],
+      [
+       "Market Efficiency and Transparency",
+       "Standardised, guaranteed settlement builds liquidity and confidence"
+      ],
+      [
+       "Regulatory Compliance and Reporting",
+       "Reports data to regulators"
+      ],
+      [
+       "Member Oversight and Discipline",
+       "Monitors members daily; can investigate, hold hearings, penalise or revoke membership"
+      ]
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The clearing function works out (a) what members must <b>deliver</b> and (b) what they will <b>receive</b> on the settlement date. The CC also handles <b>security shortages, bad delivery, company objections and auction settlement</b>, and collects margins. It works with clearing members, clearing banks, custodians and depositories, linked electronically."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>As central counterparty, the CC also:</b> gives a <b>'counterparty undertaking'</b> on every trade",
+      "monitors the market and participants",
+      "offers dispute resolution and independent legal enforcement, so buyers and sellers need not sue each other",
+      "reduces payments through netting and handles payments not relating to deliveries",
+      "can net deliveries at member level (payments are <b>always</b> netted)",
+      "provides secure, standardised processing and lowers risk for investors",
+      "calculates and controls margining"
+     ]
+    },
+    {
+     "type": "key",
+     "text": "India's cash segment has two CCs: <b>NSE Clearing Limited (NCL)</b> and <b>Indian Clearing Corporation Limited (ICCL)</b>."
+    },
+    {
+     "type": "p",
+     "text": "<b>Interoperability among CCs</b> (SEBI circular, November 27, 2018) links CCs so a clearing member can clear trades from <b>multiple exchanges at one CC of its choice</b>. Result: efficient capital use, lower cost, better execution."
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Covered",
+       "points": [
+        "All recognised CCs except those in IFSC",
+        "All exchange-traded products, except those listed opposite"
+       ]
+      },
+      {
+       "title": "Not covered",
+       "points": [
+        "CCs in IFSC",
+        "Commodity derivatives; Tri-party repo",
+        "Offer for Sale, MF Service Scheme, Buyback/Tender Offer, Non-competitive bidding, SGB primary bidding",
+        "Securities Lending and Borrowing (SLB)"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "A CM designates one CC per <b>business segment</b>, covering all its TMs in that segment.",
+      "It may be a member of several CCs but <b>active with only one CC per segment</b> at a time; different segments may use different CCs (CM-Segment level).",
+      "Custodians choose a designated CC separately for each CP (Custodian-CP-Segment level).",
+      "CCs connect through a <b>peer-to-peer link</b> under special arrangements, not normal membership rules, with bilaterally approved risk management and reciprocal exchange of margins. Each holds enough collateral that a default by one CC causes no loss to the other.",
+      "Inter-CC collateral: (a) <b>margins</b> as per SEBI's framework (IM, ELM, calendar spread etc.) + (b) <b>additional capital</b> based on the linked CC's credit risk, on which no exposure is given."
+     ]
+    },
+    {
+     "type": "p",
+     "text": "<b>Benefits:</b> choice of CC, better capital use, less trading disruption, lower aggregate exposure, less operational complexity, more competition and lower clearing cost, and execution risk decoupled from settlement risk (an 'arm's length' relationship between exchange and CC)."
+    },
+    {
+     "type": "trap",
+     "text": "Membership of more than one CC: allowed. <b>Active</b> with more than one CC in the <b>same segment</b>: not allowed. And a CC does not run the trading platform or create securities."
+    }
+   ]
+  },
+  {
+   "id": "5.3",
+   "title": "Clearing Banks and their Function",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Clearing banks are the money pipe between clearing members and the CC. Every CM keeps an account with an <b>empanelled clearing bank</b> at designated branches, used <b>only</b> for clearing and settlement. The CC sends pay-in details; the bank debits paying members. On the CC's pay-out instruction, it credits receiving members. Clearing banks must offer the minimum services specified by the CC."
+    },
+    {
+     "type": "hook",
+     "text": "Depositories move the shares, clearing banks move the money, and the CC tells both what to do."
+    }
+   ]
+  },
+  {
+   "id": "5.4",
+   "title": "Clearing Members and Custodians",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Clearing members are of three types: <b>PCM</b> (professional), <b>TCM</b> (trading-cum-clearing) and <b>SCM</b> (trading-cum-self-clearing). Each takes CC membership and a unique member ID. <b>Custodians are clearing members but not trading members</b>: they settle institutional clients' trades executed through other brokers."
+    },
+    {
+     "type": "list",
+     "items": [
+      "<b>Functions:</b> Clearing (computing obligations of their TMs); Settlement; Risk management (limits based on deposits/margins, continuous monitoring); Confirmation of CP trades."
+     ]
+    },
+    {
+     "type": "compare",
+     "items": [
+      {
+       "title": "Pool account (demat)",
+       "points": [
+        "Mandatory with <b>both</b> NSDL and CDSL, via a DP",
+        "Delivers securities to the CC for pay-in and receives pay-out",
+        "CM has <b>no ownership or beneficial rights</b>; corporate benefits received are passed on",
+        "Clients can transfer shares straight into it"
+       ]
+      },
+      {
+       "title": "Clearing bank account",
+       "points": [
+        "Separate, distinct account with the designated clearing bank",
+        "For funds obligations, margins, collateral release/enhancement, early pay-in of funds, penal charges",
+        "Irrevocable authority to the bank to act on CC instructions",
+        "Deposit in any form; <b>withdraw only in self-name</b>; extra accounts allowed for cash collateral and EPI"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "p",
+     "text": "The CC sends each CM details of its members' and clients' trades; the CM confirms genuineness. Custodian trades carry a <b>CP code</b> and need the custodian's confirmation. Only then does the CC run multilateral netting."
+    }
+   ]
+  },
+  {
+   "id": "5.5",
+   "title": "Depositories and Depository Participants",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "A <b>depository</b> holds securities electronically and transfers them by book entry, quickly and safely, on the account holder's instruction. It serves clients through <b>Depository Participants (DPs)</b>. Buyer and seller each need a demat account with a DP of either depository."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Transferor gives a delivery instruction; transferee gives a <b>Receipt Instruction</b> each time, or a one-time <b>Standing Instruction (SI)</b>.",
+      "Transfers arise from: (a) <b>off-market</b> deals (not on a recognised exchange), (b) exchange trades, (c) transmission and account closure.",
+      "A demat account is debited only on a <b>Delivery Instruction Slip (DIS)</b>, marked market/off-market, complete, signed by <b>all</b> holders; an 'execution date' allows a future-dated debit. e-DIS is also available.",
+      "<b>DDPI</b> (Demat Debit and Pledge Instruction): client authorises the broker to debit the BO account only to meet pay-in obligations. Same purpose as PoA, far less misuse."
+     ]
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Seller to broker pool",
+       "text": "Seller instructs his DP (or broker uses DDPI/valid PoA) to move shares to the broker's pool account."
+      },
+      {
+       "title": "Broker pool to CC pool",
+       "text": "Delivery-out instruction; CCs and depositories validate first."
+      },
+      {
+       "title": "Pay-out",
+       "text": "Since SEBI's <b>June 05, 2024</b> circular, the CC credits shares <b>directly to the buyer's demat account</b>."
+      },
+      {
+       "title": "Custodian clients",
+       "text": "Direct pay-out does not apply; shares go to the buying broker's pool, then to the buyer's account."
+      }
+     ]
+    },
+    {
+     "type": "trap",
+     "text": "The seller instructs his <b>Depository Participant</b>, not the clearing bank or the CC."
+    }
+   ]
+  },
+  {
+   "id": "5.6",
+   "title": "Clearing Process",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Clearing <b>determines</b> obligations; settlement <b>discharges</b> them. Through <b>multilateral netting</b> each CM ends up with either a pay-in or a pay-out, separately for funds and securities. The clearing agency guarantees every contract. Some transactions/securities settle <b>gross (trade-for-trade)</b>, with no netting."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Obligations",
+       "text": "Trade data comes from the exchange; after custodial confirmation the CC fixes obligations and downloads them with pay-in advice."
+      },
+      {
+       "title": "Members prepare",
+       "text": "Delivering member moves shares to the CM Clearing Pool Account; paying member keeps clear funds in the clearing bank account, before the CC's deadline."
+      },
+      {
+       "title": "Pay-in",
+       "text": "CC tells depositories to debit CM/custodian pool accounts and credit its own; tells clearing banks to debit CM/custodian accounts and credit its own."
+      },
+      {
+       "title": "Pay-out",
+       "text": "Securities: direct to client demat (not custodian clients). Funds: clearing banks credit CMs/custodians and debit the CC."
+      }
+     ]
+    },
+    {
+     "type": "key",
+     "text": "Buy-side and sell-side clearing members are different; the CC is the link between them."
+    }
+   ]
+  },
+  {
+   "id": "5.6.1",
+   "title": "Settlement of Institutional Transactions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Institutional investors: <b>Category I FPIs</b> and <b>Category II FPIs that are not corporate bodies, family offices or individuals</b> (SEBI FPI Regulations, 2019), SEBI-registered <b>mutual funds</b>, public financial institutions, banks, insurance companies and pension funds."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Must settle through a <b>custodian</b>, using a <b>CP code</b> obtained from the CC via the custodian; CP code is mandatory at order entry. It lets an institution trade through many brokers but settle with one custodian.",
+      "All trades go through <b>Straight Through Processing (STP)</b>; electronic contract note in SEBI format to custodian/institution; workflow per SEBI circular of June 10, 2004.",
+      "Brokers may enter <b>\"INST\"</b> as the CP code and allocate later, only to eligible institutions, within the CC's time. For FPIs that are corporate bodies, individuals or family offices, INST trades go only to <b>related FPIs</b>."
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Rule",
+      "Institutional investor"
+     ],
+     "rows": [
+      [
+       "Day trading",
+       "<b>Not allowed</b>"
+      ],
+      [
+       "Obligations",
+       "<b>Gross</b> at custodian level; custodian settles <b>net</b> with the exchange"
+      ],
+      [
+       "Short selling",
+       "Allowed; <b>naked</b> short selling not allowed"
+      ],
+      [
+       "Margin",
+       "No upfront margin; levied on <b>T+1</b> after custodian confirmation. Exception: Cat II FPIs that are corporate bodies/individuals/family offices and domestic entities using custodians pay <b>upfront</b>"
+      ],
+      [
+       "Custodian rejects trade",
+       "Settled on <b>DVP</b> basis, with penalties"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "When",
+      "Activity"
+     ],
+     "rows": [
+      [
+       "T, up to 4:15 pm",
+       "Modify CP code"
+      ],
+      [
+       "T, up to 8:00 pm",
+       "Obligation Transfer Request (OTR) for INST trades"
+      ],
+      [
+       "T+1, up to 7:30 am",
+       "Custodial confirmation"
+      ],
+      [
+       "T+1, up to 9:00 am",
+       "Final obligation to custodian"
+      ],
+      [
+       "T+1, around 11:00 am",
+       "Funds/securities pay-in (margins/early pay-in as per regular procedure)"
+      ],
+      [
+       "T+1, 1:30 pm / by 3:30 pm",
+       "Funds pay-out / securities pay-out"
+      ],
+      [
+       "Within 24 hours of receipt",
+       "Custodian processes settlement"
+      ]
+     ],
+     "caption": "Custodian-settled trades under T+1"
+    },
+    {
+     "type": "hook",
+     "text": "The clock: <b>4:15, 8:00</b> on T evening (codes, OTR), then <b>7:30, 9:00, 11:00, 1:30, 3:30</b> on T+1 (confirm, obligations, pay-in, money out, shares out)."
+    },
+    {
+     "type": "p",
+     "text": "Non-institutional clients can also get a CP code and use a PCM/custodian; confirmed trades become that CM's obligation, including margins, penalties and levies."
+    }
+   ]
+  },
+  {
+   "id": "5.6.2",
+   "title": "Block Mechanism for Selling Clients",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Instead of moving shares out for early pay-in (and back if the order fails), shares are <b>blocked in the client's own demat account in favour of the CC</b> (SEBI circulars, July 2021 to October 2022)."
+    },
+    {
+     "type": "steps",
+     "items": [
+      {
+       "title": "Block",
+       "text": "Client blocks via the depository's online system/e-DIS, or via DP on physical DIS or PoA."
+      },
+      {
+       "title": "Hold",
+       "text": "Block can stay till pay-in day; depositories pass UCC, TM ID, Exchange ID to the CC."
+      },
+      {
+       "title": "Match on T day",
+       "text": "CC sends client-level net obligations on T day; matching on UCC, TM ID, CM ID, Exchange ID. If matched, CC gives <b>EPI benefit</b>; shares move only against the obligation."
+      },
+      {
+       "title": "Release",
+       "text": "Unmatched: CC uploads cancellation on T day, shares freed same day. Sale not executed: unblocked at <b>end of T day</b>."
+      }
+     ]
+    },
+    {
+     "type": "list",
+     "items": [
+      "No unblocking by broker or client once EPI benefit is given.",
+      "<b>Mandatory for all early pay-in (EPI)</b>; not applicable to clients of SEBI-registered custodians."
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Blocking is reserving a table, not moving house: shares leave only if the sale happens."
+    }
+   ]
+  },
+  {
+   "id": "5.6.3",
+   "title": "Validation of Pay-In Instructions",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Before moving shares from a client's demat to the TM pool account, the depository checks the instruction (online, eDIS, DIS, PoA or DDPI) against the <b>client-wise net delivery obligation</b> sent by CCs on <b>T day</b>, matching UCC, TM ID, CM ID, Exchange ID, ISIN, quantity and settlement details (SEBI circular, September 19, 2022). Not applicable to custodian clients."
+    },
+    {
+     "type": "table",
+     "head": [
+      "Situation",
+      "Result"
+     ],
+     "rows": [
+      [
+       "All details match",
+       "Executed: client debited, linked TM pool credited on or before settlement day"
+      ],
+      [
+       "Mismatch in UCC, TM ID, CM ID, ISIN etc.",
+       "<b>Rejected</b>"
+      ],
+      [
+       "Quantity <b>less</b> than obligation",
+       "Carried out"
+      ],
+      [
+       "Quantity <b>more</b> than obligation",
+       "<b>Partially</b> processed, up to obligation"
+      ]
+     ]
+    },
+    {
+     "type": "example",
+     "title": "Ravi's 100 shares",
+     "text": "Obligation 100. Instruction for 150: only 100 move. Instruction for 80: 80 move. Wrong ISIN: rejected."
+    }
+   ]
+  },
+  {
+   "id": "5.6.4",
+   "title": "Clearing Process for Derivatives",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Derivatives clearing works out <b>open positions</b> (outstanding long or short positions), which drive exposure and daily margins. CM position = sum of all its TMs and CPs. TM position = proprietary + clients (flagged by the <b>pro/cli indicator</b>). A contract is defined by future/option, underlying, expiry, option type and strike."
+    },
+    {
+     "type": "key",
+     "text": "Proprietary: net per contract. Each client: net per contract. <b>Never netted across clients.</b> TM open position = proprietary open position + client open longs + client open shorts."
+    },
+    {
+     "type": "table",
+     "head": [
+      "TM",
+      "Proprietary (B / S / net)",
+      "Client 1",
+      "Client 2",
+      "Open position"
+     ],
+     "rows": [
+      [
+       "PQR",
+       "5000 / 3000 / +2000",
+       "3000 / 2000 / +1000",
+       "3000 / 1000 / +2000",
+       "Long 5000"
+      ],
+      [
+       "XYZ",
+       "1000 / 2000 / (1000)",
+       "2000 / 1000 / +1000",
+       "3000 / 4000 / (1000)",
+       "Long 1000, Short 2000"
+      ]
+     ],
+     "caption": "Clearing member A, Index May futures"
+    },
+    {
+     "type": "example",
+     "title": "Working it out",
+     "text": "XYZ: client 1 long 1000; proprietary short 1000 + client 2 short 1000 = short 2000. CM A = <b>long 6000, short 2000</b>."
+    },
+    {
+     "type": "trap",
+     "text": "'XYZ net short 1000' is the classic wrong answer: clients are not netted against each other or against proprietary."
+    },
+    {
+     "type": "p",
+     "text": "All derivatives (index/stock F&O, currency F&O, interest rate futures and options) settle in cash or by physical delivery (Chapter 6). <b>Custodial participants</b> register with the CC through their CM; trades the CM confirms become its obligations, including margins, penalties and levies."
+    },
+    {
+     "type": "p",
+     "text": "<b>Net settlement of Cash and F&O on stock derivative expiry</b> (SEBI, November 30, 2022): cash segment obligations and <b>physical settlement</b> F&O obligations are settled <b>net</b>, aligning segments and cutting price risk."
+    },
+    {
+     "type": "list",
+     "items": [
+      "Only for the <b>same TM-CM combination</b> in both segments.",
+      "<b>Not for institutional investors</b>, including all FPIs (their cash trades must be delivery-backed).",
+      "<b>STT and stamp duty</b> remain segment-wise."
+     ]
+    },
+    {
+     "type": "example",
+     "title": "Box 5.1",
+     "text": "Long ITM put, strike ₹110, settlement price ₹100; same stock bought in cash market on expiry day at ₹101.<br>Separately: pay ₹101, receive shares, deliver them in F&O, receive ₹110, with margins on both.<br>Netted: <b>net pay-out of ₹9</b>, no securities movement, no margin after expiry."
+    }
+   ]
+  },
+  {
+   "id": "5.6.5",
+   "title": "Netting of Clients' Accounts within the Broker",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Brokers may net each client's trades within the firm at day-end; the final pay-in/pay-out for that client goes through clearing banks and depository participants. The CC then nets brokers against each other (5.6.6)."
+    }
+   ]
+  },
+  {
+   "id": "5.6.6",
+   "title": "Broker Netting with the Clearing Corporation: Worked Example",
+   "blocks": [
+    {
+     "type": "p",
+     "text": "Each day the CC sends members their trade lists, runs <b>multilateral netting</b>, and tells each what to pay/deliver and receive. Workbook example, security ABC:"
+    },
+    {
+     "type": "table",
+     "head": [
+      "Trade",
+      "Buyer",
+      "Seller",
+      "Qty",
+      "Price (₹)",
+      "Value (₹)"
+     ],
+     "rows": [
+      [
+       "1",
+       "X",
+       "Y",
+       "200",
+       "10.00",
+       "2,000"
+      ],
+      [
+       "2",
+       "Y",
+       "Z",
+       "50",
+       "10.50",
+       "525"
+      ],
+      [
+       "3",
+       "X",
+       "Z",
+       "100",
+       "10.50",
+       "1,050"
+      ],
+      [
+       "4",
+       "Y",
+       "X",
+       "300",
+       "11.00",
+       "3,300"
+      ]
+     ]
+    },
+    {
+     "type": "table",
+     "head": [
+      "Broker",
+      "Bought / Sold",
+      "Net shares",
+      "Net funds (₹)",
+      "Final obligation"
+     ],
+     "rows": [
+      [
+       "X",
+       "300 / 300",
+       "0",
+       "-2,000 - 1,050 + 3,300 = +250",
+       "Receive ₹250"
+      ],
+      [
+       "Y",
+       "350 / 200",
+       "+150",
+       "+2,000 - 525 - 3,300 = -1,825",
+       "Receive 150 shares, pay ₹1,825"
+      ],
+      [
+       "Z",
+       "0 / 150",
+       "-150",
+       "+525 + 1,050 = +1,575",
+       "Deliver 150 shares, receive ₹1,575"
+      ],
+      [
+       "Total",
+       "",
+       "150 in = 150 out",
+       "1,825 in = 1,825 out",
+       "Always balances"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "Gross: 4 share movements (650 shares) and 4 payments (₹6,875). Netted: one delivery of 150 shares and ₹1,825 each way. Less movement, less money, less risk."
+    }
+   ]
+  },
+  {
+   "id": "5.7",
+   "title": "Optional T+0 Rolling Settlement Cycle",
+   "blocks": [
+    {
+     "type": "table",
+     "head": [
+      "Feature",
+      "T+0 rule"
+     ],
+     "rows": [
+      [
+       "Eligible investors",
+       "All, if they meet MII timelines, process and risk requirements"
+      ],
+      [
+       "Trading hours",
+       "One continuous session, <b>9:15 am to 1:30 pm</b>"
+      ],
+      [
+       "Price band",
+       "<b>±100 bps</b> from the T+1 market price; re-calibrated after every <b>50 bps</b> move in T+1"
+      ],
+      [
+       "Netting with T+1",
+       "<b>None</b>"
+      ],
+      [
+       "Not available",
+       "Pre-open, special pre-open, auction, periodic call auction, post-close session"
+      ],
+      [
+       "Block window",
+       "Only <b>1</b>"
+      ],
+      [
+       "Securities pay-in",
+       "Only as <b>early pay-in via block mechanism</b>"
+      ],
+      [
+       "Shortage",
+       "<b>No auction</b>; closed out at <b>10% above the day's highest price</b> across all exchanges"
+      ],
+      [
+       "No T+0 trading",
+       "Ex-date of securities, settlement holidays, etc."
+      ],
+      [
+       "T+0 prices",
+       "Not used for index or settlement price computation"
+      ],
+      [
+       "Pay-in (non-custodial)",
+       "Around <b>1:45 pm</b>"
+      ]
+     ]
+    },
+    {
+     "type": "hook",
+     "text": "T+0 = same-day, no frills: one session, one block window, no auction, no netting with T+1, shares pre-blocked."
+    },
+    {
+     "type": "trap",
+     "text": "±100 bps is the band; 50 bps is the re-calibration trigger. And the T+0 close-out is 10% above the day's <b>high</b>, not the 20% rule of normal close-outs."
+    }
+   ]
+  }
+ ],
+ "numbers": [
+  {
+   "fact": "Settlement cycle for all equity cash trades",
+   "value": "T+1 (pay-in and pay-out on T+1)",
+   "ref": "5.1"
+  },
+  {
+   "fact": "SEBI circular introducing optional T+1",
+   "value": "September 7, 2021",
+   "ref": "5.1"
+  },
+  {
+   "fact": "Modification of CP code",
+   "value": "T day, up to 4:15 pm",
+   "ref": "5.1"
+  },
+  {
+   "fact": "Obligation Transfer Request (OTR) for INST trades",
+   "value": "T day, up to 8:00 pm",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Custodial confirmation of institutional trades",
+   "value": "T+1, by 7:30 am",
+   "ref": "5.1"
+  },
+  {
+   "fact": "Final obligations downloaded to CMs/custodians",
+   "value": "T+1, by 9:00 am",
+   "ref": "5.1"
+  },
+  {
+   "fact": "Funds/securities pay-in (custodian trades)",
+   "value": "T+1, around 11:00 am",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Funds pay-out",
+   "value": "T+1, 1:30 pm",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Securities pay-out",
+   "value": "T+1, by 3:30 pm",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Custodian's settlement processing",
+   "value": "Within 24 hours of receipt of cash/securities",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Optional T+0 beta launched",
+   "value": "SEBI circular March 21, 2024",
+   "ref": "5.1"
+  },
+  {
+   "fact": "Scrips in T+0 beta",
+   "value": "25 (with a limited number of brokers)",
+   "ref": "5.1"
+  },
+  {
+   "fact": "T+0 expanded; all brokers allowed",
+   "value": "SEBI circular December 10, 2024",
+   "ref": "5.1"
+  },
+  {
+   "fact": "Clearing corporations in cash segment",
+   "value": "2: NCL and ICCL",
+   "ref": "5.2"
+  },
+  {
+   "fact": "Novation defined in",
+   "value": "SECC Regulations, 2018",
+   "ref": "5.2"
+  },
+  {
+   "fact": "Interoperability among CCs circular",
+   "value": "November 27, 2018",
+   "ref": "5.2"
+  },
+  {
+   "fact": "Active CCs per business segment for a CM",
+   "value": "Only 1 at a time",
+   "ref": "5.2"
+  },
+  {
+   "fact": "Components of inter-CC collateral",
+   "value": "2: margins (IM, ELM, calendar spread etc.) + additional capital",
+   "ref": "5.2"
+  },
+  {
+   "fact": "Benefits of interoperability listed",
+   "value": "7",
+   "ref": "5.2"
+  },
+  {
+   "fact": "Types of clearing members",
+   "value": "3: PCM, TCM, SCM",
+   "ref": "5.4"
+  },
+  {
+   "fact": "Depositories where CM pool accounts are mandatory",
+   "value": "Both: NSDL and CDSL",
+   "ref": "5.4"
+  },
+  {
+   "fact": "Purposes of transfer between demat accounts",
+   "value": "3: off-market, exchange trade, transmission/account closure",
+   "ref": "5.5"
+  },
+  {
+   "fact": "Direct pay-out of securities to client demat",
+   "value": "SEBI circular June 05, 2024",
+   "ref": "5.5"
+  },
+  {
+   "fact": "FPI regulations referred for institutional investors",
+   "value": "SEBI FPI Regulations, 2019",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Institutional transaction workflow circular",
+   "value": "June 10, 2004",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Margin on institutional trades",
+   "value": "On T+1, after custodian confirmation (no upfront margin)",
+   "ref": "5.6.1"
+  },
+  {
+   "fact": "Block mechanism circulars",
+   "value": "July 16, 2021; August 18, 2022; October 27, 2022",
+   "ref": "5.6.2"
+  },
+  {
+   "fact": "Unexecuted sale: blocked shares released",
+   "value": "End of T day",
+   "ref": "5.6.2"
+  },
+  {
+   "fact": "CC sends client-level net obligations to depositories",
+   "value": "T day",
+   "ref": "5.6.3"
+  },
+  {
+   "fact": "Validation of pay-in instructions circular",
+   "value": "September 19, 2022",
+   "ref": "5.6.3"
+  },
+  {
+   "fact": "Net settlement of cash and F&O on stock derivative expiry",
+   "value": "SEBI circular November 30, 2022",
+   "ref": "5.6.4"
+  },
+  {
+   "fact": "Box 5.1 net pay-out (put strike ₹110, cash buy ₹101)",
+   "value": "₹9",
+   "ref": "5.6.4"
+  },
+  {
+   "fact": "Workbook derivatives example: CM A open position",
+   "value": "Long 6000, Short 2000",
+   "ref": "5.6.4"
+  },
+  {
+   "fact": "Workbook netting example: Broker Y",
+   "value": "Receive 150 shares, pay ₹1,825",
+   "ref": "5.6.6"
+  },
+  {
+   "fact": "Workbook netting example: Broker Z",
+   "value": "Deliver 150 shares, receive ₹1,575",
+   "ref": "5.6.6"
+  },
+  {
+   "fact": "Workbook netting example: Broker X",
+   "value": "No shares, receive ₹250",
+   "ref": "5.6.6"
+  },
+  {
+   "fact": "T+0 trading session",
+   "value": "9:15 am to 1:30 pm (one continuous session)",
+   "ref": "5.7"
+  },
+  {
+   "fact": "T+0 price band",
+   "value": "±100 bps from the T+1 market price",
+   "ref": "5.7"
+  },
+  {
+   "fact": "T+0 price band re-calibration",
+   "value": "After every 50 bps move in the T+1 market",
+   "ref": "5.7"
+  },
+  {
+   "fact": "Block session windows in T+0",
+   "value": "1",
+   "ref": "5.7"
+  },
+  {
+   "fact": "T+0 shortage close-out price",
+   "value": "10% above the highest price of the day across all exchanges",
+   "ref": "5.7"
+  },
+  {
+   "fact": "T+0 pay-in (non-custodial)",
+   "value": "Around 1:45 pm",
+   "ref": "5.7"
+  }
+ ],
+ "flashcards": [
+  {
+   "q": "What is novation?",
+   "a": "The CC interposes itself between buyer and seller and becomes the legal counterparty to both."
+  },
+  {
+   "q": "What is the primary function of a clearing corporation?",
+   "a": "Guaranteeing final settlement of trades, even if one of the original parties defaults."
+  },
+  {
+   "q": "Name the two clearing corporations in India's cash segment.",
+   "a": "NSE Clearing Limited (NCL) and Indian Clearing Corporation Limited (ICCL)."
+  },
+  {
+   "q": "Through whom does the CC move funds and securities?",
+   "a": "Funds through clearing banks; securities through depositories (NSDL and CDSL)."
+  },
+  {
+   "q": "What is interoperability among clearing corporations?",
+   "a": "Linking CCs so a CM can clear trades from any exchange at one CC of its choice."
+  },
+  {
+   "q": "Under interoperability, with how many CCs can a CM be active per segment?",
+   "a": "Only one at a time (membership of more than one is allowed)."
+  },
+  {
+   "q": "Which products are outside interoperability?",
+   "a": "Commodity derivatives, tri-party repo, SLB, and schemes like OFS, MFSS, buyback/tender offer, NCB and SGB primary bidding."
+  },
+  {
+   "q": "Two components of inter-CC collateral?",
+   "a": "(a) Margins as per SEBI's risk framework (b) additional capital based on the linked CC's credit risk, with no exposure on it."
+  },
+  {
+   "q": "What is a pool account?",
+   "a": "The broker's settlement demat account used to deliver to and receive from the CC; broker has no beneficial ownership."
+  },
+  {
+   "q": "Can a CM withdraw money from its clearing account to a third party?",
+   "a": "No. Deposits can be in any form, withdrawals only in self-name."
+  },
+  {
+   "q": "What are custodians in clearing?",
+   "a": "Clearing members (not trading members) who settle institutional clients' trades executed through other brokers."
+  },
+  {
+   "q": "What is DDPI?",
+   "a": "Demat Debit and Pledge Instruction: client lets broker debit the BO account only to meet pay-in obligations; replaces PoA."
+  },
+  {
+   "q": "What is a Standing Instruction (SI)?",
+   "a": "A one-time instruction to the DP to accept all incoming credits, so no receipt instruction is needed each time."
+  },
+  {
+   "q": "What is an off-market trade?",
+   "a": "A transfer not done on a recognised stock exchange (person to person)."
+  },
+  {
+   "q": "Who must sign a Delivery Instruction Slip?",
+   "a": "All holders of the demat account."
+  },
+  {
+   "q": "Direct pay-out of securities: since when and for whom not?",
+   "a": "SEBI circular June 05, 2024; not for clients settling through SEBI-registered custodians."
+  },
+  {
+   "q": "Up to when can a CP code be modified?",
+   "a": "T day, up to 4:15 pm."
+  },
+  {
+   "q": "Deadline for OTR of INST trades?",
+   "a": "T day, up to 8:00 pm."
+  },
+  {
+   "q": "Deadline for custodial confirmation?",
+   "a": "T+1 by 7:30 am."
+  },
+  {
+   "q": "By when are final obligations downloaded on T+1?",
+   "a": "By 9:00 am."
+  },
+  {
+   "q": "Funds and securities pay-out times on T+1?",
+   "a": "Funds at 1:30 pm; securities by 3:30 pm. Pay-in around 11:00 am."
+  },
+  {
+   "q": "Can institutional investors day-trade?",
+   "a": "No. Their obligations are grossed at custodian level."
+  },
+  {
+   "q": "When is margin levied on institutional trades?",
+   "a": "On T+1 after custodian confirmation; no upfront margin."
+  },
+  {
+   "q": "What happens if a custodian rejects an institutional trade?",
+   "a": "It is settled on DVP basis and may attract penalties from exchanges/CCs."
+  },
+  {
+   "q": "Block mechanism: what if the sale is not executed?",
+   "a": "Shares stay in the client's demat and are unblocked at the end of T day."
+  },
+  {
+   "q": "Validation: instruction quantity exceeds CC obligation?",
+   "a": "Partially processed, up to the obligation quantity."
+  },
+  {
+   "q": "Validation: UCC or ISIN mismatch?",
+   "a": "The instruction is rejected by the depository."
+  },
+  {
+   "q": "Formula for a TM's derivatives open position?",
+   "a": "Proprietary open position + client open longs + client open shorts (clients never netted against each other)."
+  },
+  {
+   "q": "Who gets net settlement of cash and F&O on stock derivative expiry?",
+   "a": "Investors clearing through the same TM-CM combination in both segments; not institutions or FPIs."
+  },
+  {
+   "q": "Under net settlement, how are STT and stamp duty handled?",
+   "a": "Still computed, levied and reported segment-wise."
+  },
+  {
+   "q": "T+0 trading hours and price band?",
+   "a": "9:15 am to 1:30 pm; ±100 bps of T+1 price, recalibrated every 50 bps."
+  },
+  {
+   "q": "How are T+0 securities shortages handled?",
+   "a": "No auction; closed out at 10% above the day's highest price across all exchanges."
+  }
+ ],
+ "questions": [
+  {
+   "q": "The process in which the original buyer-seller contract is replaced and the clearing corporation becomes the counterparty to every trade is called:",
+   "options": [
+    "Execution",
+    "Novation",
+    "Determination",
+    "Guaranteeing"
+   ],
+   "answer": 1,
+   "why": "Novation is the CC interposing itself between both parties and becoming the legal counterparty to both.",
+   "ref": "5.2",
+   "level": "easy"
+  },
+  {
+   "q": "Which type of demat account does a broker use to receive shares from selling clients and to deliver shares for settlement?",
+   "options": [
+    "Pool account",
+    "Delivery account",
+    "Receipt account",
+    "Common account"
+   ],
+   "answer": 0,
+   "why": "The pool account is the broker's settlement account for delivering to and receiving from the clearing corporation.",
+   "ref": "5.4",
+   "level": "easy"
+  },
+  {
+   "q": "Which procedure is used to determine the net settlement obligations (delivery/receipt positions) of clearing members?",
+   "options": [
+    "Novation",
+    "Pay-in",
+    "Auto netting",
+    "Multilateral netting"
+   ],
+   "answer": 3,
+   "why": "The CC adopts multilateral netting to arrive at each clearing member's net delivery/receipt obligations.",
+   "ref": "5.6",
+   "level": "easy"
+  },
+  {
+   "q": "Which concept lets market participants consolidate clearing and settlement at a single clearing corporation, irrespective of the exchange on which the trade was executed?",
+   "options": [
+    "Interconnectivity",
+    "Novation",
+    "Interoperability",
+    "Straight Through Processing"
+   ],
+   "answer": 2,
+   "why": "Interoperability among CCs lets a CM choose one CC to clear trades done on multiple exchanges.",
+   "ref": "5.2",
+   "level": "easy"
+  },
+  {
+   "q": "Which of the following is a major role of a clearing corporation?",
+   "options": [
+    "Providing the trading platform",
+    "Creating new securities",
+    "Clearing and settlement of trades",
+    "Listing of companies"
+   ],
+   "answer": 2,
+   "why": "The CC clears and settles trades and guarantees settlement; trading platforms are run by exchanges.",
+   "ref": "5.2",
+   "level": "easy"
+  },
+  {
+   "q": "Under interoperability, a clearing member can be active with how many clearing corporations per business segment at any point of time?",
+   "options": [
+    "One",
+    "Two",
+    "Three",
+    "No restriction"
+   ],
+   "answer": 0,
+   "why": "A CM may be a member of several CCs but can be active with only one CC per business segment at a time.",
+   "ref": "5.2",
+   "level": "easy"
+  },
+  {
+   "q": "The price in the optional T+0 segment operates within a band of plus/minus how many basis points from the price in the regular T+1 market?",
+   "options": [
+    "50",
+    "100",
+    "200",
+    "500"
+   ],
+   "answer": 1,
+   "why": "T+0 has a ±100 bps band around the T+1 price; 50 bps is the movement that triggers re-calibration.",
+   "ref": "5.7",
+   "level": "medium"
+  },
+  {
+   "q": "After a sale, the selling client gives instructions to which entity to transfer securities to the broker's pool account?",
+   "options": [
+    "Clearing bank",
+    "Clearing corporation",
+    "Stock exchange",
+    "Depository participant"
+   ],
+   "answer": 3,
+   "why": "The seller instructs his DP (via DIS, e-DIS, DDPI or PoA) to move shares to the broker's pool account.",
+   "ref": "5.5",
+   "level": "easy"
+  },
+  {
+   "q": "Under T+1 settlement, by what time must custodians confirm institutional (CP) trades?",
+   "options": [
+    "7:30 am on T+1",
+    "9:00 am on T+1",
+    "4:15 pm on T day",
+    "11:00 am on T+1"
+   ],
+   "answer": 0,
+   "why": "Custodial confirmation is due by 7:30 am on T+1; obligations follow by 9:00 am.",
+   "ref": "5.1",
+   "level": "easy"
+  },
+  {
+   "q": "Up to what time on trade day can a Custodial Participant (CP) code be modified?",
+   "options": [
+    "3:30 pm",
+    "4:15 pm",
+    "5:00 pm",
+    "8:00 pm"
+   ],
+   "answer": 1,
+   "why": "CP code modification is allowed on T day up to 4:15 pm; 8:00 pm is the OTR deadline for INST trades.",
+   "ref": "5.6.1",
+   "level": "medium"
+  },
+  {
+   "q": "The Obligation Transfer Request (OTR) for INST trades can be submitted up to:",
+   "options": [
+    "4:15 pm on T day",
+    "7:30 am on T+1",
+    "8:00 pm on T day",
+    "9:00 am on T+1"
+   ],
+   "answer": 2,
+   "why": "OTR for INST trades is allowed on T day up to 8:00 pm.",
+   "ref": "5.6.1",
+   "level": "medium"
+  },
+  {
+   "q": "By what time on T+1 does the clearing corporation complete multilateral netting and download final obligations to clearing members and custodians?",
+   "options": [
+    "7:30 am",
+    "8:30 am",
+    "11:00 am",
+    "9:00 am"
+   ],
+   "answer": 3,
+   "why": "Final obligations are determined and downloaded on T+1 by 9:00 am.",
+   "ref": "5.1",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is NOT covered under interoperability among clearing corporations?",
+   "options": [
+    "Equity cash segment trades",
+    "Offer for Sale bids",
+    "Equity derivatives",
+    "Currency derivatives"
+   ],
+   "answer": 1,
+   "why": "Order collection schemes such as OFS, MFSS, buyback/tender offer, NCB and SGB primary bidding are excluded, as are commodity derivatives, tri-party repo and SLB.",
+   "ref": "5.2",
+   "level": "medium"
+  },
+  {
+   "q": "Collateral maintained between interoperable clearing corporations consists of:",
+   "options": [
+    "Only initial margin",
+    "Margins as per the SEBI risk framework plus additional capital based on the linked CC's credit risk",
+    "Only the base minimum capital of each CC",
+    "An insurance cover bought by each CC"
+   ],
+   "answer": 1,
+   "why": "Inter-CC collateral has two parts: margins (IM, ELM, calendar spread etc.) and additional capital, on which no exposure is granted.",
+   "ref": "5.2",
+   "level": "hard"
+  },
+  {
+   "q": "A clearing member's clearing account with the clearing bank allows:",
+   "options": [
+    "Deposit in any form, withdrawal only in self-name",
+    "Deposit and withdrawal only by cheque",
+    "Withdrawal to any client on request",
+    "Withdrawal to third parties with CC approval"
+   ],
+   "answer": 0,
+   "why": "Funds can be deposited in any form but withdrawn only in the CM's own name.",
+   "ref": "5.4",
+   "level": "medium"
+  },
+  {
+   "q": "Under SEBI's direct pay-out framework (June 05, 2024), who credits the purchased securities to the buying client's demat account?",
+   "options": [
+    "The buying broker",
+    "The buyer's DP on request",
+    "The clearing corporation directly",
+    "The stock exchange"
+   ],
+   "answer": 2,
+   "why": "CCs credit securities pay-out directly to the client's demat account.",
+   "ref": "5.5",
+   "level": "easy"
+  },
+  {
+   "q": "Direct pay-out of securities to the client's demat account does NOT apply to:",
+   "options": [
+    "Retail individual investors",
+    "Clients settling through SEBI-registered custodians",
+    "HNI clients",
+    "Clients with DDPI"
+   ],
+   "answer": 1,
+   "why": "Clients who have arrangements with SEBI-registered custodians for clearing and settlement are excluded.",
+   "ref": "5.5",
+   "level": "medium"
+  },
+  {
+   "q": "A client blocks 200 shares for a sale under the block mechanism, but the sell order is never executed. What happens to the shares?",
+   "options": [
+    "They move to the broker's pool account",
+    "They stay blocked till T+1 pay-in",
+    "They are unblocked at the end of T day",
+    "They are sold in the auction"
+   ],
+   "answer": 2,
+   "why": "If the sale is not executed, shares remain in the client's account and are unblocked at the end of T day.",
+   "ref": "5.6.2",
+   "level": "medium"
+  },
+  {
+   "q": "A client's pay-in instruction is for 150 shares but the CC's client-wise net delivery obligation is 100 shares. The depository will:",
+   "options": [
+    "Reject the instruction",
+    "Process all 150 shares",
+    "Hold the instruction till the next settlement",
+    "Process it partially, up to 100 shares"
+   ],
+   "answer": 3,
+   "why": "If the instruction quantity exceeds the obligation, it is partially processed up to the obligation quantity.",
+   "ref": "5.6.3",
+   "level": "medium"
+  },
+  {
+   "q": "If a pay-in instruction's ISIN does not match the obligation data received from the CC, the depository will:",
+   "options": [
+    "Execute it anyway",
+    "Reject the instruction",
+    "Process it partially",
+    "Refer it to the stock exchange"
+   ],
+   "answer": 1,
+   "why": "Discrepancies in UCC, TM ID, CM ID, ISIN etc. lead to rejection of the transfer instruction.",
+   "ref": "5.6.3",
+   "level": "medium"
+  },
+  {
+   "q": "Which statement about institutional investors in the cash segment is correct?",
+   "options": [
+    "They may day-trade up to a limit",
+    "They pay full upfront margin",
+    "They are not allowed to day-trade",
+    "They must settle through the trading member"
+   ],
+   "answer": 2,
+   "why": "Institutions cannot square off intra-day; all their transactions are grossed at custodian level and settled through custodians.",
+   "ref": "5.6.1",
+   "level": "easy"
+  },
+  {
+   "q": "When is margin applicable on institutional trades (other than the excepted categories)?",
+   "options": [
+    "Upfront at order entry",
+    "On T+1 after the custodian confirms the trade",
+    "On T+2 at pay-in",
+    "Never"
+   ],
+   "answer": 1,
+   "why": "Institutional trades do not attract upfront margin; margin applies on T+1 after custodian confirmation.",
+   "ref": "5.6.1",
+   "level": "medium"
+  },
+  {
+   "q": "If a custodian rejects an institutional trade, the trade is:",
+   "options": [
+    "Settled on Delivery Versus Payment (DVP) basis and may attract penalties",
+    "Cancelled by the exchange",
+    "Sent to auction",
+    "Transferred to another custodian"
+   ],
+   "answer": 0,
+   "why": "Rejected institutional trades are settled on DVP basis and are subject to penalties imposed by exchanges/CCs.",
+   "ref": "5.6.1",
+   "level": "medium"
+  },
+  {
+   "q": "A trading member's positions in a stock futures contract: proprietary buy 2,000 and sell 3,000; client A buy 1,500 and sell 500; client B buy 1,000 and sell 2,000. What is the TM's open position?",
+   "options": [
+    "Net short 1,000",
+    "Long 1,000 and short 2,000",
+    "Long 4,500 and short 5,500",
+    "Long 2,500 and short 2,000"
+   ],
+   "answer": 1,
+   "why": "Proprietary nets to short 1,000; client A is long 1,000; client B is short 1,000. Clients are not netted, so long 1,000 and short 2,000.",
+   "ref": "5.6.4",
+   "level": "hard"
+  },
+  {
+   "q": "Brokers A, B and C trade stock PQR: A buys 100 from B at ₹200, B buys 150 from C at ₹202, C buys 50 from A at ₹205. After multilateral netting, what is C's obligation?",
+   "options": [
+    "Deliver 100 shares and receive ₹20,050",
+    "Deliver 150 shares and receive ₹30,300",
+    "Receive 50 shares and pay ₹10,250",
+    "Deliver 100 shares and pay ₹20,050"
+   ],
+   "answer": 0,
+   "why": "C sold 150 and bought 50, so delivers 100; it receives ₹30,300 and pays ₹10,250, a net receipt of ₹20,050.",
+   "ref": "5.6.6",
+   "level": "hard"
+  },
+  {
+   "q": "In the workbook's netting example, Broker X bought 200 shares at ₹10 and 100 at ₹10.50, and sold 300 at ₹11. What is X's net obligation?",
+   "options": [
+    "Deliver 300 shares and receive ₹3,300",
+    "Receive 300 shares and pay ₹3,050",
+    "Nothing to deliver or receive; pay ₹250",
+    "Nothing to deliver or receive; receive ₹250"
+   ],
+   "answer": 3,
+   "why": "Bought 300, sold 300, so zero shares; funds = -2,000 - 1,050 + 3,300 = +₹250 receivable.",
+   "ref": "5.6.6",
+   "level": "medium"
+  },
+  {
+   "q": "An investor holds a long ITM stock put (strike ₹110, settlement price ₹100) and buys the same stock in the cash market on expiry day at ₹101, through the same TM-CM. Under net settlement he will:",
+   "options": [
+    "Pay ₹101 and then deliver the shares",
+    "Receive ₹110 and also receive the shares",
+    "Get a net pay-out of ₹9 with no securities movement",
+    "Make a net pay-in of ₹9"
+   ],
+   "answer": 2,
+   "why": "Cash and F&O obligations are netted: he receives ₹110 for the put delivery and owes ₹101 for the purchase, so a net pay-out of ₹9 and no share movement.",
+   "ref": "5.6.4",
+   "level": "medium"
+  },
+  {
+   "q": "Net settlement of cash segment and physically settled F&O obligations is NOT available to:",
+   "options": [
+    "Retail clients using the same TM-CM in both segments",
+    "HNI clients using the same TM-CM",
+    "Proprietary positions of a TM",
+    "Institutional investors including all categories of FPIs"
+   ],
+   "answer": 3,
+   "why": "Institutional investors (including all FPIs) are excluded because their cash market trades must be backed by delivery.",
+   "ref": "5.6.4",
+   "level": "medium"
+  },
+  {
+   "q": "Under the net settlement mechanism for cash and F&O segments, STT and stamp duty are:",
+   "options": [
+    "Waived on the netted quantity",
+    "Computed only on the net obligation",
+    "Computed, levied and reported segment-wise",
+    "Paid by the clearing corporation"
+   ],
+   "answer": 2,
+   "why": "Netting is only for settlement; STT and stamp duty continue to be computed segment-wise.",
+   "ref": "5.6.4",
+   "level": "medium"
+  },
+  {
+   "q": "What are the trading hours for the optional T+0 settlement segment?",
+   "options": [
+    "9:15 am to 1:30 pm, one continuous session",
+    "9:15 am to 3:30 pm",
+    "9:00 am to 11:00 am",
+    "1:30 pm to 3:30 pm"
+   ],
+   "answer": 0,
+   "why": "T+0 has a single continuous trading session from 9:15 am to 1:30 pm.",
+   "ref": "5.7",
+   "level": "easy"
+  },
+  {
+   "q": "How is a securities shortage handled in the optional T+0 settlement cycle?",
+   "options": [
+    "Auction on the next day",
+    "Close-out at 20% above the closing price",
+    "Carried forward to T+1 settlement",
+    "Direct close-out at 10% above the highest price of the day across all exchanges"
+   ],
+   "answer": 3,
+   "why": "No auction is held for T+0 shortages; they are closed out at 10% above the day's highest price across exchanges.",
+   "ref": "5.7",
+   "level": "medium"
+  },
+  {
+   "q": "Which of the following is available in the optional T+0 segment?",
+   "options": [
+    "Pre-open session",
+    "Post-close session",
+    "One block session window",
+    "Periodic call auction"
+   ],
+   "answer": 2,
+   "why": "Only one block window is available; pre-open, special pre-open, auction, periodic call auction and post-close sessions are not.",
+   "ref": "5.7",
+   "level": "medium"
+  },
+  {
+   "q": "Funds move between the clearing corporation and clearing members through:",
+   "options": [
+    "Depositories",
+    "Clearing banks",
+    "Depository participants",
+    "Stock exchanges"
+   ],
+   "answer": 1,
+   "why": "All funds pay-in and pay-out is carried out by clearing banks on the CC's instructions.",
+   "ref": "5.3",
+   "level": "easy"
+  },
+  {
+   "q": "Which pair are the two clearing corporations in India's cash segment named in the workbook?",
+   "options": [
+    "NSDL and CDSL",
+    "NSE Clearing Limited and Indian Clearing Corporation Limited",
+    "NSE and BSE",
+    "RBI and SEBI"
+   ],
+   "answer": 1,
+   "why": "The cash segment CCs are NCL and ICCL; NSDL and CDSL are depositories.",
+   "ref": "5.2",
+   "level": "easy"
+  },
+  {
+   "q": "Pay-in and pay-out obligations of the T+1 and optional T+0 settlement cycles are netted against each other.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 1,
+   "why": "There is no netting of pay-in and pay-out obligations between T+1 and T+0.",
+   "ref": "5.7",
+   "level": "easy"
+  },
+  {
+   "q": "A clearing member holds no ownership or beneficial rights over the shares lying in its pool account.",
+   "options": [
+    "True",
+    "False"
+   ],
+   "answer": 0,
+   "why": "Unlike a normal demat account, the CM gets no ownership or beneficiary rights in the pool account; benefits are passed on to beneficiaries.",
+   "ref": "5.4",
+   "level": "easy"
+  }
+ ]
+}
