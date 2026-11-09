@@ -6,6 +6,7 @@ Plain-English exam prep guides: chapter notes, memory hooks, flashcards, practic
 
 ```
 index.html              course picker (home page)
+404.html                page for unknown addresses (absolute asset paths)
 build.mjs               assembles the published site into dist/
 assets/
   fonts/                self-hosted fonts + their licences (SIL OFL)

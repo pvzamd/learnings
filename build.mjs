@@ -1,5 +1,6 @@
 // Builds the published site into dist/:
 //   index.html            -> dist/index.html          (course picker)
+//   404.html              -> dist/404.html            (page for unknown addresses)
 //   assets/               -> dist/assets/             (fonts, preview images; card sources (*.html) are skipped)
 //   <COURSE>/site/        -> dist/<course-lowercase>/  (one guide per course)
 // Only these are copied, so private/ and builder/ folders are never published.
@@ -18,6 +19,9 @@ const siteUrl = (process.env.SITE_URL || process.env.CF_PAGES_URL || "").replace
 rmSync(out, { recursive: true, force: true });
 mkdirSync(out);
 cpSync(join(root, "index.html"), join(out, "index.html"));
+// With a top-level 404.html, Cloudflare Pages answers unknown addresses with a real 404
+// instead of treating the site as a single-page app and serving the home page.
+cpSync(join(root, "404.html"), join(out, "404.html"));
 if (existsSync(join(root, "assets"))) {
   cpSync(join(root, "assets"), join(out, "assets"), { recursive: true, filter: (src) => !src.endsWith(".html") });
 }
