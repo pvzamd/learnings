@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Learnings</title>
+<meta name="description" content="Plain-English exam prep guides with chapter notes, flashcards, practice quizzes and timed mock tests.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230a6a4c%27/%3E%3Ctext x=%2716%27 y=%2722%27 text-anchor=%27middle%27 font-family=%27Arial,sans-serif%27 font-weight=%27700%27 font-size=%2716%27 fill=%27white%27%3EL%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400..600&display=swap">
+<style>
+/* Layout: one centred column. A course is a row on a shelf: code, what it covers, what's inside, your progress, open. Same palette and type as the guides so the site reads as one place. */
+:root {
+  --bg: #f6f8f7;
+  --surface: #ffffff;
+  --sunk: #edf2f0;
+  --ink: #14211c;
+  --ink-2: #3a4943;
+  --muted: #62736b;
+  --line: #d6e0db;
+  --accent: #0a6a4c;
+  --accent-ink: #ffffff;
+  --accent-soft: #e0efe8;
+  --mark: #ffe74a;
+  --mark-ink: #2b2600;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0d1311; --surface: #141c19; --sunk: #1a2420; --ink: #e3ebe7; --ink-2: #c2cec8; --muted: #8fa199;
+    --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a; --mark: #e8d33c; --mark-ink: #1f1b00;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0d1311; --surface: #141c19; --sunk: #1a2420; --ink: #e3ebe7; --ink-2: #c2cec8; --muted: #8fa199;
+  --line: #2a3732; --accent: #4cc497; --accent-ink: #05241a; --accent-soft: #15322a; --mark: #e8d33c; --mark-ink: #1f1b00;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body {
+  margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 18px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap {
+  max-width: 880px; margin: 0 auto; padding-block: 56px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+header { margin-bottom: 40px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--font-display); font-size: clamp(40px, 7vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1; margin: 10px 0 16px; }
+h1 em { font-style: normal; color: var(--accent); }
+.lead { font-size: 20px; line-height: 1.55; color: var(--ink-2); max-width: 36em; margin: 0; text-wrap: pretty; }
+h2 { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+
+.shelf { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+.course { display: grid; grid-template-columns: 104px minmax(0, 1fr) auto; gap: 8px 24px; align-items: start; padding: 24px 0; border-bottom: 1px solid var(--line); }
+.code { font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--accent); padding-top: 6px; line-height: 1.35; }
+.code span { display: block; color: var(--muted); font-weight: 400; font-size: 12px; }
+.body { min-width: 0; }
+.course h3 { font-family: var(--font-display); font-size: 25px; font-weight: 700; letter-spacing: -0.015em; line-height: 1.2; margin: 0 0 8px; text-wrap: balance; }
+.course h3 a { color: var(--ink); text-decoration: none; }
+.course h3 a:hover { color: var(--accent); }
+.course p { margin: 0 0 12px; font-size: 17px; color: var(--ink-2); }
+.inside { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+.inside li { font-family: var(--font-mono); font-size: 12px; color: var(--ink-2); background: var(--sunk); border-radius: 4px; padding: 3px 8px; font-variant-numeric: tabular-nums; }
+.inside li.fresh { background: var(--mark); color: var(--mark-ink); }
+.progress { font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 10px; }
+.progress .bar { width: 120px; height: 6px; border-radius: 3px; background: var(--sunk); overflow: hidden; }
+.progress .bar i { display: block; height: 100%; background: var(--accent); border-radius: 3px; }
+.open { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: var(--accent-ink); text-decoration: none; font-family: var(--font-display); font-weight: 600; font-size: 15px; padding: 10px 18px; border-radius: 999px; white-space: nowrap; margin-top: 2px; }
+.open:hover { filter: brightness(1.08); }
+.next { padding: 18px 0 0; font-size: 15px; color: var(--muted); }
+
+footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); font-family: var(--font-display); font-size: 13px; line-height: 1.5; color: var(--muted); }
+
+@media (max-width: 640px) {
+  .wrap { padding-block: 36px 32px; }
+  .course { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .code { padding-top: 0; }
+  .code span { display: inline; margin-left: 8px; }
+  .open { justify-self: start; margin-top: 8px; }
+  .lead { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Exam prep guides</div>
+    <h1>Learn<em>ings</em></h1>
+    <p class="lead">Certification workbooks rewritten in plain English, with memory hooks, flashcards, practice quizzes and full mock tests. Pick a course and start with chapter 1.</p>
+  </header>
+
+  <main>
+    <h2>Courses</h2>
+    <ol class="shelf" id="shelf">
+      <!-- To add a course: copy this <li>, set data-folder to the course folder name and data-key to its storage prefix. -->
+      <li class="course" data-folder="NISM-VII" data-key="nism7" data-chapters="8">
+        <div class="code">NISM VII<span>Series VII</span></div>
+        <div class="body">
+          <h3><a class="go" href="nism-vii/">Securities Operations and Risk Management</a></h3>
+          <p>From a trade's first order to its final settlement: market participants, broking operations, margins and risk, clearing, settlement, investor grievances and broker services.</p>
+          <ul class="inside">
+            <li>8 chapters</li>
+            <li>256 practice questions</li>
+            <li>299 flashcards</li>
+            <li>100-question timed mock</li>
+            <li class="fresh">July 2026 workbook</li>
+          </ul>
+          <div class="progress" hidden><span class="bar"><i></i></span><span class="txt"></span></div>
+        </div>
+        <a class="open go" href="nism-vii/">Open guide &rarr;</a>
+      </li>
+    </ol>
+    <p class="next">More courses will be added here as I study for them.</p>
+  </main>
+
+  <footer>Independent study notes written from the official workbooks. Not affiliated with, or endorsed by, NISM or SEBI. The official workbook and SEBI circulars are the final word for every exam.</footer>
+</div>
+<script>
+(function () {
+  // Opened straight from the repo folder (file://), the guides sit at <FOLDER>/site/; once built and hosted they sit at /<folder>/.
+  var p = location.pathname.replace(/\\/g, "/");
+  var fromRepo = location.protocol === "file:" && !/\/dist\/(index\.html)?$/.test(p);
+  document.querySelectorAll(".course").forEach(function (row) {
+    var folder = row.dataset.folder;
+    var href = fromRepo ? folder + "/site/index.html" : folder.toLowerCase() + "/";
+    row.querySelectorAll("a.go").forEach(function (a) { a.href = href; });
+    // Progress saved by the guide in this browser (shared storage once hosted on one domain).
+    try {
+      var read = JSON.parse(localStorage.getItem(row.dataset.key + ":read") || "{}");
+      var total = +row.dataset.chapters || 0;
+      var done = Object.keys(read).filter(function (k) { return read[k]; }).length;
+      if (total && done) {
+        var box = row.querySelector(".progress");
+        box.querySelector("i").style.width = Math.min(100, done / total * 100) + "%";
+        box.querySelector(".txt").textContent = done + " of " + total + " chapters read";
+        box.hidden = false;
+      }
+    } catch (e) { /* storage unavailable: show no progress */ }
+  });
+})();
+</script>
+</body>
+</html>

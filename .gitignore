@@ -1,0 +1,10 @@
+# official workbooks and private links: never commit
+private/
+
+# build output (Cloudflare Pages rebuilds it on every push)
+dist/
+
+# junk
+__pycache__/
+*.pyc
+tmp/
